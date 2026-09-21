@@ -287,6 +287,29 @@ GASTAT
 <hr class="rule">
 <h3 id="your-reviewers-stay-in-word.-you-stay-in-code.">Your reviewers stay in Word. You stay in code.</h3>
 </section>
+<section id="reveal-formats" class="slide level2" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="one-file.-three-windows.-watch-them-appear.">One file. Three windows. Watch them appear.</h3>
+<aside class="notes">
+<p>Five minutes, live, and do not narrate the code.</p>
+<p>Run the three renders in front of them:</p>
+<pre><code>quarto render bulletin.qmd --to html
+quarto render bulletin.qmd --to docx
+quarto render bulletin.qmd --to typst</code></pre>
+<p>Open all three windows side by side. Same headline, same chart, same numbers, three documents. Then: “What changed between them, and what did not?” That question is the next slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="format-matrix" class="slide level2">
 <h2>What survives the trip</h2>
 <table class="caption-top">
@@ -370,9 +393,9 @@ GASTAT
 <p>You render to Word. They track changes. You read the changes and edit <strong>the source</strong>. Re-render.</p>
 </section>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> templates/gastat-reference.docx</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="" aria-label="1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> templates/gastat-reference.docx</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Twenty-five minutes. This is the segment that makes managers say yes, so do not rush it.</p>
 <p>The reference-doc is a Word file with GASTAT’s styles defined in it — Heading 1, Body Text, Caption. Pandoc reads the styles, not the content.</p>
@@ -391,23 +414,25 @@ GASTAT
 </section>
 <section id="conditional" class="slide level2">
 <h2>Where the promise gets complicated</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb2-2"><a href="" aria-label="2"></a>A leaflet map the reader can pan.</span>
-<span id="cb2-3"><a href="" aria-label="3"></a>:::</span>
-<span id="cb2-4"><a href="" aria-label="4"></a></span>
-<span id="cb2-5"><a href="" aria-label="5"></a>::: {.content-visible unless-format="html"}</span>
-<span id="cb2-6"><a href="" aria-label="6"></a>A static choropleth, same data, same code until the last line.</span>
-<span id="cb2-7"><a href="" aria-label="7"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb3-2"><a href="" aria-label="2"></a>A leaflet map the reader can pan.</span>
+<span id="cb3-3"><a href="" aria-label="3"></a>:::</span>
+<span id="cb3-4"><a href="" aria-label="4"></a></span>
+<span id="cb3-5"><a href="" aria-label="5"></a>::: {.content-visible unless-format="html"}</span>
+<span id="cb3-6"><a href="" aria-label="6"></a>A static choropleth, same data, same code until the last line.</span>
+<span id="cb3-7"><a href="" aria-label="7"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>.content-visible when-format=</code> / <code>unless-format=</code></li>
 <li><code>.content-hidden when-format="docx"</code> — the note reviewers see and the public does not</li>
 <li><code>knitr::is_html_output()</code> inside a chunk</li>
+<li><code>eval</code> is different: <code>content-visible</code> hides <strong>output</strong>, <code>eval</code> decides whether the code <strong>runs at all</strong></li>
 </ul>
 </div>
 <p><strong>“One source, many formats” is not free. This is where you manage the seam.</strong></p>
 <aside class="notes">
-<p>Fifteen minutes. The honesty is the teaching: a room of statisticians will find the seam within a week of going home, and if you pretended it was not there they will stop trusting the rest.</p>
+<p>Thirteen minutes. Spend the last three on <code>eval</code>: one distinction, one example, move on. Hiding output and not running code are different problems, and people reach for the wrong one.</p>
+<p>The honesty is the teaching: a room of statisticians will find the seam within a week of going home, and if you pretended it was not there they will stop trusting the rest.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -436,18 +461,15 @@ GASTAT
 <hr class="rule">
 <h3 id="one-template-many-reports">One template, many reports</h3>
 </section>
-<section id="params-yaml" class="slide level2">
-<h2>Promote the constant</h2>
-<p>Yesterday your bulletin began:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>          <span class="co"># a constant in a chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Today it begins:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="" aria-label="1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jazan"</span><span class="co">          # a knob on the outside of the file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> params<span class="sc">$</span>region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>That one move is the whole of parameterisation.</strong></p>
+<section id="reveal-params" class="slide level2" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="jazan-and-riyadh-side-by-side.-one-file-made-both.">Jazan and Riyadh, side by side. One file made both.</h3>
 <aside class="notes">
-<p>Do this live, in their Day 1 file. Two lines change. Render with <code>-P region:Riyadh</code> from the terminal and show the same file producing a different report.</p>
-<p>Fifteen minutes, and most of it is them doing it, not you.</p>
+<p>Five minutes. Open <code>bulletin-jazan.pdf</code> and <code>bulletin-riyadh.pdf</code> next to each other.</p>
+<p>Read the two headlines aloud. In Jazan the rate rose; in Riyadh it fell. The sentences say so, in opposite words, and nobody wrote either one.</p>
+<p>Then the question that opens the block: “Yesterday you had a file with <code>REGION &lt;- \"Jazan\"</code> in it. What is the smallest change that makes it produce both of these?”</p>
+<p>Let someone answer before you show the next slide.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -460,12 +482,18 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="conditional-exec" class="slide level2">
-<h2>Conditional execution</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co">#| eval: !expr params$region != "Kingdom"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>content-visible</code> hides <strong>output</strong>. <code>eval</code> decides whether the code <strong>runs at all</strong>.</p>
+<section id="params-yaml" class="slide level2">
+<h2>Promote the constant</h2>
+<p>Yesterday your bulletin began:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>          <span class="co"># a constant in a chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Today it begins:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="" aria-label="1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jazan"</span><span class="co">          # a knob on the outside of the file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> params<span class="sc">$</span>region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>That one move is the whole of parameterisation.</strong></p>
 <aside class="notes">
-<p>Five minutes. One distinction, one example, move on — Block 1 already covered conditional content and this is the last five per cent of it.</p>
+<p>Do this live, in their Day 1 file. Two lines change. Render with <code>-P region:Riyadh</code> from the terminal and show the same file producing a different report.</p>
+<p>Fifteen minutes, and most of it is them doing it, not you.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -485,14 +513,16 @@ GASTAT
 <p>“Unemployment by quarter, <code>r knitr::inline_expr("params$region")</code>”</p>
 </blockquote>
 <p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell. One sentence cannot be both.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (rose) {</span>
-<span id="cb7-2"><a href="" aria-label="2"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
-<span id="cb7-3"><a href="" aria-label="3"></a>} <span class="cf">else</span> {</span>
-<span id="cb7-4"><a href="" aria-label="4"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
-<span id="cb7-5"><a href="" aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>rose <span class="ot">&lt;-</span> <span class="fu">last</span>(this_r<span class="sc">$</span>rate) <span class="sc">&gt;</span> <span class="fu">first</span>(this_r<span class="sc">$</span>rate)   <span class="co"># ask the data, not the author</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a></span>
+<span id="cb7-3"><a href="" aria-label="3"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (rose) {</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
+<span id="cb7-7"><a href="" aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Ten minutes, and this is the hardest idea in the three days.</p>
-<p>Day 1 said a caption is an argument. Day 2 says one template, many reports. Those two collide, and this is the resolution: in a parameterised report every message title is either <strong>computed by rule</strong> or demoted to a descriptive label. You pick, knowingly.</p>
+<p>Day 1 said a caption is an argument. Day 2 says one template, many reports. Those two collide, and this is the resolution: in a parameterised report every message caption is either <strong>computed by rule</strong> or demoted to a descriptive label. You pick, knowingly.</p>
 <p>Show the real code in bulletin.qmd. It is about forty lines and it is the most valuable forty lines in the project.</p>
 <p>Warn them: a rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</p>
 <style type="text/css">
@@ -509,12 +539,13 @@ GASTAT
 </section>
 <section id="render-script" class="slide level2">
 <h2>The render script is the pipeline</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb8-2"><a href="" aria-label="2"></a>  <span class="st">"artifacts/bulletin/bulletin.qmd"</span>,</span>
-<span id="cb8-3"><a href="" aria-label="3"></a>  <span class="at">output_format  =</span> <span class="st">"typst"</span>,</span>
-<span id="cb8-4"><a href="" aria-label="4"></a>  <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">region =</span> <span class="st">"Jazan"</span>)</span>
-<span id="cb8-5"><a href="" aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>regions <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">walk</span>(\(r) <span class="fu">render_one</span>(r, <span class="st">"typst"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>render_one <span class="ot">&lt;-</span> <span class="cf">function</span>(region, <span class="at">fmt =</span> <span class="st">"typst"</span>) {</span>
+<span id="cb8-2"><a href="" aria-label="2"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(src, <span class="at">output_format =</span> fmt,</span>
+<span id="cb8-3"><a href="" aria-label="3"></a>                        <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">region =</span> region))</span>
+<span id="cb8-4"><a href="" aria-label="4"></a>  <span class="fu">file.rename</span>(produced, dest)      <span class="co"># Quarto always writes bulletin.&lt;ext&gt;</span></span>
+<span id="cb8-5"><a href="" aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>regions <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">walk</span>(render_one)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Thirteen renders, thirteen files called <code>bulletin.pdf</code>. Move each one as it appears.</strong></p>
 <aside class="notes">
 <p>Twenty-five minutes — Block 1’s conditional segment gave us ten of them, and this is where Lab 2 actually fails, so spend them here.</p>
 <p>Two traps, both real, both in our own render.R:</p>
@@ -569,6 +600,27 @@ GASTAT
 </div>
 <hr class="rule">
 <h3 id="branding-is-a-file-not-a-habit">Branding is a file, not a habit</h3>
+</section>
+<section id="reveal-project" class="slide level2" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="change-one-line.-re-render.-watch-the-institution-change-colour.">Change one line. Re-render. Watch the institution change colour.</h3>
+<aside class="notes">
+<p>Five minutes, and it is the best demo of the day.</p>
+<p>Open <code>_brand.yml</code>. Change the green to something unmistakably wrong — hot pink. Save. Re-render one bulletin. The charts, the table rule, the links, the callout border: all pink.</p>
+<p>Change it back. Re-render.</p>
+<p>Say nothing while it happens. Then: “Nothing in the document changed.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="brand-yml" class="slide level2">
 <h2><code>_brand.yml</code></h2>
@@ -626,24 +678,49 @@ GASTAT
       }</style></aside>
 </section>
 <section id="renv-freeze" class="slide level2">
-<h2>What this course did not teach you</h2>
+<h2>The environment is a file too</h2>
 <div class="cards">
-<section id="renv-freeze-1" class="card">
-<h4><code>renv</code> + <code>freeze</code></h4>
-<p>Here: the lockfile pins packages, <code>freeze</code> stops chunks re-running. Ten minutes.</p>
+<section id="renv" class="card">
+<h4><code>renv</code></h4>
+<p><code>renv.lock</code> pins every package version. Restore it and you have the machine the report was written on.</p>
 </section>
-<section id="git" class="card">
-<h4>Git</h4>
-<p><strong>Not here.</strong> RAP needs it. Get it from the platform team — one day, separately.</p>
-</section>
-<section id="getting-data-off-hive" class="card">
-<h4>Getting data off Hive</h4>
-<p><code>tools/extract.R</code> writes <code>data/*.csv</code>. <strong>That script is step zero of your pipeline.</strong></p>
+<section id="freeze" class="card">
+<h4><code>freeze</code></h4>
+<p>Chunks do not re-run unless their code changed. A render stops meaning a re-analysis.</p>
 </section>
 </div>
+<p><strong>Brand, language, environment. None of them live in the document.</strong></p>
 <aside class="notes">
-<p>Ten minutes, and the honesty matters. Day 1 said Quarto does not make your analysis reproducible — <code>renv</code> and version control do. If git then never appears, that line reads as an excuse.</p>
-<p>The Hive point is the one they need on Monday: their real data is on Cloudera, and the course data is a local CSV. The extract script is the bridge, and <code>freeze</code> is what stops it re-running on every render.</p>
+<p>Ten minutes. This closes the block’s argument: three things that used to be habits are now files.</p>
+<p><code>freeze: auto</code> is the one they will thank you for on a slow box — and it is what stops the Hive extract running on every render.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="not-taught" class="slide level2">
+<h2>What this course did not teach you</h2>
+<p><strong>Git.</strong></p>
+<p>RAP is code, version control, a reproducible environment, no manual steps. We have covered three of the four.</p>
+<div class="tight">
+<ul>
+<li>Quarto makes the <em>report</em> reproducible — that was Day 1’s honest limit</li>
+<li><code>renv</code> makes the <em>environment</em> reproducible — that was five minutes ago</li>
+<li><strong>Version control is the gap, and it is a separate day</strong></li>
+</ul>
+</div>
+<p>Ask the platform team. Do not start without it.</p>
+<aside class="notes">
+<p>Six minutes, and the honesty is the point.</p>
+<p>Day 1 said out loud that Quarto does not make your analysis reproducible. If git then never appears in three days, that line reads as an excuse rather than a limit.</p>
+<p>Name it, say where to get it, and move on. Do not teach git badly in six minutes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -695,16 +772,15 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="close" class="slide level2 divider">
+<section id="close" class="slide level2 divider" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">TOMORROW</span></p>
-</section>
-<section>
-<section id="the-same-content-three-ways" class="title-slide slide level1 center">
-<h1>The same content, three ways</h1>
+<div class="dtitle">
+<p>The same content, three ways</p>
+</div>
 <hr class="rule">
-</section>
 <h3 id="and-a-question-about-which-one-you-would-send-to-the-minister.">And a question about which one you would send to the minister.</h3>
+
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

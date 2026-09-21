@@ -240,11 +240,47 @@ GASTAT
 <section id="reveal" class="slide level2" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
-<h3 id="deck.-dashboard.-scrolly-page.-three-minutes-each.">Deck. Dashboard. Scrolly page. Three minutes each.</h3>
+<h3 id="deck.-dashboard.-scroll-view.-three-minutes-each.">Deck. Dashboard. Scroll view. Three minutes each.</h3>
 <aside class="notes">
 <p>Fifteen minutes, and it is the whole opening. Same numbers, same data file, three vehicles. Do not editorialise while showing them.</p>
+<p>Deck: <code>_build/slides-en/day1.html</code>. Dashboard: <code>artifacts/dashboard/</code>. Scroll view: the same deck with <code>r</code> pressed. All three are in the project; nothing here is a screenshot.</p>
 <p>Then the question, and wait for an answer: “which one do you send to the minister?”</p>
 <p>Whatever they say, ask why. The reasons are the vehicle matrix, in their words, before you put it on a slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="day-map" class="slide level2">
+<h2>Today</h2>
+<div class="cards">
+<section id="block-1" class="card">
+<h4>Block 1</h4>
+<p>Choosing the vehicle</p>
+</section>
+<section id="block-2" class="card">
+<h4>Block 2</h4>
+<p>Presentations</p>
+</section>
+<section id="block-3" class="card">
+<h4>Block 3</h4>
+<p>Dashboards</p>
+</section>
+<section id="lab" class="card accent">
+<h4>Lab</h4>
+<p>You build a second vehicle</p>
+</section>
+</div>
+<p><strong>By 14:00 your bulletin will exist as something else, from the same data file.</strong></p>
+<aside class="notes">
+<p>Two minutes. Same shape as the last two days.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -260,6 +296,12 @@ GASTAT
 <section id="vehicle-matrix" class="slide level2">
 <h2>Choosing the vehicle</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -288,22 +330,17 @@ GASTAT
 <td>Until the data moves</td>
 </tr>
 <tr class="even">
-<td>Scroll view</td>
+<td>Scroll view <em>(Block 2)</em></td>
 <td>Explain</td>
 <td>Someone who missed the room</td>
 <td>Months</td>
 </tr>
-<tr class="odd">
-<td>Scrolly</td>
-<td>Explain</td>
-<td>The public</td>
-<td>A campaign</td>
-</tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>Ten minutes. The column that decides is shelf life, not prettiness.</p>
-<p>A dashboard answers questions the reader already knows to ask. If your reader does not yet know what to ask, a dashboard leaves them where they started — that line belongs in Block 3, not here.</p>
+<p>Twenty-two minutes, and it is the block. Go row by row and make them argue about the shelf-life column — it is the one that decides, not prettiness.</p>
+<p>Scroll view is the row they have not met. One line only: “a deck you can also read as a page — Block 2.” Do not explain it here.</p>
+<p>Keep the dashboard argument for Block 3, where it is taught.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -333,8 +370,10 @@ GASTAT
 </section>
 </div>
 <p><strong>Every vehicle needs all three. They differ in where the layers go.</strong></p>
+<p><span class="muted">You met the first two on Day 1, in one document. Today they move between documents.</span></p>
 <aside class="notes">
-<p>Ten minutes. Draw the same three layers onto each of the four vehicles.</p>
+<p>Sixteen minutes. On Day 1 Block 3 the line was the caption and the margin was the collapsed method note — one document, two readers.</p>
+<p>Now draw the same three layers onto each vehicle in the matrix. In a deck the appendix is a handout. In a dashboard the margin is a tooltip. In a report all three are on the page.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -366,10 +405,13 @@ GASTAT
 <section id="deck-from-report" class="slide level2" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
-<h3 id="artifactsrevealjs-demo-quartos-own-feature-deck.-run-it."><code>artifacts/revealjs-demo/</code> — Quarto’s own feature deck. Run it.</h3>
+<h3 id="artifactsrevealjs-demofeature-tour.html"><code>artifacts/revealjs-demo/feature-tour.html</code></h3>
+<p><strong>Watch for two things: the slide that animates, and the slide that runs R.</strong></p>
 <aside class="notes">
-<p>Five minutes, live, vendored locally. Code animation, auto-animate, a live ggplot, backgrounds, tabsets. Then open its source, which is shorter than anyone expects.</p>
-<p>That is the reveal ritual, already built by someone else. Use it.</p>
+<p>Six minutes, live. Built on this course’s data, so every number in it is one they already know.</p>
+<p>Give them the task before you start — the two slides to spot — so they watch actively rather than politely.</p>
+<p>Move fast: thirty seconds a slide. Then open <code>feature-tour.qmd</code> and scroll it once. Seventeen slides, and the source is shorter than anyone expects.</p>
+<p>Answers, if nobody volunteers: “Code animation” (auto-animate) and “Executable code” (the live ggplot).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -393,10 +435,11 @@ GASTAT
 <li><code>::: {.notes}</code> for speaker notes — you are reading mine right now</li>
 </ul>
 </div>
-<p><strong>Twenty minutes: take your bulletin, add a format, cut it to five slides.</strong></p>
+<p><strong>Change one line of YAML and your bulletin is a deck. A bad one.</strong></p>
 <aside class="notes">
-<p>This is the thing everyone came for, so give it room. Open a Day 1 bulletin, change the format block, render. It is already a deck — a bad one. Then cut.</p>
-<p>Cutting is the lesson. A deck is a subset of a report, not a different document.</p>
+<p>Eighteen minutes, taught rather than set as an exercise — the build happens in the Lab, where there is room for it.</p>
+<p>Do it live: open a Day 1 bulletin, change <code>format: html</code> to <code>format: revealjs</code>, render. Every <code>##</code> became a slide. It is unreadable, and that is the point.</p>
+<p>Then cut it down in front of them, narrating each deletion. Cutting is the lesson. A deck is a subset of a report, not a different document.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -490,13 +533,13 @@ GASTAT
 <td>Overview</td>
 </tr>
 <tr class="odd">
-<td><code>r</code></td>
-<td>Scroll view</td>
+<td><code>f</code></td>
+<td>Full screen</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>Thirteen minutes, and it is the part they will use every week.</p>
+<p>Ten minutes, and it is the part they will use every week. Scroll view gets its own slide next — leave it alone here.</p>
 <p>You have been using speaker view and the chalkboard for two days without explaining them. Say so now. Ask if anyone noticed.</p>
 <p>Chalkboard is for the moment a manager asks “which quarter was that?” and you circle it. Jump-to-slide is for the Q&amp;A when they ask about slide 12.</p>
 <style type="text/css">
@@ -524,9 +567,12 @@ GASTAT
 <p>A document, for the people who missed it.</p>
 </section>
 </div>
-<p><strong>It is also the offline-safe cousin of scrollytelling. Nothing to vendor.</strong></p>
+<p>Press <code>r</code>.</p>
+<p><strong>Closeread does this far more beautifully — and needs a GitHub download your machine will refuse. Scroll view is built in.</strong></p>
 <aside class="notes">
-<p>Two minutes, but flag it clearly — this partly recovers what we cut. Closeread is beautiful and it needs a GitHub download. Scroll view is built in.</p>
+<p>Four minutes. This is the only place scrollytelling is named in the course, and it is named as a thing we chose not to vendor rather than a thing we forgot.</p>
+<p>Press <code>r</code> live. The deck becomes a page. Press <code>r</code> again.</p>
+<p>If anyone wants Closeread, point them at the docs and be clear it needs network access at install time.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -542,9 +588,10 @@ GASTAT
 <section id="pdf-export" class="slide level2">
 <h2>Getting it out</h2>
 <p><code>?print-pdf</code> in the URL, then print to PDF.</p>
-<p><strong>Arabic decks: <code>dir: rtl</code> yes, <code>rtl: true</code> no — it breaks the export.</strong></p>
+<p><strong>Arabic decks: the <code>rtl: true</code> caveat from yesterday applies here — that is what it was about.</strong></p>
 <aside class="notes">
-<p>Five minutes. Demonstrate the export once. The RTL caveat is in their _quarto.yml already, with a comment — point at it.</p>
+<p>Four minutes. Demonstrate the export once.</p>
+<p>Do not re-teach the RTL rule; it was Day 2 Block 3. Just close the loop: the reason <code>rtl: true</code> is off in their <code>_quarto.yml</code> is this export, and the comment in the file says so.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -681,10 +728,38 @@ GASTAT
 <p>One HTML file. Email it. It opens.</p>
 </section>
 </div>
-<p><strong>A dashboard answers questions the reader already knows to ask. If they do not know what to ask, send a report.</strong></p>
 <aside class="notes">
-<p>Ten minutes. On CML, static is not a preference — it is the only thing that will actually reach a colleague.</p>
-<p>This is where “dashboards explore, they rarely explain” belongs — as a caution inside the block that teaches them, not as the verdict before it.</p>
+<p>Eight minutes. On CML, static is not a preference — it is the only thing that will actually reach a colleague.</p>
+<p>Ask who has built a Shiny app that nobody outside the team ever opened. Wait.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dashboards-explain" class="slide level2">
+<h2>What a dashboard cannot do</h2>
+<p><strong>A dashboard answers questions the reader already knows to ask.</strong></p>
+<div class="cards">
+<section id="they-know-the-question" class="card">
+<h4>They know the question</h4>
+<p><em>“How is my region doing?”</em> — a dashboard is the right answer.</p>
+</section>
+<section id="they-do-not" class="card accent">
+<h4>They do not</h4>
+<p><em>“Should we be worried about Jazan?”</em> — send the bulletin. It makes the argument for them.</p>
+</section>
+</div>
+<aside class="notes">
+<p>Seven minutes, and this is the block’s real content.</p>
+<p>Dashboards explore; they rarely explain. A minister does not arrive with a filter in mind — they arrive wanting to know whether to act.</p>
+<p>Tie it back to Block 1: this is the shelf-life column in another form. Build the dashboard for the analyst who visits weekly, write the bulletin for the minister who reads once.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -699,6 +774,7 @@ GASTAT
 </section>
 <section id="a11y" class="slide level2">
 <h2>Publishing responsibly</h2>
+<p>Static and self-contained means it travels. <strong>Make sure it arrives readable.</strong></p>
 <div class="tight">
 <ul>
 <li><code>fig-alt</code> on every figure — the caption is not alt text</li>
@@ -708,7 +784,8 @@ GASTAT
 </ul>
 </div>
 <aside class="notes">
-<p>Ten minutes. GASTAT publishes publicly, so this is an obligation rather than a nicety. UK Analysis Function guidance is the reference to hand them.</p>
+<p>Ten minutes. The bridge is the previous slide: you have just made a file that anyone can open and forward. That is exactly why alt text and real table headers matter — it will reach a screen reader you never met.</p>
+<p>GASTAT publishes publicly, so this is an obligation rather than a nicety. UK Analysis Function guidance is the reference to hand them.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -735,6 +812,7 @@ GASTAT
 <section id="build-26-min" class="card">
 <h4>Build · 26 min</h4>
 <p><code>lab3-deck-start.qmd</code> or <code>lab3-dashboard-start.qmd</code>. The skeleton is there.</p>
+<p><strong>Deck path:</strong> cut your bulletin to five slides. <strong>Dashboard path:</strong> move two charts into rows.</p>
 </section>
 <section id="show-9-min" class="card">
 <h4>Show · 9 min</h4>
@@ -742,7 +820,7 @@ GASTAT
 </section>
 <section id="done-test" class="card accent">
 <h4>Done test</h4>
-<p>It renders from the same data file. Nothing copied.</p>
+<p>It renders from the same data file. Nothing copied — the charts are <code>source()</code>d, not pasted.</p>
 </section>
 </div>
 <aside class="notes">

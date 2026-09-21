@@ -243,12 +243,13 @@ GASTAT
 <section id="reveal" class="slide level2" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
-<h3 id="open-artifactsbulletinbulletin.html-now.-do-not-explain-it.">Open <code>artifacts/bulletin/bulletin.html</code> now. Do not explain it.</h3>
+<h3 id="open-artifactsbulletinbulletin-minimal.html-now.-do-not-explain-it.">Open <code>artifacts/bulletin/bulletin-minimal.html</code> now. Do not explain it.</h3>
 <aside class="notes">
 <p>Five minutes, live. Scroll the bulletin. Point at the headline, the two charts, the table, the callout. Say nothing about how it was made.</p>
-<p>Then open <code>bulletin.qmd</code>. It is about 120 lines. Let the silence do the work.</p>
+<p>Then open <code>bulletin-minimal.qmd</code>. It is 75 lines. Let the silence do the work.</p>
 <p>Then: “Four moves got us from this to that. That is the whole of today.”</p>
-<p>Change <code>region: Jazan</code> to <code>region: Riyadh</code>, re-render, and show that every number in the prose has moved. That single demo is the argument for the entire course.</p>
+<p>Change <code>REGION &lt;- "Jazan"</code> to <code>"Riyadh"</code> at the top of the setup chunk, re-render, and show that every number in the prose has moved. That single demo is the argument for the entire course.</p>
+<p>One file, one constant. Tomorrow that constant becomes a parameter — do not say so yet.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -282,28 +283,9 @@ GASTAT
 </section>
 </div>
 <p><strong>By 14:00 you will have a bulletin that re-renders when the data changes.</strong></p>
+<p><span class="muted">Machine not working? The setup check is the last slide.</span></p>
 <aside class="notes">
 <p>Thirty seconds per card. Do not elaborate — the reveal already made the promise.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="setup" class="slide level2">
-<h2>Before we start</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
-<span id="cb2-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If that last line produced a file, you are ready.</p>
-<aside class="notes">
-<p>Ask for a show of hands. Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -382,8 +364,74 @@ GASTAT
 </div>
 <p>Against Word, one line: <strong>the number you typed is not the number you computed.</strong></p>
 <aside class="notes">
-<p>The honest limit, and say it out loud: Quarto does not make your analysis reproducible. <code>renv</code> and version control do that. Quarto makes the <em>report</em> reproducible.</p>
-<p>Claiming less here buys you credibility for the rest of the three days. Somebody in the room has been burned by a tool that promised everything.</p>
+<p>Seven minutes. Four claims, one line each. Do not linger — the next slide is the one that earns their trust.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="honest-limit" class="slide level2">
+<h2>What Quarto does not do</h2>
+<p><strong>Quarto does not make your analysis reproducible.</strong></p>
+<p><code>renv</code> and version control do that. Quarto makes the <strong>report</strong> reproducible — the step from a finished analysis to the thing the public reads.</p>
+<div class="tight">
+<ul>
+<li>Your code is still your responsibility</li>
+<li>Your environment is still <code>renv</code>’s job</li>
+<li>Your history is still git’s job</li>
+</ul>
+</div>
+<aside class="notes">
+<p>Three minutes, and say the first line out loud rather than reading it off the slide.</p>
+<p>Claiming less here buys credibility for the rest of the three days. Somebody in this room has been burned by a tool that promised everything.</p>
+<p>We come back to this on Day 2, when git gets named as the gap it is.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="graveyard" class="slide level2">
+<h2>You made forty charts</h2>
+
+<img data-src="day1_files/figure-revealjs/graveyard-1.png" width="2400" class="r-stretch"><aside class="notes">
+<p>Let it sit for a beat before saying anything.</p>
+<p>“You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
+<p>Say only: “You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
+<p>Then move to the cull. Do not name exploratory or explanatory yet — that slide comes after, deliberately. Show first, name second.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cull" class="slide level2">
+<h2>Which one goes in?</h2>
+
+<img data-src="day1_files/figure-revealjs/cull-1.png" width="2400" class="r-stretch"><aside class="notes">
+<p>Seven minutes, and most of it is them.</p>
+<p>Three charts of the same indicator. Ask for a show of hands: A, B or C goes in the bulletin? Count the votes out loud.</p>
+<p>Then ask two people on the losing side why. Do not adjudicate. The argument IS the teaching — attention budget, audience, what a chart has to earn.</p>
+<p>If the room converges too fast, argue the other side yourself.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -410,26 +458,7 @@ GASTAT
 </div>
 <p><strong>The bulletin has two charts. Choosing which two is the job.</strong></p>
 <aside class="notes">
-<p>This is the slide the graveyard sets up. Do not say this before showing the graveyard — show first, name second.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="graveyard" class="slide level2">
-<h2></h2>
-
-<img data-src="day1_files/figure-revealjs/graveyard-1.png" width="2400" class="r-stretch"><aside class="notes">
-<p>Let it sit for a beat before saying anything.</p>
-<p>“You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
-<p>Then the cull: six charts of the same indicator, on the next slide. The room votes. Then they argue. The argument IS the teaching — let it run the full twelve minutes if it is going well. Attention budget, audience, what a chart has to earn.</p>
+<p>Four minutes. Now name what they have just done: they culled forty to three, and three to one. That is the whole distinction, and they arrived at it before you said it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -530,20 +559,40 @@ GASTAT
 <hr class="rule">
 <h3 id="one-source.-no-manual-numbers.">One source. No manual numbers.</h3>
 </section>
+<section id="reveal-anatomy" class="slide level2" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="the-same-bulletin.-now-open-its-source-beside-it.">The same bulletin. Now open its source beside it.</h3>
+<aside class="notes">
+<p>Five minutes. Put <code>bulletin-minimal.html</code> and <code>bulletin-minimal.qmd</code> side by side on one screen.</p>
+<p>Scroll the source once, slowly, without commentary. Seventy-five lines for the document they spent an hour arguing about.</p>
+<p>Then: “Three things are in this file, and nothing else. Here they are.” Straight into the next slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="anatomy" class="slide level2">
 <h2>Three things in every <code>.qmd</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
-<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="" aria-label="4"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jazan"</span></span>
-<span id="cb3-5"><a href="" aria-label="5"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb3-6"><a href="" aria-label="6"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r params$region`</span> stands at ...   <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="" aria-label="2"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()    <span class="co"># 3. cells</span></span>
-<span id="cb5-3"><a href="" aria-label="3"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-4"><a href="" aria-label="4"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r REGION`</span> stands at ...          <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>                               <span class="co"># 3. cells</span></span>
+<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb3-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>Open the real bulletin.qmd side by side and point at each of the three as you name it. Nothing more abstract than that. They will meet each one properly in a moment.</p>
+<p>Point at each of the three in the open source as you name it. Nothing more abstract than that.</p>
+<p><code>REGION &lt;- "Jazan"</code> is an ordinary constant in an ordinary chunk. Say nothing about parameters — tomorrow’s first move is promoting this one line, and it only lands if they have lived with the constant for a day.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -579,18 +628,14 @@ GASTAT
 <td><code>$\bar{x} = 6.6$</code></td>
 </tr>
 <tr class="even">
-<td>A cross-reference</td>
-<td><code>@fig-trend</code>, <code>@tbl-recent</code></td>
-</tr>
-<tr class="odd">
-<td>A table</td>
-<td>Write it, or let <code>tinytable</code> build it</td>
+<td>Emphasis</td>
+<td><code>*italic*</code>, <code>**bold**</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Everything else is in <code>templates/markdown-cheatsheet.qmd</code>.</strong></p>
+<p><strong>Everything else is in <code>templates/markdown-cheatsheet.qmd</code>.</strong> Cross-references and tables are Block 3 — they need labels first.</p>
 <aside class="notes">
-<p>Ten minutes, no more. This room writes markdown already — you are patching five specific holes, not teaching from zero.</p>
+<p>Ten minutes, no more. This room writes markdown already — you are patching four specific holes, not teaching from zero.</p>
 <p>The line break is the one that causes real anger. Everyone arrives expecting Word.</p>
 <p>Footnotes matter because statistical bulletins live on them.</p>
 <style type="text/css">
@@ -608,13 +653,13 @@ GASTAT
 <section id="pipeline" class="slide level2">
 <h2>Where your document goes</h2>
 <div class="cell" data-reveal="true" data-fig-width="14" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="" aria-label="1"></a>flowchart LR</span>
-<span id="cb6-2"><a href="" aria-label="2"></a>  A["bulletin.qmd"] --&gt; B["knitr&lt;br/&gt;runs the R"]</span>
-<span id="cb6-3"><a href="" aria-label="3"></a>  B --&gt; C["markdown&lt;br/&gt;plain text"]</span>
-<span id="cb6-4"><a href="" aria-label="4"></a>  C --&gt; D["Pandoc&lt;br/&gt;converts"]</span>
-<span id="cb6-5"><a href="" aria-label="5"></a>  D --&gt; E["HTML"]</span>
-<span id="cb6-6"><a href="" aria-label="6"></a>  D --&gt; F["Word"]</span>
-<span id="cb6-7"><a href="" aria-label="7"></a>  D --&gt; G["Typst → PDF"]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="" aria-label="1"></a>flowchart LR</span>
+<span id="cb4-2"><a href="" aria-label="2"></a>  A["bulletin.qmd"] --&gt; B["knitr&lt;br/&gt;runs the R"]</span>
+<span id="cb4-3"><a href="" aria-label="3"></a>  B --&gt; C["markdown&lt;br/&gt;plain text"]</span>
+<span id="cb4-4"><a href="" aria-label="4"></a>  C --&gt; D["Pandoc&lt;br/&gt;converts"]</span>
+<span id="cb4-5"><a href="" aria-label="5"></a>  D --&gt; E["HTML"]</span>
+<span id="cb4-6"><a href="" aria-label="6"></a>  D --&gt; F["Word"]</span>
+<span id="cb4-7"><a href="" aria-label="7"></a>  D --&gt; G["Typst → PDF"]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -651,23 +696,70 @@ GASTAT
 </section>
 <section id="cell-options" class="slide level2">
 <h2>Five cell options that earn their keep</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
-<span id="cb7-2"><a href="" aria-label="2"></a><span class="co">#| label: fig-trend          # names it, and makes @fig-trend work</span></span>
-<span id="cb7-3"><a href="" aria-label="3"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
-<span id="cb7-4"><a href="" aria-label="4"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
-<span id="cb7-5"><a href="" aria-label="5"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
-<span id="cb7-6"><a href="" aria-label="6"></a><span class="co">#| eval: true                # run it at all</span></span>
-<span id="cb7-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a><span class="co">#| label: fig-trend          # names it — Block 3 uses the name</span></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
+<span id="cb5-4"><a href="" aria-label="4"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
+<span id="cb5-5"><a href="" aria-label="5"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
+<span id="cb5-6"><a href="" aria-label="6"></a><span class="co">#| eval: true                # run it at all</span></span>
+<span id="cb5-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>label</code> — the only one that changes what the <em>reader</em> can do</li>
-<li><code>echo</code> / <code>eval</code> / <code>include</code> — three different kinds of “hide”</li>
+<li><code>fig-cap</code> — the caption, which Block 3 argues about</li>
 <li><code>warning</code> + <code>message</code> — the noise floor</li>
 </ul>
 </div>
 <aside class="notes">
 <p>Live-code this. Start with a raw ggplot call, echo on, warnings on, no caption — ugly. Add the options one at a time until it looks like the bulletin. Narrate each one.</p>
-<p>Three kinds of hide is the part people get wrong: <code>echo: false</code> runs and hides the code, <code>eval: false</code> shows the code and does not run it, <code>include: false</code> runs it and shows nothing at all.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-kinds-of-hide" class="slide level2">
+<h2>Three kinds of hide</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Runs?</th>
+<th>Shows the code?</th>
+<th>Shows the output?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>echo: false</code></td>
+<td>yes</td>
+<td>no</td>
+<td><strong>yes</strong></td>
+</tr>
+<tr class="even">
+<td><code>eval: false</code></td>
+<td><strong>no</strong></td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td><code>include: false</code></td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>echo</code> is the one you want almost every time.</strong></p>
+<aside class="notes">
+<p>Five minutes. This is the part people get wrong, and getting it wrong is why their first bulletin has code in it.</p>
+<p><code>echo: false</code> for every figure in a published document. <code>eval: false</code> for a snippet you are showing but must not run. <code>include: false</code> for setup.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -682,15 +774,15 @@ GASTAT
 </section>
 <section id="inline" class="slide level2">
 <h2>No number is typed</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
-<span id="cb8-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
+<span id="cb6-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Renders as:</p>
 <blockquote>
 <p>Unemployment stands at <strong>11.1%</strong> in <strong>2025Q4</strong>.</p>
 </blockquote>
 <p><strong>Change the data. The sentence changes. Nobody re-checks it.</strong></p>
 <aside class="notes">
-<p>The demo: change <code>params$region</code> from Jazan to Riyadh, re-render, and read the new sentence aloud. “Risen” became “fallen” without anybody editing prose.</p>
+<p>The demo: change <code>REGION</code> from Jazan to Riyadh, re-render, and read the new sentence aloud. “Risen” became “fallen” without anybody editing prose.</p>
 <p>This is the moment the course either lands or does not. Do it slowly.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -720,23 +812,43 @@ GASTAT
 <hr class="rule">
 <h3 id="a-caption-is-an-argument">A caption is an argument</h3>
 </section>
+<section id="reveal-figures" class="slide level2" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="the-bulletin-as-a-pdf.-read-only-the-captions.">The bulletin as a PDF. Read only the captions.</h3>
+<aside class="notes">
+<p>Five minutes. Open <code>bulletin.pdf</code> full screen and scroll it with the captions read aloud — nothing else, not the prose, not the tables.</p>
+<p>Ask: could you follow the argument from the captions alone?</p>
+<p>In a good bulletin the answer is yes, and that is the whole of this block. Point at Figure 1 and Table 1 being numbered without anyone numbering them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="captions" class="slide level2">
 <h2>Two captions, same chart</h2>
 <div class="cards">
-<section id="descriptive" class="card">
-<h4>Descriptive</h4>
+<section id="descriptive-caption" class="card">
+<h4>Descriptive caption</h4>
 <p>“Unemployment by region, 2025Q4”</p>
 <p>Tells the reader what they are already looking at.</p>
 </section>
-<section id="message" class="card accent">
-<h4>Message</h4>
+<section id="message-caption" class="card accent">
+<h4>Message caption</h4>
 <p>“Jazan has the highest rate of any region”</p>
 <p>Tells the reader what to conclude.</p>
 </section>
 </div>
 <p><strong>Your figure caption is the only sentence some readers will read.</strong></p>
 <aside class="notes">
-<p>Put three descriptive captions on the board from real GASTAT publications — or from the bulletin — and have the room rewrite them as message titles, out loud, together.</p>
+<p>Put three descriptive captions on the board from real GASTAT publications — or from the bulletin — and have the room rewrite them as message captions, out loud, together.</p>
 <p>Fifteen minutes. This is the highest-value fifteen minutes of Day 1 and it needs no software.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -752,22 +864,49 @@ GASTAT
 </section>
 <section id="crossrefs" class="slide level2">
 <h2>Cross-references and the margin</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span>
-<span id="cb9-2"><a href="" aria-label="2"></a></span>
-<span id="cb9-3"><a href="" aria-label="3"></a>::: {.callout-note}</span>
-<span id="cb9-4"><a href="" aria-label="4"></a><span class="fu">## What this means</span></span>
-<span id="cb9-5"><a href="" aria-label="5"></a>Jazan ranks 1st of 13 regions this quarter.</span>
-<span id="cb9-6"><a href="" aria-label="6"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>@fig-</code>, <code>@tbl-</code>, <code>@sec-</code> — numbering that never goes stale</li>
-<li>Callouts carry the “so what”</li>
-<li>Detail goes in the margin; the argument stays on the line</li>
+<li>The name comes from <code>label</code> in Block 2. That is what it was for</li>
+<li>Renumbering is automatic; “see Figure 3 above” is not</li>
 </ul>
 </div>
 <aside class="notes">
-<p>Progressive disclosure: the reader who trusts you reads the line. The reader who doubts you reads the margin. Both are served by one document.</p>
+<p>Eight minutes. Pay off the <code>label</code> option they met an hour ago — it existed so this slide could work.</p>
+<p>Add a figure above an existing one in the live bulletin and re-render. Every number moves, including the ones in the prose.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="callouts-margin" class="slide level2">
+<h2>Where the doubt goes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="" aria-label="1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb8-2"><a href="" aria-label="2"></a><span class="fu">## What this means</span></span>
+<span id="cb8-3"><a href="" aria-label="3"></a>Jazan ranks 1st of 13 regions this quarter.</span>
+<span id="cb8-4"><a href="" aria-label="4"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cards">
+<section id="the-line" class="card">
+<h4>The line</h4>
+<p>The argument. The reader who trusts you stops here.</p>
+</section>
+<section id="the-margin" class="card">
+<h4>The margin</h4>
+<p>Method, caveats, the denominator. The reader who doubts you.</p>
+</section>
+</div>
+<aside class="notes">
+<p>Seven minutes. Callouts carry the “so what”; the margin carries the “how do you know”.</p>
 <p>Show the collapsed method note in the HTML bulletin — that is the pattern.</p>
+<p>Name it: progressive disclosure. One document serves the trusting reader and the doubting one. They meet the idea again on Day 3, across vehicles.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -783,11 +922,12 @@ GASTAT
 <section id="tables" class="slide level2">
 <h2>Tables that survive the trip</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb10-2"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="" aria-label="3"></a>  <span class="fu">format_tt</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="" aria-label="4"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="st">"b"</span>, <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb9-2"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="st">"b"</span>, <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>In this project that styling already has a name:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">tt_gastat</span>(recent)        <span class="co"># R/course.R — the house table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>tinytable</code> because it is the one that reaches <strong>HTML, Word and Typst PDF</strong> from one call.</p>
 <aside class="notes">
 <p>Be honest about the choice: gt is beautiful in HTML and weak in Word. flextable is excellent in Word and has no Typst path. We picked the one that survives all three, because Day 2 is about one source reaching many formats.</p>
@@ -817,7 +957,7 @@ GASTAT
 <div class="cards">
 <section id="build" class="card">
 <h4>Build</h4>
-<p>Headline from your big idea · 2 figures with message titles · 1 <code>tinytable</code> · 1 callout</p>
+<p>Headline from your big idea · 2 figures with message captions · 1 <code>tinytable</code> · 1 callout</p>
 </section>
 <section id="rule" class="card">
 <h4>Rule</h4>
@@ -825,7 +965,7 @@ GASTAT
 </section>
 <section id="done-test" class="card accent">
 <h4>Done test</h4>
-<p>Change <code>region</code> at the top. Re-render. Every number moves.</p>
+<p>Change <code>REGION</code> at the top. Re-render. Every number moves.</p>
 </section>
 </div>
 <aside class="notes">
@@ -843,15 +983,13 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="close" class="slide level2 divider">
+<section id="close" class="slide level2 divider" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">TOMORROW</span></p>
-</section>
-<section>
-<section id="one-bulletin-becomes-thirteen" class="title-slide slide level1 center">
-<h1>One bulletin becomes thirteen</h1>
+<div class="dtitle">
+<p>One bulletin becomes thirteen</p>
+</div>
 <hr class="rule">
-</section>
 <h3 id="same-file.-one-parameter.-a-folder-of-finished-reports.">Same file. One parameter. A folder of finished reports.</h3>
 <aside class="notes">
 <p>Do not preview the mechanism. Just the promise, then stop. They should leave wondering how.</p>
@@ -866,6 +1004,27 @@ GASTAT
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="setup" class="slide level2">
+<h2>Appendix — before we start</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If that last line produced a file, you are ready.</p>
+<aside class="notes">
+<p>Ask for a show of hands. Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
