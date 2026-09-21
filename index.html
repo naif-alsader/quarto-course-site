@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Reproducible Statistical Reporting with Quarto</title>
+<style>
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-Variable.ttf") format("truetype");font-weight:200 900;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url("fonts/IBMPlexSans-Variable.ttf") format("truetype");font-weight:100 700;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/IBMPlexMono-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/IBMPlexSansArabic-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+:root{
+  --deep:#0E2E2A; --deep-card:#164039; --paper:#FAF8F3; --paper2:#F0EBE1;
+  --card:#FDFCF9; --border:#DFD9CC; --ink:#1A211F; --muted:#5C635F;
+  --muted-deep:#9FB3AD; --copper:#B5622F; --copper-sm:#8F4A20; --copper-deep:#D98B4F;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--copper-deep);display:block;margin-bottom:14px}
+header{background:var(--deep);color:var(--paper);padding-block:clamp(48px,8vw,96px) clamp(40px,7vw,80px)}
+header h1{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+  font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-.015em;margin:0}
+header .rule{width:120px;height:6px;background:var(--copper-deep);border:0;margin:26px 0 22px}
+header p{color:var(--muted-deep);font-size:clamp(16px,2.2vw,21px);max-width:60ch;margin:0}
+header .meta{color:var(--muted-deep);font-family:"IBM Plex Mono",monospace;
+  font-size:13px;margin-top:26px}
+section{padding-block:clamp(40px,6vw,64px)}
+section.alt{background:var(--paper2)}
+h2{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+  font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 28px;max-width:66ch}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+a.card{display:block;background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:28px;text-decoration:none;color:inherit;
+  transition:border-color .15s ease, transform .15s ease}
+a.card:hover{border-color:var(--copper);transform:translateY(-2px)}
+a.card .num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--copper-sm)}
+a.card h3{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+  font-size:26px;margin:10px 0 8px}
+a.card p{color:var(--muted);font-size:15px;margin:0}
+a.card .take{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+  font-size:14px;color:var(--ink)}
+.list{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+a.item{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;text-decoration:none;color:inherit;font-size:15px}
+a.item:hover{border-color:var(--copper)}
+a.item .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+figure{margin:0}
+figure img{width:100%;height:auto;border:1px solid var(--border);border-radius:12px;display:block}
+figcaption{color:var(--muted);font-size:14px;margin-top:10px}
+.note{background:var(--deep-card);color:var(--muted-deep);border-radius:16px;
+  padding:26px 28px;font-size:15px}
+.note strong{color:var(--paper)}
+footer{background:var(--deep);color:var(--muted-deep);padding-block:36px;font-size:14px}
+footer a{color:var(--copper-deep)}
+code{font-family:"IBM Plex Mono",monospace;font-size:.9em;color:var(--copper-sm)}
+.ar{font-family:"IBM Plex Sans Arabic","IBM Plex Sans",sans-serif;direction:rtl}
+@media (max-width:480px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">GASTAT · Three days · In person</span>
+    <h1>Reproducible Statistical<br>Reporting with Quarto</h1>
+    <hr class="rule">
+    <p>One finished product per day. Show the result first, then take it apart.</p>
+    <div class="meta">Day 1 The Bulletin · Day 2 The Family · Day 3 The Story</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The decks</h2>
+    <p class="sub">Press <code>s</code> for speaker notes, <code>b</code> for the chalkboard,
+       <code>r</code> for scroll view, <code>o</code> for an overview.</p>
+    <div class="grid">
+      <a class="card" href="slides/day1.html">
+        <span class="num">Day 1</span>
+        <h3>The Bulletin</h3>
+        <p>Exploratory versus explanatory. What a document is made of. Figures, tables, references.</p>
+        <div class="take">The report is not the analysis. It is the argument the analysis licenses.</div>
+      </a>
+      <a class="card" href="slides/day2.html">
+        <span class="num">Day 2</span>
+        <h3>The Family</h3>
+        <p>One source, many formats. Parameters. Projects, identity and language.</p>
+        <div class="take">One template, many reports.</div>
+      </a>
+      <a class="card" href="slides/day3.html">
+        <span class="num">Day 3</span>
+        <h3>The Story</h3>
+        <p>Choosing the vehicle. Presentations. Dashboards.</p>
+        <div class="take">Pick the vehicle from the shelf life of the message.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>The artifacts</h2>
+    <p class="sub">Every block opens on one of these, working, before anything is explained.
+       All of them render from the same data file.</p>
+    <div class="list">
+      <a class="item" href="artifacts/bulletin-minimal.html"><span>Bulletin — minimal</span><span class="tag">Day 1 · 75 lines</span></a>
+      <a class="item" href="artifacts/bulletin.html"><span>Bulletin — parameterised</span><span class="tag">Day 2 · HTML</span></a>
+      <a class="item" href="artifacts/bulletin-jazan.pdf"><span>Bulletin — Typst PDF</span><span class="tag">PDF</span></a>
+      <a class="item" href="artifacts/bulletin-ar.pdf"><span class="ar">النشرة بالعربية</span><span class="tag">PDF · RTL</span></a>
+      <a class="item" href="artifacts/dashboard.html"><span>Regional dashboard</span><span class="tag">Day 3 · static</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The chart graveyard</h2>
+    <p class="sub">Forty real cuts of the same data. Two of them go to the minister.
+       Day 1 Block 1 opens here, before a word is spoken.</p>
+    <figure>
+      <img src="artifacts/graveyard.png" alt="A grid of forty small line charts in pale grey, two of them highlighted in copper">
+      <figcaption>Every panel is a genuine cut of the course data — regional series, indexed series, and cuts of the labour force microdata.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="note">
+      <strong>All data on this site is synthetic.</strong> It is training data built to
+      have the shape of Saudi labour force statistics — 13 regions, quarterly, 2022–2025.
+      None of it is official GASTAT output, and no figure here should be cited.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built with <a href="https://quarto.org">Quarto</a>.
+    Source and the full course specification are in the repository.
+  </div>
+</footer>
+
+</body>
+</html>

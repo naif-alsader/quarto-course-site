@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="day2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="day2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="day2_files/libs/quarto-html/popper.min.js"></script>
+<script src="day2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="day2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="day2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="day2_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="GASTAT">
+  <meta name="dcterms.date" content="2026-09-21">
+  <title>The Family</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="day2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="day2_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="day2_files/libs/revealjs/dist/theme/quarto-143f34ea464ad5329f1b3135fa196023.css">
+  <link href="day2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="day2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="day2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="day2_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="day2_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="day2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">The Family</h1>
+  <p class="subtitle">Reproducible Statistical Reporting with Quarto — Day 2</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+GASTAT
+</div>
+</div>
+</div>
+
+  <p class="date">2026-09-21</p>
+</section>
+<section id="cover" class="slide level2 divider" data-background-color="#0E2E2A">
+<h2></h2>
+<p><span class="eyebrow">DAY 2 · 09:00–14:00</span></p>
+<div class="dtitle">
+<p>The Family</p>
+</div>
+<hr class="rule">
+<h3 id="one-file.-thirteen-regions.-twenty-six-finished-reports.">One file. Thirteen regions. Twenty-six finished reports.</h3>
+<aside class="notes">
+<p>Three-minute recall first: “what did you take from yesterday?” Two or three answers. No slides. Then the reveal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reveal" class="slide level2" data-background-color="#0E2E2A">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="open-artifactsfamily_out.-sort-by-name.-open-three-at-random.">Open <code>artifacts/family/_out/</code>. Sort by name. Open three at random.</h3>
+<aside class="notes">
+<p>Twenty-six files: thirteen PDFs and thirteen Word documents, every one branded, every one with its own numbers and its own headline sentence.</p>
+<p>Open Jazan and Riyadh side by side. In one the rate rose; in the other it fell. The prose says so. Nobody wrote either sentence.</p>
+<p>Then open bulletin.qmd — still one file — and say: “four moves.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="day-map" class="slide level2">
+<h2>Today</h2>
+<div class="cards">
+<section id="block-1" class="card">
+<h4>Block 1</h4>
+<p>One source, many formats</p>
+</section>
+<section id="block-2" class="card">
+<h4>Block 2</h4>
+<p>Parameters</p>
+</section>
+<section id="block-3" class="card">
+<h4>Block 3</h4>
+<p>Projects, identity, language</p>
+</section>
+<section id="lab" class="card accent">
+<h4>Lab</h4>
+<p>You batch-render thirteen</p>
+</section>
+</div>
+</section>
+<section id="sec-formats" class="slide level2 divider" data-background-color="#0E2E2A">
+<h2></h2>
+<p><span class="eyebrow">BLOCK 1 · 09:00–10:15</span></p>
+<div class="dtitle">
+<p>One source, many formats</p>
+</div>
+<hr class="rule">
+<h3 id="your-reviewers-stay-in-word.-you-stay-in-code.">Your reviewers stay in Word. You stay in code.</h3>
+</section>
+<section id="format-matrix" class="slide level2">
+<h2>What survives the trip</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>HTML</th>
+<th>Word</th>
+<th>Typst PDF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ggplot</code> figures</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td><code>tinytable</code></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Interactive charts</td>
+<td>yes</td>
+<td>static fallback</td>
+<td>static fallback</td>
+</tr>
+<tr class="even">
+<td>Callouts</td>
+<td>styled</td>
+<td>styled</td>
+<td>styled</td>
+</tr>
+<tr class="odd">
+<td>Cross-references</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Margin content</td>
+<td>yes</td>
+<td>inline</td>
+<td>inline</td>
+</tr>
+<tr class="odd">
+<td>Tracked changes back</td>
+<td>—</td>
+<td><strong>yes</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Twenty minutes, cell by cell. Do not read the table aloud — render the same bulletin to all three in front of them and point at the differences as they appear.</p>
+<p>Why Typst and not LaTeX: no TinyTeX download at render time. On the air-gapped box that is not a preference, it is the only thing that works.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="word-cycle" class="slide level2">
+<h2>Word is not a compromise</h2>
+<div class="cards">
+<section id="the-old-loop" class="card dark">
+<h4>The old loop</h4>
+<p>You write. You export. They edit the export. You retype their edits into your analysis.</p>
+</section>
+<section id="the-new-loop" class="card accent">
+<h4>The new loop</h4>
+<p>You render to Word. They track changes. You read the changes and edit <strong>the source</strong>. Re-render.</p>
+</section>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> templates/gastat-reference.docx</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Twenty-five minutes. This is the segment that makes managers say yes, so do not rush it.</p>
+<p>The reference-doc is a Word file with GASTAT’s styles defined in it — Heading 1, Body Text, Caption. Pandoc reads the styles, not the content.</p>
+<p>Be honest: the reviewer’s edits do not flow back automatically. You read them and change the source. What you never do again is retype a number.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="conditional" class="slide level2">
+<h2>Where the promise gets complicated</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb2-2"><a href="" aria-label="2"></a>A leaflet map the reader can pan.</span>
+<span id="cb2-3"><a href="" aria-label="3"></a>:::</span>
+<span id="cb2-4"><a href="" aria-label="4"></a></span>
+<span id="cb2-5"><a href="" aria-label="5"></a>::: {.content-visible unless-format="html"}</span>
+<span id="cb2-6"><a href="" aria-label="6"></a>A static choropleth, same data, same code until the last line.</span>
+<span id="cb2-7"><a href="" aria-label="7"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight">
+<ul>
+<li><code>.content-visible when-format=</code> / <code>unless-format=</code></li>
+<li><code>.content-hidden when-format="docx"</code> — the note reviewers see and the public does not</li>
+<li><code>knitr::is_html_output()</code> inside a chunk</li>
+</ul>
+</div>
+<p><strong>“One source, many formats” is not free. This is where you manage the seam.</strong></p>
+<aside class="notes">
+<p>Fifteen minutes. The honesty is the teaching: a room of statisticians will find the seam within a week of going home, and if you pretended it was not there they will stop trusting the rest.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="takeaway-1" class="slide level2 statement" data-background-color="#F0EBE1">
+<h2></h2>
+<p><span class="eyebrow">TAKEAWAY — BLOCK 1</span></p>
+<div class="stitle">
+<p>Your reviewers stay in Word; you stay in code.</p>
+</div>
+</section>
+<section id="sec-params" class="slide level2 divider" data-background-color="#0E2E2A">
+<h2></h2>
+<p><span class="eyebrow">BLOCK 2 · 10:30–11:45</span></p>
+<div class="dtitle">
+<p>Parameters</p>
+</div>
+<hr class="rule">
+<h3 id="one-template-many-reports">One template, many reports</h3>
+</section>
+<section id="params-yaml" class="slide level2">
+<h2>Promote the constant</h2>
+<p>Yesterday your bulletin began:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>          <span class="co"># a constant in a chunk</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Today it begins:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="" aria-label="1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jazan"</span><span class="co">          # a knob on the outside of the file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a>REGION <span class="ot">&lt;-</span> params<span class="sc">$</span>region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>That one move is the whole of parameterisation.</strong></p>
+<aside class="notes">
+<p>Do this live, in their Day 1 file. Two lines change. Render with <code>-P region:Riyadh</code> from the terminal and show the same file producing a different report.</p>
+<p>Fifteen minutes, and most of it is them doing it, not you.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="conditional-exec" class="slide level2">
+<h2>Conditional execution</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co">#| eval: !expr params$region != "Kingdom"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>content-visible</code> hides <strong>output</strong>. <code>eval</code> decides whether the code <strong>runs at all</strong>.</p>
+<aside class="notes">
+<p>Five minutes. One distinction, one example, move on — Block 1 already covered conditional content and this is the last five per cent of it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="param-argument" class="slide level2">
+<h2>Parameterising an argument</h2>
+<p>A descriptive caption parameterises for free:</p>
+<blockquote>
+<p>“Unemployment by quarter, <code>r knitr::inline_expr("params$region")</code>”</p>
+</blockquote>
+<p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell. One sentence cannot be both.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (rose) {</span>
+<span id="cb7-2"><a href="" aria-label="2"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
+<span id="cb7-3"><a href="" aria-label="3"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Ten minutes, and this is the hardest idea in the three days.</p>
+<p>Day 1 said a caption is an argument. Day 2 says one template, many reports. Those two collide, and this is the resolution: in a parameterised report every message title is either <strong>computed by rule</strong> or demoted to a descriptive label. You pick, knowingly.</p>
+<p>Show the real code in bulletin.qmd. It is about forty lines and it is the most valuable forty lines in the project.</p>
+<p>Warn them: a rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="render-script" class="slide level2">
+<h2>The render script is the pipeline</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb8-2"><a href="" aria-label="2"></a>  <span class="st">"artifacts/bulletin/bulletin.qmd"</span>,</span>
+<span id="cb8-3"><a href="" aria-label="3"></a>  <span class="at">output_format  =</span> <span class="st">"typst"</span>,</span>
+<span id="cb8-4"><a href="" aria-label="4"></a>  <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">region =</span> <span class="st">"Jazan"</span>)</span>
+<span id="cb8-5"><a href="" aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>regions <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">walk</span>(\(r) <span class="fu">render_one</span>(r, <span class="st">"typst"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Twenty-five minutes — Block 1’s conditional segment gave us ten of them, and this is where Lab 2 actually fails, so spend them here.</p>
+<p>Two traps, both real, both in our own render.R:</p>
+<ol type="1">
+<li>Quarto writes next to the source, always as bulletin.pdf. Rendering thirteen regions means thirteen files with the same name. You must move each one as it appears.</li>
+<li>Two renders at once fight over that file. Our script takes a lock and fails loudly.</li>
+</ol>
+<p>Show render.R. It is forty lines and it is the pipeline.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="naming" class="slide level2">
+<h2>Naming the output</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region))</span>
+<span id="cb10-2"><a href="" aria-label="2"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(out_dir, <span class="fu">sprintf</span>(<span class="st">"bulletin-%s.%s"</span>, slug, ext))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>“Northern Borders” is not a filename. Decide the rule once.</strong></p>
+<aside class="notes">
+<p>Ten minutes. Sounds trivial; it is the thing that breaks their first real batch run. Arabic region names make it sharper still — slugging Arabic is a decision, not a default.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="takeaway-2" class="slide level2 statement" data-background-color="#F0EBE1">
+<h2></h2>
+<p><span class="eyebrow">TAKEAWAY — BLOCK 2</span></p>
+<div class="stitle">
+<p>One template, many reports.</p>
+</div>
+</section>
+<section id="sec-project" class="slide level2 divider" data-background-color="#0E2E2A">
+<h2></h2>
+<p><span class="eyebrow">BLOCK 3 · 12:15–13:15</span></p>
+<div class="dtitle">
+<p>Projects, identity, language</p>
+</div>
+<hr class="rule">
+<h3 id="branding-is-a-file-not-a-habit">Branding is a file, not a habit</h3>
+</section>
+<section id="brand-yml" class="slide level2">
+<h2><code>_brand.yml</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="" aria-label="1"></a><span class="fu">color</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">palette</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">deep</span><span class="kw">:</span><span class="at">   </span><span class="st">"#0E2E2A"</span></span>
+<span id="cb11-4"><a href="" aria-label="4"></a><span class="at">    </span><span class="fu">paper</span><span class="kw">:</span><span class="at">  </span><span class="st">"#FAF8F3"</span></span>
+<span id="cb11-5"><a href="" aria-label="5"></a><span class="at">    </span><span class="fu">copper</span><span class="kw">:</span><span class="at"> </span><span class="st">"#B5622F"</span></span>
+<span id="cb11-6"><a href="" aria-label="6"></a><span class="fu">typography</span><span class="kw">:</span></span>
+<span id="cb11-7"><a href="" aria-label="7"></a><span class="at">  </span><span class="fu">headings</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> Source Serif 4</span><span class="kw">}</span></span>
+<span id="cb11-8"><a href="" aria-label="8"></a><span class="at">  </span><span class="fu">base</span><span class="kw">:</span><span class="at">     </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> IBM Plex Sans</span><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>This file branded the bulletin, the family, and these slides.</strong></p>
+<aside class="notes">
+<p>Fifteen minutes. Open _brand.yml, change copper to something awful, re-render one bulletin, show it, change it back. The room needs to see that identity is one file.</p>
+<p>The institutional argument: the person who knows the house style leaves. The file stays.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="language" class="slide level2">
+<h2>Language is also a file</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="" aria-label="1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> ar</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a><span class="fu">dir</span><span class="kw">:</span><span class="at"> rtl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cards">
+<section id="verified" class="card">
+<h4>Verified</h4>
+<p>Arabic HTML, Word, Revealjs, and <strong>Typst PDF</strong> — prose, tables, bidi with Latin numerals.</p>
+</section>
+<section id="known-limits" class="card">
+<h4>Known limits</h4>
+<p><code>rtl: true</code> breaks <code>?print-pdf</code>. Source Serif 4 has no Arabic, so headings run in IBM Plex Sans Arabic.</p>
+</section>
+</div>
+<aside class="notes">
+<p>Fifteen minutes. Show spike/rtl-prose.pdf — this was tested, not assumed, and the evidence is in the repo.</p>
+<p>Raw ```{=typst} blocks with #set text(dir: rtl) leak direction into everything after them. Ordinary markdown with dir: rtl in the YAML does not. Teach the second.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="renv-freeze" class="slide level2">
+<h2>What this course did not teach you</h2>
+<div class="cards">
+<section id="renv-freeze-1" class="card">
+<h4><code>renv</code> + <code>freeze</code></h4>
+<p>Here: the lockfile pins packages, <code>freeze</code> stops chunks re-running. Ten minutes.</p>
+</section>
+<section id="git" class="card">
+<h4>Git</h4>
+<p><strong>Not here.</strong> RAP needs it. Get it from the platform team — one day, separately.</p>
+</section>
+<section id="getting-data-off-hive" class="card">
+<h4>Getting data off Hive</h4>
+<p><code>tools/extract.R</code> writes <code>data/*.csv</code>. <strong>That script is step zero of your pipeline.</strong></p>
+</section>
+</div>
+<aside class="notes">
+<p>Ten minutes, and the honesty matters. Day 1 said Quarto does not make your analysis reproducible — <code>renv</code> and version control do. If git then never appears, that line reads as an excuse.</p>
+<p>The Hive point is the one they need on Monday: their real data is on Cloudera, and the course data is a local CSV. The extract script is the bridge, and <code>freeze</code> is what stops it re-running on every render.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="takeaway-3" class="slide level2 statement" data-background-color="#F0EBE1">
+<h2></h2>
+<p><span class="eyebrow">TAKEAWAY — BLOCK 3</span></p>
+<div class="stitle">
+<p>Branding is a file, not a habit — and so is language.</p>
+</div>
+</section>
+<section id="lab" class="slide level2">
+<h2>Lab: the family</h2>
+<p><code>labs/lab2-start.qmd</code> is already parameterised. You write the loop.</p>
+<div class="cards">
+<section id="first" class="card">
+<h4>First</h4>
+<p><code>labs/break-it.qmd</code> — three planted failures, one per pipeline stage. Ten minutes, in pairs.</p>
+</section>
+<section id="then" class="card">
+<h4>Then</h4>
+<p>Render 3 regions. Check the output folder. Then render 13.</p>
+</section>
+<section id="done-test" class="card accent">
+<h4>Done test</h4>
+<p>Add a region to <code>regions.csv</code>. It appears in the output folder. Nothing else edited.</p>
+</section>
+</div>
+<aside class="notes">
+<p>Break-it first, ten minutes: one YAML indentation error (stage 4), one duplicate chunk label (stage 2), one missing font (stage 5). Ask which stage each belongs to before they fix it. That is what the pipeline diagram was for.</p>
+<p>At minute 30 of the lab, if a third are stuck: “open lab2-solution.R and read it against your own.” Nobody leaves without a folder of PDFs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="close" class="slide level2 divider">
+<h2></h2>
+<p><span class="eyebrow">TOMORROW</span></p>
+</section>
+<section>
+<section id="the-same-content-three-ways" class="title-slide slide level1 center">
+<h1>The same content, three ways</h1>
+<hr class="rule">
+</section>
+<h3 id="and-a-question-about-which-one-you-would-send-to-the-minister.">And a question about which one you would send to the minister.</h3>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Day 2 — The Family</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="day2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="day2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="day2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="day2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 7.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
