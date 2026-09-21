@@ -102,7 +102,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="day1_files/libs/revealjs/dist/theme/quarto-3784760308bf9c8ddf2f7ca305f25550.css">
+  <link rel="stylesheet" href="day1_files/libs/revealjs/dist/theme/quarto-6de7c8cca89cf2d93a1ff6e2f8bf9315.css">
   <link href="day1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="day1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="day1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -696,13 +696,11 @@ GASTAT
 </section>
 <section id="cell-options" class="slide level2">
 <h2>Five cell options that earn their keep</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="" aria-label="2"></a><span class="co">#| label: fig-trend          # names it — Block 3 uses the name</span></span>
-<span id="cb5-3"><a href="" aria-label="3"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
-<span id="cb5-4"><a href="" aria-label="4"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
-<span id="cb5-5"><a href="" aria-label="5"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
-<span id="cb5-6"><a href="" aria-label="6"></a><span class="co">#| eval: true                # run it at all</span></span>
-<span id="cb5-7"><a href="" aria-label="7"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a><span class="co">#| label: fig-trend          # names it — Block 3 uses the name</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
+<span id="cb5-4"><a href="" aria-label="4"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
+<span id="cb5-5"><a href="" aria-label="5"></a><span class="co">#| eval: true                # run it at all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>label</code> — the only one that changes what the <em>reader</em> can do</li>
@@ -711,7 +709,8 @@ GASTAT
 </ul>
 </div>
 <aside class="notes">
-<p>Live-code this. Start with a raw ggplot call, echo on, warnings on, no caption — ugly. Add the options one at a time until it looks like the bulletin. Narrate each one.</p>
+<p>Press right five times: the highlight walks down the options one at a time. Narrate each one as it lights up.</p>
+<p>Then live-code it. Start with a raw ggplot call, echo on, warnings on, no caption — ugly — and add the options until it looks like the bulletin.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -921,17 +920,2986 @@ GASTAT
 </section>
 <section id="tables" class="slide level2">
 <h2>Tables that survive the trip</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb9-2"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="st">"b"</span>, <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>In this project that styling already has a name:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">tt_gastat</span>(recent)        <span class="co"># R/course.R — the house table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>tinytable</code> because it is the one that reaches <strong>HTML, Word and Typst PDF</strong> from one call.</p>
+<div class="cards">
+<section id="gt" class="card">
+<h4><code>gt</code></h4>
+<p>Beautiful in HTML. Weak in Word. No Typst path.</p>
+</section>
+<section id="flextable" class="card">
+<h4><code>flextable</code></h4>
+<p>Excellent in Word. No Typst path.</p>
+</section>
+<section id="tinytable" class="card accent">
+<h4><code>tinytable</code></h4>
+<p>All three, from one call.</p>
+</section>
+</div>
 <aside class="notes">
-<p>Be honest about the choice: gt is beautiful in HTML and weak in Word. flextable is excellent in Word and has no Typst path. We picked the one that survives all three, because Day 2 is about one source reaching many formats.</p>
+<p>Four minutes on the choice, then build one live — the next six slides are that build.</p>
+<p>We picked the one that survives all three formats, because Day 2 is about one source reaching many formats.</p>
 <p>If anyone uses gt today, say: keep using it for HTML-only work. Nothing here forbids it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="" aria-label="1"></a>recent</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  Quarter Rate 
+  &lt;chr&gt;   &lt;chr&gt;
+1 2024Q3  9.0  
+2 2024Q4  9.7  
+3 2025Q1  9.8  
+4 2025Q2  10.4 
+5 2025Q3  11.1 
+6 2025Q4  11.1 </code></pre>
+</div>
+</div></div>
+<aside class="notes">
+<p>Start from the data, not the table. Six rows, two columns, already formatted to one decimal by <code>fmt1()</code>.</p>
+<p>Ask: what is wrong with this as something a minister reads?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">tt</span>(recent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<script>
+// TinyTable JavaScript Framework
+// Function factory for creating table-specific operations
+window.TinyTable = {
+  // Helper to create Tabulator instance with Luxon dependency
+  createTabulator: function(elementId, config) {
+    const { DateTime } = window.luxon || {};
+    return new Tabulator(elementId, {
+      dependencies: { DateTime },
+      ...config
+    });
+  },
+
+  createTableFunctions: function (tableId) {
+    const spans = []; // {top, left, rowspan, colspan}
+
+    function resolveToAnchor(i, j) {
+      // find if (i,j) is inside any span; return that span's anchor if so
+      for (const s of spans) {
+        if (
+          i >= s.top && i < s.top + s.rowspan &&
+          j >= s.left && j < s.left + s.colspan
+        ) {
+          return { i: s.top, j: s.left };
+        }
+      }
+      return { i, j };
+    }
+
+    return {
+      styleCell: function (i, j, css_id) {
+        // normalize possible string indices
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const { i: ai, j: aj } = resolveToAnchor(i, j);
+        const cell = table.querySelector(`[data-row="${ai}"][data-col="${aj}"]`);
+        if (!cell) return; // silently skip if not found (e.g., removed)
+        cell.classList.add(css_id);
+      },
+
+      spanCell: function (i, j, rowspan, colspan) {
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+          return;
+        }
+
+        // record span so future styleCell calls map to the anchor
+        spans.push({ top: i, left: j, rowspan, colspan });
+
+        // remove covered cells (except anchor)
+        const cellsToRemove = [];
+        for (let r = 0; r < rowspan; r++) {
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue;
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) cellsToRemove.push(cell);
+          }
+        }
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // set HTML attributes for clarity/serialization
+        targetCell.setAttribute('rowspan', rowspan);
+        targetCell.setAttribute('colspan', colspan);
+      }
+    };
+  }
+};
+
+// =============================================================================
+// TABULATOR CUSTOM FORMATTERS (revised)
+// =============================================================================
+
+// SVG sparkline
+function tinytable_sparkline(cell, p = {}) {
+  let values = cell.getValue() ?? [];
+  if (!Array.isArray(values)) values = [values];
+  // coerce to finite numbers & strip NaNs
+  values = values.map(Number).filter(Number.isFinite);
+  const n = values.length;
+  if (n === 0) return "";
+
+  const w = p.width ?? 120, h = p.height ?? 30, pad = p.pad ?? 2;
+  const color = p.color ?? "currentColor", sw = p.strokeWidth ?? 1.5;
+  const fill = p.fillArea ?? false;
+  const showDots = p.showDots ?? false;
+  const dotR = p.dotRadius ?? 1.75;
+  const ariaLabel = p.ariaLabel ?? `sparkline with ${n} points`;
+
+  // single pass for min/max
+  let min = Infinity, max = -Infinity;
+  for (let v of values) { if (v < min) min = v; if (v > max) max = v; }
+  const span = (max - min) || 1;
+
+  const x = i => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+  const y = v => h - pad - ((v - min) * (h - 2 * pad)) / span;
+
+  let d = `M ${x(0)},${y(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${x(i)},${y(values[i])}`;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("width", w);
+  svg.setAttribute("height", h);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", ariaLabel);
+
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("stroke", color);
+  path.setAttribute("stroke-width", sw);
+  path.setAttribute("vector-effect", "non-scaling-stroke");
+
+  if (fill) {
+    const area = document.createElementNS(NS, "path");
+    area.setAttribute("d", d + ` L ${x(n - 1)},${h - pad} L ${x(0)},${h - pad} Z`);
+    area.setAttribute("fill", color);
+    area.setAttribute("fill-opacity", p.fillOpacity ?? 0.25);
+    svg.appendChild(area);
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  } else {
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  }
+  svg.appendChild(path);
+
+  if (showDots) {
+    const dot = (i) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x(i));
+      c.setAttribute("cy", y(values[i]));
+      c.setAttribute("r", dotR);
+      c.setAttribute("fill", color);
+      return c;
+    };
+    if (p.dots === "end") svg.appendChild(dot(n - 1));
+    else if (p.dots === "minmax") {
+      const iMin = values.indexOf(min), iMax = values.indexOf(max);
+      svg.appendChild(dot(iMin)); svg.appendChild(dot(iMax));
+    } else if (p.dots === true) {
+      for (let i = 0; i < n; i++) svg.appendChild(dot(i));
+    }
+  }
+
+  if (p.title) {
+    const title = document.createElementNS(NS, "title");
+    title.textContent = p.title;
+    svg.appendChild(title);
+  }
+
+  return svg;
+}
+
+// Canvas histogram
+function tinytable_histogram(cell, p = {}) {
+  let data = cell.getValue() ?? [];
+  if (!Array.isArray(data)) data = [data];
+  data = data.map(Number).filter(Number.isFinite);
+  const n = data.length;
+  if (n === 0) return "";
+
+  const cssWidth = p.width ?? 120;
+  const cssHeight = p.height ?? 30;
+  const color = p.color ?? "currentColor";
+  const gap = p.gap ?? 1;         // px gap between bars
+  const pad = p.pad ?? 0;         // inner padding
+  const ariaLabel = p.ariaLabel ?? `histogram with ${n} observations`;
+
+  // robust bins: Sturges as default; allow override
+  const k = Math.max(1, Math.min(64, p.bins ?? Math.ceil(Math.log2(n) + 1)));
+
+  // stats
+  let min = Infinity, max = -Infinity;
+  for (let v of data) { if (v < min) min = v; if (v > max) max = v; }
+
+  // zero-range safeguard -> single centered bar
+  const range = max - min;
+  const binWidth = range > 0 ? range / k : 1;
+
+  const bins = new Array(k).fill(0);
+  if (range === 0) {
+    // put all mass in the middle bin
+    bins[Math.floor(k / 2)] = n;
+  } else {
+    for (let v of data) {
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx >= k) idx = k - 1; // clamp max edge
+      bins[idx]++;
+    }
+  }
+  const maxCount = Math.max(...bins, 1);
+
+  // HiDPI / Retina crispness
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", ariaLabel);
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = color;
+
+  const innerW = cssWidth - pad * 2;
+  const innerH = cssHeight - pad * 2;
+  const barW = innerW / k;
+
+  for (let i = 0; i < k; i++) {
+    const h = (bins[i] / maxCount) * innerH;
+    const x = pad + i * barW;
+    const y = cssHeight - pad - h;
+    // 0.5 translate helps crisp vertical edges on some displays
+    ctx.fillRect(Math.round(x) + 0.5, Math.floor(y), Math.max(0, barW - gap), Math.ceil(h));
+  }
+
+  if (p.title) canvas.title = p.title;
+  return canvas;
+}
+
+// Unified sorter that uses hidden rank field
+function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
+  const rankField = sorterParams.rankField;
+  const aVal = aRow.getData()[rankField] || 0;
+  const bVal = bRow.getData()[rankField] || 0;
+  return aVal - bVal;
+}
+</script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_7fim80v2n9p2gb4jq6vj = TinyTable.createTableFunctions("tinytable_7fim80v2n9p2gb4jq6vj");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_mnunao58nckstf2y5blv',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_99605oeoq8o8m4iz0cxo',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_7fim80v2n9p2gb4jq6vj.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+
+/* ========================================================================
+ * tinytable CSS - Core styling for HTML table output
+ * ======================================================================== */
+
+/* ========================================================================
+ * CSS Custom Properties (Theme Variables)
+ * ======================================================================== */
+.tinytable {
+    /* Colors */
+    --tt-text-color: inherit;
+    --tt-line-color: black;
+    --tt-border-color: var(--tt-line-color);
+    --tt-striped-bg: rgba(0, 0, 0, .05);
+    --tt-hover-bg: rgba(0, 0, 0, .075);
+    --tt-background-color: transparent;
+    --tt-footnote-bg: var(--tt-background-color);
+
+    /* Spacing */
+    --tt-cell-padding: .5rem;
+    --tt-cell-padding-sm: calc(var(--tt-cell-padding) / 2);
+    --tt-table-margin: .5rem 0;
+    --tt-caption-padding: .5rem 0;
+    --tt-footnote-padding: .2rem .5rem;
+    --tt-footnote-first-padding-top: .5rem;
+    --tt-footnote-gap: .1rem;
+    --tt-container-padding: 10px;
+
+    /* Typography */
+    --tt-font-size-footnote: 0.875rem;
+    --tt-font-size-caption: 1rem;
+    --tt-font-size-sup: 0.75em;
+    --tt-line-height-footnote: 1.25;
+    --tt-line-height-footnote-tight: 1.2;
+    --tt-font-weight-header: normal;
+
+    /* Alignment */
+    --tt-cell-valign: top;
+    --tt-header-align: left;
+    --tt-header-valign: bottom;
+    --tt-caption-align: var(--tt-header-align);
+    --tt-caption-side: top;
+
+    /* Layout */
+    --tt-table-width: 100%;
+
+    /* Border widths */
+    --tt-border-width: 1px;
+    --tt-border-width-tbody: 2px;
+}
+
+/* ========================================================================
+ * Base Table Styles
+ * ======================================================================== */
+.tinytable {
+    width: var(--tt-table-width);
+    margin: var(--tt-table-margin);
+    border-collapse: collapse;
+    background-color: var(--tt-background-color);
+    color: var(--tt-text-color);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tinytable *:not(mjx-container):not(mjx-container *) {
+    font-family: inherit;
+}
+
+/* ========================================================================
+ * Cell Styles
+ * ======================================================================== */
+.tinytable th,
+.tinytable td {
+    position: relative;
+    padding: var(--tt-cell-padding);
+    vertical-align: var(--tt-cell-valign);
+}
+
+.tinytable thead th {
+    text-align: var(--tt-header-align);
+    vertical-align: var(--tt-header-valign);
+    font-weight: var(--tt-font-weight-header);
+    border-bottom: none;
+}
+
+.tinytable thead th[align="center"] {
+    text-align: center;
+}
+
+.tinytable tbody + tbody {
+    border-top: var(--tt-border-width-tbody) solid var(--tt-border-color);
+}
+
+/* ========================================================================
+ * Table Variants
+ * ======================================================================== */
+
+/* Small padding variant */
+.tinytable-sm th,
+.tinytable-sm td {
+    padding: var(--tt-cell-padding-sm);
+}
+
+/* Bordered variant */
+.tinytable-bordered {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+.tinytable-bordered th,
+.tinytable-bordered td {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+/* Striped rows variant */
+.tinytable-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--tt-striped-bg);
+}
+
+/* Hover effect variant */
+.tinytable-hover tbody tr:hover {
+    background-color: var(--tt-hover-bg);
+}
+
+/* Responsive wrapper */
+.tinytable-responsive {
+    width: var(--tt-table-width);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================================================
+ * Custom Border System (Pseudo-elements)
+ * ======================================================================== */
+.tinytable :is(td, th)[class*="tinytable_css_"] {
+    position: relative;
+
+    /* Border control variables */
+    --border-top: 0;
+    --border-right: 0;
+    --border-bottom: 0;
+    --border-left: 0;
+
+    /* Border color variables */
+    --line-color-top: currentColor;
+    --line-color-right: currentColor;
+    --line-color-bottom: currentColor;
+    --line-color-left: currentColor;
+
+    /* Border width variables */
+    --line-width-top: 0.1em;
+    --line-width-right: 0.1em;
+    --line-width-bottom: 0.1em;
+    --line-width-left: 0.1em;
+
+    /* Border type variables */
+    --line-type-top: solid;
+    --line-type-right: solid;
+    --line-type-bottom: solid;
+    --line-type-left: solid;
+
+    /* Border trim variables */
+    --trim-top-left: 0%;
+    --trim-top-right: 0%;
+    --trim-right-top: 0%;
+    --trim-right-bottom: 0%;
+    --trim-bottom-left: 0%;
+    --trim-bottom-right: 0%;
+    --trim-left-top: 0%;
+    --trim-left-bottom: 0%;
+}
+
+/* Top, left, and right borders using ::before */
+.tinytable :is(td, th)[class*="tinytable_css_"]::before {
+    content: "";
+    position: absolute;
+    top: var(--trim-top-left, var(--trim-top-right, 0));
+    left: var(--trim-left-top, 0);
+    right: var(--trim-right-top, 0);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-top: calc(var(--border-top) * var(--line-width-top)) var(--line-type-top, solid) var(--line-color-top);
+    border-right: calc(var(--border-right) * var(--line-width-right)) var(--line-type-right, solid) var(--line-color-right);
+    border-left: calc(var(--border-left) * var(--line-width-left)) var(--line-type-left, solid) var(--line-color-left);
+}
+
+/* Bottom border using ::after */
+.tinytable :is(td, th)[class*="tinytable_css_"]::after {
+    content: "";
+    position: absolute;
+    left: var(--trim-bottom-left, 0);
+    right: var(--trim-bottom-right, 0);
+    bottom: var(--trim-left-bottom, var(--trim-right-bottom, 0));
+    height: 0;
+    border-bottom: calc(var(--border-bottom) * var(--line-width-bottom)) var(--line-type-bottom, solid) var(--line-color-bottom);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========================================================================
+ * Container and Layout Components
+ * ======================================================================== */
+.tinytable-container {
+    padding: var(--tt-container-padding);
+    overflow-x: auto;
+    overflow-y: auto;
+    width: auto;
+    height: auto;
+}
+
+/* ========================================================================
+ * Caption Styling
+ * ======================================================================== */
+.tinytable caption {
+    padding: var(--tt-caption-padding);
+    caption-side: var(--tt-caption-side);
+    font-size: var(--tt-font-size-caption);
+    text-align: var(--tt-caption-align);
+}
+
+/* ========================================================================
+ * Footnotes and Table Footer
+ * ======================================================================== */
+
+.tinytable tfoot tr:first-child td {
+    padding-top: var(--tt-footnote-first-padding-top);
+}
+
+.tinytable tfoot td {
+    padding: var(--tt-footnote-padding);
+    font-size: var(--tt-font-size-footnote);
+    line-height: var(--tt-line-height-footnote);
+    background-color: var(--tt-footnote-bg);
+}
+
+/* Remove extra gap between footnote rows */
+.tinytable tfoot tr + tr td {
+    padding-top: var(--tt-footnote-gap);
+}
+
+/* Make superscripts not inflate line boxes */
+.tinytable tfoot sup {
+    font-size: var(--tt-font-size-sup);
+    line-height: 0;
+    vertical-align: text-top;
+}
+
+/* Slightly tighter for wrapped footnote text */
+.tinytable tfoot tr:nth-child(n+2) td {
+    line-height: var(--tt-line-height-footnote-tight);
+}
+
+</style>
+    <style>
+    /* tinytable css entries after */
+    #tinytable_7fim80v2n9p2gb4jq6vj td.tinytable_css_mnunao58nckstf2y5blv, #tinytable_7fim80v2n9p2gb4jq6vj th.tinytable_css_mnunao58nckstf2y5blv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_7fim80v2n9p2gb4jq6vj td.tinytable_css_99605oeoq8o8m4iz0cxo, #tinytable_7fim80v2n9p2gb4jq6vj th.tinytable_css_99605oeoq8o8m4iz0cxo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_7fim80v2n9p2gb4jq6vj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Quarter</th>
+                <th scope="col" data-row="0" data-col="2">Rate</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">2024Q3</td>
+                  <td data-row="1" data-col="2">9.0</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">2024Q4</td>
+                  <td data-row="2" data-col="2">9.7</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">2025Q1</td>
+                  <td data-row="3" data-col="2">9.8</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">2025Q2</td>
+                  <td data-row="4" data-col="2">10.4</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">2025Q3</td>
+                  <td data-row="5" data-col="2">11.1</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">2025Q4</td>
+                  <td data-row="6" data-col="2">11.1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div></div>
+<aside class="notes">
+<p>One call. It is already a table in HTML, Word and PDF — that is the whole reason we picked tinytable.</p>
+<p>But it is Pandoc grey. Nothing about it says GASTAT.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a href="" aria-label="2"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<script>
+// TinyTable JavaScript Framework
+// Function factory for creating table-specific operations
+window.TinyTable = {
+  // Helper to create Tabulator instance with Luxon dependency
+  createTabulator: function(elementId, config) {
+    const { DateTime } = window.luxon || {};
+    return new Tabulator(elementId, {
+      dependencies: { DateTime },
+      ...config
+    });
+  },
+
+  createTableFunctions: function (tableId) {
+    const spans = []; // {top, left, rowspan, colspan}
+
+    function resolveToAnchor(i, j) {
+      // find if (i,j) is inside any span; return that span's anchor if so
+      for (const s of spans) {
+        if (
+          i >= s.top && i < s.top + s.rowspan &&
+          j >= s.left && j < s.left + s.colspan
+        ) {
+          return { i: s.top, j: s.left };
+        }
+      }
+      return { i, j };
+    }
+
+    return {
+      styleCell: function (i, j, css_id) {
+        // normalize possible string indices
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const { i: ai, j: aj } = resolveToAnchor(i, j);
+        const cell = table.querySelector(`[data-row="${ai}"][data-col="${aj}"]`);
+        if (!cell) return; // silently skip if not found (e.g., removed)
+        cell.classList.add(css_id);
+      },
+
+      spanCell: function (i, j, rowspan, colspan) {
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+          return;
+        }
+
+        // record span so future styleCell calls map to the anchor
+        spans.push({ top: i, left: j, rowspan, colspan });
+
+        // remove covered cells (except anchor)
+        const cellsToRemove = [];
+        for (let r = 0; r < rowspan; r++) {
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue;
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) cellsToRemove.push(cell);
+          }
+        }
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // set HTML attributes for clarity/serialization
+        targetCell.setAttribute('rowspan', rowspan);
+        targetCell.setAttribute('colspan', colspan);
+      }
+    };
+  }
+};
+
+// =============================================================================
+// TABULATOR CUSTOM FORMATTERS (revised)
+// =============================================================================
+
+// SVG sparkline
+function tinytable_sparkline(cell, p = {}) {
+  let values = cell.getValue() ?? [];
+  if (!Array.isArray(values)) values = [values];
+  // coerce to finite numbers & strip NaNs
+  values = values.map(Number).filter(Number.isFinite);
+  const n = values.length;
+  if (n === 0) return "";
+
+  const w = p.width ?? 120, h = p.height ?? 30, pad = p.pad ?? 2;
+  const color = p.color ?? "currentColor", sw = p.strokeWidth ?? 1.5;
+  const fill = p.fillArea ?? false;
+  const showDots = p.showDots ?? false;
+  const dotR = p.dotRadius ?? 1.75;
+  const ariaLabel = p.ariaLabel ?? `sparkline with ${n} points`;
+
+  // single pass for min/max
+  let min = Infinity, max = -Infinity;
+  for (let v of values) { if (v < min) min = v; if (v > max) max = v; }
+  const span = (max - min) || 1;
+
+  const x = i => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+  const y = v => h - pad - ((v - min) * (h - 2 * pad)) / span;
+
+  let d = `M ${x(0)},${y(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${x(i)},${y(values[i])}`;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("width", w);
+  svg.setAttribute("height", h);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", ariaLabel);
+
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("stroke", color);
+  path.setAttribute("stroke-width", sw);
+  path.setAttribute("vector-effect", "non-scaling-stroke");
+
+  if (fill) {
+    const area = document.createElementNS(NS, "path");
+    area.setAttribute("d", d + ` L ${x(n - 1)},${h - pad} L ${x(0)},${h - pad} Z`);
+    area.setAttribute("fill", color);
+    area.setAttribute("fill-opacity", p.fillOpacity ?? 0.25);
+    svg.appendChild(area);
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  } else {
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  }
+  svg.appendChild(path);
+
+  if (showDots) {
+    const dot = (i) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x(i));
+      c.setAttribute("cy", y(values[i]));
+      c.setAttribute("r", dotR);
+      c.setAttribute("fill", color);
+      return c;
+    };
+    if (p.dots === "end") svg.appendChild(dot(n - 1));
+    else if (p.dots === "minmax") {
+      const iMin = values.indexOf(min), iMax = values.indexOf(max);
+      svg.appendChild(dot(iMin)); svg.appendChild(dot(iMax));
+    } else if (p.dots === true) {
+      for (let i = 0; i < n; i++) svg.appendChild(dot(i));
+    }
+  }
+
+  if (p.title) {
+    const title = document.createElementNS(NS, "title");
+    title.textContent = p.title;
+    svg.appendChild(title);
+  }
+
+  return svg;
+}
+
+// Canvas histogram
+function tinytable_histogram(cell, p = {}) {
+  let data = cell.getValue() ?? [];
+  if (!Array.isArray(data)) data = [data];
+  data = data.map(Number).filter(Number.isFinite);
+  const n = data.length;
+  if (n === 0) return "";
+
+  const cssWidth = p.width ?? 120;
+  const cssHeight = p.height ?? 30;
+  const color = p.color ?? "currentColor";
+  const gap = p.gap ?? 1;         // px gap between bars
+  const pad = p.pad ?? 0;         // inner padding
+  const ariaLabel = p.ariaLabel ?? `histogram with ${n} observations`;
+
+  // robust bins: Sturges as default; allow override
+  const k = Math.max(1, Math.min(64, p.bins ?? Math.ceil(Math.log2(n) + 1)));
+
+  // stats
+  let min = Infinity, max = -Infinity;
+  for (let v of data) { if (v < min) min = v; if (v > max) max = v; }
+
+  // zero-range safeguard -> single centered bar
+  const range = max - min;
+  const binWidth = range > 0 ? range / k : 1;
+
+  const bins = new Array(k).fill(0);
+  if (range === 0) {
+    // put all mass in the middle bin
+    bins[Math.floor(k / 2)] = n;
+  } else {
+    for (let v of data) {
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx >= k) idx = k - 1; // clamp max edge
+      bins[idx]++;
+    }
+  }
+  const maxCount = Math.max(...bins, 1);
+
+  // HiDPI / Retina crispness
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", ariaLabel);
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = color;
+
+  const innerW = cssWidth - pad * 2;
+  const innerH = cssHeight - pad * 2;
+  const barW = innerW / k;
+
+  for (let i = 0; i < k; i++) {
+    const h = (bins[i] / maxCount) * innerH;
+    const x = pad + i * barW;
+    const y = cssHeight - pad - h;
+    // 0.5 translate helps crisp vertical edges on some displays
+    ctx.fillRect(Math.round(x) + 0.5, Math.floor(y), Math.max(0, barW - gap), Math.ceil(h));
+  }
+
+  if (p.title) canvas.title = p.title;
+  return canvas;
+}
+
+// Unified sorter that uses hidden rank field
+function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
+  const rankField = sorterParams.rankField;
+  const aVal = aRow.getData()[rankField] || 0;
+  const bVal = bRow.getData()[rankField] || 0;
+  return aVal - bVal;
+}
+</script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_151y8jpw9umijasz0syo = TinyTable.createTableFunctions("tinytable_151y8jpw9umijasz0syo");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_wqbrr17wzpbphz5wp2my',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_lcdg83j6dicuajk15h81',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_151y8jpw9umijasz0syo.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+
+/* ========================================================================
+ * tinytable CSS - Core styling for HTML table output
+ * ======================================================================== */
+
+/* ========================================================================
+ * CSS Custom Properties (Theme Variables)
+ * ======================================================================== */
+.tinytable {
+    /* Colors */
+    --tt-text-color: inherit;
+    --tt-line-color: black;
+    --tt-border-color: var(--tt-line-color);
+    --tt-striped-bg: rgba(0, 0, 0, .05);
+    --tt-hover-bg: rgba(0, 0, 0, .075);
+    --tt-background-color: transparent;
+    --tt-footnote-bg: var(--tt-background-color);
+
+    /* Spacing */
+    --tt-cell-padding: .5rem;
+    --tt-cell-padding-sm: calc(var(--tt-cell-padding) / 2);
+    --tt-table-margin: .5rem 0;
+    --tt-caption-padding: .5rem 0;
+    --tt-footnote-padding: .2rem .5rem;
+    --tt-footnote-first-padding-top: .5rem;
+    --tt-footnote-gap: .1rem;
+    --tt-container-padding: 10px;
+
+    /* Typography */
+    --tt-font-size-footnote: 0.875rem;
+    --tt-font-size-caption: 1rem;
+    --tt-font-size-sup: 0.75em;
+    --tt-line-height-footnote: 1.25;
+    --tt-line-height-footnote-tight: 1.2;
+    --tt-font-weight-header: normal;
+
+    /* Alignment */
+    --tt-cell-valign: top;
+    --tt-header-align: left;
+    --tt-header-valign: bottom;
+    --tt-caption-align: var(--tt-header-align);
+    --tt-caption-side: top;
+
+    /* Layout */
+    --tt-table-width: 100%;
+
+    /* Border widths */
+    --tt-border-width: 1px;
+    --tt-border-width-tbody: 2px;
+}
+
+/* ========================================================================
+ * Base Table Styles
+ * ======================================================================== */
+.tinytable {
+    width: var(--tt-table-width);
+    margin: var(--tt-table-margin);
+    border-collapse: collapse;
+    background-color: var(--tt-background-color);
+    color: var(--tt-text-color);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tinytable *:not(mjx-container):not(mjx-container *) {
+    font-family: inherit;
+}
+
+/* ========================================================================
+ * Cell Styles
+ * ======================================================================== */
+.tinytable th,
+.tinytable td {
+    position: relative;
+    padding: var(--tt-cell-padding);
+    vertical-align: var(--tt-cell-valign);
+}
+
+.tinytable thead th {
+    text-align: var(--tt-header-align);
+    vertical-align: var(--tt-header-valign);
+    font-weight: var(--tt-font-weight-header);
+    border-bottom: none;
+}
+
+.tinytable thead th[align="center"] {
+    text-align: center;
+}
+
+.tinytable tbody + tbody {
+    border-top: var(--tt-border-width-tbody) solid var(--tt-border-color);
+}
+
+/* ========================================================================
+ * Table Variants
+ * ======================================================================== */
+
+/* Small padding variant */
+.tinytable-sm th,
+.tinytable-sm td {
+    padding: var(--tt-cell-padding-sm);
+}
+
+/* Bordered variant */
+.tinytable-bordered {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+.tinytable-bordered th,
+.tinytable-bordered td {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+/* Striped rows variant */
+.tinytable-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--tt-striped-bg);
+}
+
+/* Hover effect variant */
+.tinytable-hover tbody tr:hover {
+    background-color: var(--tt-hover-bg);
+}
+
+/* Responsive wrapper */
+.tinytable-responsive {
+    width: var(--tt-table-width);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================================================
+ * Custom Border System (Pseudo-elements)
+ * ======================================================================== */
+.tinytable :is(td, th)[class*="tinytable_css_"] {
+    position: relative;
+
+    /* Border control variables */
+    --border-top: 0;
+    --border-right: 0;
+    --border-bottom: 0;
+    --border-left: 0;
+
+    /* Border color variables */
+    --line-color-top: currentColor;
+    --line-color-right: currentColor;
+    --line-color-bottom: currentColor;
+    --line-color-left: currentColor;
+
+    /* Border width variables */
+    --line-width-top: 0.1em;
+    --line-width-right: 0.1em;
+    --line-width-bottom: 0.1em;
+    --line-width-left: 0.1em;
+
+    /* Border type variables */
+    --line-type-top: solid;
+    --line-type-right: solid;
+    --line-type-bottom: solid;
+    --line-type-left: solid;
+
+    /* Border trim variables */
+    --trim-top-left: 0%;
+    --trim-top-right: 0%;
+    --trim-right-top: 0%;
+    --trim-right-bottom: 0%;
+    --trim-bottom-left: 0%;
+    --trim-bottom-right: 0%;
+    --trim-left-top: 0%;
+    --trim-left-bottom: 0%;
+}
+
+/* Top, left, and right borders using ::before */
+.tinytable :is(td, th)[class*="tinytable_css_"]::before {
+    content: "";
+    position: absolute;
+    top: var(--trim-top-left, var(--trim-top-right, 0));
+    left: var(--trim-left-top, 0);
+    right: var(--trim-right-top, 0);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-top: calc(var(--border-top) * var(--line-width-top)) var(--line-type-top, solid) var(--line-color-top);
+    border-right: calc(var(--border-right) * var(--line-width-right)) var(--line-type-right, solid) var(--line-color-right);
+    border-left: calc(var(--border-left) * var(--line-width-left)) var(--line-type-left, solid) var(--line-color-left);
+}
+
+/* Bottom border using ::after */
+.tinytable :is(td, th)[class*="tinytable_css_"]::after {
+    content: "";
+    position: absolute;
+    left: var(--trim-bottom-left, 0);
+    right: var(--trim-bottom-right, 0);
+    bottom: var(--trim-left-bottom, var(--trim-right-bottom, 0));
+    height: 0;
+    border-bottom: calc(var(--border-bottom) * var(--line-width-bottom)) var(--line-type-bottom, solid) var(--line-color-bottom);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========================================================================
+ * Container and Layout Components
+ * ======================================================================== */
+.tinytable-container {
+    padding: var(--tt-container-padding);
+    overflow-x: auto;
+    overflow-y: auto;
+    width: auto;
+    height: auto;
+}
+
+/* ========================================================================
+ * Caption Styling
+ * ======================================================================== */
+.tinytable caption {
+    padding: var(--tt-caption-padding);
+    caption-side: var(--tt-caption-side);
+    font-size: var(--tt-font-size-caption);
+    text-align: var(--tt-caption-align);
+}
+
+/* ========================================================================
+ * Footnotes and Table Footer
+ * ======================================================================== */
+
+.tinytable tfoot tr:first-child td {
+    padding-top: var(--tt-footnote-first-padding-top);
+}
+
+.tinytable tfoot td {
+    padding: var(--tt-footnote-padding);
+    font-size: var(--tt-font-size-footnote);
+    line-height: var(--tt-line-height-footnote);
+    background-color: var(--tt-footnote-bg);
+}
+
+/* Remove extra gap between footnote rows */
+.tinytable tfoot tr + tr td {
+    padding-top: var(--tt-footnote-gap);
+}
+
+/* Make superscripts not inflate line boxes */
+.tinytable tfoot sup {
+    font-size: var(--tt-font-size-sup);
+    line-height: 0;
+    vertical-align: text-top;
+}
+
+/* Slightly tighter for wrapped footnote text */
+.tinytable tfoot tr:nth-child(n+2) td {
+    line-height: var(--tt-line-height-footnote-tight);
+}
+
+</style>
+    <style>
+    /* tinytable css entries after */
+    #tinytable_151y8jpw9umijasz0syo td.tinytable_css_wqbrr17wzpbphz5wp2my, #tinytable_151y8jpw9umijasz0syo th.tinytable_css_wqbrr17wzpbphz5wp2my {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_151y8jpw9umijasz0syo td.tinytable_css_lcdg83j6dicuajk15h81, #tinytable_151y8jpw9umijasz0syo th.tinytable_css_lcdg83j6dicuajk15h81 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_151y8jpw9umijasz0syo" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Quarter</th>
+                <th scope="col" data-row="0" data-col="2">Rate</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">2024Q3</td>
+                  <td data-row="1" data-col="2">9.0</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">2024Q4</td>
+                  <td data-row="2" data-col="2">9.7</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">2025Q1</td>
+                  <td data-row="3" data-col="2">9.8</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">2025Q2</td>
+                  <td data-row="4" data-col="2">10.4</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">2025Q3</td>
+                  <td data-row="5" data-col="2">11.1</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">2025Q4</td>
+                  <td data-row="6" data-col="2">11.1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div></div>
+<aside class="notes">
+<p><code>i = 0</code> is the header row. Row numbering starts at 1, so zero is the one above.</p>
+<p>One line, and the header separates from the body.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="3,4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb13-2" class="hljs-ln-code"><a href="" aria-label="2"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">line =</span> <span class="st">"b"</span>,</span>
+<span id="cb13-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line_color =</span> indigo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<script>
+// TinyTable JavaScript Framework
+// Function factory for creating table-specific operations
+window.TinyTable = {
+  // Helper to create Tabulator instance with Luxon dependency
+  createTabulator: function(elementId, config) {
+    const { DateTime } = window.luxon || {};
+    return new Tabulator(elementId, {
+      dependencies: { DateTime },
+      ...config
+    });
+  },
+
+  createTableFunctions: function (tableId) {
+    const spans = []; // {top, left, rowspan, colspan}
+
+    function resolveToAnchor(i, j) {
+      // find if (i,j) is inside any span; return that span's anchor if so
+      for (const s of spans) {
+        if (
+          i >= s.top && i < s.top + s.rowspan &&
+          j >= s.left && j < s.left + s.colspan
+        ) {
+          return { i: s.top, j: s.left };
+        }
+      }
+      return { i, j };
+    }
+
+    return {
+      styleCell: function (i, j, css_id) {
+        // normalize possible string indices
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const { i: ai, j: aj } = resolveToAnchor(i, j);
+        const cell = table.querySelector(`[data-row="${ai}"][data-col="${aj}"]`);
+        if (!cell) return; // silently skip if not found (e.g., removed)
+        cell.classList.add(css_id);
+      },
+
+      spanCell: function (i, j, rowspan, colspan) {
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+          return;
+        }
+
+        // record span so future styleCell calls map to the anchor
+        spans.push({ top: i, left: j, rowspan, colspan });
+
+        // remove covered cells (except anchor)
+        const cellsToRemove = [];
+        for (let r = 0; r < rowspan; r++) {
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue;
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) cellsToRemove.push(cell);
+          }
+        }
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // set HTML attributes for clarity/serialization
+        targetCell.setAttribute('rowspan', rowspan);
+        targetCell.setAttribute('colspan', colspan);
+      }
+    };
+  }
+};
+
+// =============================================================================
+// TABULATOR CUSTOM FORMATTERS (revised)
+// =============================================================================
+
+// SVG sparkline
+function tinytable_sparkline(cell, p = {}) {
+  let values = cell.getValue() ?? [];
+  if (!Array.isArray(values)) values = [values];
+  // coerce to finite numbers & strip NaNs
+  values = values.map(Number).filter(Number.isFinite);
+  const n = values.length;
+  if (n === 0) return "";
+
+  const w = p.width ?? 120, h = p.height ?? 30, pad = p.pad ?? 2;
+  const color = p.color ?? "currentColor", sw = p.strokeWidth ?? 1.5;
+  const fill = p.fillArea ?? false;
+  const showDots = p.showDots ?? false;
+  const dotR = p.dotRadius ?? 1.75;
+  const ariaLabel = p.ariaLabel ?? `sparkline with ${n} points`;
+
+  // single pass for min/max
+  let min = Infinity, max = -Infinity;
+  for (let v of values) { if (v < min) min = v; if (v > max) max = v; }
+  const span = (max - min) || 1;
+
+  const x = i => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+  const y = v => h - pad - ((v - min) * (h - 2 * pad)) / span;
+
+  let d = `M ${x(0)},${y(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${x(i)},${y(values[i])}`;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("width", w);
+  svg.setAttribute("height", h);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", ariaLabel);
+
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("stroke", color);
+  path.setAttribute("stroke-width", sw);
+  path.setAttribute("vector-effect", "non-scaling-stroke");
+
+  if (fill) {
+    const area = document.createElementNS(NS, "path");
+    area.setAttribute("d", d + ` L ${x(n - 1)},${h - pad} L ${x(0)},${h - pad} Z`);
+    area.setAttribute("fill", color);
+    area.setAttribute("fill-opacity", p.fillOpacity ?? 0.25);
+    svg.appendChild(area);
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  } else {
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  }
+  svg.appendChild(path);
+
+  if (showDots) {
+    const dot = (i) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x(i));
+      c.setAttribute("cy", y(values[i]));
+      c.setAttribute("r", dotR);
+      c.setAttribute("fill", color);
+      return c;
+    };
+    if (p.dots === "end") svg.appendChild(dot(n - 1));
+    else if (p.dots === "minmax") {
+      const iMin = values.indexOf(min), iMax = values.indexOf(max);
+      svg.appendChild(dot(iMin)); svg.appendChild(dot(iMax));
+    } else if (p.dots === true) {
+      for (let i = 0; i < n; i++) svg.appendChild(dot(i));
+    }
+  }
+
+  if (p.title) {
+    const title = document.createElementNS(NS, "title");
+    title.textContent = p.title;
+    svg.appendChild(title);
+  }
+
+  return svg;
+}
+
+// Canvas histogram
+function tinytable_histogram(cell, p = {}) {
+  let data = cell.getValue() ?? [];
+  if (!Array.isArray(data)) data = [data];
+  data = data.map(Number).filter(Number.isFinite);
+  const n = data.length;
+  if (n === 0) return "";
+
+  const cssWidth = p.width ?? 120;
+  const cssHeight = p.height ?? 30;
+  const color = p.color ?? "currentColor";
+  const gap = p.gap ?? 1;         // px gap between bars
+  const pad = p.pad ?? 0;         // inner padding
+  const ariaLabel = p.ariaLabel ?? `histogram with ${n} observations`;
+
+  // robust bins: Sturges as default; allow override
+  const k = Math.max(1, Math.min(64, p.bins ?? Math.ceil(Math.log2(n) + 1)));
+
+  // stats
+  let min = Infinity, max = -Infinity;
+  for (let v of data) { if (v < min) min = v; if (v > max) max = v; }
+
+  // zero-range safeguard -> single centered bar
+  const range = max - min;
+  const binWidth = range > 0 ? range / k : 1;
+
+  const bins = new Array(k).fill(0);
+  if (range === 0) {
+    // put all mass in the middle bin
+    bins[Math.floor(k / 2)] = n;
+  } else {
+    for (let v of data) {
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx >= k) idx = k - 1; // clamp max edge
+      bins[idx]++;
+    }
+  }
+  const maxCount = Math.max(...bins, 1);
+
+  // HiDPI / Retina crispness
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", ariaLabel);
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = color;
+
+  const innerW = cssWidth - pad * 2;
+  const innerH = cssHeight - pad * 2;
+  const barW = innerW / k;
+
+  for (let i = 0; i < k; i++) {
+    const h = (bins[i] / maxCount) * innerH;
+    const x = pad + i * barW;
+    const y = cssHeight - pad - h;
+    // 0.5 translate helps crisp vertical edges on some displays
+    ctx.fillRect(Math.round(x) + 0.5, Math.floor(y), Math.max(0, barW - gap), Math.ceil(h));
+  }
+
+  if (p.title) canvas.title = p.title;
+  return canvas;
+}
+
+// Unified sorter that uses hidden rank field
+function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
+  const rankField = sorterParams.rankField;
+  const aVal = aRow.getData()[rankField] || 0;
+  const bVal = bRow.getData()[rankField] || 0;
+  return aVal - bVal;
+}
+</script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_3j38gi5bc7rsb53bqee5 = TinyTable.createTableFunctions("tinytable_3j38gi5bc7rsb53bqee5");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_qs6if93ix2w0tqxwi7vx',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_1m5frna4i0x80uwyygda',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_3j38gi5bc7rsb53bqee5.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+
+/* ========================================================================
+ * tinytable CSS - Core styling for HTML table output
+ * ======================================================================== */
+
+/* ========================================================================
+ * CSS Custom Properties (Theme Variables)
+ * ======================================================================== */
+.tinytable {
+    /* Colors */
+    --tt-text-color: inherit;
+    --tt-line-color: black;
+    --tt-border-color: var(--tt-line-color);
+    --tt-striped-bg: rgba(0, 0, 0, .05);
+    --tt-hover-bg: rgba(0, 0, 0, .075);
+    --tt-background-color: transparent;
+    --tt-footnote-bg: var(--tt-background-color);
+
+    /* Spacing */
+    --tt-cell-padding: .5rem;
+    --tt-cell-padding-sm: calc(var(--tt-cell-padding) / 2);
+    --tt-table-margin: .5rem 0;
+    --tt-caption-padding: .5rem 0;
+    --tt-footnote-padding: .2rem .5rem;
+    --tt-footnote-first-padding-top: .5rem;
+    --tt-footnote-gap: .1rem;
+    --tt-container-padding: 10px;
+
+    /* Typography */
+    --tt-font-size-footnote: 0.875rem;
+    --tt-font-size-caption: 1rem;
+    --tt-font-size-sup: 0.75em;
+    --tt-line-height-footnote: 1.25;
+    --tt-line-height-footnote-tight: 1.2;
+    --tt-font-weight-header: normal;
+
+    /* Alignment */
+    --tt-cell-valign: top;
+    --tt-header-align: left;
+    --tt-header-valign: bottom;
+    --tt-caption-align: var(--tt-header-align);
+    --tt-caption-side: top;
+
+    /* Layout */
+    --tt-table-width: 100%;
+
+    /* Border widths */
+    --tt-border-width: 1px;
+    --tt-border-width-tbody: 2px;
+}
+
+/* ========================================================================
+ * Base Table Styles
+ * ======================================================================== */
+.tinytable {
+    width: var(--tt-table-width);
+    margin: var(--tt-table-margin);
+    border-collapse: collapse;
+    background-color: var(--tt-background-color);
+    color: var(--tt-text-color);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tinytable *:not(mjx-container):not(mjx-container *) {
+    font-family: inherit;
+}
+
+/* ========================================================================
+ * Cell Styles
+ * ======================================================================== */
+.tinytable th,
+.tinytable td {
+    position: relative;
+    padding: var(--tt-cell-padding);
+    vertical-align: var(--tt-cell-valign);
+}
+
+.tinytable thead th {
+    text-align: var(--tt-header-align);
+    vertical-align: var(--tt-header-valign);
+    font-weight: var(--tt-font-weight-header);
+    border-bottom: none;
+}
+
+.tinytable thead th[align="center"] {
+    text-align: center;
+}
+
+.tinytable tbody + tbody {
+    border-top: var(--tt-border-width-tbody) solid var(--tt-border-color);
+}
+
+/* ========================================================================
+ * Table Variants
+ * ======================================================================== */
+
+/* Small padding variant */
+.tinytable-sm th,
+.tinytable-sm td {
+    padding: var(--tt-cell-padding-sm);
+}
+
+/* Bordered variant */
+.tinytable-bordered {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+.tinytable-bordered th,
+.tinytable-bordered td {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+/* Striped rows variant */
+.tinytable-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--tt-striped-bg);
+}
+
+/* Hover effect variant */
+.tinytable-hover tbody tr:hover {
+    background-color: var(--tt-hover-bg);
+}
+
+/* Responsive wrapper */
+.tinytable-responsive {
+    width: var(--tt-table-width);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================================================
+ * Custom Border System (Pseudo-elements)
+ * ======================================================================== */
+.tinytable :is(td, th)[class*="tinytable_css_"] {
+    position: relative;
+
+    /* Border control variables */
+    --border-top: 0;
+    --border-right: 0;
+    --border-bottom: 0;
+    --border-left: 0;
+
+    /* Border color variables */
+    --line-color-top: currentColor;
+    --line-color-right: currentColor;
+    --line-color-bottom: currentColor;
+    --line-color-left: currentColor;
+
+    /* Border width variables */
+    --line-width-top: 0.1em;
+    --line-width-right: 0.1em;
+    --line-width-bottom: 0.1em;
+    --line-width-left: 0.1em;
+
+    /* Border type variables */
+    --line-type-top: solid;
+    --line-type-right: solid;
+    --line-type-bottom: solid;
+    --line-type-left: solid;
+
+    /* Border trim variables */
+    --trim-top-left: 0%;
+    --trim-top-right: 0%;
+    --trim-right-top: 0%;
+    --trim-right-bottom: 0%;
+    --trim-bottom-left: 0%;
+    --trim-bottom-right: 0%;
+    --trim-left-top: 0%;
+    --trim-left-bottom: 0%;
+}
+
+/* Top, left, and right borders using ::before */
+.tinytable :is(td, th)[class*="tinytable_css_"]::before {
+    content: "";
+    position: absolute;
+    top: var(--trim-top-left, var(--trim-top-right, 0));
+    left: var(--trim-left-top, 0);
+    right: var(--trim-right-top, 0);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-top: calc(var(--border-top) * var(--line-width-top)) var(--line-type-top, solid) var(--line-color-top);
+    border-right: calc(var(--border-right) * var(--line-width-right)) var(--line-type-right, solid) var(--line-color-right);
+    border-left: calc(var(--border-left) * var(--line-width-left)) var(--line-type-left, solid) var(--line-color-left);
+}
+
+/* Bottom border using ::after */
+.tinytable :is(td, th)[class*="tinytable_css_"]::after {
+    content: "";
+    position: absolute;
+    left: var(--trim-bottom-left, 0);
+    right: var(--trim-bottom-right, 0);
+    bottom: var(--trim-left-bottom, var(--trim-right-bottom, 0));
+    height: 0;
+    border-bottom: calc(var(--border-bottom) * var(--line-width-bottom)) var(--line-type-bottom, solid) var(--line-color-bottom);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========================================================================
+ * Container and Layout Components
+ * ======================================================================== */
+.tinytable-container {
+    padding: var(--tt-container-padding);
+    overflow-x: auto;
+    overflow-y: auto;
+    width: auto;
+    height: auto;
+}
+
+/* ========================================================================
+ * Caption Styling
+ * ======================================================================== */
+.tinytable caption {
+    padding: var(--tt-caption-padding);
+    caption-side: var(--tt-caption-side);
+    font-size: var(--tt-font-size-caption);
+    text-align: var(--tt-caption-align);
+}
+
+/* ========================================================================
+ * Footnotes and Table Footer
+ * ======================================================================== */
+
+.tinytable tfoot tr:first-child td {
+    padding-top: var(--tt-footnote-first-padding-top);
+}
+
+.tinytable tfoot td {
+    padding: var(--tt-footnote-padding);
+    font-size: var(--tt-font-size-footnote);
+    line-height: var(--tt-line-height-footnote);
+    background-color: var(--tt-footnote-bg);
+}
+
+/* Remove extra gap between footnote rows */
+.tinytable tfoot tr + tr td {
+    padding-top: var(--tt-footnote-gap);
+}
+
+/* Make superscripts not inflate line boxes */
+.tinytable tfoot sup {
+    font-size: var(--tt-font-size-sup);
+    line-height: 0;
+    vertical-align: text-top;
+}
+
+/* Slightly tighter for wrapped footnote text */
+.tinytable tfoot tr:nth-child(n+2) td {
+    line-height: var(--tt-line-height-footnote-tight);
+}
+
+</style>
+    <style>
+    /* tinytable css entries after */
+    #tinytable_3j38gi5bc7rsb53bqee5 td.tinytable_css_qs6if93ix2w0tqxwi7vx, #tinytable_3j38gi5bc7rsb53bqee5 th.tinytable_css_qs6if93ix2w0tqxwi7vx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_3j38gi5bc7rsb53bqee5 td.tinytable_css_1m5frna4i0x80uwyygda, #tinytable_3j38gi5bc7rsb53bqee5 th.tinytable_css_1m5frna4i0x80uwyygda {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_3j38gi5bc7rsb53bqee5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Quarter</th>
+                <th scope="col" data-row="0" data-col="2">Rate</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">2024Q3</td>
+                  <td data-row="1" data-col="2">9.0</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">2024Q4</td>
+                  <td data-row="2" data-col="2">9.7</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">2025Q1</td>
+                  <td data-row="3" data-col="2">9.8</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">2025Q2</td>
+                  <td data-row="4" data-col="2">10.4</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">2025Q3</td>
+                  <td data-row="5" data-col="2">11.1</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">2025Q4</td>
+                  <td data-row="6" data-col="2">11.1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div></div>
+<aside class="notes">
+<p><code>line = "b"</code> draws below the header. The colour is the brand indigo, read from <code>_brand.yml</code> through <code>R/course.R</code> — not typed here.</p>
+<p>This is the 2px rule from the visual system.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb14-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb14-2" class="hljs-ln-code"><a href="" aria-label="2"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">line =</span> <span class="st">"b"</span>,</span>
+<span id="cb14-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line_color =</span> indigo) <span class="sc">|&gt;</span></span>
+<span id="cb14-5" class="hljs-ln-code"><a href="" aria-label="5"></a>  <span class="fu">style_tt</span>(<span class="at">j =</span> <span class="dv">2</span>, <span class="at">color =</span> green)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<script>
+// TinyTable JavaScript Framework
+// Function factory for creating table-specific operations
+window.TinyTable = {
+  // Helper to create Tabulator instance with Luxon dependency
+  createTabulator: function(elementId, config) {
+    const { DateTime } = window.luxon || {};
+    return new Tabulator(elementId, {
+      dependencies: { DateTime },
+      ...config
+    });
+  },
+
+  createTableFunctions: function (tableId) {
+    const spans = []; // {top, left, rowspan, colspan}
+
+    function resolveToAnchor(i, j) {
+      // find if (i,j) is inside any span; return that span's anchor if so
+      for (const s of spans) {
+        if (
+          i >= s.top && i < s.top + s.rowspan &&
+          j >= s.left && j < s.left + s.colspan
+        ) {
+          return { i: s.top, j: s.left };
+        }
+      }
+      return { i, j };
+    }
+
+    return {
+      styleCell: function (i, j, css_id) {
+        // normalize possible string indices
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const { i: ai, j: aj } = resolveToAnchor(i, j);
+        const cell = table.querySelector(`[data-row="${ai}"][data-col="${aj}"]`);
+        if (!cell) return; // silently skip if not found (e.g., removed)
+        cell.classList.add(css_id);
+      },
+
+      spanCell: function (i, j, rowspan, colspan) {
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+          return;
+        }
+
+        // record span so future styleCell calls map to the anchor
+        spans.push({ top: i, left: j, rowspan, colspan });
+
+        // remove covered cells (except anchor)
+        const cellsToRemove = [];
+        for (let r = 0; r < rowspan; r++) {
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue;
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) cellsToRemove.push(cell);
+          }
+        }
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // set HTML attributes for clarity/serialization
+        targetCell.setAttribute('rowspan', rowspan);
+        targetCell.setAttribute('colspan', colspan);
+      }
+    };
+  }
+};
+
+// =============================================================================
+// TABULATOR CUSTOM FORMATTERS (revised)
+// =============================================================================
+
+// SVG sparkline
+function tinytable_sparkline(cell, p = {}) {
+  let values = cell.getValue() ?? [];
+  if (!Array.isArray(values)) values = [values];
+  // coerce to finite numbers & strip NaNs
+  values = values.map(Number).filter(Number.isFinite);
+  const n = values.length;
+  if (n === 0) return "";
+
+  const w = p.width ?? 120, h = p.height ?? 30, pad = p.pad ?? 2;
+  const color = p.color ?? "currentColor", sw = p.strokeWidth ?? 1.5;
+  const fill = p.fillArea ?? false;
+  const showDots = p.showDots ?? false;
+  const dotR = p.dotRadius ?? 1.75;
+  const ariaLabel = p.ariaLabel ?? `sparkline with ${n} points`;
+
+  // single pass for min/max
+  let min = Infinity, max = -Infinity;
+  for (let v of values) { if (v < min) min = v; if (v > max) max = v; }
+  const span = (max - min) || 1;
+
+  const x = i => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+  const y = v => h - pad - ((v - min) * (h - 2 * pad)) / span;
+
+  let d = `M ${x(0)},${y(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${x(i)},${y(values[i])}`;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("width", w);
+  svg.setAttribute("height", h);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", ariaLabel);
+
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("stroke", color);
+  path.setAttribute("stroke-width", sw);
+  path.setAttribute("vector-effect", "non-scaling-stroke");
+
+  if (fill) {
+    const area = document.createElementNS(NS, "path");
+    area.setAttribute("d", d + ` L ${x(n - 1)},${h - pad} L ${x(0)},${h - pad} Z`);
+    area.setAttribute("fill", color);
+    area.setAttribute("fill-opacity", p.fillOpacity ?? 0.25);
+    svg.appendChild(area);
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  } else {
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  }
+  svg.appendChild(path);
+
+  if (showDots) {
+    const dot = (i) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x(i));
+      c.setAttribute("cy", y(values[i]));
+      c.setAttribute("r", dotR);
+      c.setAttribute("fill", color);
+      return c;
+    };
+    if (p.dots === "end") svg.appendChild(dot(n - 1));
+    else if (p.dots === "minmax") {
+      const iMin = values.indexOf(min), iMax = values.indexOf(max);
+      svg.appendChild(dot(iMin)); svg.appendChild(dot(iMax));
+    } else if (p.dots === true) {
+      for (let i = 0; i < n; i++) svg.appendChild(dot(i));
+    }
+  }
+
+  if (p.title) {
+    const title = document.createElementNS(NS, "title");
+    title.textContent = p.title;
+    svg.appendChild(title);
+  }
+
+  return svg;
+}
+
+// Canvas histogram
+function tinytable_histogram(cell, p = {}) {
+  let data = cell.getValue() ?? [];
+  if (!Array.isArray(data)) data = [data];
+  data = data.map(Number).filter(Number.isFinite);
+  const n = data.length;
+  if (n === 0) return "";
+
+  const cssWidth = p.width ?? 120;
+  const cssHeight = p.height ?? 30;
+  const color = p.color ?? "currentColor";
+  const gap = p.gap ?? 1;         // px gap between bars
+  const pad = p.pad ?? 0;         // inner padding
+  const ariaLabel = p.ariaLabel ?? `histogram with ${n} observations`;
+
+  // robust bins: Sturges as default; allow override
+  const k = Math.max(1, Math.min(64, p.bins ?? Math.ceil(Math.log2(n) + 1)));
+
+  // stats
+  let min = Infinity, max = -Infinity;
+  for (let v of data) { if (v < min) min = v; if (v > max) max = v; }
+
+  // zero-range safeguard -> single centered bar
+  const range = max - min;
+  const binWidth = range > 0 ? range / k : 1;
+
+  const bins = new Array(k).fill(0);
+  if (range === 0) {
+    // put all mass in the middle bin
+    bins[Math.floor(k / 2)] = n;
+  } else {
+    for (let v of data) {
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx >= k) idx = k - 1; // clamp max edge
+      bins[idx]++;
+    }
+  }
+  const maxCount = Math.max(...bins, 1);
+
+  // HiDPI / Retina crispness
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", ariaLabel);
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = color;
+
+  const innerW = cssWidth - pad * 2;
+  const innerH = cssHeight - pad * 2;
+  const barW = innerW / k;
+
+  for (let i = 0; i < k; i++) {
+    const h = (bins[i] / maxCount) * innerH;
+    const x = pad + i * barW;
+    const y = cssHeight - pad - h;
+    // 0.5 translate helps crisp vertical edges on some displays
+    ctx.fillRect(Math.round(x) + 0.5, Math.floor(y), Math.max(0, barW - gap), Math.ceil(h));
+  }
+
+  if (p.title) canvas.title = p.title;
+  return canvas;
+}
+
+// Unified sorter that uses hidden rank field
+function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
+  const rankField = sorterParams.rankField;
+  const aVal = aRow.getData()[rankField] || 0;
+  const bVal = bRow.getData()[rankField] || 0;
+  return aVal - bVal;
+}
+</script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_kxtjsa9icsnzgiacrvgc = TinyTable.createTableFunctions("tinytable_kxtjsa9icsnzgiacrvgc");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '6', j: 2 } ], css_id: 'tinytable_css_0yewlcea55cowxajpet2',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 } ], css_id: 'tinytable_css_lid7u6vmsv7h5723oywg',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_wxs1sbuqcwq1trvr4pv7',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_1632ydsxy53ijt5lkge5',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_hlosx5on6bx9da8pyo00',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_kxtjsa9icsnzgiacrvgc.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+
+/* ========================================================================
+ * tinytable CSS - Core styling for HTML table output
+ * ======================================================================== */
+
+/* ========================================================================
+ * CSS Custom Properties (Theme Variables)
+ * ======================================================================== */
+.tinytable {
+    /* Colors */
+    --tt-text-color: inherit;
+    --tt-line-color: black;
+    --tt-border-color: var(--tt-line-color);
+    --tt-striped-bg: rgba(0, 0, 0, .05);
+    --tt-hover-bg: rgba(0, 0, 0, .075);
+    --tt-background-color: transparent;
+    --tt-footnote-bg: var(--tt-background-color);
+
+    /* Spacing */
+    --tt-cell-padding: .5rem;
+    --tt-cell-padding-sm: calc(var(--tt-cell-padding) / 2);
+    --tt-table-margin: .5rem 0;
+    --tt-caption-padding: .5rem 0;
+    --tt-footnote-padding: .2rem .5rem;
+    --tt-footnote-first-padding-top: .5rem;
+    --tt-footnote-gap: .1rem;
+    --tt-container-padding: 10px;
+
+    /* Typography */
+    --tt-font-size-footnote: 0.875rem;
+    --tt-font-size-caption: 1rem;
+    --tt-font-size-sup: 0.75em;
+    --tt-line-height-footnote: 1.25;
+    --tt-line-height-footnote-tight: 1.2;
+    --tt-font-weight-header: normal;
+
+    /* Alignment */
+    --tt-cell-valign: top;
+    --tt-header-align: left;
+    --tt-header-valign: bottom;
+    --tt-caption-align: var(--tt-header-align);
+    --tt-caption-side: top;
+
+    /* Layout */
+    --tt-table-width: 100%;
+
+    /* Border widths */
+    --tt-border-width: 1px;
+    --tt-border-width-tbody: 2px;
+}
+
+/* ========================================================================
+ * Base Table Styles
+ * ======================================================================== */
+.tinytable {
+    width: var(--tt-table-width);
+    margin: var(--tt-table-margin);
+    border-collapse: collapse;
+    background-color: var(--tt-background-color);
+    color: var(--tt-text-color);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tinytable *:not(mjx-container):not(mjx-container *) {
+    font-family: inherit;
+}
+
+/* ========================================================================
+ * Cell Styles
+ * ======================================================================== */
+.tinytable th,
+.tinytable td {
+    position: relative;
+    padding: var(--tt-cell-padding);
+    vertical-align: var(--tt-cell-valign);
+}
+
+.tinytable thead th {
+    text-align: var(--tt-header-align);
+    vertical-align: var(--tt-header-valign);
+    font-weight: var(--tt-font-weight-header);
+    border-bottom: none;
+}
+
+.tinytable thead th[align="center"] {
+    text-align: center;
+}
+
+.tinytable tbody + tbody {
+    border-top: var(--tt-border-width-tbody) solid var(--tt-border-color);
+}
+
+/* ========================================================================
+ * Table Variants
+ * ======================================================================== */
+
+/* Small padding variant */
+.tinytable-sm th,
+.tinytable-sm td {
+    padding: var(--tt-cell-padding-sm);
+}
+
+/* Bordered variant */
+.tinytable-bordered {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+.tinytable-bordered th,
+.tinytable-bordered td {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+/* Striped rows variant */
+.tinytable-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--tt-striped-bg);
+}
+
+/* Hover effect variant */
+.tinytable-hover tbody tr:hover {
+    background-color: var(--tt-hover-bg);
+}
+
+/* Responsive wrapper */
+.tinytable-responsive {
+    width: var(--tt-table-width);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================================================
+ * Custom Border System (Pseudo-elements)
+ * ======================================================================== */
+.tinytable :is(td, th)[class*="tinytable_css_"] {
+    position: relative;
+
+    /* Border control variables */
+    --border-top: 0;
+    --border-right: 0;
+    --border-bottom: 0;
+    --border-left: 0;
+
+    /* Border color variables */
+    --line-color-top: currentColor;
+    --line-color-right: currentColor;
+    --line-color-bottom: currentColor;
+    --line-color-left: currentColor;
+
+    /* Border width variables */
+    --line-width-top: 0.1em;
+    --line-width-right: 0.1em;
+    --line-width-bottom: 0.1em;
+    --line-width-left: 0.1em;
+
+    /* Border type variables */
+    --line-type-top: solid;
+    --line-type-right: solid;
+    --line-type-bottom: solid;
+    --line-type-left: solid;
+
+    /* Border trim variables */
+    --trim-top-left: 0%;
+    --trim-top-right: 0%;
+    --trim-right-top: 0%;
+    --trim-right-bottom: 0%;
+    --trim-bottom-left: 0%;
+    --trim-bottom-right: 0%;
+    --trim-left-top: 0%;
+    --trim-left-bottom: 0%;
+}
+
+/* Top, left, and right borders using ::before */
+.tinytable :is(td, th)[class*="tinytable_css_"]::before {
+    content: "";
+    position: absolute;
+    top: var(--trim-top-left, var(--trim-top-right, 0));
+    left: var(--trim-left-top, 0);
+    right: var(--trim-right-top, 0);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-top: calc(var(--border-top) * var(--line-width-top)) var(--line-type-top, solid) var(--line-color-top);
+    border-right: calc(var(--border-right) * var(--line-width-right)) var(--line-type-right, solid) var(--line-color-right);
+    border-left: calc(var(--border-left) * var(--line-width-left)) var(--line-type-left, solid) var(--line-color-left);
+}
+
+/* Bottom border using ::after */
+.tinytable :is(td, th)[class*="tinytable_css_"]::after {
+    content: "";
+    position: absolute;
+    left: var(--trim-bottom-left, 0);
+    right: var(--trim-bottom-right, 0);
+    bottom: var(--trim-left-bottom, var(--trim-right-bottom, 0));
+    height: 0;
+    border-bottom: calc(var(--border-bottom) * var(--line-width-bottom)) var(--line-type-bottom, solid) var(--line-color-bottom);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========================================================================
+ * Container and Layout Components
+ * ======================================================================== */
+.tinytable-container {
+    padding: var(--tt-container-padding);
+    overflow-x: auto;
+    overflow-y: auto;
+    width: auto;
+    height: auto;
+}
+
+/* ========================================================================
+ * Caption Styling
+ * ======================================================================== */
+.tinytable caption {
+    padding: var(--tt-caption-padding);
+    caption-side: var(--tt-caption-side);
+    font-size: var(--tt-font-size-caption);
+    text-align: var(--tt-caption-align);
+}
+
+/* ========================================================================
+ * Footnotes and Table Footer
+ * ======================================================================== */
+
+.tinytable tfoot tr:first-child td {
+    padding-top: var(--tt-footnote-first-padding-top);
+}
+
+.tinytable tfoot td {
+    padding: var(--tt-footnote-padding);
+    font-size: var(--tt-font-size-footnote);
+    line-height: var(--tt-line-height-footnote);
+    background-color: var(--tt-footnote-bg);
+}
+
+/* Remove extra gap between footnote rows */
+.tinytable tfoot tr + tr td {
+    padding-top: var(--tt-footnote-gap);
+}
+
+/* Make superscripts not inflate line boxes */
+.tinytable tfoot sup {
+    font-size: var(--tt-font-size-sup);
+    line-height: 0;
+    vertical-align: text-top;
+}
+
+/* Slightly tighter for wrapped footnote text */
+.tinytable tfoot tr:nth-child(n+2) td {
+    line-height: var(--tt-line-height-footnote-tight);
+}
+
+</style>
+    <style>
+    /* tinytable css entries after */
+    #tinytable_kxtjsa9icsnzgiacrvgc td.tinytable_css_0yewlcea55cowxajpet2, #tinytable_kxtjsa9icsnzgiacrvgc th.tinytable_css_0yewlcea55cowxajpet2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; color: #00803A }
+    #tinytable_kxtjsa9icsnzgiacrvgc td.tinytable_css_lid7u6vmsv7h5723oywg, #tinytable_kxtjsa9icsnzgiacrvgc th.tinytable_css_lid7u6vmsv7h5723oywg { color: #00803A }
+    #tinytable_kxtjsa9icsnzgiacrvgc td.tinytable_css_wxs1sbuqcwq1trvr4pv7, #tinytable_kxtjsa9icsnzgiacrvgc th.tinytable_css_wxs1sbuqcwq1trvr4pv7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; color: #00803A }
+    #tinytable_kxtjsa9icsnzgiacrvgc td.tinytable_css_1632ydsxy53ijt5lkge5, #tinytable_kxtjsa9icsnzgiacrvgc th.tinytable_css_1632ydsxy53ijt5lkge5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_kxtjsa9icsnzgiacrvgc td.tinytable_css_hlosx5on6bx9da8pyo00, #tinytable_kxtjsa9icsnzgiacrvgc th.tinytable_css_hlosx5on6bx9da8pyo00 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_kxtjsa9icsnzgiacrvgc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Quarter</th>
+                <th scope="col" data-row="0" data-col="2">Rate</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">2024Q3</td>
+                  <td data-row="1" data-col="2">9.0</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">2024Q4</td>
+                  <td data-row="2" data-col="2">9.7</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">2025Q1</td>
+                  <td data-row="3" data-col="2">9.8</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">2025Q2</td>
+                  <td data-row="4" data-col="2">10.4</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">2025Q3</td>
+                  <td data-row="5" data-col="2">11.1</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">2025Q4</td>
+                  <td data-row="6" data-col="2">11.1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div></div>
+<aside class="notes">
+<p><code>j = 2</code> is the second column. The rate is the number they came for, so it carries the accent.</p>
+<p>Five lines. Now ask the room: how many times will you write these five lines this year?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tbl-build-ref" class="slide level2">
+<h2>Building the house table</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-label="1"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="" aria-label="2"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">line =</span> <span class="st">"b"</span>,</span>
+<span id="cb15-4"><a href="" aria-label="4"></a>           <span class="at">line_color =</span> indigo) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="" aria-label="5"></a>  <span class="fu">style_tt</span>(<span class="at">j =</span> <span class="dv">2</span>, <span class="at">color =</span> green)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<script>
+// TinyTable JavaScript Framework
+// Function factory for creating table-specific operations
+window.TinyTable = {
+  // Helper to create Tabulator instance with Luxon dependency
+  createTabulator: function(elementId, config) {
+    const { DateTime } = window.luxon || {};
+    return new Tabulator(elementId, {
+      dependencies: { DateTime },
+      ...config
+    });
+  },
+
+  createTableFunctions: function (tableId) {
+    const spans = []; // {top, left, rowspan, colspan}
+
+    function resolveToAnchor(i, j) {
+      // find if (i,j) is inside any span; return that span's anchor if so
+      for (const s of spans) {
+        if (
+          i >= s.top && i < s.top + s.rowspan &&
+          j >= s.left && j < s.left + s.colspan
+        ) {
+          return { i: s.top, j: s.left };
+        }
+      }
+      return { i, j };
+    }
+
+    return {
+      styleCell: function (i, j, css_id) {
+        // normalize possible string indices
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const { i: ai, j: aj } = resolveToAnchor(i, j);
+        const cell = table.querySelector(`[data-row="${ai}"][data-col="${aj}"]`);
+        if (!cell) return; // silently skip if not found (e.g., removed)
+        cell.classList.add(css_id);
+      },
+
+      spanCell: function (i, j, rowspan, colspan) {
+        i = +i; j = +j;
+
+        const table = document.getElementById(tableId);
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+          return;
+        }
+
+        // record span so future styleCell calls map to the anchor
+        spans.push({ top: i, left: j, rowspan, colspan });
+
+        // remove covered cells (except anchor)
+        const cellsToRemove = [];
+        for (let r = 0; r < rowspan; r++) {
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue;
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) cellsToRemove.push(cell);
+          }
+        }
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // set HTML attributes for clarity/serialization
+        targetCell.setAttribute('rowspan', rowspan);
+        targetCell.setAttribute('colspan', colspan);
+      }
+    };
+  }
+};
+
+// =============================================================================
+// TABULATOR CUSTOM FORMATTERS (revised)
+// =============================================================================
+
+// SVG sparkline
+function tinytable_sparkline(cell, p = {}) {
+  let values = cell.getValue() ?? [];
+  if (!Array.isArray(values)) values = [values];
+  // coerce to finite numbers & strip NaNs
+  values = values.map(Number).filter(Number.isFinite);
+  const n = values.length;
+  if (n === 0) return "";
+
+  const w = p.width ?? 120, h = p.height ?? 30, pad = p.pad ?? 2;
+  const color = p.color ?? "currentColor", sw = p.strokeWidth ?? 1.5;
+  const fill = p.fillArea ?? false;
+  const showDots = p.showDots ?? false;
+  const dotR = p.dotRadius ?? 1.75;
+  const ariaLabel = p.ariaLabel ?? `sparkline with ${n} points`;
+
+  // single pass for min/max
+  let min = Infinity, max = -Infinity;
+  for (let v of values) { if (v < min) min = v; if (v > max) max = v; }
+  const span = (max - min) || 1;
+
+  const x = i => pad + (i * (w - 2 * pad)) / Math.max(n - 1, 1);
+  const y = v => h - pad - ((v - min) * (h - 2 * pad)) / span;
+
+  let d = `M ${x(0)},${y(values[0])}`;
+  for (let i = 1; i < n; i++) d += ` L ${x(i)},${y(values[i])}`;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("width", w);
+  svg.setAttribute("height", h);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", ariaLabel);
+
+  const path = document.createElementNS(NS, "path");
+  path.setAttribute("stroke", color);
+  path.setAttribute("stroke-width", sw);
+  path.setAttribute("vector-effect", "non-scaling-stroke");
+
+  if (fill) {
+    const area = document.createElementNS(NS, "path");
+    area.setAttribute("d", d + ` L ${x(n - 1)},${h - pad} L ${x(0)},${h - pad} Z`);
+    area.setAttribute("fill", color);
+    area.setAttribute("fill-opacity", p.fillOpacity ?? 0.25);
+    svg.appendChild(area);
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  } else {
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+  }
+  svg.appendChild(path);
+
+  if (showDots) {
+    const dot = (i) => {
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", x(i));
+      c.setAttribute("cy", y(values[i]));
+      c.setAttribute("r", dotR);
+      c.setAttribute("fill", color);
+      return c;
+    };
+    if (p.dots === "end") svg.appendChild(dot(n - 1));
+    else if (p.dots === "minmax") {
+      const iMin = values.indexOf(min), iMax = values.indexOf(max);
+      svg.appendChild(dot(iMin)); svg.appendChild(dot(iMax));
+    } else if (p.dots === true) {
+      for (let i = 0; i < n; i++) svg.appendChild(dot(i));
+    }
+  }
+
+  if (p.title) {
+    const title = document.createElementNS(NS, "title");
+    title.textContent = p.title;
+    svg.appendChild(title);
+  }
+
+  return svg;
+}
+
+// Canvas histogram
+function tinytable_histogram(cell, p = {}) {
+  let data = cell.getValue() ?? [];
+  if (!Array.isArray(data)) data = [data];
+  data = data.map(Number).filter(Number.isFinite);
+  const n = data.length;
+  if (n === 0) return "";
+
+  const cssWidth = p.width ?? 120;
+  const cssHeight = p.height ?? 30;
+  const color = p.color ?? "currentColor";
+  const gap = p.gap ?? 1;         // px gap between bars
+  const pad = p.pad ?? 0;         // inner padding
+  const ariaLabel = p.ariaLabel ?? `histogram with ${n} observations`;
+
+  // robust bins: Sturges as default; allow override
+  const k = Math.max(1, Math.min(64, p.bins ?? Math.ceil(Math.log2(n) + 1)));
+
+  // stats
+  let min = Infinity, max = -Infinity;
+  for (let v of data) { if (v < min) min = v; if (v > max) max = v; }
+
+  // zero-range safeguard -> single centered bar
+  const range = max - min;
+  const binWidth = range > 0 ? range / k : 1;
+
+  const bins = new Array(k).fill(0);
+  if (range === 0) {
+    // put all mass in the middle bin
+    bins[Math.floor(k / 2)] = n;
+  } else {
+    for (let v of data) {
+      let idx = Math.floor((v - min) / binWidth);
+      if (idx >= k) idx = k - 1; // clamp max edge
+      bins[idx]++;
+    }
+  }
+  const maxCount = Math.max(...bins, 1);
+
+  // HiDPI / Retina crispness
+  const dpr = window.devicePixelRatio || 1;
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = cssWidth + "px";
+  canvas.style.height = cssHeight + "px";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", ariaLabel);
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+  ctx.fillStyle = color;
+
+  const innerW = cssWidth - pad * 2;
+  const innerH = cssHeight - pad * 2;
+  const barW = innerW / k;
+
+  for (let i = 0; i < k; i++) {
+    const h = (bins[i] / maxCount) * innerH;
+    const x = pad + i * barW;
+    const y = cssHeight - pad - h;
+    // 0.5 translate helps crisp vertical edges on some displays
+    ctx.fillRect(Math.round(x) + 0.5, Math.floor(y), Math.max(0, barW - gap), Math.ceil(h));
+  }
+
+  if (p.title) canvas.title = p.title;
+  return canvas;
+}
+
+// Unified sorter that uses hidden rank field
+function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
+  const rankField = sorterParams.rankField;
+  const aVal = aRow.getData()[rankField] || 0;
+  const bVal = bRow.getData()[rankField] || 0;
+  return aVal - bVal;
+}
+</script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_gkjrollt9ztmwb04syo7 = TinyTable.createTableFunctions("tinytable_gkjrollt9ztmwb04syo7");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '6', j: 2 } ], css_id: 'tinytable_css_6xwpv19dnk4q7lhepsbl',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 } ], css_id: 'tinytable_css_8khbc6bkpcp3khokpmta',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_hauq2nnl9ejwiy8ppdrj',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_8fud4dkakmx7no1rxrqm',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_26odzivmaw6fri3qaerj',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_gkjrollt9ztmwb04syo7.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+
+/* ========================================================================
+ * tinytable CSS - Core styling for HTML table output
+ * ======================================================================== */
+
+/* ========================================================================
+ * CSS Custom Properties (Theme Variables)
+ * ======================================================================== */
+.tinytable {
+    /* Colors */
+    --tt-text-color: inherit;
+    --tt-line-color: black;
+    --tt-border-color: var(--tt-line-color);
+    --tt-striped-bg: rgba(0, 0, 0, .05);
+    --tt-hover-bg: rgba(0, 0, 0, .075);
+    --tt-background-color: transparent;
+    --tt-footnote-bg: var(--tt-background-color);
+
+    /* Spacing */
+    --tt-cell-padding: .5rem;
+    --tt-cell-padding-sm: calc(var(--tt-cell-padding) / 2);
+    --tt-table-margin: .5rem 0;
+    --tt-caption-padding: .5rem 0;
+    --tt-footnote-padding: .2rem .5rem;
+    --tt-footnote-first-padding-top: .5rem;
+    --tt-footnote-gap: .1rem;
+    --tt-container-padding: 10px;
+
+    /* Typography */
+    --tt-font-size-footnote: 0.875rem;
+    --tt-font-size-caption: 1rem;
+    --tt-font-size-sup: 0.75em;
+    --tt-line-height-footnote: 1.25;
+    --tt-line-height-footnote-tight: 1.2;
+    --tt-font-weight-header: normal;
+
+    /* Alignment */
+    --tt-cell-valign: top;
+    --tt-header-align: left;
+    --tt-header-valign: bottom;
+    --tt-caption-align: var(--tt-header-align);
+    --tt-caption-side: top;
+
+    /* Layout */
+    --tt-table-width: 100%;
+
+    /* Border widths */
+    --tt-border-width: 1px;
+    --tt-border-width-tbody: 2px;
+}
+
+/* ========================================================================
+ * Base Table Styles
+ * ======================================================================== */
+.tinytable {
+    width: var(--tt-table-width);
+    margin: var(--tt-table-margin);
+    border-collapse: collapse;
+    background-color: var(--tt-background-color);
+    color: var(--tt-text-color);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tinytable *:not(mjx-container):not(mjx-container *) {
+    font-family: inherit;
+}
+
+/* ========================================================================
+ * Cell Styles
+ * ======================================================================== */
+.tinytable th,
+.tinytable td {
+    position: relative;
+    padding: var(--tt-cell-padding);
+    vertical-align: var(--tt-cell-valign);
+}
+
+.tinytable thead th {
+    text-align: var(--tt-header-align);
+    vertical-align: var(--tt-header-valign);
+    font-weight: var(--tt-font-weight-header);
+    border-bottom: none;
+}
+
+.tinytable thead th[align="center"] {
+    text-align: center;
+}
+
+.tinytable tbody + tbody {
+    border-top: var(--tt-border-width-tbody) solid var(--tt-border-color);
+}
+
+/* ========================================================================
+ * Table Variants
+ * ======================================================================== */
+
+/* Small padding variant */
+.tinytable-sm th,
+.tinytable-sm td {
+    padding: var(--tt-cell-padding-sm);
+}
+
+/* Bordered variant */
+.tinytable-bordered {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+.tinytable-bordered th,
+.tinytable-bordered td {
+    border: var(--tt-border-width) solid var(--tt-border-color);
+}
+
+/* Striped rows variant */
+.tinytable-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--tt-striped-bg);
+}
+
+/* Hover effect variant */
+.tinytable-hover tbody tr:hover {
+    background-color: var(--tt-hover-bg);
+}
+
+/* Responsive wrapper */
+.tinytable-responsive {
+    width: var(--tt-table-width);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================================================
+ * Custom Border System (Pseudo-elements)
+ * ======================================================================== */
+.tinytable :is(td, th)[class*="tinytable_css_"] {
+    position: relative;
+
+    /* Border control variables */
+    --border-top: 0;
+    --border-right: 0;
+    --border-bottom: 0;
+    --border-left: 0;
+
+    /* Border color variables */
+    --line-color-top: currentColor;
+    --line-color-right: currentColor;
+    --line-color-bottom: currentColor;
+    --line-color-left: currentColor;
+
+    /* Border width variables */
+    --line-width-top: 0.1em;
+    --line-width-right: 0.1em;
+    --line-width-bottom: 0.1em;
+    --line-width-left: 0.1em;
+
+    /* Border type variables */
+    --line-type-top: solid;
+    --line-type-right: solid;
+    --line-type-bottom: solid;
+    --line-type-left: solid;
+
+    /* Border trim variables */
+    --trim-top-left: 0%;
+    --trim-top-right: 0%;
+    --trim-right-top: 0%;
+    --trim-right-bottom: 0%;
+    --trim-bottom-left: 0%;
+    --trim-bottom-right: 0%;
+    --trim-left-top: 0%;
+    --trim-left-bottom: 0%;
+}
+
+/* Top, left, and right borders using ::before */
+.tinytable :is(td, th)[class*="tinytable_css_"]::before {
+    content: "";
+    position: absolute;
+    top: var(--trim-top-left, var(--trim-top-right, 0));
+    left: var(--trim-left-top, 0);
+    right: var(--trim-right-top, 0);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    border-top: calc(var(--border-top) * var(--line-width-top)) var(--line-type-top, solid) var(--line-color-top);
+    border-right: calc(var(--border-right) * var(--line-width-right)) var(--line-type-right, solid) var(--line-color-right);
+    border-left: calc(var(--border-left) * var(--line-width-left)) var(--line-type-left, solid) var(--line-color-left);
+}
+
+/* Bottom border using ::after */
+.tinytable :is(td, th)[class*="tinytable_css_"]::after {
+    content: "";
+    position: absolute;
+    left: var(--trim-bottom-left, 0);
+    right: var(--trim-bottom-right, 0);
+    bottom: var(--trim-left-bottom, var(--trim-right-bottom, 0));
+    height: 0;
+    border-bottom: calc(var(--border-bottom) * var(--line-width-bottom)) var(--line-type-bottom, solid) var(--line-color-bottom);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ========================================================================
+ * Container and Layout Components
+ * ======================================================================== */
+.tinytable-container {
+    padding: var(--tt-container-padding);
+    overflow-x: auto;
+    overflow-y: auto;
+    width: auto;
+    height: auto;
+}
+
+/* ========================================================================
+ * Caption Styling
+ * ======================================================================== */
+.tinytable caption {
+    padding: var(--tt-caption-padding);
+    caption-side: var(--tt-caption-side);
+    font-size: var(--tt-font-size-caption);
+    text-align: var(--tt-caption-align);
+}
+
+/* ========================================================================
+ * Footnotes and Table Footer
+ * ======================================================================== */
+
+.tinytable tfoot tr:first-child td {
+    padding-top: var(--tt-footnote-first-padding-top);
+}
+
+.tinytable tfoot td {
+    padding: var(--tt-footnote-padding);
+    font-size: var(--tt-font-size-footnote);
+    line-height: var(--tt-line-height-footnote);
+    background-color: var(--tt-footnote-bg);
+}
+
+/* Remove extra gap between footnote rows */
+.tinytable tfoot tr + tr td {
+    padding-top: var(--tt-footnote-gap);
+}
+
+/* Make superscripts not inflate line boxes */
+.tinytable tfoot sup {
+    font-size: var(--tt-font-size-sup);
+    line-height: 0;
+    vertical-align: text-top;
+}
+
+/* Slightly tighter for wrapped footnote text */
+.tinytable tfoot tr:nth-child(n+2) td {
+    line-height: var(--tt-line-height-footnote-tight);
+}
+
+</style>
+    <style>
+    /* tinytable css entries after */
+    #tinytable_gkjrollt9ztmwb04syo7 td.tinytable_css_6xwpv19dnk4q7lhepsbl, #tinytable_gkjrollt9ztmwb04syo7 th.tinytable_css_6xwpv19dnk4q7lhepsbl {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; color: #00803A }
+    #tinytable_gkjrollt9ztmwb04syo7 td.tinytable_css_8khbc6bkpcp3khokpmta, #tinytable_gkjrollt9ztmwb04syo7 th.tinytable_css_8khbc6bkpcp3khokpmta { color: #00803A }
+    #tinytable_gkjrollt9ztmwb04syo7 td.tinytable_css_hauq2nnl9ejwiy8ppdrj, #tinytable_gkjrollt9ztmwb04syo7 th.tinytable_css_hauq2nnl9ejwiy8ppdrj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold; color: #00803A }
+    #tinytable_gkjrollt9ztmwb04syo7 td.tinytable_css_8fud4dkakmx7no1rxrqm, #tinytable_gkjrollt9ztmwb04syo7 th.tinytable_css_8fud4dkakmx7no1rxrqm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_gkjrollt9ztmwb04syo7 td.tinytable_css_26odzivmaw6fri3qaerj, #tinytable_gkjrollt9ztmwb04syo7 th.tinytable_css_26odzivmaw6fri3qaerj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_gkjrollt9ztmwb04syo7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1">Quarter</th>
+                <th scope="col" data-row="0" data-col="2">Rate</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">2024Q3</td>
+                  <td data-row="1" data-col="2">9.0</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1">2024Q4</td>
+                  <td data-row="2" data-col="2">9.7</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">2025Q1</td>
+                  <td data-row="3" data-col="2">9.8</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1">2025Q2</td>
+                  <td data-row="4" data-col="2">10.4</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">2025Q3</td>
+                  <td data-row="5" data-col="2">11.1</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">2025Q4</td>
+                  <td data-row="6" data-col="2">11.1</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div></div>
+<p><strong>In this project that already has a name: <code>tt_gastat(recent)</code>.</strong></p>
+<aside class="notes">
+<p>The reference version, no highlighting. Photograph this one.</p>
+<p>Then the punchline: <code>R/course.R</code> wraps exactly these five lines as <code>tt_gastat()</code>.</p>
+<p>And it sets <code>theme_html(portable = TRUE)</code>. Without that, a tinytable fetches its CSS from jsdelivr when the page is <strong>opened</strong> — so on your machines the table arrives unstyled.</p>
+<p>Be straight with them: the <code>tt()</code> in these build slides is shimmed in this deck’s setup chunk to do the same thing, because <code>tools/check-external.sh</code> caught this deck leaking to a CDN while it was being written. In your own documents, call <code>tt_gastat()</code>.</p>
+<p>Every table in the course goes through that one function. You write one line.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1007,9 +3975,9 @@ GASTAT
 </section>
 <section id="setup" class="slide level2">
 <h2>Appendix — before we start</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
-<span id="cb12-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
+<span id="cb17-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If that last line produced a file, you are ready.</p>
 <aside class="notes">
 <p>Ask for a show of hands. Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
