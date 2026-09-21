@@ -5,24 +5,27 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Reproducible Statistical Reporting with Quarto</title>
 <style>
-@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-Variable.ttf") format("truetype");font-weight:200 900;font-display:swap}
-@font-face{font-family:"IBM Plex Sans";src:url("fonts/IBMPlexSans-Variable.ttf") format("truetype");font-weight:100 700;font-display:swap}
+@font-face{font-family:"Tajawal";src:url("fonts/Tajawal-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Tajawal";src:url("fonts/Tajawal-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Tajawal";src:url("fonts/Tajawal-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Tajawal";src:url("fonts/Tajawal-Black.ttf") format("truetype");font-weight:900;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("fonts/IBMPlexMono-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
 @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/IBMPlexSansArabic-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
 :root{
-  --deep:#0E2E2A; --deep-card:#164039; --paper:#FAF8F3; --paper2:#F0EBE1;
-  --card:#FDFCF9; --border:#DFD9CC; --ink:#1A211F; --muted:#5C635F;
-  --muted-deep:#9FB3AD; --copper:#B5622F; --copper-sm:#8F4A20; --copper-deep:#D98B4F;
+  --deep:#4137A8; --deep-card:#352C8C; --paper:#FFFFFF; --paper2:#F5F7FA;
+  --card:#FFFFFF; --border:#E6E7EC; --ink:#2C2D3F; --muted:#6B6C7A;
+  --muted-deep:#BFB9E8; --copper:#00B050; --copper-sm:#00803A; --copper-deep:#4BD98A;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
-  font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  font:16px/1.55 "Tajawal",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:980px;margin:0 auto;padding:0 24px}
 .eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--copper-deep);display:block;margin-bottom:14px}
+header .logo{height:52px;margin-bottom:26px;display:block}
 header{background:var(--deep);color:var(--paper);padding-block:clamp(48px,8vw,96px) clamp(40px,7vw,80px)}
-header h1{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+header h1{font-family:"Tajawal",system-ui,sans-serif;font-weight:900;
   font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-.015em;margin:0}
 header .rule{width:120px;height:6px;background:var(--copper-deep);border:0;margin:26px 0 22px}
 header p{color:var(--muted-deep);font-size:clamp(16px,2.2vw,21px);max-width:60ch;margin:0}
@@ -30,17 +33,17 @@ header .meta{color:var(--muted-deep);font-family:"IBM Plex Mono",monospace;
   font-size:13px;margin-top:26px}
 section{padding-block:clamp(40px,6vw,64px)}
 section.alt{background:var(--paper2)}
-h2{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+h2{font-family:"Tajawal",system-ui,sans-serif;font-weight:700;
   font-size:clamp(24px,3.4vw,34px);margin:0 0 6px;letter-spacing:-.01em}
 .sub{color:var(--muted);margin:0 0 28px;max-width:66ch}
 .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 a.card{display:block;background:var(--card);border:1px solid var(--border);
-  border-radius:16px;padding:28px;text-decoration:none;color:inherit;
+  border-top:6px solid var(--copper);border-radius:14px;padding:28px;text-decoration:none;color:inherit;
   transition:border-color .15s ease, transform .15s ease}
 a.card:hover{border-color:var(--copper);transform:translateY(-2px)}
 a.card .num{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--copper-sm)}
-a.card h3{font-family:"Source Serif 4",Georgia,serif;font-weight:400;
+a.card h3{font-family:"Tajawal",system-ui,sans-serif;font-weight:700;
   font-size:26px;margin:10px 0 8px}
 a.card p{color:var(--muted);font-size:15px;margin:0}
 a.card .take{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
@@ -69,7 +72,8 @@ code{font-family:"IBM Plex Mono",monospace;font-size:.9em;color:var(--copper-sm)
 
 <header>
   <div class="wrap">
-    <span class="eyebrow">GASTAT · Three days · In person</span>
+    <img class="logo" src="images/gastat-logo-white.png" alt="GASTAT — General Authority for Statistics">
+    <span class="eyebrow">Three days · In person</span>
     <h1>Reproducible Statistical<br>Reporting with Quarto</h1>
     <hr class="rule">
     <p>One finished product per day. Show the result first, then take it apart.</p>
