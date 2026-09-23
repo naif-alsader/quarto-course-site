@@ -552,18 +552,32 @@ quarto render bulletin.qmd --to typst</code></pre>
 <p>“Unemployment by quarter, <code>r params$region</code>”</p>
 </blockquote>
 <p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell. One sentence cannot be both.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>rose <span class="ot">&lt;-</span> <span class="fu">last</span>(this_r<span class="sc">$</span>rate) <span class="sc">&gt;</span> <span class="fu">first</span>(this_r<span class="sc">$</span>rate)   <span class="co"># ask the data, not the author</span></span>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>rose <span class="ot">&lt;-</span> <span class="fu">last</span>(this_r<span class="sc">$</span>rate) <span class="sc">&gt;</span> <span class="fu">first</span>(this_r<span class="sc">$</span>rate)   <span class="co"># ask the data, not the author</span></span>
 <span id="cb7-2"><a href="" aria-label="2"></a></span>
 <span id="cb7-3"><a href="" aria-label="3"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (rose) {</span>
 <span id="cb7-4"><a href="" aria-label="4"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
 <span id="cb7-5"><a href="" aria-label="5"></a>} <span class="cf">else</span> {</span>
 <span id="cb7-6"><a href="" aria-label="6"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
-<span id="cb7-7"><a href="" aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a href="" aria-label="7"></a>}</span>
+<span id="cb7-8"><a href="" aria-label="8"></a></span>
+<span id="cb7-9"><a href="" aria-label="9"></a>trend_title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jazan has moved against the national trend"</code></pre>
+</div>
+</div></div>
 <aside class="notes">
 <p>Ten minutes, and this is the hardest idea in the three days.</p>
 <p>Day 1 said a caption is an argument. Day 2 says one template, many reports. Those two collide, and this is the resolution: in a parameterised report every message caption is either <strong>computed by rule</strong> or demoted to a descriptive label. You pick, knowingly.</p>
 <p>Show the real code in bulletin.qmd. It is about forty lines and it is the most valuable forty lines in the project.</p>
-<p>Warn them: a rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</p>
+<p>Then change <code>REGION</code> to <code>"Riyadh"</code> and re-run in front of them. The same six lines, the opposite sentence, and nobody edited prose. That is the whole slide.</p>
+<p>Two warnings, and they matter more than the code:</p>
+<ol type="1">
+<li>A rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</li>
+<li><strong>Two branches is not enough for real data.</strong> This rule says rose or fell; a region that did neither gets a false sentence either way. In the synthetic set every region moved at least 2.1 points so it never fires, but GASTAT’s real figures will have flat regions. A production rule needs a third outcome — <em>broadly unchanged</em> — behind a stated threshold or a confidence interval.</li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -578,12 +592,12 @@ quarto render bulletin.qmd --to typst</code></pre>
 </section>
 <section id="render-script" class="slide level2">
 <h2>The render script is the pipeline</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a>render_one <span class="ot">&lt;-</span> <span class="cf">function</span>(region, <span class="at">fmt =</span> <span class="st">"typst"</span>) {</span>
-<span id="cb8-2"><a href="" aria-label="2"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(src, <span class="at">output_format =</span> fmt,</span>
-<span id="cb8-3"><a href="" aria-label="3"></a>                        <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">region =</span> region))</span>
-<span id="cb8-4"><a href="" aria-label="4"></a>  <span class="fu">file.rename</span>(produced, dest)      <span class="co"># Quarto always writes bulletin.&lt;ext&gt;</span></span>
-<span id="cb8-5"><a href="" aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>regions <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">walk</span>(render_one)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>render_one <span class="ot">&lt;-</span> <span class="cf">function</span>(region, <span class="at">fmt =</span> <span class="st">"typst"</span>) {</span>
+<span id="cb9-2"><a href="" aria-label="2"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(src, <span class="at">output_format =</span> fmt,</span>
+<span id="cb9-3"><a href="" aria-label="3"></a>                        <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">region =</span> region))</span>
+<span id="cb9-4"><a href="" aria-label="4"></a>  <span class="fu">file.rename</span>(produced, dest)      <span class="co"># Quarto always writes bulletin.&lt;ext&gt;</span></span>
+<span id="cb9-5"><a href="" aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a>regions <span class="sc">|&gt;</span> purrr<span class="sc">::</span><span class="fu">walk</span>(render_one)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Thirteen renders, thirteen files called <code>bulletin.pdf</code>. Move each one as it appears.</strong></p>
 <aside class="notes">
 <p>Twenty-five minutes — Block 1’s conditional segment gave us ten of them, and this is where Lab 2 actually fails, so spend them here.</p>
@@ -627,7 +641,7 @@ quarto render bulletin.qmd --to typst</code></pre>
 <section id="name-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Naming the output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a href="" aria-label="1"></a>region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="" aria-label="1"></a>region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Northern Borders"</code></pre>
 </div>
@@ -650,8 +664,8 @@ quarto render bulletin.qmd --to typst</code></pre>
 <section id="name-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Naming the output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
-<span id="cb12-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
+<span id="cb13-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Northern-Borders"</code></pre>
 </div>
@@ -674,9 +688,9 @@ quarto render bulletin.qmd --to typst</code></pre>
 <section id="name-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Naming the output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb14-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
-<span id="cb14-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(slug)</span>
-<span id="cb14-3" class="hljs-ln-code"><a href="" aria-label="3"></a>slug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
+<span id="cb15-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(slug)</span>
+<span id="cb15-3" class="hljs-ln-code"><a href="" aria-label="3"></a>slug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "northern-borders"</code></pre>
 </div>
@@ -699,10 +713,10 @@ quarto render bulletin.qmd --to typst</code></pre>
 <section id="name-4" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Naming the output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb16-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
-<span id="cb16-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(slug)</span>
-<span id="cb16-3" class="hljs-ln-code"><a href="" aria-label="3"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(out_dir, <span class="fu">sprintf</span>(<span class="st">"bulletin-%s.%s"</span>, slug, ext))</span>
-<span id="cb16-4" class="hljs-ln-code"><a href="" aria-label="4"></a>dest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region)</span>
+<span id="cb17-2" class="hljs-ln-code"><a href="" aria-label="2"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(slug)</span>
+<span id="cb17-3" class="hljs-ln-code"><a href="" aria-label="3"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(out_dir, <span class="fu">sprintf</span>(<span class="st">"bulletin-%s.%s"</span>, slug, ext))</span>
+<span id="cb17-4" class="hljs-ln-code"><a href="" aria-label="4"></a>dest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "_out/bulletin-northern-borders.pdf"</code></pre>
 </div>
@@ -725,8 +739,8 @@ quarto render bulletin.qmd --to typst</code></pre>
 <section id="name-ref" class="slide level2">
 <h2>Naming the output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region))</span>
-<span id="cb18-2"><a href="" aria-label="2"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(out_dir, <span class="fu">sprintf</span>(<span class="st">"bulletin-%s.%s"</span>, slug, ext))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-label="1"></a>slug <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">gsub</span>(<span class="st">"[^A-Za-z0-9]+"</span>, <span class="st">"-"</span>, region))</span>
+<span id="cb19-2"><a href="" aria-label="2"></a>dest <span class="ot">&lt;-</span> <span class="fu">file.path</span>(out_dir, <span class="fu">sprintf</span>(<span class="st">"bulletin-%s.%s"</span>, slug, ext))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Two lines. They go in <code>render.R</code> and you never touch them again.</strong></p>
 <aside class="notes">
@@ -810,14 +824,14 @@ quarto render bulletin.qmd --to typst</code></pre>
 </section>
 <section id="brand-yml" class="slide level2">
 <h2><code>_brand.yml</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="" aria-label="1"></a><span class="fu">color</span><span class="kw">:</span></span>
-<span id="cb19-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">palette</span><span class="kw">:</span></span>
-<span id="cb19-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">indigo</span><span class="kw">:</span><span class="at"> </span><span class="st">"#4137A8"</span><span class="co">   # the template's title-slide ground</span></span>
-<span id="cb19-4"><a href="" aria-label="4"></a><span class="at">    </span><span class="fu">green</span><span class="kw">:</span><span class="at">  </span><span class="st">"#00B050"</span><span class="co">   # the signature accent</span></span>
-<span id="cb19-5"><a href="" aria-label="5"></a><span class="at">    </span><span class="fu">dark</span><span class="kw">:</span><span class="at">   </span><span class="st">"#2C2D3F"</span></span>
-<span id="cb19-6"><a href="" aria-label="6"></a><span class="fu">typography</span><span class="kw">:</span></span>
-<span id="cb19-7"><a href="" aria-label="7"></a><span class="at">  </span><span class="fu">base</span><span class="kw">:</span><span class="at">     </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> Tajawal</span><span class="kw">}</span></span>
-<span id="cb19-8"><a href="" aria-label="8"></a><span class="at">  </span><span class="fu">headings</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> Tajawal</span><span class="kw">,</span><span class="at"> </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">700</span><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="" aria-label="1"></a><span class="fu">color</span><span class="kw">:</span></span>
+<span id="cb20-2"><a href="" aria-label="2"></a><span class="at">  </span><span class="fu">palette</span><span class="kw">:</span></span>
+<span id="cb20-3"><a href="" aria-label="3"></a><span class="at">    </span><span class="fu">indigo</span><span class="kw">:</span><span class="at"> </span><span class="st">"#4137A8"</span><span class="co">   # the template's title-slide ground</span></span>
+<span id="cb20-4"><a href="" aria-label="4"></a><span class="at">    </span><span class="fu">green</span><span class="kw">:</span><span class="at">  </span><span class="st">"#00B050"</span><span class="co">   # the signature accent</span></span>
+<span id="cb20-5"><a href="" aria-label="5"></a><span class="at">    </span><span class="fu">dark</span><span class="kw">:</span><span class="at">   </span><span class="st">"#2C2D3F"</span></span>
+<span id="cb20-6"><a href="" aria-label="6"></a><span class="fu">typography</span><span class="kw">:</span></span>
+<span id="cb20-7"><a href="" aria-label="7"></a><span class="at">  </span><span class="fu">base</span><span class="kw">:</span><span class="at">     </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> Tajawal</span><span class="kw">}</span></span>
+<span id="cb20-8"><a href="" aria-label="8"></a><span class="at">  </span><span class="fu">headings</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">family</span><span class="kw">:</span><span class="at"> Tajawal</span><span class="kw">,</span><span class="at"> </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="dv">700</span><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>This file branded the bulletin, the family, and these slides.</strong></p>
 <aside class="notes">
 <p>Fifteen minutes. Open _brand.yml, change the green to something awful, re-render one bulletin, show it, change it back. The room needs to see that identity is one file.</p>
@@ -836,8 +850,8 @@ quarto render bulletin.qmd --to typst</code></pre>
 </section>
 <section id="language" class="slide level2">
 <h2>Language is also a file</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="" aria-label="1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> ar</span></span>
-<span id="cb20-2"><a href="" aria-label="2"></a><span class="fu">dir</span><span class="kw">:</span><span class="at"> rtl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="" aria-label="1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> ar</span></span>
+<span id="cb21-2"><a href="" aria-label="2"></a><span class="fu">dir</span><span class="kw">:</span><span class="at"> rtl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cards">
 <section id="verified" class="card">
 <h4>Verified</h4>
