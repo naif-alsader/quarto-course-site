@@ -551,18 +551,21 @@ quarto render bulletin.qmd --to typst</code></pre>
 <blockquote>
 <p>“Unemployment by quarter, <code>r params$region</code>”</p>
 </blockquote>
-<p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell. One sentence cannot be both.</p>
+<p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell; a third region did neither. One sentence cannot be all three.</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>rose <span class="ot">&lt;-</span> <span class="fu">last</span>(this_r<span class="sc">$</span>rate) <span class="sc">&gt;</span> <span class="fu">first</span>(this_r<span class="sc">$</span>rate)   <span class="co"># ask the data, not the author</span></span>
-<span id="cb7-2"><a href="" aria-label="2"></a></span>
-<span id="cb7-3"><a href="" aria-label="3"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (rose) {</span>
-<span id="cb7-4"><a href="" aria-label="4"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
-<span id="cb7-5"><a href="" aria-label="5"></a>} <span class="cf">else</span> {</span>
-<span id="cb7-6"><a href="" aria-label="6"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
-<span id="cb7-7"><a href="" aria-label="7"></a>}</span>
-<span id="cb7-8"><a href="" aria-label="8"></a></span>
-<span id="cb7-9"><a href="" aria-label="9"></a>trend_title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>THRESH <span class="ot">&lt;-</span> <span class="fl">0.5</span>                     <span class="co"># points. Stated, never zero</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>change <span class="ot">&lt;-</span> <span class="fu">last</span>(this_r<span class="sc">$</span>rate) <span class="sc">-</span> <span class="fu">first</span>(this_r<span class="sc">$</span>rate)</span>
+<span id="cb7-3"><a href="" aria-label="3"></a></span>
+<span id="cb7-4"><a href="" aria-label="4"></a>trend_title <span class="ot">&lt;-</span> <span class="cf">if</span> (change <span class="sc">&gt;</span> THRESH) {</span>
+<span id="cb7-5"><a href="" aria-label="5"></a>  <span class="fu">sprintf</span>(<span class="st">"%s has moved against the national trend"</span>, REGION)</span>
+<span id="cb7-6"><a href="" aria-label="6"></a>} <span class="cf">else</span> <span class="cf">if</span> (change <span class="sc">&lt;</span> <span class="sc">-</span>THRESH) {</span>
+<span id="cb7-7"><a href="" aria-label="7"></a>  <span class="fu">sprintf</span>(<span class="st">"%s tracked the national decline"</span>, REGION)</span>
+<span id="cb7-8"><a href="" aria-label="8"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-9"><a href="" aria-label="9"></a>  <span class="fu">sprintf</span>(<span class="st">"%s was broadly unchanged"</span>, REGION)</span>
+<span id="cb7-10"><a href="" aria-label="10"></a>}</span>
+<span id="cb7-11"><a href="" aria-label="11"></a></span>
+<span id="cb7-12"><a href="" aria-label="12"></a>trend_title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Jazan has moved against the national trend"</code></pre>
@@ -575,8 +578,9 @@ quarto render bulletin.qmd --to typst</code></pre>
 <p>Then change <code>REGION</code> to <code>"Riyadh"</code> and re-run in front of them. The same six lines, the opposite sentence, and nobody edited prose. That is the whole slide.</p>
 <p>Two warnings, and they matter more than the code:</p>
 <ol type="1">
-<li>A rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</li>
-<li><strong>Two branches is not enough for real data.</strong> This rule says rose or fell; a region that did neither gets a false sentence either way. In the synthetic set every region moved at least 2.1 points so it never fires, but GASTAT’s real figures will have flat regions. A production rule needs a third outcome — <em>broadly unchanged</em> — behind a stated threshold or a confidence interval.</li>
+<li><p>A rule you have not tested on all thirteen regions will publish a false sentence. That is worse than a dull one.</p></li>
+<li><p><strong>The third branch is the one nobody writes.</strong> A two-way rule gives a region that neither rose nor fell a false sentence either way. <code>THRESH</code> is stated and never zero — below it the series has not moved in any sense a reader should act on.</p>
+<p>Be honest about it: in this synthetic set every region moved at least 2.1 points, so the third branch never fires. It is there for GASTAT’s real figures, where flat regions are ordinary. A branch you cannot trigger is a branch you have not tested — <code>bulletin.qmd</code> uses the same rule and it was tested against all three outcomes separately.</p></li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
