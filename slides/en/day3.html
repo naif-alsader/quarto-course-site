@@ -102,7 +102,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="day3_files/libs/revealjs/dist/theme/quarto-8c85bca8f934d39cdcdbaf9f03fc1815.css">
+  <link rel="stylesheet" href="day3_files/libs/revealjs/dist/theme/quarto-c251b483ba8342588d3a5cb7efd35b82.css">
   <link href="day3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="day3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="day3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -1363,6 +1363,18 @@ GASTAT
         }
       });
       </script>
+    <script>
+    (function () {
+      function compact() {
+        if (window.Reveal && typeof Reveal.configure === 'function') {
+          Reveal.configure({ scrollLayout: 'compact', scrollSnap: false });
+        }
+      }
+      if (document.readyState !== 'loading') compact();
+      document.addEventListener('DOMContentLoaded', compact);
+      window.addEventListener('load', compact);
+    })();
+    </script>
     
 
 </body></html>
