@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="day2_files/libs/revealjs/dist/theme/quarto-2a674cf9b4ad5868b30f71148166a159.css">
+  <link rel="stylesheet" href="day2_files/libs/revealjs/dist/theme/quarto-005d5c2b42f405352c587fb1348827fe.css">
   <link href="day2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="day2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="day2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,7 +222,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="reveal" class="slide level2 center" data-background-color="#4137A8">
+<section id="reveal" class="slide level2 showcase center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="twenty-six-documents.-one-file-made-all-of-them.">Twenty-six documents. One file made all of them.</h3>
@@ -282,7 +282,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="reveal-formats" class="slide level2 center" data-background-color="#4137A8">
+<section id="reveal-formats" class="slide level2 showcase center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="one-file.-three-windows.-watch-them-appear.">One file. Three windows. Watch them appear.</h3>
@@ -480,7 +480,7 @@ quarto render bulletin.qmd --to typst</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="reveal-params" class="slide level2 center" data-background-color="#4137A8">
+<section id="reveal-params" class="slide level2 showcase center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="jazan-and-riyadh-side-by-side.-one-file-made-both.">Jazan and Riyadh, side by side. One file made both.</h3>
@@ -529,8 +529,13 @@ quarto render bulletin.qmd --to typst</code></pre>
 <h2>Parameterising an argument</h2>
 <p>A descriptive caption parameterises for free:</p>
 <blockquote>
-<p>“Unemployment by quarter, <code>r params$region</code>”</p>
+<p>“Unemployment by quarter, <code>`r params$region`</code>”</p>
 </blockquote>
+<!-- inline_expr emits real backticks. Inside a fence they survive; in prose
+     Pandoc reads them as a code span and eats them, so the slide showed the
+     expression without the backticks that are the whole point. Here they have
+     to be entities - and the comment cannot spell the expression out either,
+     because knitr evaluates inline R inside HTML comments too. -->
 <p>A <strong>message</strong> caption does not. Jazan rose; Riyadh fell; a third region did neither. One sentence cannot be all three.</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -785,7 +790,7 @@ quarto render bulletin.qmd --to typst</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="reveal-project" class="slide level2 center" data-background-color="#4137A8">
+<section id="reveal-project" class="slide level2 showcase center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="change-one-line.-re-render.-watch-the-institution-change-colour.">Change one line. Re-render. Watch the institution change colour.</h3>
@@ -944,7 +949,12 @@ quarto render bulletin.qmd --to typst</code></pre>
 <p><span class="ct">Then</span> Render 3 regions. Check the output folder. Then render 13.</p>
 </div>
 <div class="card accent">
-<p><span class="ct">Done test · three checks</span> 1. The same file produced <strong>HTML, Word and PDF</strong> — and you can say what each one lost 2. Add a region to <code>regions.csv</code>. <strong>It appears.</strong> Nothing else edited 3. Change one colour in <code>_brand.yml</code>. Re-render. <strong>All thirteen changed</strong></p>
+<p><span class="ct">Done test · three checks</span></p>
+<ol type="1">
+<li>The same file produced <strong>HTML, Word and PDF</strong> — and you can say what each one lost</li>
+<li>Add a region to <code>regions.csv</code>. <strong>It appears.</strong> Nothing else edited</li>
+<li>Change one colour in <code>_brand.yml</code>. Re-render. <strong>All thirteen changed</strong></li>
+</ol>
 </div>
 </div>
 <aside class="notes">
