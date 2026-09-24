@@ -9,9 +9,7 @@
 <link href="day3_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="author" content="GASTAT">
-  <meta name="dcterms.date" content="2026-09-24">
-  <title>The Story</title>
+  <title>The Story — Reproducible Statistical Reporting with Quarto</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -102,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="day3_files/libs/revealjs/dist/theme/quarto-c251b483ba8342588d3a5cb7efd35b82.css">
+  <link rel="stylesheet" href="day3_files/libs/revealjs/dist/theme/quarto-2a674cf9b4ad5868b30f71148166a159.css">
   <link href="day3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="day3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="day3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -201,21 +199,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The Story</h1>
-  <p class="subtitle">Reproducible Statistical Reporting with Quarto — Day 3</p>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-GASTAT
-</div>
-</div>
-</div>
-
-  <p class="date">2026-09-24</p>
-</section>
-<section id="cover" class="slide level2 divider" data-background-color="#4137A8">
+<section id="cover" class="slide level2 divider center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">DAY 3 · 09:00–14:00</span></p>
 <div class="dtitle">
@@ -237,7 +222,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="reveal" class="slide level2" data-background-color="#4137A8">
+<section id="reveal" class="slide level2 center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="deck.-dashboard.-scroll-view.-three-minutes-each.">Deck. Dashboard. Scroll view. Three minutes each.</h3>
@@ -258,25 +243,21 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="day-map" class="slide level2">
+<section id="day-map" class="slide level2 center">
 <h2>Today</h2>
 <div class="cards">
-<section id="block-1" class="card">
-<h4>Block 1</h4>
-<p>Choosing the vehicle</p>
-</section>
-<section id="block-2" class="card">
-<h4>Block 2</h4>
-<p>Presentations</p>
-</section>
-<section id="block-3" class="card">
-<h4>Block 3</h4>
-<p>Dashboards</p>
-</section>
-<section id="lab" class="card accent">
-<h4>Lab</h4>
-<p>You build a second vehicle</p>
-</section>
+<div class="card">
+<p><span class="ct">Block 1</span> Choosing the vehicle</p>
+</div>
+<div class="card">
+<p><span class="ct">Block 2</span> Presentations</p>
+</div>
+<div class="card">
+<p><span class="ct">Block 3</span> Dashboards</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Lab</span> You build a second vehicle</p>
+</div>
 </div>
 <p><strong>By 14:00 your bulletin will exist as something else, from the same data file.</strong></p>
 <aside class="notes">
@@ -293,7 +274,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="sec-vehicle" class="slide level2 divider" data-background-color="#4137A8">
+<section id="sec-vehicle" class="slide level2 divider center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">BLOCK 1 · 09:00–10:15</span></p>
 <div class="dtitle">
@@ -315,7 +296,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="vehicle-matrix" class="slide level2">
+<section id="vehicle-matrix" class="slide level2 center">
 <h2>Choosing the vehicle</h2>
 <table class="caption-top">
 <colgroup>
@@ -375,21 +356,18 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="disclosure" class="slide level2">
+<section id="disclosure" class="slide level2 center">
 <h2>Progressive disclosure</h2>
 <div class="cards">
-<section id="the-line" class="card">
-<h4>The line</h4>
-<p>One sentence. The reader who trusts you stops here.</p>
-</section>
-<section id="the-margin" class="card">
-<h4>The margin</h4>
-<p>Method, caveats, the denominator. The reader who doubts you.</p>
-</section>
-<section id="the-appendix" class="card">
-<h4>The appendix</h4>
-<p>Everything. The reader who will replicate you.</p>
-</section>
+<div class="card">
+<p><span class="ct">The line</span> One sentence. The reader who trusts you stops here.</p>
+</div>
+<div class="card">
+<p><span class="ct">The margin</span> Method, caveats, the denominator. The reader who doubts you.</p>
+</div>
+<div class="card">
+<p><span class="ct">The appendix</span> Everything. The reader who will replicate you.</p>
+</div>
 </div>
 <p><strong>Every vehicle needs all three. They differ in where the layers go.</strong></p>
 <p><span class="muted">You met the first two on Day 1, in one document. Today they move between documents.</span></p>
@@ -408,7 +386,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="takeaway-1" class="slide level2 statement" data-background-color="#F5F7FA">
+<section id="takeaway-1" class="slide level2 statement center" data-background-color="#F5F7FA">
 <h2></h2>
 <p><span class="eyebrow">TAKEAWAY — BLOCK 1</span></p>
 <div class="stitle">
@@ -428,7 +406,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="sec-decks" class="slide level2 divider" data-background-color="#4137A8">
+<section id="sec-decks" class="slide level2 divider center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">BLOCK 2 · 10:30–11:45</span></p>
 <div class="dtitle">
@@ -450,7 +428,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="deck-from-report" class="slide level2" data-background-color="#4137A8">
+<section id="deck-from-report" class="slide level2 center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="watch-for-two-things-the-slide-that-animates-and-the-slide-that-runs-r.">Watch for two things: the slide that animates, and the slide that runs R.</h3>
@@ -472,7 +450,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="layout-fragments" class="slide level2">
+<section id="layout-fragments" class="slide level2 center">
 <h2>Your analysis is already the deck</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
@@ -500,7 +478,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="auto-animate" class="slide level2">
+<section id="auto-animate" class="slide level2 center">
 <h2>Auto-animate</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a><span class="fu">## {auto-animate=true}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The same element on two slides, moved — Reveal tweens between them.</p>
@@ -519,24 +497,24 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="manager-5" class="slide level2">
+<section id="manager-5" class="slide level2 center">
 <h2>The five-slide manager briefing</h2>
 <div class="cards">
-<section id="the-number" class="card">
-<h4>1 · The number</h4>
-</section>
-<section id="why-it-moved" class="card">
-<h4>2 · Why it moved</h4>
-</section>
-<section id="what-is-at-risk" class="card">
-<h4>3 · What is at risk</h4>
-</section>
-<section id="the-choice" class="card">
-<h4>4 · The choice</h4>
-</section>
-<section id="the-ask" class="card accent">
-<h4>5 · The ask</h4>
-</section>
+<div class="card">
+<p><span class="ct">1 · The number</span></p>
+</div>
+<div class="card">
+<p><span class="ct">2 · Why it moved</span></p>
+</div>
+<div class="card">
+<p><span class="ct">3 · What is at risk</span></p>
+</div>
+<div class="card">
+<p><span class="ct">4 · The choice</span></p>
+</div>
+<div class="card accent">
+<p><span class="ct">5 · The ask</span></p>
+</div>
 </div>
 <p><strong>Draft yours, against your own bulletin. Twenty minutes.</strong></p>
 <aside class="notes">
@@ -554,7 +532,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="presenter-toolkit" class="slide level2">
+<section id="presenter-toolkit" class="slide level2 center">
 <h2>The presenter’s toolkit</h2>
 <table class="caption-top">
 <thead>
@@ -602,18 +580,16 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="scroll-view" class="slide level2">
+<section id="scroll-view" class="slide level2 center">
 <h2>Scroll view</h2>
 <p>One <code>.qmd</code>. Press <code>r</code> and the deck becomes a scrollable page.</p>
 <div class="cards">
-<section id="in-the-room" class="card">
-<h4>In the room</h4>
-<p>A deck.</p>
-</section>
-<section id="on-the-intranet" class="card">
-<h4>On the intranet</h4>
-<p>A document, for the people who missed it.</p>
-</section>
+<div class="card">
+<p><span class="ct">In the room</span> A deck.</p>
+</div>
+<div class="card">
+<p><span class="ct">On the intranet</span> A document, for the people who missed it.</p>
+</div>
 </div>
 <p>Press <code>r</code>.</p>
 <p><strong>Closeread does this far more beautifully — and needs a GitHub download your machine will refuse. Scroll view is built in.</strong></p>
@@ -633,7 +609,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="pdf-export" class="slide level2">
+<section id="pdf-export" class="slide level2 center">
 <h2>Getting it out</h2>
 <p><code>?print-pdf</code> in the URL, then print to PDF.</p>
 <p><strong>Arabic decks: the <code>rtl: true</code> caveat from yesterday applies here — that is what it was about.</strong></p>
@@ -652,7 +628,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="takeaway-2" class="slide level2 statement" data-background-color="#F5F7FA">
+<section id="takeaway-2" class="slide level2 statement center" data-background-color="#F5F7FA">
 <h2></h2>
 <p><span class="eyebrow">TAKEAWAY — BLOCK 2</span></p>
 <div class="stitle">
@@ -672,7 +648,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="sec-dash" class="slide level2 divider" data-background-color="#4137A8">
+<section id="sec-dash" class="slide level2 divider center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">BLOCK 3 · 12:15–13:15</span></p>
 <div class="dtitle">
@@ -694,7 +670,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="dash-reveal" class="slide level2" data-background-color="#4137A8">
+<section id="dash-reveal" class="slide level2 center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">THE REVEAL</span></p>
 <h3 id="one-file.-no-server.-it-opens-from-an-email.">One file. No server. It opens from an email.</h3>
@@ -714,7 +690,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="dash-layout" class="slide level2">
+<section id="dash-layout" class="slide level2 center">
 <h2>Rows, columns, cards</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="|2|5|10|12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a><span class="co">---</span></span>
 <span id="cb3-2"><a href="" aria-label="2"></a><span class="an">format:</span><span class="co"> dashboard</span></span>
@@ -761,21 +737,18 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="cards-valueboxes" class="slide level2">
+<section id="cards-valueboxes" class="slide level2 center">
 <h2>Value boxes and tabsets</h2>
 <div class="cards">
-<section id="value-box" class="card accent">
-<h4>Value box</h4>
-<p>One number the reader came for.</p>
-</section>
-<section id="tabset" class="card">
-<h4>Tabset</h4>
-<p>Thirteen regions without thirteen screens.</p>
-</section>
-<section id="card" class="card">
-<h4>Card</h4>
-<p>Everything else.</p>
-</section>
+<div class="card accent">
+<p><span class="ct">Value box</span> One number the reader came for.</p>
+</div>
+<div class="card">
+<p><span class="ct">Tabset</span> Thirteen regions without thirteen screens.</p>
+</div>
+<div class="card">
+<p><span class="ct">Card</span> Everything else.</p>
+</div>
 </div>
 <aside class="notes">
 <p>Ten minutes. The tabset is how the 13 regions fit — it is the dashboard answer to the same problem parameters solved yesterday.</p>
@@ -791,17 +764,15 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="static-first" class="slide level2">
+<section id="static-first" class="slide level2 center">
 <h2>No server</h2>
 <div class="cards">
-<section id="shiny" class="card dark">
-<h4>Shiny</h4>
-<p>A server, a port, a deployment, a team that maintains it.</p>
-</section>
-<section id="static" class="card accent">
-<h4>Static</h4>
-<p>One HTML file. Email it. It opens.</p>
-</section>
+<div class="card muted">
+<p><span class="ct">Shiny</span> A server, a port, a deployment, a team that maintains it.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Static</span> One HTML file. Email it. It opens.</p>
+</div>
 </div>
 <aside class="notes">
 <p>Eight minutes. On CML, static is not a preference — it is the only thing that will actually reach a colleague.</p>
@@ -818,18 +789,16 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="dashboards-explain" class="slide level2">
+<section id="dashboards-explain" class="slide level2 center">
 <h2>What a dashboard cannot do</h2>
 <p><strong>A dashboard answers questions the reader already knows to ask.</strong></p>
 <div class="cards">
-<section id="they-know-the-question" class="card">
-<h4>They know the question</h4>
-<p><em>“How is my region doing?”</em> — a dashboard is the right answer.</p>
-</section>
-<section id="they-do-not" class="card accent">
-<h4>They do not</h4>
-<p><em>“Should we be worried about Jazan?”</em> — send the bulletin. It makes the argument for them.</p>
-</section>
+<div class="card">
+<p><span class="ct">They know the question</span> <em>“How is my region doing?”</em> — a dashboard is the right answer.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">They do not</span> <em>“Should we be worried about Jazan?”</em> — send the bulletin. It makes the argument for them.</p>
+</div>
 </div>
 <aside class="notes">
 <p>Seven minutes, and this is the block’s real content.</p>
@@ -847,7 +816,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="a11y" class="slide level2">
+<section id="a11y" class="slide level2 center">
 <h2>Publishing responsibly</h2>
 <p>Static and self-contained means it travels. <strong>Make sure it arrives readable.</strong></p>
 <div class="tight">
@@ -873,7 +842,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="takeaway-3" class="slide level2 statement" data-background-color="#F5F7FA">
+<section id="takeaway-3" class="slide level2 statement center" data-background-color="#F5F7FA">
 <h2></h2>
 <p><span class="eyebrow">TAKEAWAY — BLOCK 3</span></p>
 <div class="stitle">
@@ -893,26 +862,20 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="lab" class="slide level2">
+<section id="lab" class="slide level2 center">
 <h2>Capstone</h2>
 <p>Turn your bulletin into a <strong>second vehicle</strong> — deck or dashboard.</p>
 <div class="cards">
-<section id="build-26-min" class="card">
-<h4>Build · 26 min</h4>
-<p><code>lab3-deck-start.qmd</code> or <code>lab3-dashboard-start.qmd</code>. The skeleton is there.</p>
+<div class="card">
+<p><span class="ct">Build · 26 min</span> <code>lab3-deck-start.qmd</code> or <code>lab3-dashboard-start.qmd</code>. The skeleton is there.</p>
 <p><strong>Deck path:</strong> cut your bulletin to five slides. <strong>Dashboard path:</strong> move two charts into rows.</p>
-</section>
-<section id="show-9-min" class="card">
-<h4>Show · 9 min</h4>
-<p>Six volunteers, 90 seconds each.</p>
-</section>
-<section id="done-test-two-checks" class="card accent">
-<h4>Done test · two checks</h4>
-<ol type="1">
-<li>Say in one sentence <strong>why you chose this vehicle</strong> — in shelf-life terms</li>
-<li>It renders from the same data file. <strong>Nothing copied</strong> — charts <code>source()</code>d, not pasted</li>
-</ol>
-</section>
+</div>
+<div class="card">
+<p><span class="ct">Show · 9 min</span> Six volunteers, 90 seconds each.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Done test · two checks</span> 1. Say in one sentence <strong>why you chose this vehicle</strong> — in shelf-life terms 2. It renders from the same data file. <strong>Nothing copied</strong> — charts <code>source()</code>d, not pasted</p>
+</div>
 </div>
 <aside class="notes">
 <p>Six volunteers, not everyone — at eighteen people a full round is twenty-seven minutes and it eats the close. The close is the only operational content in the course; protect it.</p>
@@ -929,7 +892,7 @@ GASTAT
           display:block!important;
       }</style></aside>
 </section>
-<section id="close" class="slide level2 divider">
+<section id="close" class="slide level2 divider center">
 <h2>Monday morning</h2>
 <p><span class="eyebrow">THE CLOSE · 10 MIN</span></p>
 <hr class="rule">
@@ -1046,7 +1009,7 @@ GASTAT
         disableLayout: false,
 
         // Vertical centering of slides
-        center: false,
+        center: true,
 
         // Enables touch navigation on devices with touch input
         touch: true,
