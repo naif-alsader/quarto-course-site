@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="day1_files/libs/revealjs/dist/theme/quarto-005d5c2b42f405352c587fb1348827fe.css">
+  <link rel="stylesheet" href="day1_files/libs/revealjs/dist/theme/quarto-c5be4bb8ae1cc063946c8526c0f2d285.css">
   <link href="day1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="day1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="day1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -267,26 +267,7 @@
 <p><strong>By 14:00 you will have a bulletin that re-renders when the data changes.</strong></p>
 <aside class="notes">
 <p>Thirty seconds per card. These are the four moves the reveal just promised: say them as moves, not as a timetable. Do not elaborate — the reveal already made the case.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="setup" class="slide level2 center">
-<h2>Before we start</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
-<span id="cb2-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If that last line produced a file, you are ready.</p>
-<aside class="notes">
-<p>Two minutes, straight after the day map. Ask for a show of hands: whose last line produced a file? Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
+<p>Then one question, no slide: “Hands up if your pre-course test render produced a file.” Anyone who says no is fixed at the 10:15 break, from the setup guide — not from the front.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -405,15 +386,15 @@
 </section>
 <section id="anatomy" class="slide level2 center">
 <h2>Three things in every <code>.qmd</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
-<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb3-4"><a href="" aria-label="4"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r REGION`</span> stands at ...          <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="" aria-label="2"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>                               <span class="co"># 3. cells</span></span>
-<span id="cb5-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb5-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-4"><a href="" aria-label="4"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r REGION`</span> stands at ...          <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>                               <span class="co"># 3. cells</span></span>
+<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb3-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>Re-open <code>bulletin-minimal.qmd</code> from the reveal and point at each of the three as you name it. Nothing more abstract than that.</p>
 <p><code>REGION &lt;- "Jazan"</code> is an ordinary constant in an ordinary chunk. Say nothing about parameters — tomorrow’s first move is promoting this one line, and it only lands if they have lived with the constant for a day.</p>
@@ -735,11 +716,11 @@
 </section>
 <section id="cell-options" class="slide level2 center">
 <h2>Five cell options that earn their keep</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co">#| label: fig-trend          # names it — @fig-trend uses it</span></span>
-<span id="cb6-2"><a href="" aria-label="2"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
-<span id="cb6-3"><a href="" aria-label="3"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
-<span id="cb6-4"><a href="" aria-label="4"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
-<span id="cb6-5"><a href="" aria-label="5"></a><span class="co">#| eval: true                # run it at all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a><span class="co">#| label: fig-trend          # names it — @fig-trend uses it</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
+<span id="cb4-3"><a href="" aria-label="3"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
+<span id="cb4-4"><a href="" aria-label="4"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
+<span id="cb4-5"><a href="" aria-label="5"></a><span class="co">#| eval: true                # run it at all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>label</code> — the only one that changes what the <em>reader</em> can do</li>
@@ -812,8 +793,8 @@
 </section>
 <section id="inline" class="slide level2 center">
 <h2>No number is typed</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
-<span id="cb7-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Renders as:</p>
 <blockquote>
 <p>Unemployment stands at <strong>11.1%</strong> in <strong>2025Q4</strong>.</p>
@@ -868,8 +849,8 @@
 <h2 data-id="quarto-animate-title">Building the house table</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb8-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb6-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <script>
@@ -1111,19 +1092,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_0t2v2jf33uejf93wj8m0 = TinyTable.createTableFunctions("tinytable_0t2v2jf33uejf93wj8m0");
+      const tableFns_eqb0k37brysh4g0s5be4 = TinyTable.createTableFunctions("tinytable_eqb0k37brysh4g0s5be4");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_abxrpbvxyi886ykgva59',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_vrjsihyosprl4wed97v8',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_hls13v3dplpm7kzznyp1',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_m7uwzp1ebbdcf8lbjnru',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_0t2v2jf33uejf93wj8m0.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_eqb0k37brysh4g0s5be4.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1386,11 +1367,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_0t2v2jf33uejf93wj8m0 td.tinytable_css_abxrpbvxyi886ykgva59, #tinytable_0t2v2jf33uejf93wj8m0 th.tinytable_css_abxrpbvxyi886ykgva59 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_0t2v2jf33uejf93wj8m0 td.tinytable_css_vrjsihyosprl4wed97v8, #tinytable_0t2v2jf33uejf93wj8m0 th.tinytable_css_vrjsihyosprl4wed97v8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_eqb0k37brysh4g0s5be4 td.tinytable_css_hls13v3dplpm7kzznyp1, #tinytable_eqb0k37brysh4g0s5be4 th.tinytable_css_hls13v3dplpm7kzznyp1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_eqb0k37brysh4g0s5be4 td.tinytable_css_m7uwzp1ebbdcf8lbjnru, #tinytable_eqb0k37brysh4g0s5be4 th.tinytable_css_m7uwzp1ebbdcf8lbjnru {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_0t2v2jf33uejf93wj8m0" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_eqb0k37brysh4g0s5be4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1449,9 +1430,9 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <h2 data-id="quarto-animate-title">Building the house table</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb9-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb9-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb7-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb7-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <script>
@@ -1693,19 +1674,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_fopd1pxty7m3qww2fkky = TinyTable.createTableFunctions("tinytable_fopd1pxty7m3qww2fkky");
+      const tableFns_1xomfz4143gz958i31y7 = TinyTable.createTableFunctions("tinytable_1xomfz4143gz958i31y7");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_6ipd2cmy5tyjeovby793',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_34nky0d17vt30whopiyo',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_qjrdor5hjwov353jvzhv',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_rhgketmxui403pqg65jz',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_fopd1pxty7m3qww2fkky.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_1xomfz4143gz958i31y7.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1968,11 +1949,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_fopd1pxty7m3qww2fkky td.tinytable_css_6ipd2cmy5tyjeovby793, #tinytable_fopd1pxty7m3qww2fkky th.tinytable_css_6ipd2cmy5tyjeovby793 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_fopd1pxty7m3qww2fkky td.tinytable_css_34nky0d17vt30whopiyo, #tinytable_fopd1pxty7m3qww2fkky th.tinytable_css_34nky0d17vt30whopiyo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_1xomfz4143gz958i31y7 td.tinytable_css_qjrdor5hjwov353jvzhv, #tinytable_1xomfz4143gz958i31y7 th.tinytable_css_qjrdor5hjwov353jvzhv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_1xomfz4143gz958i31y7 td.tinytable_css_rhgketmxui403pqg65jz, #tinytable_1xomfz4143gz958i31y7 th.tinytable_css_rhgketmxui403pqg65jz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_fopd1pxty7m3qww2fkky" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_1xomfz4143gz958i31y7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2031,10 +2012,10 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <h2 data-id="quarto-animate-title">Building the house table</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb10-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb10-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line =</span> <span class="st">"b"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb8-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb8-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line =</span> <span class="st">"b"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <script>
@@ -2276,19 +2257,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_48ao47low070if5styja = TinyTable.createTableFunctions("tinytable_48ao47low070if5styja");
+      const tableFns_1cqxky1lub6exon63c53 = TinyTable.createTableFunctions("tinytable_1cqxky1lub6exon63c53");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_o4zjvnci96h6fl66qoc1',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_zx70kp1yze66kglq6bol',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_heoiz6fbgfrtny9si5e2',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_3wetvvzhypcqeq8002ky',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_48ao47low070if5styja.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_1cqxky1lub6exon63c53.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2551,11 +2532,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_48ao47low070if5styja td.tinytable_css_o4zjvnci96h6fl66qoc1, #tinytable_48ao47low070if5styja th.tinytable_css_o4zjvnci96h6fl66qoc1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_48ao47low070if5styja td.tinytable_css_zx70kp1yze66kglq6bol, #tinytable_48ao47low070if5styja th.tinytable_css_zx70kp1yze66kglq6bol {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_1cqxky1lub6exon63c53 td.tinytable_css_heoiz6fbgfrtny9si5e2, #tinytable_1cqxky1lub6exon63c53 th.tinytable_css_heoiz6fbgfrtny9si5e2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_1cqxky1lub6exon63c53 td.tinytable_css_3wetvvzhypcqeq8002ky, #tinytable_1cqxky1lub6exon63c53 th.tinytable_css_3wetvvzhypcqeq8002ky {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_48ao47low070if5styja" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_1cqxky1lub6exon63c53" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2613,11 +2594,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <h2 data-id="quarto-animate-title">Building the house table</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb11-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb11-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb11-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line =</span> <span class="st">"b"</span>,</span>
-<span id="cb11-5" class="hljs-ln-code"><a href="" aria-label="5"></a>           <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb9-2" class="hljs-ln-code"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb9-3" class="hljs-ln-code"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-4" class="hljs-ln-code"><a href="" aria-label="4"></a>           <span class="at">line =</span> <span class="st">"b"</span>,</span>
+<span id="cb9-5" class="hljs-ln-code"><a href="" aria-label="5"></a>           <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <script>
@@ -2859,19 +2840,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_b6c9dl42e3bdchw1zbfu = TinyTable.createTableFunctions("tinytable_b6c9dl42e3bdchw1zbfu");
+      const tableFns_4myvyrr4kspabdeut9xb = TinyTable.createTableFunctions("tinytable_4myvyrr4kspabdeut9xb");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_8fk8mrc2uk4x8wh1g6qa',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_vaayv18zavro9pqz3yhr',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_bswoe8334sujo23zgh7f',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_0i7gdikuzeb3a9owi2m1',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_b6c9dl42e3bdchw1zbfu.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_4myvyrr4kspabdeut9xb.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3134,11 +3115,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_b6c9dl42e3bdchw1zbfu td.tinytable_css_8fk8mrc2uk4x8wh1g6qa, #tinytable_b6c9dl42e3bdchw1zbfu th.tinytable_css_8fk8mrc2uk4x8wh1g6qa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_b6c9dl42e3bdchw1zbfu td.tinytable_css_vaayv18zavro9pqz3yhr, #tinytable_b6c9dl42e3bdchw1zbfu th.tinytable_css_vaayv18zavro9pqz3yhr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_4myvyrr4kspabdeut9xb td.tinytable_css_bswoe8334sujo23zgh7f, #tinytable_4myvyrr4kspabdeut9xb th.tinytable_css_bswoe8334sujo23zgh7f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_4myvyrr4kspabdeut9xb td.tinytable_css_0i7gdikuzeb3a9owi2m1, #tinytable_4myvyrr4kspabdeut9xb th.tinytable_css_0i7gdikuzeb3a9owi2m1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_b6c9dl42e3bdchw1zbfu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_4myvyrr4kspabdeut9xb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -3196,9 +3177,9 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <section id="tbl-ref" class="slide level2 center">
 <h2>Building the house table</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb12-2"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="st">"b"</span>, <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb10-2"><a href="" aria-label="2"></a><span class="fu">tt</span>(recent) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="" aria-label="3"></a>  <span class="fu">style_tt</span>(<span class="at">i =</span> <span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="st">"b"</span>, <span class="at">line_color =</span> <span class="st">"#4137A8"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <script>
 // TinyTable JavaScript Framework
@@ -3439,19 +3420,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_di0ono7vap98xi0xt0fa = TinyTable.createTableFunctions("tinytable_di0ono7vap98xi0xt0fa");
+      const tableFns_7y1xl76tt21t84r6gzph = TinyTable.createTableFunctions("tinytable_7y1xl76tt21t84r6gzph");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_put7ii0aratsgy6khf0q',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_daftxwdohdrfdqzf3eu9',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_7a4ofmh1yaexia3h11fu',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_nbgumxlgfm1eg2kw002o',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_di0ono7vap98xi0xt0fa.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_7y1xl76tt21t84r6gzph.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3714,11 +3695,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_di0ono7vap98xi0xt0fa td.tinytable_css_put7ii0aratsgy6khf0q, #tinytable_di0ono7vap98xi0xt0fa th.tinytable_css_put7ii0aratsgy6khf0q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_di0ono7vap98xi0xt0fa td.tinytable_css_daftxwdohdrfdqzf3eu9, #tinytable_di0ono7vap98xi0xt0fa th.tinytable_css_daftxwdohdrfdqzf3eu9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_7y1xl76tt21t84r6gzph td.tinytable_css_7a4ofmh1yaexia3h11fu, #tinytable_7y1xl76tt21t84r6gzph th.tinytable_css_7a4ofmh1yaexia3h11fu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_7y1xl76tt21t84r6gzph td.tinytable_css_nbgumxlgfm1eg2kw002o, #tinytable_7y1xl76tt21t84r6gzph th.tinytable_css_nbgumxlgfm1eg2kw002o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_di0ono7vap98xi0xt0fa" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_7y1xl76tt21t84r6gzph" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -3777,7 +3758,7 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </section>
 <section id="crossrefs" class="slide level2 center">
 <h2>Cross-references and the margin</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>@fig-</code>, <code>@tbl-</code>, <code>@sec-</code> — numbering that never goes stale</li>
@@ -3802,10 +3783,10 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </section>
 <section id="callouts-margin" class="slide level2 center">
 <h2>Where the doubt goes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="" aria-label="1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb14-2"><a href="" aria-label="2"></a><span class="fu">## What this means</span></span>
-<span id="cb14-3"><a href="" aria-label="3"></a>Jazan ranks 1st of 13 regions this quarter.</span>
-<span id="cb14-4"><a href="" aria-label="4"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="" aria-label="1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb12-2"><a href="" aria-label="2"></a><span class="fu">## What this means</span></span>
+<span id="cb12-3"><a href="" aria-label="3"></a>Jazan ranks 1st of 13 regions this quarter.</span>
+<span id="cb12-4"><a href="" aria-label="4"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cards">
 <div class="card">
 <p><span class="ct">The line</span> The argument. The reader who trusts you stops here.</p>
@@ -4052,6 +4033,28 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <aside class="notes">
 <p>Read it once. Do not gloss it.</p>
 <p>Next: you build two pages of your own.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="setup" class="slide level2 center">
+<h2>Before you build</h2>
+<p>Render the lab file once, before you change anything.</p>
+<p><span class="eyebrow">In the Terminal</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> render labs/lab1-start.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Two new files in <code>labs/</code> — <code>lab1-start.html</code> and <code>lab1-start.pdf</code> — and you are ready.</strong></p>
+<p><span class="muted">If it fails, the table at the end of the setup guide says what the error means.</span></p>
+<aside class="notes">
+<p>Two minutes, before anyone edits anything. Rendering the untouched file first means a failure is the machine, not their code.</p>
+<p>Hands up if both files appeared. The morning’s show of hands should have caught most problems; anyone failing now builds on a neighbour’s machine for today — do not debug from the front. The failure table in <code>templates/setup-guide</code> maps each error to its fix.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
