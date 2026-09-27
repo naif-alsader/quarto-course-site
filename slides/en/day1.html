@@ -303,22 +303,53 @@
       }</style></aside>
 </section>
 <section id="rap-case" class="slide level2 center">
-<h2>The re-run test</h2>
-<blockquote>
-<p>Your manager asks for Q3 instead of Q2. <strong>How long?</strong></p>
-</blockquote>
+<h2>Your manager asks for Q3 instead of Q2. How long does it take you?</h2>
+<p><span class="muted">A few minutes ago you watched Jazan become Riyadh: one line changed, every number moved.</span></p>
 <div class="cards">
-<div class="card">
-<p><span class="ct">If the answer is days</span> Numbers are copied by hand. Somebody re-checks them. Somebody misses one.</p>
+<div class="card fragment">
+<p><span class="ct">Today: days</span> Numbers are copied by hand. Somebody re-checks them. Somebody misses one.</p>
 </div>
-<div class="card">
-<p><span class="ct">If the answer is minutes</span> The pipeline is the document. Nothing is re-checked because nothing was retyped.</p>
+<div class="card accent fragment">
+<p><span class="ct">One source: seconds</span> What you just watched. Nothing is re-checked, because nothing was retyped.</p>
 </div>
 </div>
 <aside class="notes">
-<p>Ask the question and wait. Let someone in the room say “a week.”</p>
+<p>The re-run test. Five minutes.</p>
+<p>Ask the question and wait. Let someone in the room say “a week.” Only then press right: their answer appears as the first card.</p>
 <p>Then the costs, by name: copy-paste drift. The 11pm correction before publication. The number nobody can trace to a line of code.</p>
-<p>RAP — Reproducible Analytical Pipelines — is the UK statistical service’s answer, and it has levels: baseline, silver, gold. Ask the room where they think GASTAT sits today. Do not answer for them.</p>
+<p>Press right again and point back at the reveal. The gap between the room’s answer and what they watched a few minutes ago is the case for the whole day. The next slide gives the gap its name.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rap-levels" class="slide level2 center">
+<h2>Where Quarto sits in RAP</h2>
+<p>RAP — Reproducible Analytical Pipelines — has three levels.</p>
+<div class="cards">
+<div class="card">
+<p><span class="ct">Baseline</span> The analysis is code. Version-controlled, peer-reviewed, reproducible from a README.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Silver</span> Best practice. First on its list: <strong>outputs are produced by code with minimal manual intervention.</strong> For the report, that is Quarto.</p>
+</div>
+<div class="card">
+<p><span class="ct">Gold</span> Analysis as a product. Packaged, tested automatically, run on a schedule.</p>
+</div>
+</div>
+<p><strong>Where does GASTAT sit today?</strong></p>
+<p><span class="muted">Levels of RAP: the NHS RAP Community of Practice.</span></p>
+<aside class="notes">
+<p>Five minutes. RAP is a discipline, not a tool: code, version control, a reproducible environment, no manual steps. The UK RAP strategy makes the institutional case; these three levels are the NHS RAP Community of Practice’s maturity framework. Say whose they are — this room will ask.</p>
+<p>Read Silver’s first criterion aloud. For the analysis, R already does it. For the report, the thing the public reads, it is what they watched at the reveal, and it is the criterion Quarto delivers.</p>
+<p>Then ask where GASTAT sits today, and do not answer for them. If the answer is “the analysis is code but the report is made by hand”, that is the gap this course closes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -333,7 +364,7 @@
 </section>
 <section id="why-quarto" class="slide level2 center">
 <h2>Why Quarto, specifically</h2>
-<p><strong>RAP is code, version control, a reproducible environment, no manual steps. Quarto is RAP’s publishing layer.</strong></p>
+<p><strong>Quarto is RAP’s publishing layer.</strong> Four reasons it fits here:</p>
 <div class="tight">
 <ul>
 <li>One source → HTML, Word, PDF, slides, dashboard. The reviewer’s format and the published format come from the same file.</li>
@@ -344,7 +375,7 @@
 </div>
 <p>Against Word, one line: <strong>the number you typed is not the number you computed.</strong></p>
 <aside class="notes">
-<p>Seven minutes. Four claims, one line each. Do not linger — the next slide is the one that earns their trust.</p>
+<p>Seven minutes. RAP was named on the slide before; this one says why this tool. Four claims, one line each. Do not linger — the next slide is the one that earns their trust.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -360,18 +391,20 @@
 <section id="honest-limit" class="slide level2 center">
 <h2>What Quarto does not do</h2>
 <p><strong>Quarto does not make your analysis reproducible.</strong></p>
-<p><code>renv</code> and version control do that. Quarto makes the <strong>report</strong> reproducible — the step from a finished analysis to the thing the public reads.</p>
+<p>Quarto makes the <strong>report</strong> reproducible — the step from a finished analysis to the thing the public reads.</p>
+<p>The rest of Baseline and Silver is not Quarto’s job:</p>
 <div class="tight">
 <ul>
-<li>Your code is still your responsibility</li>
-<li>Your environment is still <code>renv</code>’s job</li>
-<li>Your history is still git’s job</li>
+<li>Version control — git’s job</li>
+<li>Dependency information — <code>renv</code>’s job</li>
+<li>Tests and peer review — your team’s job</li>
 </ul>
 </div>
 <aside class="notes">
 <p>Three minutes, and say the first line out loud rather than reading it off the slide.</p>
+<p>Point back at the levels. If the course project still has no <code>renv.lock</code> on the day, say so: this course misses a Silver criterion itself. It proves the point better than any slide.</p>
 <p>Claiming less here buys credibility for the rest of the three days. Somebody in this room has been burned by a tool that promised everything.</p>
-<p>We come back to this on Day 2, when git gets named as the gap it is.</p>
+<p>We come back to this on Day 2, when git gets named as the gap it is — against the same three levels.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1092,19 +1125,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_eqb0k37brysh4g0s5be4 = TinyTable.createTableFunctions("tinytable_eqb0k37brysh4g0s5be4");
+      const tableFns_agfscnqewjx6c01kqbs8 = TinyTable.createTableFunctions("tinytable_agfscnqewjx6c01kqbs8");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_hls13v3dplpm7kzznyp1',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_m7uwzp1ebbdcf8lbjnru',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_ni09o1lqkg49axhi1ckx',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_8tjhopirngh4oow1pa75',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_eqb0k37brysh4g0s5be4.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_agfscnqewjx6c01kqbs8.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1367,11 +1400,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_eqb0k37brysh4g0s5be4 td.tinytable_css_hls13v3dplpm7kzznyp1, #tinytable_eqb0k37brysh4g0s5be4 th.tinytable_css_hls13v3dplpm7kzznyp1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_eqb0k37brysh4g0s5be4 td.tinytable_css_m7uwzp1ebbdcf8lbjnru, #tinytable_eqb0k37brysh4g0s5be4 th.tinytable_css_m7uwzp1ebbdcf8lbjnru {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_agfscnqewjx6c01kqbs8 td.tinytable_css_ni09o1lqkg49axhi1ckx, #tinytable_agfscnqewjx6c01kqbs8 th.tinytable_css_ni09o1lqkg49axhi1ckx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_agfscnqewjx6c01kqbs8 td.tinytable_css_8tjhopirngh4oow1pa75, #tinytable_agfscnqewjx6c01kqbs8 th.tinytable_css_8tjhopirngh4oow1pa75 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_eqb0k37brysh4g0s5be4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_agfscnqewjx6c01kqbs8" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1674,19 +1707,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_1xomfz4143gz958i31y7 = TinyTable.createTableFunctions("tinytable_1xomfz4143gz958i31y7");
+      const tableFns_piak286cdllhzq1nweeg = TinyTable.createTableFunctions("tinytable_piak286cdllhzq1nweeg");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_qjrdor5hjwov353jvzhv',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_rhgketmxui403pqg65jz',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_zlng3i9zf1dcv9nvlks7',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_j21oei4wpbxxeba3jah6',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_1xomfz4143gz958i31y7.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_piak286cdllhzq1nweeg.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1949,11 +1982,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_1xomfz4143gz958i31y7 td.tinytable_css_qjrdor5hjwov353jvzhv, #tinytable_1xomfz4143gz958i31y7 th.tinytable_css_qjrdor5hjwov353jvzhv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_1xomfz4143gz958i31y7 td.tinytable_css_rhgketmxui403pqg65jz, #tinytable_1xomfz4143gz958i31y7 th.tinytable_css_rhgketmxui403pqg65jz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_piak286cdllhzq1nweeg td.tinytable_css_zlng3i9zf1dcv9nvlks7, #tinytable_piak286cdllhzq1nweeg th.tinytable_css_zlng3i9zf1dcv9nvlks7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_piak286cdllhzq1nweeg td.tinytable_css_j21oei4wpbxxeba3jah6, #tinytable_piak286cdllhzq1nweeg th.tinytable_css_j21oei4wpbxxeba3jah6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_1xomfz4143gz958i31y7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_piak286cdllhzq1nweeg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2257,19 +2290,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_1cqxky1lub6exon63c53 = TinyTable.createTableFunctions("tinytable_1cqxky1lub6exon63c53");
+      const tableFns_kw0gwizkfio2bi56iueg = TinyTable.createTableFunctions("tinytable_kw0gwizkfio2bi56iueg");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_heoiz6fbgfrtny9si5e2',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_3wetvvzhypcqeq8002ky',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_55nesho4n64svmu5t2mk',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_nh3cnkaom1bp2v9n0csg',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_1cqxky1lub6exon63c53.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_kw0gwizkfio2bi56iueg.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2532,11 +2565,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_1cqxky1lub6exon63c53 td.tinytable_css_heoiz6fbgfrtny9si5e2, #tinytable_1cqxky1lub6exon63c53 th.tinytable_css_heoiz6fbgfrtny9si5e2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_1cqxky1lub6exon63c53 td.tinytable_css_3wetvvzhypcqeq8002ky, #tinytable_1cqxky1lub6exon63c53 th.tinytable_css_3wetvvzhypcqeq8002ky {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_kw0gwizkfio2bi56iueg td.tinytable_css_55nesho4n64svmu5t2mk, #tinytable_kw0gwizkfio2bi56iueg th.tinytable_css_55nesho4n64svmu5t2mk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_kw0gwizkfio2bi56iueg td.tinytable_css_nh3cnkaom1bp2v9n0csg, #tinytable_kw0gwizkfio2bi56iueg th.tinytable_css_nh3cnkaom1bp2v9n0csg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_1cqxky1lub6exon63c53" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_kw0gwizkfio2bi56iueg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2840,19 +2873,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_4myvyrr4kspabdeut9xb = TinyTable.createTableFunctions("tinytable_4myvyrr4kspabdeut9xb");
+      const tableFns_ze3gftfejatwnfm9s0f4 = TinyTable.createTableFunctions("tinytable_ze3gftfejatwnfm9s0f4");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_bswoe8334sujo23zgh7f',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_0i7gdikuzeb3a9owi2m1',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_gkev2j6f5smqmqtgmjtg',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_n9i4uomiasa4bb7xmcab',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4myvyrr4kspabdeut9xb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_ze3gftfejatwnfm9s0f4.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3115,11 +3148,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_4myvyrr4kspabdeut9xb td.tinytable_css_bswoe8334sujo23zgh7f, #tinytable_4myvyrr4kspabdeut9xb th.tinytable_css_bswoe8334sujo23zgh7f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_4myvyrr4kspabdeut9xb td.tinytable_css_0i7gdikuzeb3a9owi2m1, #tinytable_4myvyrr4kspabdeut9xb th.tinytable_css_0i7gdikuzeb3a9owi2m1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_ze3gftfejatwnfm9s0f4 td.tinytable_css_gkev2j6f5smqmqtgmjtg, #tinytable_ze3gftfejatwnfm9s0f4 th.tinytable_css_gkev2j6f5smqmqtgmjtg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_ze3gftfejatwnfm9s0f4 td.tinytable_css_n9i4uomiasa4bb7xmcab, #tinytable_ze3gftfejatwnfm9s0f4 th.tinytable_css_n9i4uomiasa4bb7xmcab {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_4myvyrr4kspabdeut9xb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_ze3gftfejatwnfm9s0f4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -3420,19 +3453,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_7y1xl76tt21t84r6gzph = TinyTable.createTableFunctions("tinytable_7y1xl76tt21t84r6gzph");
+      const tableFns_armf3x37ic623536p8rw = TinyTable.createTableFunctions("tinytable_armf3x37ic623536p8rw");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_7a4ofmh1yaexia3h11fu',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_nbgumxlgfm1eg2kw002o',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_9kx843ac1tcddixapx72',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_ojytrxawq8j7wfvpoisl',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_7y1xl76tt21t84r6gzph.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_armf3x37ic623536p8rw.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3695,11 +3728,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_7y1xl76tt21t84r6gzph td.tinytable_css_7a4ofmh1yaexia3h11fu, #tinytable_7y1xl76tt21t84r6gzph th.tinytable_css_7a4ofmh1yaexia3h11fu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_7y1xl76tt21t84r6gzph td.tinytable_css_nbgumxlgfm1eg2kw002o, #tinytable_7y1xl76tt21t84r6gzph th.tinytable_css_nbgumxlgfm1eg2kw002o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_armf3x37ic623536p8rw td.tinytable_css_9kx843ac1tcddixapx72, #tinytable_armf3x37ic623536p8rw th.tinytable_css_9kx843ac1tcddixapx72 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_armf3x37ic623536p8rw td.tinytable_css_ojytrxawq8j7wfvpoisl, #tinytable_armf3x37ic623536p8rw th.tinytable_css_ojytrxawq8j7wfvpoisl {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_7y1xl76tt21t84r6gzph" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_armf3x37ic623536p8rw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
