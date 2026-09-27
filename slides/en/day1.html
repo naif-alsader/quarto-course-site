@@ -252,22 +252,21 @@
 <h2>Today</h2>
 <div class="cards">
 <div class="card">
-<p><span class="ct">Block 1</span> Two kinds of analysis, and why Quarto</p>
+<p><span class="eyebrow">Block 1 · 09:00</span> <span class="ct">Write it as one source</span> Why Quarto, and what a document is made of</p>
 </div>
 <div class="card">
-<p><span class="ct">Block 2</span> What a document is made of</p>
+<p><span class="eyebrow">Block 2 · 10:30</span> <span class="ct">Let R write every number</span> Figures, numbers, tables, references</p>
 </div>
 <div class="card">
-<p><span class="ct">Block 3</span> Figures, tables, references</p>
+<p><span class="eyebrow">Block 3 · 12:15</span> <span class="ct">Make it argue</span> Which charts, which sentence, which caption</p>
 </div>
 <div class="card accent">
-<p><span class="ct">Lab</span> You build two pages</p>
+<p><span class="eyebrow">Lab · 13:15</span> <span class="ct">Build your own</span> Two pages, HTML and PDF</p>
 </div>
 </div>
 <p><strong>By 14:00 you will have a bulletin that re-renders when the data changes.</strong></p>
-<p><span class="muted">Machine not working? The setup check is the last slide.</span></p>
 <aside class="notes">
-<p>Thirty seconds per card. Do not elaborate — the reveal already made the promise.</p>
+<p>Thirty seconds per card. These are the four moves the reveal just promised: say them as moves, not as a timetable. Do not elaborate — the reveal already made the case.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -280,16 +279,36 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="sec-explore" class="slide level2 divider center" data-background-color="#4137A8">
+<section id="setup" class="slide level2 center">
+<h2>Before we start</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
+<span id="cb2-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If that last line produced a file, you are ready.</p>
+<aside class="notes">
+<p>Two minutes, straight after the day map. Ask for a show of hands: whose last line produced a file? Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sec-source" class="slide level2 divider center" data-background-color="#4137A8">
 <h2></h2>
 <p><span class="eyebrow">BLOCK 1 · 09:00–10:15</span></p>
 <div class="dtitle">
-<p>Two kinds of analysis</p>
+<p>Write it as one source</p>
 </div>
 <hr class="rule">
-<h3 id="the-report-is-not-the-analysis">The report is not the analysis</h3>
+<h3 id="why-quarto-and-what-a-document-is-made-of">Why Quarto, and what a document is made of</h3>
 <aside class="notes">
-<p><strong>By the end of this block</strong> they can state in one sentence the argument a bulletin makes, and say why Quarto is the layer that publishes it reproducibly.</p>
+<p><strong>By the end of this block</strong> they can say why Quarto is RAP’s publishing layer, read the three parts of a <code>.qmd</code>, and name the pipeline stage a render error comes from.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -384,204 +403,19 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="graveyard" class="slide level2 center">
-<h2>You made forty charts</h2>
-
-<img data-src="day1_files/figure-revealjs/graveyard-1.png" width="2400" class="r-stretch"><aside class="notes">
-<p>Let it sit for a beat before saying anything.</p>
-<p>“You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
-<p>Say only: “You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
-<p>Then move to the cull. Do not name exploratory or explanatory yet — that slide comes after, deliberately. Show first, name second.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="cull" class="slide level2 center">
-<h2>Which one goes in?</h2>
-
-<img data-src="day1_files/figure-revealjs/cull-1.png" width="2400" class="r-stretch"><aside class="notes">
-<p>Seven minutes, and most of it is them.</p>
-<p>Three charts of the same indicator. Ask for a show of hands: A, B or C goes in the bulletin? Count the votes out loud.</p>
-<p>Then ask two people on the losing side why. Do not adjudicate. The argument IS the teaching — attention budget, audience, what a chart has to earn.</p>
-<p>If the room converges too fast, argue the other side yourself.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="two-modes" class="slide level2 center">
-<h2>Exploratory and explanatory</h2>
-<div class="cards">
-<div class="card">
-<p><span class="ct">Exploratory</span> For you. Fast, ugly, forty of them, disposable. Nobody else ever sees them.</p>
-</div>
-<div class="card accent">
-<p><span class="ct">Explanatory</span> For them. Slow, finished, two of them, load-bearing. Every one has to earn its place.</p>
-</div>
-</div>
-<p><strong>The bulletin has two charts. Choosing which two is the job.</strong></p>
-<aside class="notes">
-<p>Four minutes. Now name what they have just done: they culled forty to three, and three to one. That is the whole distinction, and they arrived at it before you said it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="attention" class="slide level2 center">
-<h2>The attention budget</h2>
-<p>Your manager gives the bulletin <strong>two minutes</strong>.</p>
-<div class="tight">
-<ul>
-<li>One headline they will repeat in a meeting</li>
-<li>One chart they will screenshot</li>
-<li>One number they will be asked about</li>
-</ul>
-</div>
-<p>Everything else is there for the person who doubts the three.</p>
-<aside class="notes">
-<p>Planning heuristic, not a finding — say so. “Roughly 80 words, one chart, two minutes” is how we are choosing to design, not something measured at GASTAT.</p>
-<p>Ask: who here has had a report read in front of them? What did they look at first?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="big-idea" class="slide level2 center">
-<h2>The one-sentence big idea</h2>
-<div class="cards">
-<div class="card">
-<p><span class="ct">What</span> The finding. One number, one comparison.</p>
-</div>
-<div class="card">
-<p><span class="ct">So what</span> Why it matters to the person reading.</p>
-</div>
-<div class="card">
-<p><span class="ct">Now what</span> What they should do, or watch, next.</p>
-</div>
-</div>
-<p><strong>Your turn: write the big idea for Jazan. One sentence. Eight minutes.</strong></p>
-<aside class="notes">
-<p>Give them the trend chart on screen while they write. Eight minutes, silently.</p>
-<p>Then three volunteers read theirs aloud. For each, ask the room one question only: “would your manager act on that?”</p>
-<p>Do not correct the sentences yourself. Let the room do it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="takeaway-1" class="slide level2 statement center" data-background-color="#F5F7FA">
-<h2></h2>
-<p><span class="eyebrow">TAKEAWAY — BLOCK 1</span></p>
-<div class="stitle">
-<p>The report is not the analysis. It is the argument the analysis licenses.</p>
-</div>
-<aside class="notes">
-<p>Read it once. Do not gloss it. Break.</p>
-<p>Next: what a <code>.qmd</code> is actually made of.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="sec-anatomy" class="slide level2 divider center" data-background-color="#4137A8">
-<h2></h2>
-<p><span class="eyebrow">BLOCK 2 · 10:30–11:45</span></p>
-<div class="dtitle">
-<p>Anatomy of a document</p>
-</div>
-<hr class="rule">
-<h3 id="one-source.-no-manual-numbers.">One source. No manual numbers.</h3>
-<aside class="notes">
-<p><strong>By the end of this block</strong> they can read and write the three parts of a <code>.qmd</code>, and locate a render failure by pipeline stage.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="reveal-anatomy" class="slide level2 showcase center" data-background-color="#4137A8">
-<h2></h2>
-<p><span class="eyebrow">THE REVEAL</span></p>
-<h3 id="seventy-five-lines-made-that.-watch-what-is-not-in-them.">Seventy-five lines made that. Watch what is <em>not</em> in them.</h3>
-<aside class="notes">
-<p><strong>Put <code>bulletin-minimal.html</code> and <code>bulletin-minimal.qmd</code> side by side on one screen</strong>, then leave this slide.</p>
-<p>Five minutes. What is not in the source: no numbers, no styling, no page furniture. That is the thing to notice, and the line on the slide asks them to look for it.</p>
-<p>Scroll the source once, slowly, without commentary. Seventy-five lines for the document they spent an hour arguing about.</p>
-<p>Then: “Three things are in this file, and nothing else. Here they are.” Straight into the next slide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="anatomy" class="slide level2 center">
 <h2>Three things in every <code>.qmd</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
-<span id="cb1-3"><a href="" aria-label="3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb1-4"><a href="" aria-label="4"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r REGION`</span> stands at ...          <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="" aria-label="2"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>                               <span class="co"># 3. cells</span></span>
-<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb3-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="" aria-label="1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Labour Market Bulletin"</span><span class="co">     # 1. YAML — the settings</span></span>
+<span id="cb3-3"><a href="" aria-label="3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb3-4"><a href="" aria-label="4"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="" aria-label="1"></a>Unemployment in <span class="in">`r REGION`</span> stands at ...          <span class="co">&lt;!-- 2. prose --&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>REGION <span class="ot">&lt;-</span> <span class="st">"Jazan"</span>                               <span class="co"># 3. cells</span></span>
+<span id="cb5-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(trend, <span class="fu">aes</span>(date, rate)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb5-4"><a href="" aria-label="4"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>Point at each of the three in the open source as you name it. Nothing more abstract than that.</p>
+<p>Re-open <code>bulletin-minimal.qmd</code> from the reveal and point at each of the three as you name it. Nothing more abstract than that.</p>
 <p><code>REGION &lt;- "Jazan"</code> is an ordinary constant in an ordinary chunk. Say nothing about parameters — tomorrow’s first move is promoting this one line, and it only lands if they have lived with the constant for a day.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -623,7 +457,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Everything else is in <code>templates/markdown-cheatsheet.qmd</code>.</strong> Cross-references and tables are Block 3 — they need labels first.</p>
+<p><strong>Everything else is in <code>templates/markdown-cheatsheet.qmd</code>.</strong> Cross-references and tables are Block 2 — they need labels first.</p>
 <aside class="notes">
 <p>Ten minutes, no more. This room writes markdown already — you are patching four specific holes, not teaching from zero.</p>
 <p>The line break is the one that causes real anger. Everyone arrives expecting Word.</p>
@@ -835,13 +669,77 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="takeaway-1" class="slide level2 statement center" data-background-color="#F5F7FA">
+<h2></h2>
+<p><span class="eyebrow">TAKEAWAY — BLOCK 1</span></p>
+<div class="stitle">
+<p>The report is code. You render it; you never edit what comes out.</p>
+</div>
+<aside class="notes">
+<p>Read it once. Do not gloss it. Break.</p>
+<p>Next: letting R write every number.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sec-numbers" class="slide level2 divider center" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">BLOCK 2 · 10:30–11:45</span></p>
+<div class="dtitle">
+<p>Let R write every number</p>
+</div>
+<hr class="rule">
+<h3 id="figures-numbers-tables-references">Figures, numbers, tables, references</h3>
+<aside class="notes">
+<p><strong>By the end of this block</strong> they can hide code without hiding results, put a computed number into a sentence, build the house table, and cross-reference both.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reveal-numbers" class="slide level2 showcase center" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="seventy-five-lines-made-that.-watch-what-is-not-in-them.">Seventy-five lines made that. Watch what is <em>not</em> in them.</h3>
+<aside class="notes">
+<p><strong>Put <code>bulletin-minimal.html</code> and <code>bulletin-minimal.qmd</code> side by side on one screen</strong>, then leave this slide.</p>
+<p>Five minutes. They saw these seventy-five lines at nine o’clock; now they look for what is <em>not</em> in them. No numbers, no styling, no page furniture. The line on the slide asks them to look.</p>
+<p>Point at the headline rate in the HTML, then search the source for it. It is not there. Every number on that page was written by R.</p>
+<p>Then: “This block is how.” Straight into the next slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="cell-options" class="slide level2 center">
 <h2>Five cell options that earn their keep</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a><span class="co">#| label: fig-trend          # names it — Block 3 uses the name</span></span>
-<span id="cb4-2"><a href="" aria-label="2"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
-<span id="cb4-3"><a href="" aria-label="3"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
-<span id="cb4-4"><a href="" aria-label="4"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
-<span id="cb4-5"><a href="" aria-label="5"></a><span class="co">#| eval: true                # run it at all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="co">#| label: fig-trend          # names it — @fig-trend uses it</span></span>
+<span id="cb6-2"><a href="" aria-label="2"></a><span class="co">#| fig-cap: "Jazan moved against the national trend"</span></span>
+<span id="cb6-3"><a href="" aria-label="3"></a><span class="co">#| echo: false               # run it, hide the code</span></span>
+<span id="cb6-4"><a href="" aria-label="4"></a><span class="co">#| warning: false            # hide the noise, not the errors</span></span>
+<span id="cb6-5"><a href="" aria-label="5"></a><span class="co">#| eval: true                # run it at all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tight">
 <ul>
 <li><code>label</code> — the only one that changes what the <em>reader</em> can do</li>
@@ -914,8 +812,8 @@
 </section>
 <section id="inline" class="slide level2 center">
 <h2>No number is typed</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
-<span id="cb5-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a>Unemployment stands at <span class="in">`r sprintf('%.1f%%', latest_rate)`</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>in <span class="in">`r latest_q`</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Renders as:</p>
 <blockquote>
 <p>Unemployment stands at <strong>11.1%</strong> in <strong>2025Q4</strong>.</p>
@@ -924,151 +822,6 @@
 <aside class="notes">
 <p>The demo: change <code>REGION</code> from Jazan to Riyadh, re-render, and read the new sentence aloud. “Risen” became “fallen” without anybody editing prose.</p>
 <p>This is the moment the course either lands or does not. Do it slowly.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="takeaway-2" class="slide level2 statement center" data-background-color="#F5F7FA">
-<h2></h2>
-<p><span class="eyebrow">TAKEAWAY — BLOCK 2</span></p>
-<div class="stitle">
-<p>One source. No manual numbers. Nothing left to re-check.</p>
-</div>
-<aside class="notes">
-<p>Next: making the figures and tables carry the argument.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="sec-figures" class="slide level2 divider center" data-background-color="#4137A8">
-<h2></h2>
-<p><span class="eyebrow">BLOCK 3 · 12:15–13:15</span></p>
-<div class="dtitle">
-<p>Figures, tables, references</p>
-</div>
-<hr class="rule">
-<h3 id="a-caption-is-an-argument">A caption is an argument</h3>
-<aside class="notes">
-<p><strong>By the end of this block</strong> they can write a caption that argues rather than labels, and reference it from the prose.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="reveal-figures" class="slide level2 showcase center" data-background-color="#4137A8">
-<h2></h2>
-<p><span class="eyebrow">THE REVEAL</span></p>
-<h3 id="the-bulletin-as-a-pdf.-read-only-the-captions.">The bulletin as a PDF. Read only the captions.</h3>
-<aside class="notes">
-<p>Five minutes. Open <code>bulletin.pdf</code> full screen and scroll it with the captions read aloud — nothing else, not the prose, not the tables.</p>
-<p>Ask: could you follow the argument from the captions alone?</p>
-<p>In a good bulletin the answer is yes, and that is the whole of this block. Point at Figure 1 and Table 1 being numbered without anyone numbering them.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="captions" class="slide level2 center">
-<h2>Two captions, same chart</h2>
-<div class="cards">
-<div class="card">
-<p><span class="ct">Descriptive caption</span> “Unemployment by region, 2025Q4”</p>
-<p>Tells the reader what they are already looking at.</p>
-</div>
-<div class="card accent">
-<p><span class="ct">Message caption</span> “Jazan has the highest rate of any region”</p>
-<p>Tells the reader what to conclude.</p>
-</div>
-</div>
-<p><strong>Your figure caption is the only sentence some readers will read.</strong></p>
-<aside class="notes">
-<p>Put three descriptive captions on the board from real GASTAT publications — or from the bulletin — and have the room rewrite them as message captions, out loud, together.</p>
-<p>Fifteen minutes. This is the highest-value fifteen minutes of Day 1 and it needs no software.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="crossrefs" class="slide level2 center">
-<h2>Cross-references and the margin</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tight">
-<ul>
-<li><code>@fig-</code>, <code>@tbl-</code>, <code>@sec-</code> — numbering that never goes stale</li>
-<li>The name comes from <code>label</code> in Block 2. That is what it was for</li>
-<li>Renumbering is automatic; “see Figure 3 above” is not</li>
-</ul>
-</div>
-<aside class="notes">
-<p>Eight minutes. Pay off the <code>label</code> option they met an hour ago — it existed so this slide could work.</p>
-<p>Add a figure above an existing one in the live bulletin and re-render. Every number moves, including the ones in the prose.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="callouts-margin" class="slide level2 center">
-<h2>Where the doubt goes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="" aria-label="1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb7-2"><a href="" aria-label="2"></a><span class="fu">## What this means</span></span>
-<span id="cb7-3"><a href="" aria-label="3"></a>Jazan ranks 1st of 13 regions this quarter.</span>
-<span id="cb7-4"><a href="" aria-label="4"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cards">
-<div class="card">
-<p><span class="ct">The line</span> The argument. The reader who trusts you stops here.</p>
-</div>
-<div class="card">
-<p><span class="ct">The margin</span> Method, caveats, the denominator. The reader who doubts you.</p>
-</div>
-</div>
-<aside class="notes">
-<p>Seven minutes. Callouts carry the “so what”; the margin carries the “how do you know”.</p>
-<p>Show the collapsed method note in the HTML bulletin — that is the pattern.</p>
-<p>Name it: progressive disclosure. One document serves the trusting reader and the doubting one. They meet the idea again on Day 3, across vehicles.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1358,19 +1111,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_hjmyqlo93a39it08aycg = TinyTable.createTableFunctions("tinytable_hjmyqlo93a39it08aycg");
+      const tableFns_2tfxhjydffa5rb02yeme = TinyTable.createTableFunctions("tinytable_2tfxhjydffa5rb02yeme");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_xkaoe1bybd3ax4ucs2vv',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_1eq02cmqlsuw9c87ufkj',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_p6qas6d4xbiyu4pig715',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_6halbgoopcu0sfiv5b2h',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_hjmyqlo93a39it08aycg.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_2tfxhjydffa5rb02yeme.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1633,11 +1386,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_hjmyqlo93a39it08aycg td.tinytable_css_xkaoe1bybd3ax4ucs2vv, #tinytable_hjmyqlo93a39it08aycg th.tinytable_css_xkaoe1bybd3ax4ucs2vv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_hjmyqlo93a39it08aycg td.tinytable_css_1eq02cmqlsuw9c87ufkj, #tinytable_hjmyqlo93a39it08aycg th.tinytable_css_1eq02cmqlsuw9c87ufkj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_2tfxhjydffa5rb02yeme td.tinytable_css_p6qas6d4xbiyu4pig715, #tinytable_2tfxhjydffa5rb02yeme th.tinytable_css_p6qas6d4xbiyu4pig715 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_2tfxhjydffa5rb02yeme td.tinytable_css_6halbgoopcu0sfiv5b2h, #tinytable_2tfxhjydffa5rb02yeme th.tinytable_css_6halbgoopcu0sfiv5b2h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_hjmyqlo93a39it08aycg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_2tfxhjydffa5rb02yeme" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -1940,19 +1693,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_9169sjbd5mtkifwag6gj = TinyTable.createTableFunctions("tinytable_9169sjbd5mtkifwag6gj");
+      const tableFns_lq1qcauzhfcjnzf2sywr = TinyTable.createTableFunctions("tinytable_lq1qcauzhfcjnzf2sywr");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_pkt920nzgb4oner912g7',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_8zzz17w0f7jpjtv4mdqe',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_obz36nzlyg9jaiw0sb33',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_q8xmq5ujgimes0oy3yox',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_9169sjbd5mtkifwag6gj.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_lq1qcauzhfcjnzf2sywr.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2215,11 +1968,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_9169sjbd5mtkifwag6gj td.tinytable_css_pkt920nzgb4oner912g7, #tinytable_9169sjbd5mtkifwag6gj th.tinytable_css_pkt920nzgb4oner912g7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_9169sjbd5mtkifwag6gj td.tinytable_css_8zzz17w0f7jpjtv4mdqe, #tinytable_9169sjbd5mtkifwag6gj th.tinytable_css_8zzz17w0f7jpjtv4mdqe {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_lq1qcauzhfcjnzf2sywr td.tinytable_css_obz36nzlyg9jaiw0sb33, #tinytable_lq1qcauzhfcjnzf2sywr th.tinytable_css_obz36nzlyg9jaiw0sb33 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_lq1qcauzhfcjnzf2sywr td.tinytable_css_q8xmq5ujgimes0oy3yox, #tinytable_lq1qcauzhfcjnzf2sywr th.tinytable_css_q8xmq5ujgimes0oy3yox {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_9169sjbd5mtkifwag6gj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_lq1qcauzhfcjnzf2sywr" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -2523,19 +2276,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_6oed8djb4ufwwz6c5emb = TinyTable.createTableFunctions("tinytable_6oed8djb4ufwwz6c5emb");
+      const tableFns_p4fe67s23gisy1cabm35 = TinyTable.createTableFunctions("tinytable_p4fe67s23gisy1cabm35");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_04ecjvpp87ylr1mrgokr',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_z07w0af4o0iehh9uhuug',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_ovyqbk4u6qc3x6oxya4f',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_s0j8821isy7cdmijdwgg',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_6oed8djb4ufwwz6c5emb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_p4fe67s23gisy1cabm35.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -2798,11 +2551,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_6oed8djb4ufwwz6c5emb td.tinytable_css_04ecjvpp87ylr1mrgokr, #tinytable_6oed8djb4ufwwz6c5emb th.tinytable_css_04ecjvpp87ylr1mrgokr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_6oed8djb4ufwwz6c5emb td.tinytable_css_z07w0af4o0iehh9uhuug, #tinytable_6oed8djb4ufwwz6c5emb th.tinytable_css_z07w0af4o0iehh9uhuug {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_p4fe67s23gisy1cabm35 td.tinytable_css_ovyqbk4u6qc3x6oxya4f, #tinytable_p4fe67s23gisy1cabm35 th.tinytable_css_ovyqbk4u6qc3x6oxya4f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_p4fe67s23gisy1cabm35 td.tinytable_css_s0j8821isy7cdmijdwgg, #tinytable_p4fe67s23gisy1cabm35 th.tinytable_css_s0j8821isy7cdmijdwgg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_6oed8djb4ufwwz6c5emb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_p4fe67s23gisy1cabm35" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -3106,19 +2859,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_gwyw5gipirkrxb8oq4h1 = TinyTable.createTableFunctions("tinytable_gwyw5gipirkrxb8oq4h1");
+      const tableFns_7lg4mgne4knfwdc6ysdr = TinyTable.createTableFunctions("tinytable_7lg4mgne4knfwdc6ysdr");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_tfgc1hji1ouark04cbl1',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_vyst7h6im2m3prc4x5r1',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_dh91ojxupdx6sjim8q8c',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_0h16w2wqy8qmqpsa23kv',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_gwyw5gipirkrxb8oq4h1.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_7lg4mgne4knfwdc6ysdr.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3381,11 +3134,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_gwyw5gipirkrxb8oq4h1 td.tinytable_css_tfgc1hji1ouark04cbl1, #tinytable_gwyw5gipirkrxb8oq4h1 th.tinytable_css_tfgc1hji1ouark04cbl1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_gwyw5gipirkrxb8oq4h1 td.tinytable_css_vyst7h6im2m3prc4x5r1, #tinytable_gwyw5gipirkrxb8oq4h1 th.tinytable_css_vyst7h6im2m3prc4x5r1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_7lg4mgne4knfwdc6ysdr td.tinytable_css_dh91ojxupdx6sjim8q8c, #tinytable_7lg4mgne4knfwdc6ysdr th.tinytable_css_dh91ojxupdx6sjim8q8c {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_7lg4mgne4knfwdc6ysdr td.tinytable_css_0h16w2wqy8qmqpsa23kv, #tinytable_7lg4mgne4knfwdc6ysdr th.tinytable_css_0h16w2wqy8qmqpsa23kv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_gwyw5gipirkrxb8oq4h1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_7lg4mgne4knfwdc6ysdr" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -3686,19 +3439,19 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_9vwklvd2e7n4bh5ecodv = TinyTable.createTableFunctions("tinytable_9vwklvd2e7n4bh5ecodv");
+      const tableFns_dsoltrg5yd5zukebb0cv = TinyTable.createTableFunctions("tinytable_dsoltrg5yd5zukebb0cv");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_npfqyyef0a5uugwv7cl6',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_gbn77ckh8xhdq4rt4zq4',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 } ], css_id: 'tinytable_css_hvl4mbm8eu1n7t0efdh9',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_wblzo63fixedm03o0i9x',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_9vwklvd2e7n4bh5ecodv.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_dsoltrg5yd5zukebb0cv.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -3961,11 +3714,11 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 </style>
     <style>
     /* tinytable css entries after */
-    #tinytable_9vwklvd2e7n4bh5ecodv td.tinytable_css_npfqyyef0a5uugwv7cl6, #tinytable_9vwklvd2e7n4bh5ecodv th.tinytable_css_npfqyyef0a5uugwv7cl6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_9vwklvd2e7n4bh5ecodv td.tinytable_css_gbn77ckh8xhdq4rt4zq4, #tinytable_9vwklvd2e7n4bh5ecodv th.tinytable_css_gbn77ckh8xhdq4rt4zq4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
+    #tinytable_dsoltrg5yd5zukebb0cv td.tinytable_css_hvl4mbm8eu1n7t0efdh9, #tinytable_dsoltrg5yd5zukebb0cv th.tinytable_css_hvl4mbm8eu1n7t0efdh9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_dsoltrg5yd5zukebb0cv td.tinytable_css_wblzo63fixedm03o0i9x, #tinytable_dsoltrg5yd5zukebb0cv th.tinytable_css_wblzo63fixedm03o0i9x {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: #4137A8; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --line-type-bottom: solid; --line-type-left: solid; --line-type-right: solid; --line-type-top: solid; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-weight: bold }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_9vwklvd2e7n4bh5ecodv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_dsoltrg5yd5zukebb0cv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         
         <thead>
               <tr>
@@ -4022,13 +3775,282 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
           display:block!important;
       }</style></aside>
 </section>
+<section id="crossrefs" class="slide level2 center">
+<h2>Cross-references and the margin</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="" aria-label="1"></a>As @fig-trend shows, the gap widened after 2024.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tight">
+<ul>
+<li><code>@fig-</code>, <code>@tbl-</code>, <code>@sec-</code> — numbering that never goes stale</li>
+<li>The name comes from the <code>label</code> cell option. That is what it was for</li>
+<li>Renumbering is automatic; “see Figure 3 above” is not</li>
+</ul>
+</div>
+<aside class="notes">
+<p>Eight minutes. Pay off the <code>label</code> option from the start of this block — it existed so this slide could work.</p>
+<p>Add a figure above an existing one in the live bulletin and re-render. Every number moves, including the ones in the prose.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="callouts-margin" class="slide level2 center">
+<h2>Where the doubt goes</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="" aria-label="1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb14-2"><a href="" aria-label="2"></a><span class="fu">## What this means</span></span>
+<span id="cb14-3"><a href="" aria-label="3"></a>Jazan ranks 1st of 13 regions this quarter.</span>
+<span id="cb14-4"><a href="" aria-label="4"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cards">
+<div class="card">
+<p><span class="ct">The line</span> The argument. The reader who trusts you stops here.</p>
+</div>
+<div class="card">
+<p><span class="ct">The margin</span> Method, caveats, the denominator. The reader who doubts you.</p>
+</div>
+</div>
+<aside class="notes">
+<p>Seven minutes. Callouts carry the “so what”; the margin carries the “how do you know”.</p>
+<p>Show the collapsed method note in the HTML bulletin — that is the pattern.</p>
+<p>Name it: progressive disclosure. One document serves the trusting reader and the doubting one. They meet the idea again on Day 3, across vehicles.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="takeaway-2" class="slide level2 statement center" data-background-color="#F5F7FA">
+<h2></h2>
+<p><span class="eyebrow">TAKEAWAY — BLOCK 2</span></p>
+<div class="stitle">
+<p>One source. No manual numbers. Nothing left to re-check.</p>
+</div>
+<aside class="notes">
+<p>Break, the long one.</p>
+<p>Next: making the bulletin argue.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sec-argue" class="slide level2 divider center" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">BLOCK 3 · 12:15–13:15</span></p>
+<div class="dtitle">
+<p>Make it argue</p>
+</div>
+<hr class="rule">
+<h3 id="the-report-is-not-the-analysis">The report is not the analysis</h3>
+<aside class="notes">
+<p><strong>By the end of this block</strong> they can state in one sentence the argument a bulletin makes, choose the charts that carry it, and write captions that argue rather than label.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reveal-figures" class="slide level2 showcase center" data-background-color="#4137A8">
+<h2></h2>
+<p><span class="eyebrow">THE REVEAL</span></p>
+<h3 id="the-bulletin-as-a-pdf.-read-only-the-captions.">The bulletin as a PDF. Read only the captions.</h3>
+<aside class="notes">
+<p>Five minutes. Open <code>bulletin.pdf</code> full screen and scroll it with the captions read aloud — nothing else, not the prose, not the tables.</p>
+<p>Ask: could you follow the argument from the captions alone?</p>
+<p>In a good bulletin the answer is yes, and that is the whole of this block. Figure 1 and Table 1 are numbered without anyone numbering them — Block 2’s cross-references at work.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="graveyard" class="slide level2 center">
+<h2>You made forty charts</h2>
+
+<img data-src="day1_files/figure-revealjs/graveyard-1.png" width="2400" class="r-stretch"><aside class="notes">
+<p>Let it sit for a beat before saying anything.</p>
+<p>“You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
+<p>Say only: “You made these. All of them are real, all from the same data. Two of them go to the minister.”</p>
+<p>Then move to the cull. Do not name exploratory or explanatory yet — that slide comes after, deliberately. Show first, name second.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cull" class="slide level2 center">
+<h2>Which one goes in?</h2>
+
+<img data-src="day1_files/figure-revealjs/cull-1.png" width="2400" class="r-stretch"><aside class="notes">
+<p>Seven minutes, and most of it is them.</p>
+<p>Three charts of the same indicator. Ask for a show of hands: A, B or C goes in the bulletin? Count the votes out loud.</p>
+<p>Then ask two people on the losing side why. Do not adjudicate. The argument IS the teaching — attention budget, audience, what a chart has to earn.</p>
+<p>If the room converges too fast, argue the other side yourself.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-modes" class="slide level2 center">
+<h2>Exploratory and explanatory</h2>
+<div class="cards">
+<div class="card">
+<p><span class="ct">Exploratory</span> For you. Fast, ugly, forty of them, disposable. Nobody else ever sees them.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Explanatory</span> For them. Slow, finished, two of them, load-bearing. Every one has to earn its place.</p>
+</div>
+</div>
+<p><strong>The bulletin has two charts. Choosing which two is the job.</strong></p>
+<aside class="notes">
+<p>Four minutes. Now name what they have just done: they culled forty to three, and three to one. That is the whole distinction, and they arrived at it before you said it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="attention" class="slide level2 center">
+<h2>The attention budget</h2>
+<p>Your manager gives the bulletin <strong>two minutes</strong>.</p>
+<div class="tight">
+<ul>
+<li>One headline they will repeat in a meeting</li>
+<li>One chart they will screenshot</li>
+<li>One number they will be asked about</li>
+</ul>
+</div>
+<p>Everything else is there for the person who doubts the three.</p>
+<aside class="notes">
+<p>Planning heuristic, not a finding — say so. “Roughly 80 words, one chart, two minutes” is how we are choosing to design, not something measured at GASTAT.</p>
+<p>Ask: who here has had a report read in front of them? What did they look at first?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="big-idea" class="slide level2 center">
+<h2>The one-sentence big idea</h2>
+<div class="cards">
+<div class="card">
+<p><span class="ct">What</span> The finding. One number, one comparison.</p>
+</div>
+<div class="card">
+<p><span class="ct">So what</span> Why it matters to the person reading.</p>
+</div>
+<div class="card">
+<p><span class="ct">Now what</span> What they should do, or watch, next.</p>
+</div>
+</div>
+<p><strong>Your turn: write the big idea for Jazan. One sentence. Eight minutes.</strong></p>
+<aside class="notes">
+<p>Give them the trend chart on screen while they write. Eight minutes, silently.</p>
+<p>Then three volunteers read theirs aloud. For each, ask the room one question only: “would your manager act on that?”</p>
+<p>Do not correct the sentences yourself. Let the room do it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="captions" class="slide level2 center">
+<h2>Two captions, same chart</h2>
+<div class="cards">
+<div class="card">
+<p><span class="ct">Descriptive caption</span> “Unemployment by region, 2025Q4”</p>
+<p>Tells the reader what they are already looking at.</p>
+</div>
+<div class="card accent">
+<p><span class="ct">Message caption</span> “Jazan has the highest rate of any region”</p>
+<p>Tells the reader what to conclude.</p>
+</div>
+</div>
+<p><strong>Your figure caption is the only sentence some readers will read.</strong></p>
+<aside class="notes">
+<p>Put three descriptive captions on the board from real GASTAT publications — or from the bulletin — and have the room rewrite them as message captions, out loud, together.</p>
+<p>Fifteen minutes. This is the highest-value fifteen minutes of Day 1 and it needs no software.</p>
+<p>Say the rule in these words — <em>a caption is an argument, not a label</em> — because Day 2 quotes it back.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="takeaway-3" class="slide level2 statement center" data-background-color="#F5F7FA">
 <h2></h2>
 <p><span class="eyebrow">TAKEAWAY — BLOCK 3</span></p>
 <div class="stitle">
-<p>A caption is an argument, not a label.</p>
+<p>The report is not the analysis. It is the argument the analysis licenses.</p>
 </div>
 <aside class="notes">
+<p>Read it once. Do not gloss it.</p>
 <p>Next: you build two pages of your own.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -4055,16 +4077,16 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <div class="card accent">
 <p><span class="ct">Done test · three checks</span></p>
 <ol type="1">
-<li>Your headline is the big idea you wrote at 09:40, naming <strong>one number and one comparison</strong></li>
 <li>Change <code>REGION</code>. Re-render. <strong>Every number moves</strong></li>
+<li>Your headline is the big idea you wrote at 12:40, naming <strong>one number and one comparison</strong></li>
 <li>Cover the prose. <strong>Can a colleague follow your argument from the two captions alone?</strong></li>
 </ol>
 </div>
 </div>
 <aside class="notes">
 <p>Thirty-five minutes to build, ten for three volunteers to show.</p>
-<p>Three checks, one per block. Check 1 is Block 1, check 2 is Block 2, check 3 is Block 3 — and check 3 is the same test you applied to the finished bulletin at 12:20. The lab closes what that reveal opened.</p>
-<p>A bulletin that passes only check 2 renders correctly and argues nothing. Say that.</p>
+<p>Three checks, in the order of the day. Check 1 is the morning: one source, nothing typed. Checks 2 and 3 are Block 3 — and check 3 is the same test you applied to the finished bulletin at 12:20. The lab closes what that reveal opened.</p>
+<p>A bulletin that passes only check 1 renders correctly and argues nothing. Say that.</p>
 <p>At minute 20, walk the room. At minute 30, if a third are stuck, stop everyone and say: “open lab1-solution.qmd and read it against your own file.” Nobody leaves without a rendered document.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -4088,26 +4110,6 @@ function tinytable_rank_sorter(a, b, aRow, bRow, column, dir, sorterParams) {
 <h3 id="same-file.-one-parameter.-a-folder-of-finished-reports.">Same file. One parameter. A folder of finished reports.</h3>
 <aside class="notes">
 <p>Do not preview the mechanism. Just the promise, then stop. They should leave wondering how.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="setup" class="slide level2 center">
-<h2>Appendix — before we start</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="" aria-label="1"></a><span class="ex">quarto</span> check          <span class="co"># Quarto, R, and the knitr engine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()       <span class="co"># the packages, from the internal mirror</span></span>
-<span id="cb14-2"><a href="" aria-label="2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"artifacts/bulletin/bulletin.qmd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If that last line produced a file, you are ready.</p>
-<aside class="notes">
-<p>Ask for a show of hands. Fix problems now, not at 13:15. If more than three people are stuck, pair them with someone who is working — do not debug 20 machines from the front.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
