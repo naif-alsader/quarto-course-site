@@ -1,0 +1,95 @@
+---
+title: "Unemployment in the regions"
+subtitle: "Synthetic data, for training only"
+author: "Labour statistics team"
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    html-math-method: mathml
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates <- read_csv("unemployment.csv")
+REGION <- "Jazan"
+now <- rates |>
+  filter(region == REGION, quarter == "2025Q4") |>
+  pull(rate)
+then <- rates |>
+  filter(region == REGION, quarter == "2022Q1") |>
+  pull(rate)
+```
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = "plus")`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method
+
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: "Unemployment rate, Kingdom, 2022 to 2025 (%)"
+kingdom <- rates |> filter(region == "Kingdom")
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c("The Kingdom", REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |>
+  filter(region == REGION) |>
+  ggplot(aes(date, rate)) + geom_line()
+```
+
+## Latest rates
+
+```{r}
+latest <- rates |> filter(quarter == "2025Q4")
+latest |>
+  arrange(rate) |>
+  select(Region = region, `Rate (%)` = rate) |>
+  tt()
+```

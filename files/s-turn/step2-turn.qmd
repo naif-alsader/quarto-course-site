@@ -1,0 +1,30 @@
+---
+title: "When Jazan turned"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+pair <- read_csv("unemployment.csv") |>
+  filter(region %in% c("Jazan", "Kingdom"))
+ends <- pair |> slice_max(date, by = region)
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(pair, aes(date, rate, colour = region)) +
+  geom_line(linewidth = 1.2) +
+  geom_text(data = ends, aes(label = region),
+            hjust = -0.15, size = 4.5) +
+  scale_colour_manual(values = c(Jazan = "#00803A",
+                                 Kingdom = "grey50"),
+                      guide = "none") +
+  scale_x_date(
+    expand = expansion(mult = c(0.02, 0.14)))
+```

@@ -1,0 +1,22 @@
+color:
+  palette:
+    indigo: "#4137A8"
+    green: "#00803A"
+    dark: "#2C2D3F"
+  primary: indigo
+  foreground: dark
+
+typography:
+  fonts:
+    - family: Tajawal
+      source: file
+      files:
+        - path: fonts/Tajawal-Regular.ttf
+          weight: 400
+        - path: fonts/Tajawal-Bold.ttf
+          weight: 700
+  base: Tajawal
+  headings:
+    family: Tajawal
+    weight: 700
+    color: indigo

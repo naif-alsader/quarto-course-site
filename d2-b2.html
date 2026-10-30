@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parameters: one template, many reports · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d2-b2">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2" class="on">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 2 · Block 2 · 10:30–11:45</div><h1>Parameters: one template, many reports</h1>
+<p class="goal">Turn the region into a parameter, make every word that depends on it follow, and render all 13 regions from a script.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d2-params">
+<div class="head"><span class="e">Day 2 · Build 5</span><h3>Parameters</h3>
+<span class="len">3 steps · 31 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-params.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-params.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.35"><button type="button"><span class="n">1</span><span>Day 1's <code>REGION</code> constant becomes a parameter: declared in the YAML, read in R as <code>params$region</code>. Nothing else in the report changes.</span></button></li><li data-t="10.35" data-d="10.16"><button type="button"><span class="n">2</span><span><code>-P region:Riyadh</code> overrides the default at render time. Every number, chart and caption that uses <code>REGION</code> follows.</span></button></li><li data-t="20.51" data-d="10.49"><button type="button"><span class="n">3</span><span>From R, <code>quarto::quarto_render()</code> does the same with <code>execute_params</code>. One line that a script can repeat for every region.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d2-params/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d2-params/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-titles">
+<div class="head"><span class="e">Day 2 · Build 6</span><h3>Words that follow the parameter</h3>
+<span class="len">3 steps · 35 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-titles.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-titles.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.83"><button type="button"><span class="n">1</span><span>Type the region into the title and render for Riyadh: the summary says Riyadh, the title still says Jazan.</span></button></li><li data-t="9.83" data-d="12.09"><button type="button"><span class="n">2</span><span>Inline R works in the header too: knitr reads the whole file, header included. Only a file with no R chunk skips knitr and prints the code as text.</span></button></li><li data-t="21.92" data-d="12.66"><button type="button"><span class="n">3</span><span>The hard part: a sentence that makes a claim must come from a rule. <code>case_when()</code> states the threshold and all three outcomes. Riyadh fell, Jazan rose; neither word is typed.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d2-titles/riyadh.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d2-titles/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-batch">
+<div class="head"><span class="e">Day 2 · Build 7</span><h3>Thirteen reports from one template</h3>
+<span class="len">4 steps · 48 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-batch.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-batch.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="11.82"><button type="button"><span class="n">1</span><span>The render script is the pipeline: <code>walk()</code> calls <code>quarto_render()</code> once per region. Start with three and check them before you run all 13.</span></button></li><li data-t="11.82" data-d="11.88"><button type="button"><span class="n">2</span><span>Add Northern Borders and read its file name: a space. Spaces break links, e-mail attachments and the next script that reads this folder.</span></button></li><li data-t="23.7" data-d="11.49"><button type="button"><span class="n">3</span><span>Build the file name from the region with stringr: lower case, hyphens for spaces. <code>report-northern-borders.pdf</code> is safe everywhere.</span></button></li><li data-t="35.19" data-d="13.0"><button type="button"><span class="n">4</span><span>Read the regions from <code>regions.csv</code>. Each PDF has its own title and wording, because both come from the parameter. Add a region to the file and its PDF appears.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="files/d2-batch/step4-render-all.R" download>Download render-all.R</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 6 minutes</div>
+<h3>Render your report for three regions</h3><ol><li>Add <code>params:</code> with <code>region: "Jazan"</code> and set <code>REGION &lt;- params$region</code> in the setup chunk.</li><li>Render with <code>quarto render report.qmd -P region:Riyadh</code> and read every sentence: does anything still say Jazan?</li><li>Write <code>render-all.R</code> with the loop from the build, for three regions first.</li></ol><div class="codebox"><button class="copy" type="button">Copy</button><pre>library(tidyverse)
+
+regions &lt;- read_csv(&quot;regions.csv&quot;) |&gt; pull(region_en)
+
+walk(regions, \(r) {
+  slug &lt;- r |&gt; str_to_lower() |&gt; str_replace_all(&quot; &quot;, &quot;-&quot;)
+  quarto::quarto_render(
+    &quot;report.qmd&quot;,
+    output_format = &quot;typst&quot;,
+    execute_params = list(region = r),
+    output_file = str_glue(&quot;report-{slug}.pdf&quot;)
+  )
+})</pre></div><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">Start timer</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d2-b2"><script type="application/json">[{"q": "In R code, how do you read the parameter <code>region</code>?", "code": null, "options": ["<code>region</code>", "<code>params$region</code>", "<code>yaml$region</code>"]}, {"q": "The title is <code>\"Unemployment in </code>r params$region<code>\"</code>. Does it follow <code>-P region:Riyadh</code>?", "code": null, "options": ["Yes, when the file has R chunks, because knitr reads the header too", "Never: YAML is not R", "Only in PDF"]}, {"q": "And <code>{{&lt; meta params.region &gt;}}</code> in the title, rendered with <code>-P region:Riyadh</code>?", "code": null, "options": ["Riyadh", "Jazan, the default in the YAML", "An error"]}, {"q": "Why a rule with three outcomes for words like rose and fell?", "code": null, "options": ["R needs three branches", "A region that barely moved would get a false sentence from a two-way rule", "To make the text longer"]}, {"q": "<code>output_file = str_glue(\"report-{r}.pdf\")</code> for Northern Borders gives what?", "code": null, "options": ["<code>report-northern-borders.pdf</code>", "<code>report-Northern Borders.pdf</code>, with a space", "An error"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Fill in the parameter</h3><p class="prompt">Type the missing pieces, then press Check.</p><div class="gbody"></div><script type="application/json">{"type": "fill", "title": "Fill in the parameter", "prompt": "Type the missing pieces, then press Check.", "code": "# report.qmd\n---\n[[params]]:\n  region: \"Jazan\"\n---\nREGION <- [[params$region]]\n\n# Terminal\nquarto render report.qmd [[-P]] region:Riyadh\n\n# R\nquarto::quarto_render(\"report.qmd\",\n  [[execute_params]] = list(region = \"Asir\"))\n", "why": "<code>params:</code> declares it, <code>params$region</code> reads it, <code>-P</code> sets it in the terminal and <code>execute_params</code> from R."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>One template, many reports, and every sentence in them true.</p></div>
+<nav class="pager"><a href="d2-b1.html"><small>Back</small>One source, many formats</a><a class="next" href="d2-b3.html"><small>Next</small>Projects, brand and language</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

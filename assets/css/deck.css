@@ -1,0 +1,150 @@
+/* The presentation: 1920 x 1080 slides, scaled to the window. GASTAT slide kinds. */
+html, body.deck { margin: 0; height: 100%; overflow: hidden; background: #1A1B27; }
+body.deck { font: 400 32px/1.4 Tajawal, system-ui, sans-serif; color: var(--dark); }
+.viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+.stage { position: relative; width: 1920px; height: 1080px; flex: none; transform-origin: center center; background: #FFFFFF; overflow: hidden; }
+.slide { position: absolute; inset: 0; display: none; padding: 104px 140px 120px; background: #FFFFFF; }
+.slide.on { display: block; }
+.slide code { font-size: .82em; padding: 2px 10px; border-radius: 8px; }
+
+/* light slides */
+.slide .eb { font: 500 26px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #00803A; }
+.slide h2 { font-size: 66px; font-weight: 700; line-height: 1.12; margin: 14px 0 40px; max-width: 1600px; }
+.sf { position: absolute; left: 140px; right: 140px; bottom: 40px; display: flex; justify-content: space-between;
+  font: 500 20px "IBM Plex Mono", monospace; color: #6B6C7A; padding-right: 150px; }
+.lg { position: absolute; right: 64px; bottom: 26px; height: 58px; }
+
+.pts { list-style: none; margin: 0; padding: 0; max-width: 1560px; }
+.pts li { position: relative; padding-left: 52px; margin: 0 0 30px; font-size: 44px; line-height: 1.32; }
+.pts li::before { content: ""; position: absolute; left: 0; top: 20px; width: 18px; height: 18px; background: #00B050; border-radius: 3px; }
+.frag { opacity: 0; transform: translateY(14px); transition: opacity .35s, transform .35s; }
+.frag.vis { opacity: 1; transform: none; }
+
+/* dark slides: cover, day, block divider, done test */
+.slide.dark { background: #4137A8; color: #FFFFFF; padding: 0; }
+.slide.dark .eb { position: absolute; left: 140px; top: 300px; color: #4BD98A; font-size: 30px; }
+.slide.dark h1 { position: absolute; left: 140px; top: 352px; right: 200px; margin: 0; font-size: 100px; font-weight: 900; line-height: 1.04; color: #FFFFFF; }
+.slide.dark .rule { position: absolute; left: 140px; top: 620px; width: 130px; height: 8px; background: #00B050; border-radius: 4px; }
+.slide.dark .sub { position: absolute; left: 140px; top: 660px; right: 260px; margin: 0; font-size: 40px; line-height: 1.35; color: #BFB9E8; }
+.slide.dark .sub code { background: #352C8C; color: #FFFFFF; }
+.lgw { position: absolute; right: 64px; bottom: 40px; height: 66px; }
+.k-cover h1 { font-size: 132px; top: 330px; }
+.k-cover .rule { top: 520px; } .k-cover .sub { top: 560px; }
+.k-day h1 { font-size: 120px; }
+.k-day .dl { position: absolute; left: 140px; top: 800px; display: flex; gap: 48px; list-style: none; margin: 0; padding: 0;
+  font-size: 28px; color: #FFFFFF; }
+.k-day .dl span { display: block; font: 500 22px "IBM Plex Mono", monospace; color: #4BD98A; }
+.k-done .eb { top: 330px; }
+.k-done .st { position: absolute; left: 140px; right: 220px; top: 390px; margin: 0; font-size: 72px; font-weight: 700; line-height: 1.2; }
+.k-done .st code { background: #352C8C; color: #FFFFFF; }
+
+/* takeaway / statement */
+.k-statement { background: #F5F7FA; }
+.k-statement .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 16px; background: #00B050; }
+.k-statement .eb { margin-top: 250px; }
+.k-statement .st { font-size: 88px; font-weight: 700; line-height: 1.16; margin: 26px 0 0; max-width: 1580px; }
+
+/* builds: the HyperFrames composition is the whole slide */
+.k-build { padding: 0; background: #F5F7FA; }
+.bp, .bp hyperframes-player { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+.bp .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bp .hint { position: absolute; right: 40px; bottom: 18px; font: 500 20px "IBM Plex Mono", monospace; color: #6B6C7A;
+  background: rgba(255, 255, 255, .85); padding: 4px 12px; border-radius: 8px; }
+
+/* a build's downloads, in its header beside the logo */
+.bdl { position: absolute; top: 30px; right: 168px; display: flex; gap: 12px; z-index: 5; }
+.bdl a { font: 500 19px "IBM Plex Mono", monospace; color: #4137A8; background: #FFFFFF; border: 1px solid #E6E7EC;
+  border-radius: 10px; padding: 7px 14px; text-decoration: none; }
+.bdl a::before { content: "↓ "; }
+.bdl a:hover, .bdl a:focus-visible { border-color: #4137A8; }
+
+/* quiz */
+.k-quiz .qq { font-size: 56px; margin-bottom: 34px; }
+.qcode { font: 400 28px/1.5 "IBM Plex Mono", monospace; background: #1E1F2E; color: #E8E9F0; padding: 20px 26px; border-radius: 14px; margin: 0 0 26px; }
+.dopts { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1640px; }
+.dopts.pics { grid-template-columns: repeat(3, 1fr); }
+.dopt { display: flex; align-items: center; gap: 26px; text-align: left; border: 3px solid #E6E7EC; background: #FFFFFF;
+  border-radius: 20px; padding: 22px 30px; font: 400 38px/1.3 Tajawal, sans-serif; color: #2C2D3F; cursor: pointer; }
+.dopts.pics .dopt { flex-direction: column; align-items: stretch; padding: 16px; font-size: 32px; }
+.dopt img { width: 100%; height: 360px; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid #E6E7EC; }
+.dopt .lt { flex: none; width: 64px; height: 64px; border-radius: 50%; border: 3px solid #4137A8; color: #4137A8;
+  font: 700 32px/58px Tajawal, sans-serif; text-align: center; }
+.dopts.pics .dopt .lt { align-self: center; }
+.dopt.sel { border-color: #4137A8; background: #EFEEFB; }
+.dopt.right { border-color: #00803A; background: #E8F7EE; }
+.dopt.right .lt { background: #00803A; border-color: #00803A; color: #FFFFFF; }
+.dopt.wrong { border-color: #B4232C; background: #FBECEC; }
+.dwhy { display: none; margin-top: 26px; padding: 20px 28px; border-radius: 16px; background: #F5F7FA; font-size: 34px; max-width: 1600px; }
+.dwhy.show { display: block; }
+.k-quiz.pics .qq { font-size: 48px; }
+
+/* try it */
+.tc { display: flex; gap: 70px; align-items: flex-start; }
+.ts { flex: 1; margin: 0; padding-left: 50px; font-size: 38px; line-height: 1.4; }
+.ts li { margin-bottom: 22px; padding-left: 10px; }
+.tt { flex: none; width: 420px; text-align: center; background: #F5F7FA; border-radius: 22px; padding: 40px 20px; }
+.tbig { font: 700 140px/1 "IBM Plex Mono", monospace; color: #4137A8; }
+.tbig.done { color: #00803A; }
+.th { font: 500 22px "IBM Plex Mono", monospace; color: #6B6C7A; margin-top: 16px; }
+.tf { font-size: 28px; color: #6B6C7A; margin-top: 18px; }
+
+/* lab */
+.lb { font-size: 34px; max-width: 1600px; margin: 0 0 24px; }
+.lt2 { columns: 2; column-gap: 60px; list-style: none; padding: 0; margin: 0; font-size: 30px; line-height: 1.35; }
+.lt2 li { break-inside: avoid; position: relative; padding-left: 50px; margin-bottom: 20px; }
+.lt2 li::before { content: ""; position: absolute; left: 0; top: 6px; width: 28px; height: 28px; border: 3px solid #4137A8; border-radius: 6px; }
+
+/* agenda */
+.ags { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.ag { border: 1px solid #E6E7EC; border-top: 8px solid #00B050; border-radius: 18px; padding: 34px 34px 30px; }
+.agn { font: 500 24px "IBM Plex Mono", monospace; color: #00803A; text-transform: uppercase; letter-spacing: .06em; }
+.ag h3 { font-size: 42px; margin: 12px 0 14px; line-height: 1.15; }
+.ag p { font-size: 30px; color: #6B6C7A; margin: 0; }
+
+/* games, scaled up for the room */
+.k-game .gp { font-size: 32px; color: #6B6C7A; margin: -18px 0 26px; }
+.k-game .game { border: 0; padding: 0; }
+.deck .chip { font-size: 30px; padding: 14px 24px; border-radius: 16px; border-width: 3px; }
+.deck .match .chip { font-size: 30px; }
+.deck .match .chip.mono { font-size: 28px; }
+.deck .match { gap: 16px 40px; }
+.deck .match .col { gap: 14px; }
+.deck .slots { min-height: 90px; padding: 16px; gap: 14px; }
+.deck .btn { font-size: 28px; padding: 12px 26px; }
+.deck .result { font-size: 30px; margin-top: 18px; }
+.deck .review { font-size: 26px; }
+.deck .buglines button { font-size: 24px; line-height: 1.45; padding: 0 24px; }
+.deck .buglines .no { width: 50px; }
+.deck .speed .card { font-size: 40px; min-height: 150px; padding: 26px 30px; }
+.deck .tf button { font-size: 36px; padding: 22px; }
+.deck .speed .bar { height: 12px; }
+.deck .fill pre { font-size: 30px; line-height: 1.6; padding: 26px 30px; }
+.deck .fill input { font-size: 28px; }
+.deck .codebox { border-radius: 16px; }
+
+/* hud, menu, notes */
+.hud { position: fixed; left: 0; right: 0; bottom: 0; height: 26px; display: flex; align-items: center; gap: 14px;
+  padding: 0 14px; font: 500 12px "IBM Plex Mono", monospace; color: #A4A6BA; pointer-events: none; }
+.hud .prog { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #2C2D3F; }
+.hud .prog i { display: block; height: 100%; width: 0; background: #00B050; transition: width .3s; }
+.hud .hn { margin-left: auto; }
+.dmenu { position: fixed; top: 0; left: 0; bottom: 0; width: 440px; overflow: auto; background: #FFFFFF; padding: 22px 26px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .4); font-size: 17px; z-index: 5; }
+.dmenu h3 { margin: 0 0 12px; font-size: 22px; }
+.dmenu ol { list-style: none; padding: 0; margin: 0; }
+.dmenu > ol > li { margin-bottom: 14px; }
+.dmenu > ol > li > a { font-weight: 700; color: #4137A8; text-decoration: none; }
+.dmenu ol ol li a { display: block; padding: 3px 0 3px 14px; color: #2C2D3F; text-decoration: none; white-space: pre; }
+.dmenu a:hover { color: #00803A; }
+.kh { margin-top: 18px; color: #6B6C7A; font-size: 14px; }
+.dnotes { position: fixed; left: 50%; bottom: 34px; transform: translateX(-50%); width: min(1100px, 92vw); background: rgba(255, 255, 255, .97);
+  color: #2C2D3F; border-radius: 14px; padding: 16px 22px; font-size: 18px; line-height: 1.5; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); z-index: 4; }
+
+/* speaker view (deck.html?presenter): the slide on the left, notes and the next slide on the right */
+body.presenter .viewport { right: 34vw; }
+body.presenter .pres { position: fixed; top: 0; right: 0; bottom: 0; width: 34vw; background: #FFFFFF; padding: 22px 26px;
+  display: flex; flex-direction: column; gap: 18px; font-size: 19px; }
+body.presenter .pres[hidden] { display: flex; }
+.pnext { font-size: 17px; color: #6B6C7A; } .pnext b { display: block; color: #2C2D3F; font-size: 21px; }
+.pnotes { flex: 1; overflow: auto; font-size: 22px; line-height: 1.5; }
+.pclock { font: 700 44px "IBM Plex Mono", monospace; color: #4137A8; }

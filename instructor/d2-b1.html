@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One source, many formats · Quarto, step by step</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d2-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2" class="on">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 2 · Block 1 · 09:00–10:15</div><h1>One source, many formats</h1>
+<p class="goal">Send Day 1's report to Word and PDF from the same file, in the house style, and decide what each format shows.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Day 2 starts from Day 1's finished report. Nothing is rewritten; lines are added.</p><div class="build" data-build="d2-formats">
+<div class="head"><span class="e">Day 2 · Build 1</span><h3>One source, three formats</h3>
+<span class="len">4 steps · 44 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-formats.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-formats.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.07"><button type="button"><span class="n">1</span><span>Day 1's report, unchanged, plus one line. <code>docx: default</code> under <code>format:</code>, and one render now writes <code>report.html</code> and <code>report.docx</code>.</span></button></li><li data-t="10.07" data-d="11.61"><button type="button"><span class="n">2</span><span>Add <code>typst: default</code> for a PDF and the render stops. Typst cannot point to Section 2: section numbers were switched on for HTML only.</span></button></li><li data-t="21.68" data-d="11.45"><button type="button"><span class="n">3</span><span>Options at the top of the YAML apply to every format; options under <code>html:</code> only to HTML. Moved up, the numbers reach Word and PDF, and the PDF renders.</span></button></li><li data-t="33.13" data-d="10.52"><button type="button"><span class="n">4</span><span>Same content, three formats, each doing its best. The tabset becomes plain sections in Word and PDF, and the folded callout opens up.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d2-formats/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d2-formats/step4-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-word">
+<div class="head"><span class="e">Day 2 · Build 2</span><h3>Word in the house style</h3>
+<span class="len">3 steps · 34 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-word.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-word.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="12.87"><button type="button"><span class="n">1</span><span>Word's look comes from a reference document. This command writes Pandoc's own, <code>my-reference.docx</code>, for you to restyle in Word: headings, body text, tables.</span></button></li><li data-t="12.87" data-d="10.57"><button type="button"><span class="n">2</span><span>Save the restyled file and point <code>reference-doc</code> at it. Here it is the GASTAT stopgap template: the same report, now in the house style.</span></button></li><li data-t="23.44" data-d="10.46"><button type="button"><span class="n">3</span><span>Reviewers mark up the Word file as usual. You make their changes in <code>report.qmd</code> and render again: the source stays the one true copy.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d2-word/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d2-word/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-typst">
+<div class="head"><span class="e">Day 2 · Build 3</span><h3>PDF with Typst</h3>
+<span class="len">3 steps · 26 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-typst.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-typst.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="7.38"><button type="button"><span class="n">1</span><span>Typst options sit under <code>typst:</code>. A4 paper and 2 cm margins, as GASTAT prints.</span></button></li><li data-t="7.38" data-d="9.91"><button type="button"><span class="n">2</span><span><code>font-paths</code> points Typst at font files kept with the project, so the PDF looks the same on every machine, offline included.</span></button></li><li data-t="17.29" data-d="8.54"><button type="button"><span class="n">3</span><span><code>page-numbering: "1 / 1"</code> writes page 1 / 4 at the foot of each page, which a printed report needs.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d2-typst/report.pdf" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d2-typst/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-conditional">
+<div class="head"><span class="e">Day 2 · Build 4</span><h3>Content for one format only</h3>
+<span class="len">3 steps · 27 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-conditional.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-conditional.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.13"><button type="button"><span class="n">1</span><span>"Bookmark this page" makes no sense on paper. <code>content-visible when-format="html"</code> keeps it in the HTML and out of Word and PDF.</span></button></li><li data-t="10.13" data-d="8.7"><button type="button"><span class="n">2</span><span><code>unless-format="html"</code> is the other half: a line for the printed copy only, with the date it was made.</span></button></li><li data-t="18.83" data-d="8.32"><button type="button"><span class="n">3</span><span>A note for reviewers goes in the Word file only, so it can never slip into the published PDF.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d2-conditional/report.docx" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d2-conditional/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
+<h3>Three files from one render</h3><ol><li>Add <code>docx: default</code> and <code>typst: default</code> under <code>format:</code> in your <code>report.qmd</code> and render.</li><li>If Typst stops on a section reference, move <code>number-sections: true</code> to the top level, as in the build.</li><li>Put <code>reference-doc: gastat-reference.docx</code> under <code>docx:</code> and render again. Open the Word file.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download>gastat-reference.docx</a></div><details class="full"><summary>The whole file so far (147 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+toc: true
+number-sections: true
+format:
+  html:
+    embed-resources: true
+    html-math-method: mathml
+  docx:
+    reference-doc: gastat-reference.docx
+  typst:
+    papersize: a4
+    margin:
+      x: 2cm
+      y: 2cm
+    mainfont: Tajawal
+    font-paths: fonts
+    page-numbering: &quot;1 / 1&quot;
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+::: {.column-margin}
+Rates are a share of the labour force, in %.
+:::
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend (@fig-trend) and the latest rates
+(@tbl-latest).[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+@sec-method defines the rate.
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+::: {.content-visible when-format=&quot;html&quot;}
+::: {.callout-tip}
+This page is updated every quarter. Bookmark it.
+:::
+:::
+
+::: {.content-visible unless-format=&quot;html&quot;}
+Printed `r format(Sys.Date(), &quot;%d %B %Y&quot;)`. The latest version is online.
+:::
+
+::: {.content-visible when-format=&quot;docx&quot;}
+**Reviewer:** check the Jazan figures against the Q4 file.
+:::
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method {#sec-method}
+
+::: {.callout-note collapse=&quot;true&quot; title=&quot;How the rate is defined&quot;}
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+:::
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| label: fig-trend
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```
+
+## Latest rates
+
+::: {.panel-tabset}
+### Table
+
+```{r}
+#| label: tbl-latest
+#| tbl-cap: &quot;Unemployment rate by region, 2025 Q4 (%)&quot;
+latest &lt;- rates |&gt; filter(quarter == &quot;2025Q4&quot;)
+latest |&gt;
+  arrange(rate) |&gt;
+  select(Region = region, `Rate (%)` = rate) |&gt;
+  tt() |&gt;
+  format_tt(digits = 1, num_fmt = &quot;decimal&quot;,
+            num_zero = TRUE) |&gt;
+  theme_html(portable = TRUE)
+```
+
+### Chart
+
+```{r}
+latest |&gt;
+  ggplot(aes(rate, fct_reorder(region, rate))) +
+  geom_col() + labs(x = &quot;Rate (%)&quot;, y = NULL)
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">Start timer</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d2-b1"><script type="application/json">[{"q": "Typst stopped with <code>cannot reference heading without numbering</code>. Why?", "code": null, "options": ["Typst cannot do cross-references", "<code>number-sections: true</code> was set under <code>html:</code> only", "The section id was misspelled"], "answer": 1, "why": "Options under one format stay with it. At the top level they reach every format."}, {"q": "Where does Word's look come from?", "code": null, "options": ["From <code>_brand.yml</code>", "From the <code>reference-doc</code> file's styles", "From the HTML theme"], "answer": 1, "why": "Word takes Heading 1, Body Text and the table style from the reference document. The brand file styles HTML and Typst."}, {"q": "What does <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code> give you?", "code": null, "options": ["A finished report", "Pandoc's default reference document, to restyle in Word", "A PDF"], "answer": 1, "why": "Start from it, change the styles in Word, save, and point <code>reference-doc</code> at it."}, {"q": "Why <code>font-paths: fonts</code> for Typst?", "code": null, "options": ["So the PDF uses font files kept with the project, on any machine", "To download fonts at render time", "It sets the font size"], "answer": 0, "why": "Typst reads fonts from files. Kept with the project, the PDF looks the same everywhere, offline too."}, {"q": "A note for reviewers must never reach the published PDF. Which wrapper?", "code": null, "options": ["<code>::: {.content-visible when-format=\"docx\"}</code>", "<code>::: {.content-hidden when-format=\"html\"}</code>", "<code>::: {.callout-note}</code>"], "answer": 0, "why": "Visible in Word only. Everything else, the PDF included, leaves it out."}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>What survives into Word and PDF?</h3><p class="prompt">True or false, against the clock.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "What survives into Word and PDF?", "prompt": "True or false, against the clock.", "seconds": 60, "items": [{"s": "A tabset stays a set of tabs in the PDF.", "a": false, "why": "It becomes plain sections, one after the other."}, {"s": "A <code>fig-cap</code> caption appears in Word.", "a": true, "why": ""}, {"s": "<code>code-fold</code> works in the PDF.", "a": false, "why": "Folding is an HTML feature."}, {"s": "<code>@fig-trend</code> becomes Figure 1 in all three formats.", "a": true, "why": ""}, {"s": "A collapsed callout stays folded in Word.", "a": false, "why": "Paper cannot fold: it opens up."}, {"s": "<code>html-math-method</code> changes how the PDF draws math.", "a": false, "why": "It is an HTML option; Typst draws math itself."}, {"s": "Top-level <code>toc: true</code> gives Word a contents list too.", "a": true, "why": ""}, {"s": "<code>reference-doc</code> styles the HTML.", "a": false, "why": "It is for Word only."}]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>Your reviewers stay in Word; you stay in code.</p></div>
+<nav class="pager"><a href="d1-lab.html"><small>Back</small>Lab 1: a regional note from a script</a><a class="next" href="d2-b2.html"><small>Next</small>Parameters: one template, many reports</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

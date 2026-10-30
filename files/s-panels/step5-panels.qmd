@@ -1,0 +1,52 @@
+---
+title: "Every region, side by side"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+all <- read_csv("unemployment.csv")
+rates <- all |>
+  filter(region != "Kingdom") |>
+  group_by(region) |>
+  mutate(change = last(rate) - first(rate)) |>
+  ungroup() |>
+  mutate(region = fct_reorder(region, change,
+                              .desc = TRUE))
+riser <- rates |>
+  filter(change > 0) |>
+  distinct(region) |>
+  pull(region)
+kingdom <- all |>
+  filter(region == "Kingdom") |>
+  select(-region)
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(rates, aes(date, rate)) +
+  geom_line(data = kingdom, colour = "grey70") +
+  geom_line(aes(colour = change > 0), linewidth = 1) +
+  facet_wrap(vars(region), ncol = 5) +
+  scale_colour_manual(values = c(`TRUE` = "#00803A",
+                                 `FALSE` = "#4137A8"),
+                      guide = "none") +
+  scale_x_date(date_breaks = "1 year",
+               date_labels = "'%y") +
+  labs(title = str_glue(
+         "Against the Kingdom, only {riser} ",
+         "moved the other way"),
+       subtitle = str_glue(
+         "Unemployment rate, %. Grey: the Kingdom. ",
+         "Ordered by the change since ",
+         "{min(rates$quarter)}"),
+       x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.minor = element_blank())
+```

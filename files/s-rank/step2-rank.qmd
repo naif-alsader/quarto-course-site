@@ -1,0 +1,23 @@
+---
+title: "Where each region stands"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+latest <- read_csv("unemployment.csv") |>
+  filter(date == max(date))
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(latest,
+       aes(rate, fct_reorder(region, rate))) +
+  geom_col()
+```

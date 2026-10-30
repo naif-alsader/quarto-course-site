@@ -1,0 +1,69 @@
+---
+title: "Unemployment in one region"
+subtitle: "Synthetic data, for training only"
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+execute:
+  echo: false
+---
+
+
+```{r}
+#| include: false
+library(ggplot2)
+library(tinytable)
+rates <- readr::read_csv("unemployment.csv")
+REGION <- "Tabuk"
+area    <- subset(rates, region == REGION)
+kingdom <- subset(rates, region == "Kingdom")
+now  <- tail(area$rate, 1)
+then <- head(area$rate, 1)
+gap  <- now - tail(kingdom$rate, 1)
+```
+
+## Summary
+
+In `r REGION` the rate was `r sprintf("%.1f", now)`% in 2025 Q4,
+`r sprintf("%+.1f", now - then)` points since 2022 Q1 and
+`r sprintf("%+.1f", gap)` points against the Kingdom
+(@fig-trend, @fig-compare, @tbl-recent).
+
+## Trend
+
+```{r}
+#| label: fig-trend
+#| fig-cap: !expr paste("Unemployment rate,", REGION, "(%)")
+#| fig-width: 8
+#| fig-height: 3.5
+ggplot(area, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| label: fig-compare
+#| fig-cap: "Against the Kingdom"
+#| layout-ncol: 2
+#| fig-subcap: ["Both series", "The last four quarters"]
+both <- subset(rates, region %in% c(REGION, "Kingdom"))
+ggplot(both, aes(date, rate, colour = region)) +
+  geom_line()
+last4 <- subset(both, quarter >= "2025Q1")
+ggplot(last4, aes(quarter, rate, fill = region)) +
+  geom_col(position = "dodge")
+```
+
+## Latest quarters
+
+```{r}
+#| label: tbl-recent
+#| tbl-cap: !expr paste("Unemployment rate,", REGION, "(%)")
+tt(tail(area[, c("quarter", "rate")], 4)) |>
+  theme_html(portable = TRUE)
+```
+
+::: {.callout-note collapse="true" title="Method"}
+Rates are the unemployed as a share of the labour force.
+The data are synthetic, made for training.
+:::

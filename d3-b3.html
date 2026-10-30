@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Branded, parameterised and shared · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-b3">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3" class="on">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 3 · Block 3 · 12:15–13:15</div><h1>Branded, parameterised and shared</h1>
+<p class="goal">Give the deck the house style, make it work for any region, and send it as one file or a PDF.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d3-brand">
+<div class="head"><span class="e">Day 3 · Build 9</span><h3>Brand, logo and footer</h3>
+<span class="len">2 steps · 19 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-brand.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-brand.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.8"><button type="button"><span class="n">1</span><span>Copy Day 2's <code>_brand.yml</code> next to the deck and render: Revealjs takes the colours and fonts, with no change to <code>slides.qmd</code>.</span></button></li><li data-t="9.8" data-d="9.36"><button type="button"><span class="n">2</span><span><code>logo</code>, <code>footer</code> and <code>slide-number</code> go on every slide. The number matters most: it is how the room asks about slide 6.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-brand/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-brand/step2-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-params">
+<div class="head"><span class="e">Day 3 · Build 10</span><h3>One deck for any region</h3>
+<span class="len">2 steps · 19 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-params.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-params.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span>Day 2's parameter works in a deck too. The big-number slide now reads <code>params$region</code>, in its heading and its number.</span></button></li><li data-t="9.53" data-d="9.01"><button type="button"><span class="n">2</span><span>Render with <code>-P region:Riyadh</code> and the same deck briefs on Riyadh: 5.7%, computed, not typed.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-params/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-params/step2-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-export">
+<div class="head"><span class="e">Day 3 · Build 11</span><h3>Sharing the deck</h3>
+<span class="len">3 steps · 31 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-export.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-export.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="11.33"><button type="button"><span class="n">1</span><span>To e-mail the deck as one file, add <code>embed-resources: true</code>. With the chalkboard on, Quarto refuses: the two cannot go together.</span></button></li><li data-t="11.33" data-d="10.34"><button type="button"><span class="n">2</span><span>Turn the chalkboard off for the copy you send. One file, <code>slides.html</code>, that opens anywhere, offline included.</span></button></li><li data-t="21.67" data-d="9.63"><button type="button"><span class="n">3</span><span>For a PDF, open the deck with <code>?print-pdf</code> at the end of the address and print it from the browser: one slide per page.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-export/slides.pdf" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-export/step3-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 6 minutes</div>
+<h3>Make it ready to send</h3><ol><li>Copy <code>_brand.yml</code> next to your deck; add <code>logo</code>, <code>footer</code> and <code>slide-number</code>.</li><li>Render with <code>-P region:Riyadh</code> and check the big-number slide.</li><li>Turn the chalkboard off, add <code>embed-resources: true</code>, and e-mail yourself the one file.</li></ol><div class="files"><a class="btn" href="files/_brand.yml" download>_brand.yml</a><a class="btn" href="files/gastat-logo-color.png" download>gastat-logo-color.png</a></div><details class="full"><summary>The whole file so far (123 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Quarterly briefing · synthetic data&quot;
+params:
+  region: &quot;Jazan&quot;
+format:
+  revealjs:
+    logo: gastat-logo-color.png
+    footer: &quot;Unemployment briefing · synthetic data&quot;
+    slide-number: true
+    embed-resources: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+jazan &lt;- rates |&gt; filter(region == &quot;Jazan&quot;)
+focus &lt;- rates |&gt; filter(region == params$region)
+change &lt;- rates |&gt;
+  filter(region != &quot;Kingdom&quot;) |&gt;
+  group_by(region) |&gt;
+  summarise(change = last(rate) - first(rate))
+up &lt;- change |&gt; filter(change &gt; 0) |&gt; pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change &lt; 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width=&quot;40%&quot;}
+Jazan&#x27;s rate rose while the Kingdom&#x27;s fell.
+:::
+::: {.column width=&quot;60%&quot;}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+
+# How the chart is made
+
+## Reading the pipeline
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: &quot;|1|2|3-4&quot;
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## The chart and its code
+
+```{r}
+#| echo: true
+#| output-location: column-fragment
+ggplot(jazan, aes(date, rate)) +
+  geom_line(linewidth = 1)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## `r params$region`, 2025 Q4 {background-color=&quot;#4137A8&quot;}
+
+::: {.r-fit-text}
+`r last(focus$rate)`%
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">Start timer</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d3-b3"><script type="application/json">[{"q": "You copy Day 2's <code>_brand.yml</code> next to the deck. What changes in <code>slides.qmd</code>?", "code": null, "options": ["Nothing", "Every heading needs a class", "The format line"]}, {"q": "Why does <code>slide-number: true</code> matter in a briefing?", "code": null, "options": ["It is required", "People ask about slide 6; you can find it", "It enables the PDF export"]}, {"q": "Quarto refuses <code>embed-resources: true</code>. What is on in the deck?", "code": null, "options": ["The chalkboard", "Speaker notes", "Auto-animate"]}, {"q": "How do you make a PDF of a Revealjs deck?", "code": null, "options": ["<code>--to pdf</code>", "Open it with <code>?print-pdf</code> at the end of the address and print from the browser", "Word, then save as PDF"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Find the three bugs</h3><p class="prompt">This header will not give the deck you want. Tap the three lines that cause it.</p><div class="gbody"></div><script type="application/json">{"type": "bug", "title": "Find the three bugs", "prompt": "This header will not give the deck you want. Tap the three lines that cause it.", "code": "---\ntitle: \"Briefing\"\nformat:\n  revealjs:\n    chalkboard: true\n    embed-resources: true\n  logo: gastat-logo-color.png\n    footer: \"Synthetic data\"\n---\n", "bad": [6, 7, 8], "why": "Line 6: <code>embed-resources</code> cannot go with the chalkboard on line 5, and Quarto stops. Line 7: <code>logo</code> is indented under <code>format:</code>, not under <code>revealjs:</code>, so it is not a Revealjs option there. Line 8 is indented deeper than the line above it, so the YAML cannot be read."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>A static deck your colleagues can open beats anything they can't.</p></div>
+<nav class="pager"><a href="d3-b2.html"><small>Back</small>Code, data and motion on slides</a><a class="next" href="d3-lab.html"><small>Next</small>Lab 3: a briefing deck for any region</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

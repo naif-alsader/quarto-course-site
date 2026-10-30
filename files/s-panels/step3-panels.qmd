@@ -1,0 +1,28 @@
+---
+title: "Every region, side by side"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+all <- read_csv("unemployment.csv")
+rates <- all |>
+  filter(region != "Kingdom")
+kingdom <- all |>
+  filter(region == "Kingdom") |>
+  select(-region)
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(rates, aes(date, rate)) +
+  geom_line(data = kingdom, colour = "grey70") +
+  geom_line() +
+  facet_wrap(vars(region), ncol = 5)
+```

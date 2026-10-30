@@ -1,0 +1,5 @@
+---
+title: "Unemployment in one region"
+---
+
+Build your note here. The code you need is in analysis.R.

@@ -1,0 +1,25 @@
+---
+title: "Unemployment in one region"
+subtitle: "Synthetic data, for training only"
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+execute:
+  echo: false
+---
+
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates <- read_csv("unemployment.csv")
+REGION <- "Asir"
+area    <- rates |> filter(region == REGION)
+kingdom <- rates |> filter(region == "Kingdom")
+now  <- last(area$rate)
+then <- first(area$rate)
+gap  <- now - last(kingdom$rate)
+```

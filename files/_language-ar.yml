@@ -1,0 +1,8 @@
+# Arabic labels for cross-references, callouts and the title block
+crossref-fig-title: "شكل"
+crossref-tbl-title: "جدول"
+crossref-sec-title: "قسم"
+title-block-published: "تاريخ النشر"
+title-block-author-single: "إعداد"
+callout-note-title: "ملاحظة"
+callout-tip-title: "إرشاد"

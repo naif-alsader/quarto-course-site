@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your first Quarto document · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1" class="on">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 1 · Block 1 · 09:00–10:15</div><h1>Your first Quarto document</h1>
+<p class="goal">Open Positron, write and run a little R, then write a <code>.qmd</code> file from nothing and see what Quarto does on the way to the page.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">First Positron and a little R, then Quarto. From the fifth build on, one report grows through the whole day; each build starts where the last one stopped.</p><div class="build" data-build="p-open">
+<div class="head"><span class="e">Day 1 · Start here</span><h3>Opening Positron</h3>
+<span class="len">8 steps · 61 s</span></div>
+<div class="screen"><hyperframes-player src="frames/p-open.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/p-open.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.3"><button type="button"><span class="n">1</span><span>This is Positron, the editor we use all week. It opens on a Welcome page, with your project folder on the left.</span></button></li><li data-t="9.3" data-d="8.75"><button type="button"><span class="n">2</span><span>The Explorer lists the files in the project folder. For now there is one: the data, <code>unemployment.csv</code>.</span></button></li><li data-t="18.05" data-d="6.5"><button type="button"><span class="n">3</span><span>Nothing runs yet. Press Start Session at the top to start R.</span></button></li><li data-t="24.55" data-d="8.26"><button type="button"><span class="n">4</span><span>Choose R. Positron also lists any Python it finds on the machine; this course always uses R.</span></button></li><li data-t="32.81" data-d="7.11"><button type="button"><span class="n">5</span><span>R is running. The Console is where you talk to R, and where it answers.</span></button></li><li data-t="39.92" data-d="6.61"><button type="button"><span class="n">6</span><span>Variables will list every object you make, with what it holds.</span></button></li><li data-t="46.53" data-d="6.5"><button type="button"><span class="n">7</span><span>Plots will show every chart you draw.</span></button></li><li data-t="53.03" data-d="7.71"><button type="button"><span class="n">8</span><span>The running language shows at the top. Click it to restart R when something hangs.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-console">
+<div class="head"><span class="e">Day 1 · Writing code</span><h3>Talking to R in the Console</h3>
+<span class="len">4 steps · 35 s</span></div>
+<div class="screen"><hyperframes-player src="frames/p-console.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/p-console.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.75"><button type="button"><span class="n">1</span><span>Click in the Console, type <code>1 + 1</code> and press Enter. R works it out and answers on the next line: <code>[1] 2</code>.</span></button></li><li data-t="8.75" data-d="9.53"><button type="button"><span class="n">2</span><span><code>x &lt;- c(8.8, 6.6)</code> stores two numbers under the name <code>x</code>: the Kingdom's rate in 2022 Q1 and in 2025 Q4. <code>&lt;-</code> means store.</span></button></li><li data-t="18.28" data-d="7.88"><button type="button"><span class="n">3</span><span><code>x</code> now appears in Variables, with the values it holds. Objects stay until you close R.</span></button></li><li data-t="26.16" data-d="8.87"><button type="button"><span class="n">4</span><span>A function does work on what you give it: <code>mean(x)</code> is 7.7. Most of R is calling functions like this one.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-script">
+<div class="head"><span class="e">Day 1 · Writing code</span><h3>From the Console to a script</h3>
+<span class="len">7 steps · 63 s</span></div>
+<div class="screen"><hyperframes-player src="frames/p-script.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/p-script.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.91"><button type="button"><span class="n">1</span><span>Lines typed in the Console are gone tomorrow. A script keeps them: a file, <code>analysis.R</code>, that you can run again at any time.</span></button></li><li data-t="9.91" data-d="10.73"><button type="button"><span class="n">2</span><span><code>library(tidyverse)</code> loads the tidyverse: a family of packages for reading, shaping and charting data, readr, dplyr and ggplot2 among them.</span></button></li><li data-t="20.64" data-d="10.35"><button type="button"><span class="n">3</span><span><code>read_csv()</code> reads the file. <code>|&gt;</code> passes the data on to <code>filter()</code>, which keeps the Kingdom's rows. Each line stores its result with <code>&lt;-</code>.</span></button></li><li data-t="30.99" data-d="9.14"><button type="button"><span class="n">4</span><span>Select the lines and press Ctrl+Enter: they run in the Console, top to bottom, exactly as if you typed them.</span></button></li><li data-t="40.13" data-d="9.2"><button type="button"><span class="n">5</span><span>Now <code>rates</code>, <code>kingdom</code> and <code>latest</code> are in Variables: 224 rows of data, the Kingdom's 16, and its latest rate, 6.6.</span></button></li><li data-t="49.33" data-d="6.5"><button type="button"><span class="n">6</span><span>The last line draws the chart, and it appears in Plots.</span></button></li><li data-t="55.83" data-d="7.49"><button type="button"><span class="n">7</span><span><code>View(rates)</code> opens the data as a table: every column, its type, and its spread.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-quarto">
+<div class="head"><span class="e">Day 1 · Enter Quarto</span><h3>Your first Quarto document</h3>
+<span class="len">6 steps · 54 s</span></div>
+<div class="screen"><hyperframes-player src="frames/p-quarto.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/p-quarto.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.92"><button type="button"><span class="n">1</span><span>Ctrl+Shift+P opens the command palette, where every command lives. <code>Quarto: New Document</code> starts a report.</span></button></li><li data-t="8.92" data-d="8.54"><button type="button"><span class="n">2</span><span>A Quarto document begins with a header between two <code>---</code> lines: here a title and the output format.</span></button></li><li data-t="17.46" data-d="9.47"><button type="button"><span class="n">3</span><span>Under the header: your words, then R code in a chunk, fenced by three backticks. The same R you ran in the script.</span></button></li><li data-t="26.93" data-d="6.5"><button type="button"><span class="n">4</span><span>Press Preview.</span></button></li><li data-t="33.43" data-d="9.96"><button type="button"><span class="n">5</span><span>Quarto runs the code and shows the finished page in the Viewer: the words, and the chart drawn fresh. One file made it all.</span></button></li><li data-t="43.39" data-d="10.9"><button type="button"><span class="n">6</span><span>Up close: the title from the header, the sentence you wrote, and the chart R drew. Edit the file, press Preview again, and the page follows.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="d1-hello">
+<div class="head"><span class="e">Day 1 · Build 1</span><h3>From a blank file to a first render</h3>
+<span class="len">4 steps · 42 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-hello.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-hello.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.7"><button type="button"><span class="n">1</span><span>Every <code>.qmd</code> file starts with a YAML header between two <code>---</code> lines. A title is enough to render a page.</span></button></li><li data-t="8.7" data-d="8.9"><button type="button"><span class="n">2</span><span>Below the header you write plain text. Quarto turns it into the page: no styling by hand.</span></button></li><li data-t="17.6" data-d="12.69"><button type="button"><span class="n">3</span><span>An R chunk runs when you render. Everything it prints lands on the page under it: the tidyverse's start-up notes, readr's messages, and <code>glimpse()</code> of the data.</span></button></li><li data-t="30.29" data-d="11.48"><button type="button"><span class="n">4</span><span>A second chunk keeps the Kingdom's rows with <code>filter()</code> and draws the chart. It is redrawn on every render, so it always matches the data.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-hello/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-hello/step4-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-yaml">
+<div class="head"><span class="e">Day 1 · Build 2</span><h3>The YAML header</h3>
+<span class="len">4 steps · 43 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-yaml.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-yaml.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.67"><button type="button"><span class="n">1</span><span><code>subtitle</code>, <code>author</code> and <code>date</code> fill the title block. <code>date: today</code> is the render date, so it never goes stale.</span></button></li><li data-t="9.67" data-d="10.0"><button type="button"><span class="n">2</span><span><code>format: html:</code> holds the options for one output format. <code>toc: true</code> builds a contents list from the <code>##</code> headings.</span></button></li><li data-t="19.67" data-d="12.93"><button type="button"><span class="n">3</span><span>Look in the folder: next to <code>report.html</code> Quarto wrote <code>report_files</code>, with the chart picture, styles and scripts. E-mail the HTML alone and it arrives broken.</span></button></li><li data-t="32.6" data-d="10.12"><button type="button"><span class="n">4</span><span><code>embed-resources: true</code> packs everything into the HTML itself. One file that opens anywhere, even offline.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-yaml/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-yaml/step4-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-markdown">
+<div class="head"><span class="e">Day 1 · Build 3</span><h3>Markdown that reports need</h3>
+<span class="len">6 steps · 62 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-markdown.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-markdown.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.78"><button type="button"><span class="n">1</span><span><code>##</code> starts a section, and the contents list picks it up. <code>**bold**</code> and <code>*italic*</code> mark the words that matter.</span></button></li><li data-t="9.78" data-d="10.44"><button type="button"><span class="n">2</span><span>A list written straight under a line of text does not become a list. Markdown reads it as more of the same paragraph.</span></button></li><li data-t="20.22" data-d="9.06"><button type="button"><span class="n">3</span><span>The fix is one blank line before the list. Most Markdown surprises are a missing blank line.</span></button></li><li data-t="29.28" data-d="10.99"><button type="button"><span class="n">4</span><span>A link is <code>[text](address)</code>. A footnote is <code>[^1]</code> in the text and a <code>[^1]:</code> line anywhere; Quarto numbers it and moves it to the end.</span></button></li><li data-t="40.27" data-d="9.28"><button type="button"><span class="n">5</span><span>Math goes between <code>$</code> signs in a sentence, or <code>$$</code> on lines of its own. A methods note can be exact.</span></button></li><li data-t="49.55" data-d="12.53"><button type="button"><span class="n">6</span><span>One catch: MathJax draws the formula, fetched from the internet when the page opens. <code>html-math-method: mathml</code> writes it into the page, so it shows offline.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-markdown/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-markdown/step6-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-pipeline">
+<div class="head"><span class="e">Day 1 · Build 4</span><h3>How Quarto works</h3>
+<span class="len">5 steps · 53 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-pipeline.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-pipeline.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.39"><button type="button"><span class="n">1</span><span>Render once more and read the log. <code>keep-md: true</code> keeps the file Quarto makes half way, so we can look inside.</span></button></li><li data-t="10.39" data-d="11.61"><button type="button"><span class="n">2</span><span>Stage 1: knitr runs every R chunk and writes plain Markdown: your text, the code, what it printed, and a link to the chart picture.</span></button></li><li data-t="22.0" data-d="11.27"><button type="button"><span class="n">3</span><span>Stage 2: Pandoc turns that Markdown into HTML. With <code>embed-resources</code>, even the chart is packed inside, as a long line of text.</span></button></li><li data-t="33.27" data-d="10.85"><button type="button"><span class="n">4</span><span>The browser shows the result. When a render fails, the log says which stage broke: an R error comes from knitr, a format error from Pandoc.</span></button></li><li data-t="44.12" data-d="9.03"><button type="button"><span class="n">5</span><span>Other formats change only the last stage: the same Markdown becomes a Word file and, through Typst, a PDF.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-pipeline/report.docx" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-pipeline/step5-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
+<h3>Start your own <code>report.qmd</code></h3><ol><li>In Positron: <b>File → New File → Quarto Document</b>. Save it as <code>report.qmd</code> in a folder with <code>unemployment.csv</code>.</li><li>Paste the code below and press <b>Render</b>, or run <code>quarto render report.qmd</code> in the terminal.</li><li>Add <code>toc: true</code> and <code>embed-resources: true</code>, render again, and check the folder: one HTML file.</li><li>Delete the blank line before the list, render, and see the list break. Put it back.</li></ol><div class="files"><a class="btn" href="files/unemployment.csv" download>unemployment.csv</a></div><details class="full"><summary>The whole file so far (50 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    html-math-method: mathml
+---
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.[^1]
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method
+
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+
+## Data
+
+```{r}
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">Start timer</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d1-b1"><script type="application/json">[{"q": "In the Console, what does <code>x &lt;- c(8.8, 6.6)</code> do?", "code": null, "options": ["Prints 8.8 and 6.6", "Stores the two numbers under the name <code>x</code>", "Draws a chart"]}, {"q": "Why write code in a script rather than only in the Console?", "code": null, "options": ["Scripts run faster", "A script keeps the steps, so you can run them again and others can read them", "The Console cannot read files"]}, {"q": "Where does the YAML header go in a <code>.qmd</code> file?", "code": null, "options": ["At the very top, between two <code>---</code> lines", "Anywhere, as long as it is inside <code>---</code> lines", "In a separate <code>.yml</code> file"]}, {"q": "What does <code>date: today</code> put in the title block?", "code": null, "options": ["The date you created the file", "The date of each render", "Nothing until you type a date"]}, {"q": "You wrote <code>The data cover:</code> and a list on the next line. The list shows as one run-on line. Why?", "code": null, "options": ["Lists need <code>*</code>, not <code>-</code>", "A list needs a blank line before it", "Lists only work inside a chunk"]}, {"q": "You e-mail <code>report.html</code> and the chart is missing on the other side. What fixes it?", "code": null, "options": ["<code>toc: true</code>", "<code>embed-resources: true</code>", "<code>keep-md: true</code>"]}, {"q": "Which stage of the render runs your R code?", "code": null, "options": ["Pandoc", "knitr", "The browser"]}, {"q": "A formula shows as raw <code>$$</code> text on an offline machine. What is the fix?", "code": null, "options": ["<code>html-math-method: mathml</code>", "Put the formula in a chunk", "Use <code>embed-resources: false</code>"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Put the render in order</h3><p class="prompt">From the file you write to the page you send. Tap the cards in order.</p><div class="gbody"></div><script type="application/json">{"type": "order", "title": "Put the render in order", "prompt": "From the file you write to the page you send. Tap the cards in order.", "items": ["report.qmd", "knitr runs the R chunks", "report.knit.md", "Pandoc converts", "report.html"], "win": "Right. knitr runs the code, Pandoc builds the page. An R error is a knitr problem; a broken layout is a Pandoc one."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>The report is code. You render it; you never edit what comes out.</p></div>
+<nav class="pager"><a href="index.html"><small>Back</small>Course map</a><a class="next" href="d1-b2.html"><small>Next</small>Code, numbers and figures</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

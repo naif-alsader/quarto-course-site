@@ -1,0 +1,36 @@
+{
+ "id": "d2-brand",
+ "title": "_brand.yml: the house style as a file",
+ "eyebrow": "Day 2 · Build 9",
+ "show": "_brand.yml",
+ "duration": 37.62,
+ "steps": [
+  {
+   "t": 0,
+   "d": 7.77,
+   "say": "No brand file yet: Quarto's default look. Colours and fonts live in no file at all."
+  },
+  {
+   "t": 7.77,
+   "d": 10.96,
+   "say": "Name the colours once in <code>palette</code>, then give them jobs: <code>primary</code> for links and accents, <code>foreground</code> for text. The report itself does not change."
+  },
+  {
+   "t": 18.73,
+   "d": 9.2,
+   "say": "Fonts come from files kept with the project, not from the internet. Headings take the brand's indigo by name."
+  },
+  {
+   "t": 27.93,
+   "d": 9.69,
+   "say": "The same file styles the Typst PDF: its colours, its fonts, and here the logo. Word keeps its styles in <code>reference-doc</code>."
+  }
+ ],
+ "downloads": [
+  "step2-_brand.yml",
+  "step3-_brand.yml",
+  "step4-_brand.yml"
+ ],
+ "final": "color:\n  palette:\n    indigo: \"#4137A8\"\n    green: \"#00803A\"\n    dark: \"#2C2D3F\"\n  primary: indigo\n  foreground: dark\n\ntypography:\n  fonts:\n    - family: Tajawal\n      source: file\n      files:\n        - path: fonts/Tajawal-Regular.ttf\n          weight: 400\n        - path: fonts/Tajawal-Bold.ttf\n          weight: 700\n  base: Tajawal\n  headings:\n    family: Tajawal\n    weight: 700\n    color: indigo\n\nlogo:\n  medium: gastat-logo-color.png\n",
+ "live": "report.pdf"
+}

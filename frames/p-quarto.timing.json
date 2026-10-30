@@ -1,0 +1,43 @@
+{
+ "id": "p-quarto",
+ "title": "Your first Quarto document",
+ "eyebrow": "Day 1 · Enter Quarto",
+ "show": null,
+ "duration": 54.29,
+ "type": "screen",
+ "steps": [
+  {
+   "t": 0,
+   "d": 8.92,
+   "say": "Ctrl+Shift+P opens the command palette, where every command lives. <code>Quarto: New Document</code> starts a report."
+  },
+  {
+   "t": 8.92,
+   "d": 8.54,
+   "say": "A Quarto document begins with a header between two <code>---</code> lines: here a title and the output format."
+  },
+  {
+   "t": 17.46,
+   "d": 9.47,
+   "say": "Under the header: your words, then R code in a chunk, fenced by three backticks. The same R you ran in the script."
+  },
+  {
+   "t": 26.93,
+   "d": 6.5,
+   "say": "Press Preview."
+  },
+  {
+   "t": 33.43,
+   "d": 9.96,
+   "say": "Quarto runs the code and shows the finished page in the Viewer: the words, and the chart drawn fresh. One file made it all."
+  },
+  {
+   "t": 43.39,
+   "d": 10.9,
+   "say": "Up close: the title from the header, the sentence you wrote, and the chart R drew. Edit the file, press Preview again, and the page follows."
+  }
+ ],
+ "downloads": [],
+ "final": null,
+ "live": null
+}

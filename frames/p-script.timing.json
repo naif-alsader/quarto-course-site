@@ -1,0 +1,48 @@
+{
+ "id": "p-script",
+ "title": "From the Console to a script",
+ "eyebrow": "Day 1 · Writing code",
+ "show": null,
+ "duration": 63.32,
+ "type": "screen",
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.91,
+   "say": "Lines typed in the Console are gone tomorrow. A script keeps them: a file, <code>analysis.R</code>, that you can run again at any time."
+  },
+  {
+   "t": 9.91,
+   "d": 10.73,
+   "say": "<code>library(tidyverse)</code> loads the tidyverse: a family of packages for reading, shaping and charting data, readr, dplyr and ggplot2 among them."
+  },
+  {
+   "t": 20.64,
+   "d": 10.35,
+   "say": "<code>read_csv()</code> reads the file. <code>|&gt;</code> passes the data on to <code>filter()</code>, which keeps the Kingdom's rows. Each line stores its result with <code>&lt;-</code>."
+  },
+  {
+   "t": 30.99,
+   "d": 9.14,
+   "say": "Select the lines and press Ctrl+Enter: they run in the Console, top to bottom, exactly as if you typed them."
+  },
+  {
+   "t": 40.13,
+   "d": 9.2,
+   "say": "Now <code>rates</code>, <code>kingdom</code> and <code>latest</code> are in Variables: 224 rows of data, the Kingdom's 16, and its latest rate, 6.6."
+  },
+  {
+   "t": 49.33,
+   "d": 6.5,
+   "say": "The last line draws the chart, and it appears in Plots."
+  },
+  {
+   "t": 55.83,
+   "d": 7.49,
+   "say": "<code>View(rates)</code> opens the data as a table: every column, its type, and its spread."
+  }
+ ],
+ "downloads": [],
+ "final": null,
+ "live": null
+}

@@ -1,0 +1,33 @@
+---
+title: "Unemployment in the regions"
+subtitle: "Quarterly briefing · synthetic data"
+format: revealjs
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates <- read_csv("unemployment.csv")
+kingdom <- rates |> filter(region == "Kingdom")
+jazan <- rates |> filter(region == "Jazan")
+change <- rates |>
+  filter(region != "Kingdom") |>
+  group_by(region) |>
+  summarise(change = last(rate) - first(rate))
+up <- change |> filter(change > 0) |> pull(region)
+```
+
+## Unemployment is falling
+
+- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way

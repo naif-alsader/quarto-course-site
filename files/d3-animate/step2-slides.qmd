@@ -1,0 +1,111 @@
+---
+title: "Unemployment in the regions"
+subtitle: "Quarterly briefing · synthetic data"
+format:
+  revealjs:
+    chalkboard: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates <- read_csv("unemployment.csv")
+kingdom <- rates |> filter(region == "Kingdom")
+jazan <- rates |> filter(region == "Jazan")
+change <- rates |>
+  filter(region != "Kingdom") |>
+  group_by(region) |>
+  summarise(change = last(rate) - first(rate))
+up <- change |> filter(change > 0) |> pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width="40%"}
+Jazan's rate rose while the Kingdom's fell.
+:::
+::: {.column width="60%"}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+
+# How the chart is made
+
+## Reading the pipeline
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "|1|2|3-4"
+rates |>
+  filter(region == "Jazan") |>
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## The chart and its code
+
+```{r}
+#| echo: true
+#| output-location: column-fragment
+ggplot(jazan, aes(date, rate)) +
+  geom_line(linewidth = 1)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |>
+  filter(region == "Jazan")
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |>
+  filter(region == "Jazan") |>
+  ggplot(aes(date, rate)) +
+  geom_line()
+```

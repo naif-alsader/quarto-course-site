@@ -1,0 +1,37 @@
+{
+ "id": "d2-arabic",
+ "title": "Arabic, right to left",
+ "eyebrow": "Day 2 · Build 10",
+ "show": "report-ar.qmd",
+ "duration": 38.56,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.63,
+   "say": "An Arabic report with no language settings. The page still runs left to right, and the figure is labelled in English."
+  },
+  {
+   "t": 9.63,
+   "d": 8.75,
+   "say": "<code>lang: ar</code> and <code>dir: rtl</code> turn the page around: text, headings and the title block now run right to left."
+  },
+  {
+   "t": 18.38,
+   "d": 11.26,
+   "say": "The figure still says Figure. Quarto has no Arabic labels built in; a small language file supplies them, so the caption reads شكل 1."
+  },
+  {
+   "t": 29.64,
+   "d": 8.92,
+   "say": "The same settings carry into the Typst PDF, with an Arabic-capable font from the project's fonts folder."
+  }
+ ],
+ "downloads": [
+  "step1-report-ar.qmd",
+  "step2-report-ar.qmd",
+  "step3-report-ar.qmd",
+  "step4-report-ar.qmd"
+ ],
+ "final": "---\ntitle: \"البطالة في المناطق\"\nlang: ar\ndir: rtl\nlanguage: _language-ar.yml\nformat:\n  html: default\n  typst:\n    mainfont: Tajawal\n    font-paths: fonts\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\n```\n\nانخفض معدل البطالة في معظم المناطق بين 2022 و2025،\nوجازان هي الاستثناء.\n\n```{r}\n#| label: fig-trend\n#| fig-cap: \"معدل البطالة في المملكة (%)\"\n#| echo: false\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nيوضح @fig-trend الاتجاه العام في المملكة.\n",
+ "live": "report-ar.pdf"
+}

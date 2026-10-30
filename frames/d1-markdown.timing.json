@@ -1,0 +1,49 @@
+{
+ "id": "d1-markdown",
+ "title": "Markdown that reports need",
+ "eyebrow": "Day 1 · Build 3",
+ "show": "report.qmd",
+ "duration": 62.08,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.78,
+   "say": "<code>##</code> starts a section, and the contents list picks it up. <code>**bold**</code> and <code>*italic*</code> mark the words that matter."
+  },
+  {
+   "t": 9.78,
+   "d": 10.44,
+   "say": "A list written straight under a line of text does not become a list. Markdown reads it as more of the same paragraph."
+  },
+  {
+   "t": 20.22,
+   "d": 9.06,
+   "say": "The fix is one blank line before the list. Most Markdown surprises are a missing blank line."
+  },
+  {
+   "t": 29.28,
+   "d": 10.99,
+   "say": "A link is <code>[text](address)</code>. A footnote is <code>[^1]</code> in the text and a <code>[^1]:</code> line anywhere; Quarto numbers it and moves it to the end."
+  },
+  {
+   "t": 40.27,
+   "d": 9.28,
+   "say": "Math goes between <code>$</code> signs in a sentence, or <code>$$</code> on lines of its own. A methods note can be exact."
+  },
+  {
+   "t": 49.55,
+   "d": 12.53,
+   "say": "One catch: MathJax draws the formula, fetched from the internet when the page opens. <code>html-math-method: mathml</code> writes it into the page, so it shows offline."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd",
+  "step5-report.qmd",
+  "step6-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n    html-math-method: mathml\n---\n\n## Summary\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend and the latest rates.[^1]\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method\n\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n\n## Data\n\n```{r}\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

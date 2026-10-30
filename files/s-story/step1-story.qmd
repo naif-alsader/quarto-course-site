@@ -1,0 +1,22 @@
+---
+title: "Unemployment by region"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates <- read_csv("unemployment.csv") |>
+  filter(region != "Kingdom")
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4.5
+ggplot(rates, aes(date, rate, colour = region)) +
+  geom_line()
+```

@@ -1,0 +1,37 @@
+{
+ "id": "d2-batch",
+ "title": "Thirteen reports from one template",
+ "eyebrow": "Day 2 · Build 7",
+ "show": "render-all.R",
+ "duration": 48.19,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.82,
+   "say": "The render script is the pipeline: <code>walk()</code> calls <code>quarto_render()</code> once per region. Start with three and check them before you run all 13."
+  },
+  {
+   "t": 11.82,
+   "d": 11.88,
+   "say": "Add Northern Borders and read its file name: a space. Spaces break links, e-mail attachments and the next script that reads this folder."
+  },
+  {
+   "t": 23.7,
+   "d": 11.49,
+   "say": "Build the file name from the region with stringr: lower case, hyphens for spaces. <code>report-northern-borders.pdf</code> is safe everywhere."
+  },
+  {
+   "t": 35.19,
+   "d": 13.0,
+   "say": "Read the regions from <code>regions.csv</code>. Each PDF has its own title and wording, because both come from the parameter. Add a region to the file and its PDF appears."
+  }
+ ],
+ "downloads": [
+  "step1-render-all.R",
+  "step2-render-all.R",
+  "step3-render-all.R",
+  "step4-render-all.R"
+ ],
+ "final": "library(tidyverse)\n\nregions <- read_csv(\"regions.csv\") |> pull(region_en)\n\nwalk(regions, \\(r) {\n  slug <- r |> str_to_lower() |> str_replace_all(\" \", \"-\")\n  quarto::quarto_render(\n    \"report.qmd\",\n    output_format = \"typst\",\n    execute_params = list(region = r),\n    output_file = str_glue(\"report-{slug}.pdf\")\n  )\n})\n",
+ "live": null
+}

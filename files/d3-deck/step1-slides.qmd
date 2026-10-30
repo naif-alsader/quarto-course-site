@@ -1,0 +1,5 @@
+---
+title: "Unemployment in the regions"
+subtitle: "Quarterly briefing · synthetic data"
+format: revealjs
+---

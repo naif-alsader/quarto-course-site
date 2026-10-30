@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Talking to R in the Console</title>
+<link rel="stylesheet" href="frames.css">
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" data-composition-id="p-console" data-start="0" data-duration="35.03" data-width="1920" data-height="1080">
+<div id="stage" class="stage clip" data-start="0" data-duration="35.03" data-track-index="0">
+<div class="eyebrow">Day 1 · Writing code</div>
+<div class="title">Talking to R in the Console</div>
+<img class="logo" src="logo.png" alt="">
+<div class="shotbox"><div class="cam"><img class="shot" src="out/pos-console-1.png" alt=""><img class="shot" src="out/pos-console-2.png" alt=""><div class="ring"></div></div><div class="tag"></div><div class="tag"></div><div class="tag">x</div><div class="tag"></div></div>
+<div class="caps"><div class="cap"><div class="n">1</div><div class="t">Click in the Console, type <code>1 + 1</code> and press Enter. R works it out and answers on the next line: <code>[1] 2</code>.</div></div><div class="cap"><div class="n">2</div><div class="t"><code>x &lt;- c(8.8, 6.6)</code> stores two numbers under the name <code>x</code>: the Kingdom's rate in 2022 Q1 and in 2025 Q4. <code>&lt;-</code> means store.</div></div><div class="cap"><div class="n">3</div><div class="t"><code>x</code> now appears in Variables, with the values it holds. Objects stay until you close R.</div></div><div class="cap"><div class="n">4</div><div class="t">A function does work on what you give it: <code>mean(x)</code> is 7.7. Most of R is calling functions like this one.</div></div></div>
+<div class="dots"><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+<script type="application/json" id="plan">{"t": [0, 8.75, 18.28, 26.16], "d": [8.75, 9.53, 7.88, 8.87], "steps": [{"shot": 0, "ring": [302, 620, 175, 48], "cam": {"s": 1.7381, "x": -445.0, "y": -743.3}, "tag": null, "label": null}, {"shot": 1, "ring": [302, 666, 200, 25], "cam": {"s": 1.7381, "x": -445.0, "y": -743.3}, "tag": null, "label": null}, {"shot": 1, "ring": [1128, 244, 472, 28], "cam": {"s": 2.2, "x": -2060.0, "y": -104.3}, "tag": {"x": 421.6, "y": 382.5}, "label": "x"}, {"shot": 1, "ring": [302, 689, 150, 48], "cam": {"s": 1.7381, "x": -445.0, "y": -743.3}, "tag": null, "label": null}]}</script>
+<script>
+(function () {
+  const P = JSON.parse(document.getElementById("plan").textContent);
+  const q = s => Array.from(document.querySelectorAll(s));
+  const shots = q(".shot"), caps = q(".cap"), tags = q(".tag"), dots = q(".dots i");
+  const cam = document.querySelector(".cam"), ring = document.querySelector(".ring");
+  const tl = gsap.timeline({ paused: true });
+  const S = P.steps;
+  const ringAt = (st) => {
+    const r = st.ring, pad = 8 / st.cam.s;
+    return { left: r[0] - pad, top: r[1] - pad, width: r[2] + 2 * pad, height: r[3] + 2 * pad,
+             borderWidth: 4 / st.cam.s, borderRadius: 10 / st.cam.s };
+  };
+  // starting states at 0, then only forward tweens: seek-safe
+  tl.set(cam, { transformOrigin: "0 0", x: S[0].cam.x, y: S[0].cam.y, scale: S[0].cam.s }, 0);
+  // one set per element at time 0: two conflicting sets at 0 do not survive the renderer's seeks
+  tl.set(shots.filter((_, i) => i !== S[0].shot), { autoAlpha: 0 }, 0);
+  tl.fromTo(shots[S[0].shot], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, immediateRender: false }, 0.05);
+  tl.set(caps.concat(tags), { autoAlpha: 0 }, 0);
+  tl.set(dots, { backgroundColor: "#E6E7EC" }, 0);
+  tl.set(ring, Object.assign({ autoAlpha: 0 }, S[0].ring ? ringAt(S[0]) : { left: 700, top: 400, width: 200, height: 100 }), 0);
+  S.forEach((st, k) => {
+    const T = P.t[k], prev = k ? S[k - 1] : null;
+    if (prev) {
+      tl.to(caps[k - 1], { autoAlpha: 0, duration: 0.25 }, T);
+      if (prev.tag) tl.to(tags[k - 1], { autoAlpha: 0, duration: 0.2 }, T);
+      if (st.shot !== prev.shot) {
+        tl.to(shots[st.shot], { autoAlpha: 1, duration: 0.45 }, T + 0.1);
+        tl.to(shots[prev.shot], { autoAlpha: 0, duration: 0.45 }, T + 0.25);
+      }
+      tl.to(cam, { x: st.cam.x, y: st.cam.y, scale: st.cam.s, duration: 0.9, ease: "power2.inOut" }, T + 0.2);
+      if (st.ring && prev.ring) tl.to(ring, Object.assign({ duration: 0.8, ease: "power2.inOut" }, ringAt(st)), T + 0.2);
+      if (st.ring && !prev.ring) {
+        tl.set(ring, ringAt(st), T + 0.2);
+        tl.to(ring, { autoAlpha: 1, duration: 0.5 }, T + 0.7);
+      }
+      if (!st.ring && prev.ring) tl.to(ring, { autoAlpha: 0, duration: 0.3 }, T + 0.05);
+    } else if (st.ring) {
+      tl.to(ring, { autoAlpha: 1, duration: 0.5 }, 0.6);
+    }
+    tl.fromTo(caps[k], { y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, T + 0.25);
+    if (st.tag) {
+      tl.set(tags[k], { left: st.tag.x, top: st.tag.y }, T);
+      tl.to(tags[k], { autoAlpha: 1, duration: 0.3 }, T + 1.1);
+    }
+    tl.to(dots[k], { backgroundColor: "#4137A8", duration: 0.3 }, T);
+  });
+  tl.set({}, {}, 35.03);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["p-console"] = tl;
+})();
+</script>
+</body>
+</html>

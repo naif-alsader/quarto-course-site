@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 3: a briefing deck for any region · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-lab">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3" class="on">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 3 · Lab · 13:15–14:00</div><h1>Lab 3: a briefing deck for any region</h1>
+<p class="goal">A short, branded briefing, built from the same data as your report, for any region you name.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Build it</h2><p>Start from <code>lab3-start.qmd</code>. Six or seven slides: the number, the trend, what changed, how we know, the record, and the ask. Then six volunteers present for 90 seconds each.</p><div class="files"><a class="btn" href="files/lab3-start.qmd" download>lab3-start.qmd</a><a class="btn" href="files/_brand.yml" download>_brand.yml</a><a class="btn" href="files/gastat-logo-color.png" download>gastat-logo-color.png</a><a class="btn" href="files/fonts/Tajawal-Regular.ttf" download>Tajawal-Regular.ttf</a><a class="btn" href="files/fonts/Tajawal-Bold.ttf" download>Tajawal-Bold.ttf</a><a class="btn" href="files/unemployment.csv" download>unemployment.csv</a></div><ul class="checklist"><li><label><input type="checkbox" value="0"><span>A title slide whose title reads the <code>region</code> parameter.</span></label></li><li><label><input type="checkbox" value="1"><span>The number and its chart side by side, with <code>.columns</code> and <code>.r-fit-text</code>.</span></label></li><li><label><input type="checkbox" value="2"><span>An incremental list, with a speaker note before any pause.</span></label></li><li><label><input type="checkbox" value="3"><span>A method slide: code beside its chart with <code>output-location: column-fragment</code>.</span></label></li><li><label><input type="checkbox" value="4"><span>A table slide made with <code>tt()</code>, and the ask on a coloured slide.</span></label></li><li><label><input type="checkbox" value="5"><span>Logo and slide numbers on every slide, and a PDF made with <code>?print-pdf</code>.</span></label></li></ul><div class="done-test"><div class="eyebrow">Done test</div><p>Render with <code>-P region:</code> another region. Every number, chart and title changes, and nothing was copied by hand.</p></div></section>
+<section class="part"><h2><span class="k">02</span>Stuck? Watch the solution</h2><p class="lead">Only after you have tried.</p><div class="build" data-build="d3-lab">
+<div class="head"><span class="e">Lab 3 · Solution</span><h3>A briefing deck for any region</h3>
+<span class="len">6 steps · 54 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-lab.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-lab.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="11.12"><button type="button"><span class="n">1</span><span>Start from the header: a parameter, a title that reads it, the logo and slide numbers. The setup chunk computes every number the deck will need.</span></button></li><li data-t="11.12" data-d="8.92"><button type="button"><span class="n">2</span><span>The number and its trend, side by side: a fitted number in the narrow column, the chart in the wide one.</span></button></li><li data-t="20.04" data-d="7.71"><button type="button"><span class="n">3</span><span>Two points, one click each, and a note for the presenter that the room never sees.</span></button></li><li data-t="27.75" data-d="7.6"><button type="button"><span class="n">4</span><span>The method slide: the code first, then on a click the chart it draws, beside it.</span></button></li><li data-t="35.35" data-d="8.54"><button type="button"><span class="n">5</span><span>A table for the record, then the ask on its own coloured slide: what you want the room to decide.</span></button></li><li data-t="43.89" data-d="10.6"><button type="button"><span class="n">6</span><span>The done test: render for Tabuk. Title, number, chart and table rebuild from the same data, with nothing copied by hand.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-lab/briefing.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-lab/step6-briefing.qmd" download>Download briefing.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">03</span>Day test</h2><p class="lead">The course test: eight questions across all three days.</p><div class="quiz" data-id="d3-lab"><script type="application/json">[{"q": "Which stage of a render runs your R code?", "code": null, "options": ["knitr", "Pandoc", "Typst"]}, {"q": "A number in the text must update with the data. How is it written?", "code": null, "options": ["Typed", "Inline R", "In a callout"]}, {"q": "<code>@tbl-latest</code> needs what on the table chunk?", "code": null, "options": ["<code>#| label: tbl-latest</code>", "<code>#| echo: false</code>", "<code>#| fig-cap:</code>"]}, {"q": "Options at the top level of the YAML apply to what?", "code": null, "options": ["HTML only", "Every format", "The first format listed"]}, {"q": "Thirteen regional PDFs come from what?", "code": null, "options": ["Thirteen files", "One template, a parameter, and a loop of <code>quarto_render()</code> calls", "Copy and paste"]}, {"q": "Where does the house style live?", "code": null, "options": ["In each document", "In <code>_brand.yml</code>, plus <code>reference-doc</code> for Word", "In the R code"]}, {"q": "A deck shows no code although the chunk ran. Why?", "code": null, "options": ["Decks hide code unless <code>echo: true</code>", "The code failed", "Revealjs cannot show code"]}, {"q": "The deck must open on a machine with no internet. What do you set?", "code": null, "options": ["<code>embed-resources: true</code>, with the chalkboard off", "<code>freeze: auto</code>", "<code>slide-number: true</code>"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>The final speed round</h3><p class="prompt">Three days in sixty seconds. True or false?</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "The final speed round", "prompt": "Three days in sixty seconds. True or false?", "seconds": 60, "items": [{"s": "The same setup chunk idea works in a report and a deck.", "a": true, "why": ""}, {"s": "<code>##</code> starts a new slide.", "a": true, "why": ""}, {"s": "Decks show code by default.", "a": false, "why": "Add <code>echo: true</code>."}, {"s": "<code>. . .</code> pauses a slide until the next click.", "a": true, "why": ""}, {"s": "<code>column-fragment</code> shows the chart before the code.", "a": false, "why": "It holds the chart back until a click."}, {"s": "<code>_brand.yml</code> works for Revealjs too.", "a": true, "why": ""}, {"s": "The chalkboard can be embedded in one file.", "a": false, "why": "Quarto refuses."}, {"s": "<code>?print-pdf</code> prepares a deck for printing to PDF.", "a": true, "why": ""}, {"s": "<code>-P region:Riyadh</code> works for decks as well as reports.", "a": true, "why": ""}, {"s": "Notes after a pause show from the start of the slide.", "a": false, "why": "Only at the last fragment."}]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>Report, family, deck: one analysis, every product, nothing copied.</p></div>
+<nav class="pager"><a href="d3-b3.html"><small>Back</small>Branded, parameterised and shared</a><a class="next" href="index.html"><small>Done</small>Course map</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

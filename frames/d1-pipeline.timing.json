@@ -1,0 +1,43 @@
+{
+ "id": "d1-pipeline",
+ "title": "How Quarto works",
+ "eyebrow": "Day 1 · Build 4",
+ "show": "report.qmd",
+ "duration": 53.15,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.39,
+   "say": "Render once more and read the log. <code>keep-md: true</code> keeps the file Quarto makes half way, so we can look inside."
+  },
+  {
+   "t": 10.39,
+   "d": 11.61,
+   "say": "Stage 1: knitr runs every R chunk and writes plain Markdown: your text, the code, what it printed, and a link to the chart picture."
+  },
+  {
+   "t": 22.0,
+   "d": 11.27,
+   "say": "Stage 2: Pandoc turns that Markdown into HTML. With <code>embed-resources</code>, even the chart is packed inside, as a long line of text."
+  },
+  {
+   "t": 33.27,
+   "d": 10.85,
+   "say": "The browser shows the result. When a render fails, the log says which stage broke: an R error comes from knitr, a format error from Pandoc."
+  },
+  {
+   "t": 44.12,
+   "d": 9.03,
+   "say": "Other formats change only the last stage: the same Markdown becomes a Word file and, through Typst, a PDF."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd",
+  "step5-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n    keep-md: true\n    html-math-method: mathml\n---\n\n## Summary\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend and the latest rates.[^1]\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method\n\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n\n## Data\n\n```{r}\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.docx"
+}

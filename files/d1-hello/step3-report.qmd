@@ -1,0 +1,14 @@
+---
+title: "Unemployment in the regions"
+---
+
+Unemployment fell in most regions between 2022 and 2025.
+This note shows the national trend and the latest rates.
+
+## Data
+
+```{r}
+library(tidyverse)
+rates <- read_csv("unemployment.csv")
+glimpse(rates)
+```

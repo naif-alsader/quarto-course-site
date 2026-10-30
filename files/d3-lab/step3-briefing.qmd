@@ -1,0 +1,50 @@
+---
+title: "Unemployment in `r params$region`"
+subtitle: "Briefing · synthetic data"
+params:
+  region: "Asir"
+format:
+  revealjs:
+    logo: gastat-logo-color.png
+    slide-number: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates <- read_csv("unemployment.csv")
+area <- rates |> filter(region == params$region)
+kingdom <- rates |> filter(region == "Kingdom")
+now <- last(area$rate)
+change <- now - first(area$rate)
+gap <- now - last(kingdom$rate)
+```
+
+## The number
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.r-fit-text}
+`r scales::number(now, accuracy = 0.1)`%
+:::
+in 2025 Q4, `r scales::number(change, accuracy = 0.1, style_positive = "plus")`
+points since 2022
+:::
+::: {.column width="65%"}
+```{r}
+ggplot(area, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Against the Kingdom
+
+::: {.notes}
+Ask: what explains the gap?
+:::
+
+::: {.incremental}
+- Unemployment fell in most regions since 2022
+- `r params$region` is `r scales::number(gap, accuracy = 0.1, style_positive = "plus")` points from the Kingdom
+:::

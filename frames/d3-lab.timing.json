@@ -1,0 +1,49 @@
+{
+ "id": "d3-lab",
+ "title": "A briefing deck for any region",
+ "eyebrow": "Lab 3 · Solution",
+ "show": "briefing.qmd",
+ "duration": 54.49,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.12,
+   "say": "Start from the header: a parameter, a title that reads it, the logo and slide numbers. The setup chunk computes every number the deck will need."
+  },
+  {
+   "t": 11.12,
+   "d": 8.92,
+   "say": "The number and its trend, side by side: a fitted number in the narrow column, the chart in the wide one."
+  },
+  {
+   "t": 20.04,
+   "d": 7.71,
+   "say": "Two points, one click each, and a note for the presenter that the room never sees."
+  },
+  {
+   "t": 27.75,
+   "d": 7.6,
+   "say": "The method slide: the code first, then on a click the chart it draws, beside it."
+  },
+  {
+   "t": 35.35,
+   "d": 8.54,
+   "say": "A table for the record, then the ask on its own coloured slide: what you want the room to decide."
+  },
+  {
+   "t": 43.89,
+   "d": 10.6,
+   "say": "The done test: render for Tabuk. Title, number, chart and table rebuild from the same data, with nothing copied by hand."
+  }
+ ],
+ "downloads": [
+  "step1-briefing.qmd",
+  "step2-briefing.qmd",
+  "step3-briefing.qmd",
+  "step4-briefing.qmd",
+  "step5-briefing.qmd",
+  "step6-briefing.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in `r params$region`\"\nsubtitle: \"Briefing · synthetic data\"\nparams:\n  region: \"Asir\"\nformat:\n  revealjs:\n    logo: gastat-logo-color.png\n    slide-number: true\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nrates <- read_csv(\"unemployment.csv\")\narea <- rates |> filter(region == params$region)\nkingdom <- rates |> filter(region == \"Kingdom\")\nnow <- last(area$rate)\nchange <- now - first(area$rate)\ngap <- now - last(kingdom$rate)\n```\n\n## The number\n\n:::: {.columns}\n::: {.column width=\"35%\"}\n::: {.r-fit-text}\n`r scales::number(now, accuracy = 0.1)`%\n:::\nin 2025 Q4, `r scales::number(change, accuracy = 0.1, style_positive = \"plus\")`\npoints since 2022\n:::\n::: {.column width=\"65%\"}\n```{r}\nggplot(area, aes(date, rate)) + geom_line()\n```\n:::\n::::\n\n## Against the Kingdom\n\n::: {.notes}\nAsk: what explains the gap?\n:::\n\n::: {.incremental}\n- Unemployment fell in most regions since 2022\n- `r params$region` is `r scales::number(gap, accuracy = 0.1, style_positive = \"plus\")` points from the Kingdom\n:::\n\n## How we know\n\n```{r}\n#| echo: true\n#| output-location: column-fragment\nboth <- rates |>\n  filter(region %in% c(params$region, \"Kingdom\"))\nggplot(both, aes(date, rate,\n                 colour = region)) +\n  geom_line()\n```\n\n## The last four quarters\n\n```{r}\narea |>\n  select(quarter, rate) |>\n  slice_tail(n = 4) |>\n  tt() |>\n  theme_html(portable = TRUE)\n```\n\n## The ask {background-color=\"#4137A8\"}\n\nApprove a closer look at `r params$region` next quarter.\n",
+ "live": "briefing.html"
+}

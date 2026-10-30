@@ -1,0 +1,36 @@
+{
+ "id": "d2-project",
+ "title": "Projects: settings shared by every file",
+ "eyebrow": "Day 2 · Build 8",
+ "show": "_quarto.yml",
+ "duration": 44.96,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.85,
+   "say": "A second document, <code>annex.qmd</code>, has none of the report's settings: no contents list, no embedding. Copying the header into every file drifts."
+  },
+  {
+   "t": 10.85,
+   "d": 10.39,
+   "say": "<code>_quarto.yml</code> makes the folder a project. <code>quarto render</code> with no file name renders every document, into <code>_output</code>."
+  },
+  {
+   "t": 21.24,
+   "d": 10.85,
+   "say": "And every document inherits the project's settings: the annex now has a contents list and travels as one file, with no change to <code>annex.qmd</code>."
+  },
+  {
+   "t": 32.09,
+   "d": 12.87,
+   "say": "<code>freeze: auto</code> stores each document's results in <code>_freeze/</code>. Render again and no <code>processing file</code> appears: R did not run. It reruns only when the <code>.qmd</code> changes."
+  }
+ ],
+ "downloads": [
+  "step2-_quarto.yml",
+  "step3-_quarto.yml",
+  "step4-_quarto.yml"
+ ],
+ "final": "project:\n  output-dir: _output\n\nformat:\n  html:\n    toc: true\n    embed-resources: true\n\nexecute:\n  freeze: auto\n",
+ "live": null
+}

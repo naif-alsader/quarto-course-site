@@ -1,0 +1,25 @@
+{
+ "id": "d2-lab-loop",
+ "title": "Five regions, then the done test",
+ "eyebrow": "Lab 2 · Solution, part 2",
+ "show": "render-notes.R",
+ "duration": 21.23,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.05,
+   "say": "Five regions first, with clean file names. Open two of the PDFs and check a number against the data before going further."
+  },
+  {
+   "t": 11.05,
+   "d": 10.18,
+   "say": "The done test: add a region to the list and run the script. Its PDF appears, and nothing else was edited."
+  }
+ ],
+ "downloads": [
+  "step1-render-notes.R",
+  "step2-render-notes.R"
+ ],
+ "final": "library(tidyverse)\n\nregions <- c(\"Riyadh\", \"Makkah\", \"Eastern Province\",\n             \"Asir\", \"Tabuk\", \"Jazan\")\n\nwalk(regions, \\(r) {\n  slug <- r |> str_to_lower() |> str_replace_all(\" \", \"-\")\n  quarto::quarto_render(\n    \"note.qmd\",\n    output_format = \"typst\",\n    execute_params = list(region = r),\n    output_file = str_glue(\"note-{slug}.pdf\")\n  )\n})\n",
+ "live": null
+}

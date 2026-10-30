@@ -1,0 +1,33 @@
+{
+ "id": "p-console",
+ "title": "Talking to R in the Console",
+ "eyebrow": "Day 1 · Writing code",
+ "show": null,
+ "duration": 35.03,
+ "type": "screen",
+ "steps": [
+  {
+   "t": 0,
+   "d": 8.75,
+   "say": "Click in the Console, type <code>1 + 1</code> and press Enter. R works it out and answers on the next line: <code>[1] 2</code>."
+  },
+  {
+   "t": 8.75,
+   "d": 9.53,
+   "say": "<code>x &lt;- c(8.8, 6.6)</code> stores two numbers under the name <code>x</code>: the Kingdom's rate in 2022 Q1 and in 2025 Q4. <code>&lt;-</code> means store."
+  },
+  {
+   "t": 18.28,
+   "d": 7.88,
+   "say": "<code>x</code> now appears in Variables, with the values it holds. Objects stay until you close R."
+  },
+  {
+   "t": 26.16,
+   "d": 8.87,
+   "say": "A function does work on what you give it: <code>mean(x)</code> is 7.7. Most of R is calling functions like this one."
+  }
+ ],
+ "downloads": [],
+ "final": null,
+ "live": null
+}

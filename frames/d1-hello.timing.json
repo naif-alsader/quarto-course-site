@@ -1,0 +1,37 @@
+{
+ "id": "d1-hello",
+ "title": "From a blank file to a first render",
+ "eyebrow": "Day 1 · Build 1",
+ "show": "report.qmd",
+ "duration": 41.77,
+ "steps": [
+  {
+   "t": 0,
+   "d": 8.7,
+   "say": "Every <code>.qmd</code> file starts with a YAML header between two <code>---</code> lines. A title is enough to render a page."
+  },
+  {
+   "t": 8.7,
+   "d": 8.9,
+   "say": "Below the header you write plain text. Quarto turns it into the page: no styling by hand."
+  },
+  {
+   "t": 17.6,
+   "d": 12.69,
+   "say": "An R chunk runs when you render. Everything it prints lands on the page under it: the tidyverse's start-up notes, readr's messages, and <code>glimpse()</code> of the data."
+  },
+  {
+   "t": 30.29,
+   "d": 11.48,
+   "say": "A second chunk keeps the Kingdom's rows with <code>filter()</code> and draws the chart. It is redrawn on every render, so it always matches the data."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\n---\n\nUnemployment fell in most regions between 2022 and 2025.\nThis note shows the national trend and the latest rates.\n\n## Data\n\n```{r}\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

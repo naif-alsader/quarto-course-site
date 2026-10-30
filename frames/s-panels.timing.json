@@ -1,0 +1,43 @@
+{
+ "id": "s-panels",
+ "title": "Small multiples instead of spaghetti",
+ "eyebrow": "Afterword · One region, or many?",
+ "show": "panels.qmd",
+ "duration": 62.39,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.9,
+   "say": "Back to the thirteen coloured lines. Highlighting one region was one way out. Here is the other: give every region a small chart of its own."
+  },
+  {
+   "t": 10.9,
+   "d": 12.96,
+   "say": "<code>facet_wrap()</code> draws one panel per region, all on the same scales, so any two panels can be compared at a glance. The colours and the legend have nothing left to do."
+  },
+  {
+   "t": 23.86,
+   "d": 12.53,
+   "say": "Give every panel the same yardstick. <code>kingdom</code> has no <code>region</code> column, so <code>facet_wrap()</code> cannot split it, and the Kingdom's line is drawn in all thirteen panels."
+  },
+  {
+   "t": 36.39,
+   "d": 13.0,
+   "say": "Order the panels by the change, not by the alphabet, and colour each line by the rule <code>change &gt; 0</code>. The region that went the other way comes first, and it is the only green one."
+  },
+  {
+   "t": 49.39,
+   "d": 13.0,
+   "say": "Short year labels, a title that states the pattern, a subtitle that says what the grey line is. R picks the region for the title with the same rule, <code>change &gt; 0</code>, that coloured its line."
+  }
+ ],
+ "downloads": [
+  "step1-panels.qmd",
+  "step2-panels.qmd",
+  "step3-panels.qmd",
+  "step4-panels.qmd",
+  "step5-panels.qmd"
+ ],
+ "final": "---\ntitle: \"Every region, side by side\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nall <- read_csv(\"unemployment.csv\")\nrates <- all |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  mutate(change = last(rate) - first(rate)) |>\n  ungroup() |>\n  mutate(region = fct_reorder(region, change,\n                              .desc = TRUE))\nriser <- rates |>\n  filter(change > 0) |>\n  distinct(region) |>\n  pull(region)\nkingdom <- all |>\n  filter(region == \"Kingdom\") |>\n  select(-region)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(rates, aes(date, rate)) +\n  geom_line(data = kingdom, colour = \"grey70\") +\n  geom_line(aes(colour = change > 0), linewidth = 1) +\n  facet_wrap(vars(region), ncol = 5) +\n  scale_colour_manual(values = c(`TRUE` = \"#00803A\",\n                                 `FALSE` = \"#4137A8\"),\n                      guide = \"none\") +\n  scale_x_date(date_breaks = \"1 year\",\n               date_labels = \"'%y\") +\n  labs(title = str_glue(\n         \"Against the Kingdom, only {riser} \",\n         \"moved the other way\"),\n       subtitle = str_glue(\n         \"Unemployment rate, %. Grey: the Kingdom. \",\n         \"Ordered by the change since \",\n         \"{min(rates$quarter)}\"),\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(panel.grid.minor = element_blank())\n```\n",
+ "live": "panels.html"
+}

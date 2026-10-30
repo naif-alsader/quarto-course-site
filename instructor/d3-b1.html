@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From report to deck · Quarto, step by step</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3" class="on">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 3 · Block 1 · 09:00–10:15</div><h1>From report to deck</h1>
+<p class="goal">Build a Revealjs deck from the same analysis: slides and sections, layouts that fit, pacing, and the presenter's tools.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">A new file, <code>slides.qmd</code>, grows through the day. The setup chunk is the same idea as the report's.</p><div class="build" data-build="d3-deck">
+<div class="head"><span class="e">Day 3 · Build 1</span><h3>From report to deck</h3>
+<span class="len">4 steps · 41 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-deck.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-deck.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span>Same tool, new format: <code>format: revealjs</code> makes a slide deck. The header's title and subtitle become the title slide.</span></button></li><li data-t="9.53" data-d="11.5"><button type="button"><span class="n">2</span><span>Each <code>##</code> heading starts a slide. The setup chunk works as in the report: <code>group_by()</code> and <code>summarise()</code> give each region's change, and inline R counts them.</span></button></li><li data-t="21.03" data-d="8.98"><button type="button"><span class="n">3</span><span>A chunk on a slide puts its chart on the slide. Unlike a report, a deck hides code unless you ask for it.</span></button></li><li data-t="30.01" data-d="11.18"><button type="button"><span class="n">4</span><span>A single <code>#</code> starts a section with its own title slide. The <code>##</code> slides after it stack under it, and the arrow keys still walk through them in order.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d3-deck/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d3-deck/step4-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-layout">
+<div class="head"><span class="e">Day 3 · Build 2</span><h3>Slide layouts</h3>
+<span class="len">3 steps · 30 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-layout.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-layout.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.29"><button type="button"><span class="n">1</span><span>Text and a chart stacked on one slide: the chart is pushed off the bottom, out of sight. A slide has a fixed size, unlike a page.</span></button></li><li data-t="10.29" data-d="9.94"><button type="button"><span class="n">2</span><span><code>.columns</code> with two <code>.column</code> divs puts the words beside the chart. Widths are shares of the slide: 40% and 60%.</span></button></li><li data-t="20.23" data-d="9.8"><button type="button"><span class="n">3</span><span>A tabset works on slides too. Here the Jazan tab is open; the Kingdom is one click away, so one slide holds both charts.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d3-layout/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d3-layout/step3-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-pacing">
+<div class="head"><span class="e">Day 3 · Build 3</span><h3>Pacing: one point at a time</h3>
+<span class="len">3 steps · 29 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-pacing.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-pacing.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span>Wrap the list in <code>::: {.incremental}</code> and it arrives one point at a time. The first click shows only the first point.</span></button></li><li data-t="9.53" data-d="9.72"><button type="button"><span class="n">2</span><span>The next click brings the next point. You talk about one number while the room looks at that one number.</span></button></li><li data-t="19.25" data-d="9.5"><button type="button"><span class="n">3</span><span>Three spaced dots, <code>. . .</code>, pause anything, not just a list: the closing line waits for its own click.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d3-pacing/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d3-pacing/step3-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-notes">
+<div class="head"><span class="e">Day 3 · Build 4</span><h3>Speaker notes and the presenter&#x27;s keys</h3>
+<span class="len">4 steps · 36 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-notes.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-notes.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.46"><button type="button"><span class="n">1</span><span><code>::: {.notes}</code> holds what you will say; the room never sees it. Put notes before any <code>. . .</code> pause, or they belong to the last fragment.</span></button></li><li data-t="10.46" data-d="8.64"><button type="button"><span class="n">2</span><span>Press S for the speaker view, in its own window: this slide, the next one, a timer, and your notes.</span></button></li><li data-t="19.1" data-d="8.37"><button type="button"><span class="n">3</span><span>Press O for an overview of every slide: the way to jump back when a question is about slide 2.</span></button></li><li data-t="27.47" data-d="8.87"><button type="button"><span class="n">4</span><span><code>chalkboard: true</code> adds a drawing layer. Press B for a blank board, to sketch what the chart cannot show.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d3-notes/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d3-notes/step4-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 6 minutes</div>
+<h3>Your first four slides</h3><ol><li>Make <code>slides.qmd</code> with <code>format: revealjs</code>, the setup chunk and two <code>##</code> slides.</li><li>Put the words and a chart side by side with <code>.columns</code>.</li><li>Make the list incremental, add a note before the pause, and press S while presenting.</li></ol><details class="full"><summary>The whole file so far (72 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Quarterly briefing · synthetic data&quot;
+format:
+  revealjs:
+    chalkboard: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+jazan &lt;- rates |&gt; filter(region == &quot;Jazan&quot;)
+change &lt;- rates |&gt;
+  filter(region != &quot;Kingdom&quot;) |&gt;
+  group_by(region) |&gt;
+  summarise(change = last(rate) - first(rate))
+up &lt;- change |&gt; filter(change &gt; 0) |&gt; pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change &lt; 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width=&quot;40%&quot;}
+Jazan&#x27;s rate rose while the Kingdom&#x27;s fell.
+:::
+::: {.column width=&quot;60%&quot;}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">Start timer</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d3-b1"><script type="application/json">[{"q": "What starts a new slide?", "code": null, "options": ["A <code>##</code> heading", "A blank line", "A new chunk"], "answer": 0, "why": "<code>##</code> starts a slide; <code>#</code> starts a section with its own title slide."}, {"q": "You put a chart on a slide and no code appears. Why?", "code": null, "options": ["Decks hide code by default", "The chunk failed", "Charts and code cannot share a slide"], "answer": 0, "why": "Add <code>#| echo: true</code> when the code is the point of the slide."}, {"q": "Text and a chart on one slide: the chart runs off the bottom. The fix?", "code": null, "options": ["Make the text smaller", "<code>.columns</code>, with the text in one column and the chart in the other", "<code>embed-resources: true</code>"], "answer": 1, "why": "A slide has a fixed size; columns use its width instead of its height."}, {"q": "Notes written after a <code>. . .</code> pause show in the speaker view when?", "code": null, "options": ["From the start of the slide", "Only once the last fragment is shown", "Never"], "answer": 1, "why": "Everything after a pause belongs to that fragment, notes included. Tested in this course's deck."}, {"q": "Which key opens the speaker view?", "code": null, "options": ["S", "O", "B"], "answer": 0, "why": "O is the overview, B the chalkboard."}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Match the key to the tool</h3><p class="prompt">Tap a key, then what it does while you present.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "Match the key to the tool", "prompt": "Tap a key, then what it does while you present.", "mono": "left", "pairs": [["S", "Speaker view: notes, timer, next slide"], ["O", "Overview of every slide"], ["B", "Chalkboard, with chalkboard: true"], ["R", "Scroll view: the deck as one long page"], ["F", "Full screen"]]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>A deck is a subset of the report, not a different document.</p></div>
+<nav class="pager"><a href="d2-lab.html"><small>Back</small>Lab 2: brand, parameterise, batch-render</a><a class="next" href="d3-b2.html"><small>Next</small>Code, data and motion on slides</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

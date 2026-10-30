@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>From the Console to a script</title>
+<link rel="stylesheet" href="frames.css">
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" data-composition-id="p-script" data-start="0" data-duration="63.32" data-width="1920" data-height="1080">
+<div id="stage" class="stage clip" data-start="0" data-duration="63.32" data-track-index="0">
+<div class="eyebrow">Day 1 · Writing code</div>
+<div class="title">From the Console to a script</div>
+<img class="logo" src="logo.png" alt="">
+<div class="shotbox"><div class="cam"><img class="shot" src="out/pos-script.png" alt=""><img class="shot" src="out/pos-script-run.png" alt=""><img class="shot" src="out/pos-plot.png" alt=""><img class="shot" src="out/pos-data.png" alt=""><div class="ring"></div></div><div class="tag">analysis.R</div><div class="tag">the tidyverse</div><div class="tag"></div><div class="tag">Console</div><div class="tag">Variables</div><div class="tag">Plots</div><div class="tag">Data Explorer</div></div>
+<div class="caps"><div class="cap"><div class="n">1</div><div class="t">Lines typed in the Console are gone tomorrow. A script keeps them: a file, <code>analysis.R</code>, that you can run again at any time.</div></div><div class="cap"><div class="n">2</div><div class="t"><code>library(tidyverse)</code> loads the tidyverse: a family of packages for reading, shaping and charting data, readr, dplyr and ggplot2 among them.</div></div><div class="cap"><div class="n">3</div><div class="t"><code>read_csv()</code> reads the file. <code>|&gt;</code> passes the data on to <code>filter()</code>, which keeps the Kingdom's rows. Each line stores its result with <code>&lt;-</code>.</div></div><div class="cap"><div class="n">4</div><div class="t">Select the lines and press Ctrl+Enter: they run in the Console, top to bottom, exactly as if you typed them.</div></div><div class="cap"><div class="n">5</div><div class="t">Now <code>rates</code>, <code>kingdom</code> and <code>latest</code> are in Variables: 224 rows of data, the Kingdom's 16, and its latest rate, 6.6.</div></div><div class="cap"><div class="n">6</div><div class="t">The last line draws the chart, and it appears in Plots.</div></div><div class="cap"><div class="n">7</div><div class="t"><code>View(rates)</code> opens the data as a table: every column, its type, and its spread.</div></div></div>
+<div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+<script type="application/json" id="plan">{"t": [0, 9.91, 20.64, 30.99, 40.13, 49.33, 55.83], "d": [9.91, 10.73, 10.35, 9.14, 9.2, 6.5, 7.49], "steps": [{"shot": 0, "ring": [296, 77, 831, 527], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 270.1, "y": 20.3}, "label": "analysis.R"}, {"shot": 0, "ring": [383, 202, 212, 26], "cam": {"s": 1.6026, "x": -410.3, "y": -70.3}, "tag": {"x": 203.5, "y": 203.4}, "label": "the tidyverse"}, {"shot": 0, "ring": [383, 250, 527, 50], "cam": {"s": 1.6026, "x": -410.3, "y": -70.3}, "tag": null, "label": null}, {"shot": 1, "ring": [296, 604, 831, 270], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 270.1, "y": 501.1}, "label": "Console"}, {"shot": 1, "ring": [1128, 119, 472, 377], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 1029.3, "y": 58.6}, "label": "Variables"}, {"shot": 2, "ring": [1129, 595, 470, 275], "cam": {"s": 1.6755, "x": -1220.8, "y": -687.0}, "tag": {"x": 670.8, "y": 259.9}, "label": "Plots"}, {"shot": 3, "ring": [296, 77, 831, 527], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 270.1, "y": 20.3}, "label": "Data Explorer"}]}</script>
+<script>
+(function () {
+  const P = JSON.parse(document.getElementById("plan").textContent);
+  const q = s => Array.from(document.querySelectorAll(s));
+  const shots = q(".shot"), caps = q(".cap"), tags = q(".tag"), dots = q(".dots i");
+  const cam = document.querySelector(".cam"), ring = document.querySelector(".ring");
+  const tl = gsap.timeline({ paused: true });
+  const S = P.steps;
+  const ringAt = (st) => {
+    const r = st.ring, pad = 8 / st.cam.s;
+    return { left: r[0] - pad, top: r[1] - pad, width: r[2] + 2 * pad, height: r[3] + 2 * pad,
+             borderWidth: 4 / st.cam.s, borderRadius: 10 / st.cam.s };
+  };
+  // starting states at 0, then only forward tweens: seek-safe
+  tl.set(cam, { transformOrigin: "0 0", x: S[0].cam.x, y: S[0].cam.y, scale: S[0].cam.s }, 0);
+  // one set per element at time 0: two conflicting sets at 0 do not survive the renderer's seeks
+  tl.set(shots.filter((_, i) => i !== S[0].shot), { autoAlpha: 0 }, 0);
+  tl.fromTo(shots[S[0].shot], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, immediateRender: false }, 0.05);
+  tl.set(caps.concat(tags), { autoAlpha: 0 }, 0);
+  tl.set(dots, { backgroundColor: "#E6E7EC" }, 0);
+  tl.set(ring, Object.assign({ autoAlpha: 0 }, S[0].ring ? ringAt(S[0]) : { left: 700, top: 400, width: 200, height: 100 }), 0);
+  S.forEach((st, k) => {
+    const T = P.t[k], prev = k ? S[k - 1] : null;
+    if (prev) {
+      tl.to(caps[k - 1], { autoAlpha: 0, duration: 0.25 }, T);
+      if (prev.tag) tl.to(tags[k - 1], { autoAlpha: 0, duration: 0.2 }, T);
+      if (st.shot !== prev.shot) {
+        tl.to(shots[st.shot], { autoAlpha: 1, duration: 0.45 }, T + 0.1);
+        tl.to(shots[prev.shot], { autoAlpha: 0, duration: 0.45 }, T + 0.25);
+      }
+      tl.to(cam, { x: st.cam.x, y: st.cam.y, scale: st.cam.s, duration: 0.9, ease: "power2.inOut" }, T + 0.2);
+      if (st.ring && prev.ring) tl.to(ring, Object.assign({ duration: 0.8, ease: "power2.inOut" }, ringAt(st)), T + 0.2);
+      if (st.ring && !prev.ring) {
+        tl.set(ring, ringAt(st), T + 0.2);
+        tl.to(ring, { autoAlpha: 1, duration: 0.5 }, T + 0.7);
+      }
+      if (!st.ring && prev.ring) tl.to(ring, { autoAlpha: 0, duration: 0.3 }, T + 0.05);
+    } else if (st.ring) {
+      tl.to(ring, { autoAlpha: 1, duration: 0.5 }, 0.6);
+    }
+    tl.fromTo(caps[k], { y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, T + 0.25);
+    if (st.tag) {
+      tl.set(tags[k], { left: st.tag.x, top: st.tag.y }, T);
+      tl.to(tags[k], { autoAlpha: 1, duration: 0.3 }, T + 1.1);
+    }
+    tl.to(dots[k], { backgroundColor: "#4137A8", duration: 0.3 }, T);
+  });
+  tl.set({}, {}, 63.32);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["p-script"] = tl;
+})();
+</script>
+</body>
+</html>

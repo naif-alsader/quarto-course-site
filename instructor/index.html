@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quarto, step by step</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="home">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">GASTAT · 3 days · 09:00–14:00</div><h1>Quarto, step by step</h1>
+<p class="goal">Reports and slides straight from your R code. Every feature is a build: the file on the left grows one step at a time, and what Quarto makes of it appears on the right.</p><div class="rule"></div></div>
+<div class="tools" style="padding:0 0 6px"><a class="btn primary" href="deck.html">Open the presentation</a>
+<span class="note">The whole course as one deck: → steps through every build, M opens the chapter menu, S the speaker view.</span></div>
+
+<div class="intro-grid"><div><b>One report, all week</b>Day 1 grows one report from a blank file. Day 2 sends that report to Word, PDF and 13 regions. Day 3 turns the analysis into a deck.</div><div><b>Watch, then do</b>Step through each build at your own pace, then do the short task in Positron before moving on.</div><div><b>Check and play</b>A quiz and a game end each block; a day test ends each lab. Scores stay in this browser.</div></div>
+<section class="part"><h2><span class="k">Start here</span>How Quarto works, in one build</h2><p class="lead">Your file goes in; knitr runs the R; Pandoc writes the page. Five steps, each from a real render.</p><div class="build" data-build="d1-pipeline">
+<div class="head"><span class="e">Day 1 · Build 4</span><h3>How Quarto works</h3>
+<span class="len">5 steps · 53 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-pipeline.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-pipeline.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.39"><button type="button"><span class="n">1</span><span>Render once more and read the log. <code>keep-md: true</code> keeps the file Quarto makes half way, so we can look inside.</span></button></li><li data-t="10.39" data-d="11.61"><button type="button"><span class="n">2</span><span>Stage 1: knitr runs every R chunk and writes plain Markdown: your text, the code, what it printed, and a link to the chart picture.</span></button></li><li data-t="22.0" data-d="11.27"><button type="button"><span class="n">3</span><span>Stage 2: Pandoc turns that Markdown into HTML. With <code>embed-resources</code>, even the chart is packed inside, as a long line of text.</span></button></li><li data-t="33.27" data-d="10.85"><button type="button"><span class="n">4</span><span>The browser shows the result. When a render fails, the log says which stage broke: an R error comes from knitr, a format error from Pandoc.</span></button></li><li data-t="44.12" data-d="9.03"><button type="button"><span class="n">5</span><span>Other formats change only the last stage: the same Markdown becomes a Word file and, through Typst, a PDF.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d1-pipeline/report.docx" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d1-pipeline/step5-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">Course map</span>Three days, nine blocks, three labs</h2><p class="lead">Each day: three blocks, then a 45-minute lab that ends on a done test.</p><div class="days"><div class="day" id="day1"><div class="dh"><div class="eyebrow">Day 1</div><h3>One report, from a blank file</h3><p>Markdown, YAML, chunk options, inline numbers, figures, tables, cross-references, layout.</p></div><ol><li><a href="d1-b1.html" data-tick="d1-b1"><span class="t">09:00</span><span>Your first Quarto document</span></a></li><li><a href="d1-b2.html" data-tick="d1-b2"><span class="t">10:30</span><span>Code, numbers and figures</span></a></li><li><a href="d1-b3.html" data-tick="d1-b3"><span class="t">12:15</span><span>Tables, cross-references and layout</span></a></li><li><a href="d1-lab.html" data-tick="d1-lab"><span class="t">13:15</span><span>Lab 1: a regional note from a script</span></a></li></ol></div><div class="day" id="day2"><div class="dh"><div class="eyebrow">Day 2</div><h3>The report, everywhere</h3><p>Word and PDF from one source, parameters, 13 regions from one script, brand and Arabic.</p></div><ol><li><a href="d2-b1.html" data-tick="d2-b1"><span class="t">09:00</span><span>One source, many formats</span></a></li><li><a href="d2-b2.html" data-tick="d2-b2"><span class="t">10:30</span><span>Parameters: one template, many reports</span></a></li><li><a href="d2-b3.html" data-tick="d2-b3"><span class="t">12:15</span><span>Projects, brand and language</span></a></li><li><a href="d2-lab.html" data-tick="d2-lab"><span class="t">13:15</span><span>Lab 2: brand, parameterise, batch-render</span></a></li></ol></div><div class="day" id="day3"><div class="dh"><div class="eyebrow">Day 3</div><h3>The same analysis as a deck</h3><p>Revealjs slides, layouts, pacing, code on slides, motion, brand, and sharing.</p></div><ol><li><a href="d3-b1.html" data-tick="d3-b1"><span class="t">09:00</span><span>From report to deck</span></a></li><li><a href="d3-b2.html" data-tick="d3-b2"><span class="t">10:30</span><span>Code, data and motion on slides</span></a></li><li><a href="d3-b3.html" data-tick="d3-b3"><span class="t">12:15</span><span>Branded, parameterised and shared</span></a></li><li><a href="d3-lab.html" data-tick="d3-lab"><span class="t">13:15</span><span>Lab 3: a briefing deck for any region</span></a></li></ol></div></div></section>
+<p class="note">The builds are HyperFrames compositions. They play in the browser with nothing fetched from the internet, so the course works on an offline machine.</p></main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

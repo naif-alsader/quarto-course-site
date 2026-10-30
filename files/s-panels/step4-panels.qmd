@@ -1,0 +1,36 @@
+---
+title: "Every region, side by side"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+all <- read_csv("unemployment.csv")
+rates <- all |>
+  filter(region != "Kingdom") |>
+  group_by(region) |>
+  mutate(change = last(rate) - first(rate)) |>
+  ungroup() |>
+  mutate(region = fct_reorder(region, change,
+                              .desc = TRUE))
+kingdom <- all |>
+  filter(region == "Kingdom") |>
+  select(-region)
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(rates, aes(date, rate)) +
+  geom_line(data = kingdom, colour = "grey70") +
+  geom_line(aes(colour = change > 0), linewidth = 1) +
+  facet_wrap(vars(region), ncol = 5) +
+  scale_colour_manual(values = c(`TRUE` = "#00803A",
+                                 `FALSE` = "#4137A8"),
+                      guide = "none")
+```

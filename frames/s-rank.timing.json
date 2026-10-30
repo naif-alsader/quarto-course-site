@@ -1,0 +1,43 @@
+{
+ "id": "s-rank",
+ "title": "A ranking with a yardstick",
+ "eyebrow": "Afterword · Where do we stand?",
+ "show": "rank.qmd",
+ "duration": 61.71,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.34,
+   "say": "The first chart anyone makes: one bar per region in the last quarter, in alphabetical order. The names collide, and the Kingdom is just another bar."
+  },
+  {
+   "t": 11.34,
+   "d": 11.37,
+   "say": "Swap the axes so the names read across, and sort the bars by rate with <code>fct_reorder()</code>. The order is now the first thing the chart says."
+  },
+  {
+   "t": 22.71,
+   "d": 13.0,
+   "say": "The Kingdom is not a region; it is the yardstick. Take it out of the bars and draw it as a line instead. The line comes before <code>geom_col()</code>, so the bars are drawn over it."
+  },
+  {
+   "t": 35.71,
+   "d": 13.0,
+   "say": "Colour by a rule, not by hand: <code>above</code> compares each region with the Kingdom. Print each value at the end of its bar, on a white label so the dashed line never runs through it."
+  },
+  {
+   "t": 48.71,
+   "d": 13.0,
+   "say": "Name the yardstick on the line itself, say the finding in the title, and drop the grid and the axis the labels have replaced. The count in the title is computed, so it stays true next quarter."
+  }
+ ],
+ "downloads": [
+  "step1-rank.qmd",
+  "step2-rank.qmd",
+  "step3-rank.qmd",
+  "step4-rank.qmd",
+  "step5-rank.qmd"
+ ],
+ "final": "---\ntitle: \"Where each region stands\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlatest <- read_csv(\"unemployment.csv\") |>\n  filter(date == max(date))\nkingdom <- latest |>\n  filter(region == \"Kingdom\") |>\n  pull(rate)\nregions <- latest |>\n  filter(region != \"Kingdom\") |>\n  mutate(above = rate > kingdom)\nn_above <- sum(regions$above)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(regions,\n       aes(rate, fct_reorder(region, rate),\n           fill = above)) +\n  geom_vline(xintercept = kingdom,\n             linetype = \"dashed\") +\n  geom_col(width = 0.7) +\n  geom_label(\n    aes(label = scales::number(rate, accuracy = 0.1)),\n    hjust = -0.1, fill = \"white\", label.size = 0) +\n  scale_fill_manual(values = c(`TRUE` = \"#00803A\",\n                               `FALSE` = \"grey75\"),\n                    guide = \"none\") +\n  scale_x_continuous(\n    expand = expansion(mult = c(0, 0.08))) +\n  scale_y_discrete(\n    expand = expansion(add = c(0.6, 1.2))) +\n  annotate(\"text\", x = kingdom, y = Inf,\n           label = str_glue(\"Kingdom {kingdom}%\"),\n           hjust = -0.05, vjust = 1.5) +\n  labs(title = str_glue(\n         \"{n_above} of {nrow(regions)} regions \",\n         \"are above the Kingdom rate\"),\n       subtitle = str_glue(\n         \"Unemployment rate, %, {latest$quarter[1]}\"),\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 13) +\n  theme(panel.grid = element_blank(),\n        axis.text.x = element_blank())\n```\n",
+ "live": "rank.html"
+}

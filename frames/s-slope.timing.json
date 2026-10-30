@@ -1,0 +1,43 @@
+{
+ "id": "s-slope",
+ "title": "Two moments, one line each",
+ "eyebrow": "Afterword · What changed?",
+ "show": "slope.qmd",
+ "duration": 61.26,
+ "steps": [
+  {
+   "t": 0,
+   "d": 12.22,
+   "say": "<code>range(date)</code> keeps the first and the last quarter. Two bars per region, 26 in all: the change is in there, but the reader has to compare pairs across a crowded axis."
+  },
+  {
+   "t": 12.22,
+   "d": 10.99,
+   "say": "Put the two quarters on the axis and join each region's two points. The slope is the change: twelve lines go down, one goes up."
+  },
+  {
+   "t": 23.21,
+   "d": 12.91,
+   "say": "Colour by a rule: <code>rose</code> is TRUE where the last rate is above the first. <code>arrange(rose)</code> puts the risers last, so they are drawn on top and no grey line crosses them."
+  },
+  {
+   "t": 36.12,
+   "d": 12.14,
+   "say": "Label only the line you talk about, at both ends; the other twelve stay as context. The <code>hjust</code> column puts each label on the outer side of its point."
+  },
+  {
+   "t": 48.26,
+   "d": 13.0,
+   "say": "The title says what the slope shows, and R writes both the region and the size of the change. Test the rule before you trust it: with real data, two regions might rise, or none."
+  }
+ ],
+ "downloads": [
+  "step1-slope.qmd",
+  "step2-slope.qmd",
+  "step3-slope.qmd",
+  "step4-slope.qmd",
+  "step5-slope.qmd"
+ ],
+ "final": "---\ntitle: \"What changed\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nends <- read_csv(\"unemployment.csv\") |>\n  filter(region != \"Kingdom\",\n         date %in% range(date)) |>\n  group_by(region) |>\n  mutate(rose = last(rate) > first(rate)) |>\n  ungroup() |>\n  arrange(rose)\nriser <- ends |>\n  filter(rose) |>\n  mutate(hjust = if_else(date == min(date),\n                         1.5, -0.5))\nchange <- last(riser$rate) - first(riser$rate)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(ends, aes(quarter, rate, group = region,\n                 colour = rose)) +\n  geom_line(linewidth = 1) +\n  geom_point(size = 2.5) +\n  scale_colour_manual(values = c(`TRUE` = \"#00803A\",\n                                 `FALSE` = \"grey75\"),\n                      guide = \"none\") +\n  geom_text(\n    data = riser,\n    aes(label = scales::number(rate, accuracy = 0.1),\n        hjust = hjust),\n    size = 4.5) +\n  labs(title = str_glue(\n         \"Only {riser$region[1]} is higher than in \",\n         \"{min(ends$quarter)}, by {change} points\"),\n       subtitle = \"Unemployment rate, %, all regions\",\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 13) +\n  theme(panel.grid.major.x = element_blank(),\n        panel.grid.minor = element_blank())\n```\n",
+ "live": "slope.html"
+}

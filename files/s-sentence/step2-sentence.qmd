@@ -1,0 +1,29 @@
+---
+title: "Unemployment by region"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+change <- read_csv("unemployment.csv") |>
+  filter(region != "Kingdom") |>
+  group_by(region) |>
+  summarise(first = first(rate),
+            last = last(rate)) |>
+  mutate(change = last - first) |>
+  arrange(desc(change))
+```
+
+```{r}
+change |>
+  tt() |>
+  format_tt(digits = 1, num_fmt = "decimal",
+            num_zero = TRUE) |>
+  theme_html(portable = TRUE)
+```

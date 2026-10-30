@@ -1,0 +1,43 @@
+{
+ "id": "s-story",
+ "title": "From a chart to a message",
+ "eyebrow": "Afterword · Storytelling",
+ "show": "story.qmd",
+ "duration": 50.68,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.63,
+   "say": "Thirteen coloured lines and a legend: an exploratory chart. Good for finding the story, hard for anyone else to read."
+  },
+  {
+   "t": 9.63,
+   "d": 10.38,
+   "say": "Grey for the context, one colour for the point. Every region stays on the chart, but the eye goes straight to Jazan."
+  },
+  {
+   "t": 20.01,
+   "d": 8.12,
+   "say": "Label the line where it ends, instead of a legend the reader has to decode."
+  },
+  {
+   "t": 28.13,
+   "d": 10.71,
+   "say": "Say the finding in the title, keep the units in the subtitle, and drop what does not help. The same data, now an argument."
+  },
+  {
+   "t": 38.84,
+   "d": 11.84,
+   "say": "Make the story checkable: <code>up</code> is computed from the data, and the highlight, the label and the title all use it. Next quarter the claim is tested, not assumed."
+  }
+ ],
+ "downloads": [
+  "step1-story.qmd",
+  "step2-story.qmd",
+  "step3-story.qmd",
+  "step4-story.qmd",
+  "step5-story.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment by region\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\") |>\n  filter(region != \"Kingdom\")\nup <- rates |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate)) |>\n  filter(change > 0) |>\n  pull(region)\nup_end <- rates |>\n  filter(region %in% up) |>\n  slice_tail(n = 1)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 4.5\nggplot(rates, aes(date, rate, group = region)) +\n  geom_line(colour = \"grey80\") +\n  geom_line(data = filter(rates, region %in% up),\n            colour = \"#00803A\", linewidth = 1.2) +\n  geom_text(data = up_end, aes(label = region),\n            hjust = -0.15, colour = \"#00803A\") +\n  scale_x_date(expand = expansion(mult = c(0.02, 0.12))) +\n  labs(title = str_glue(\"{up} rose while every other region fell\"),\n       subtitle = \"Unemployment rate, %, 2022 Q1 to 2025 Q4\",\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 13)\n```\n",
+ "live": "story.html"
+}

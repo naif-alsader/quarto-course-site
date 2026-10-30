@@ -1,0 +1,40 @@
+---
+title: "Where each region stands"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+latest <- read_csv("unemployment.csv") |>
+  filter(date == max(date))
+kingdom <- latest |>
+  filter(region == "Kingdom") |>
+  pull(rate)
+regions <- latest |>
+  filter(region != "Kingdom") |>
+  mutate(above = rate > kingdom)
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(regions,
+       aes(rate, fct_reorder(region, rate),
+           fill = above)) +
+  geom_vline(xintercept = kingdom,
+             linetype = "dashed") +
+  geom_col(width = 0.7) +
+  geom_label(
+    aes(label = scales::number(rate, accuracy = 0.1)),
+    hjust = -0.1, fill = "white", label.size = 0) +
+  scale_fill_manual(values = c(`TRUE` = "#00803A",
+                               `FALSE` = "grey75"),
+                    guide = "none") +
+  scale_x_continuous(
+    expand = expansion(mult = c(0, 0.08)))
+```

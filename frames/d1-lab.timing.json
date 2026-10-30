@@ -1,0 +1,43 @@
+{
+ "id": "d1-lab",
+ "title": "A regional note, from script to report",
+ "eyebrow": "Lab 1 · Solution",
+ "show": "note.qmd",
+ "duration": 50.46,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.19,
+   "say": "Start with the header and a setup chunk. The top of <code>analysis.R</code> moves in almost unchanged; <code>include: false</code> keeps it off the page."
+  },
+  {
+   "t": 10.19,
+   "d": 10.66,
+   "say": "The summary is written once, with every number inline. The chart gets a label, a caption that follows <code>REGION</code>, and a size."
+  },
+  {
+   "t": 20.85,
+   "d": 9.94,
+   "say": "The second figure is two charts in two columns. <code>fig-subcap</code> names each panel; <code>fig-cap</code> names the whole figure."
+  },
+  {
+   "t": 30.79,
+   "d": 9.12,
+   "say": "Add the table and a folded method note, and point to every figure and table from the summary."
+  },
+  {
+   "t": 39.91,
+   "d": 10.55,
+   "say": "The done test: change <code>REGION</code>, render, and every number, caption and chart moves. Nothing in the text was typed by hand."
+  }
+ ],
+ "downloads": [
+  "step1-note.qmd",
+  "step2-note.qmd",
+  "step3-note.qmd",
+  "step4-note.qmd",
+  "step5-note.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in one region\"\nsubtitle: \"Synthetic data, for training only\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nrates <- read_csv(\"unemployment.csv\")\nREGION <- \"Tabuk\"\narea    <- rates |> filter(region == REGION)\nkingdom <- rates |> filter(region == \"Kingdom\")\nnow  <- last(area$rate)\nthen <- first(area$rate)\ngap  <- now - last(kingdom$rate)\n```\n\n## Summary\n\nIn `r REGION` the rate was\n`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,\n`r scales::number(now - then, accuracy = 0.1, style_positive = \"plus\")`\npoints since 2022 Q1 and\n`r scales::number(gap, accuracy = 0.1, style_positive = \"plus\")`\npoints against the Kingdom (@fig-trend, @fig-compare, @tbl-recent).\n\n## Trend\n\n```{r}\n#| label: fig-trend\n#| fig-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\n#| fig-width: 8\n#| fig-height: 3.5\nggplot(area, aes(date, rate)) + geom_line()\n```\n\n```{r}\n#| label: fig-compare\n#| fig-cap: \"Against the Kingdom\"\n#| layout-ncol: 2\n#| fig-subcap: [\"Both series\", \"The last four quarters\"]\nboth <- rates |> filter(region %in% c(REGION, \"Kingdom\"))\nggplot(both, aes(date, rate, colour = region)) +\n  geom_line()\nboth |>\n  filter(quarter >= \"2025Q1\") |>\n  ggplot(aes(quarter, rate, fill = region)) +\n  geom_col(position = \"dodge\")\n```\n\n## Latest quarters\n\n```{r}\n#| label: tbl-recent\n#| tbl-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\narea |>\n  select(quarter, rate) |>\n  slice_tail(n = 4) |>\n  tt() |>\n  theme_html(portable = TRUE)\n```\n\n::: {.callout-note collapse=\"true\" title=\"Method\"}\nRates are the unemployed as a share of the labour force.\nThe data are synthetic, made for training.\n:::\n",
+ "live": "note.html"
+}

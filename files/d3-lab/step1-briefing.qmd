@@ -1,0 +1,22 @@
+---
+title: "Unemployment in `r params$region`"
+subtitle: "Briefing · synthetic data"
+params:
+  region: "Asir"
+format:
+  revealjs:
+    logo: gastat-logo-color.png
+    slide-number: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates <- read_csv("unemployment.csv")
+area <- rates |> filter(region == params$region)
+kingdom <- rates |> filter(region == "Kingdom")
+now <- last(area$rate)
+change <- now - first(area$rate)
+gap <- now - last(kingdom$rate)
+```

@@ -1,0 +1,31 @@
+{
+ "id": "d2-conditional",
+ "title": "Content for one format only",
+ "eyebrow": "Day 2 · Build 4",
+ "show": "report.qmd",
+ "duration": 27.15,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.13,
+   "say": "\"Bookmark this page\" makes no sense on paper. <code>content-visible when-format=\"html\"</code> keeps it in the HTML and out of Word and PDF."
+  },
+  {
+   "t": 10.13,
+   "d": 8.7,
+   "say": "<code>unless-format=\"html\"</code> is the other half: a line for the printed copy only, with the date it was made."
+  },
+  {
+   "t": 18.83,
+   "d": 8.32,
+   "say": "A note for reviewers goes in the Word file only, so it can never slip into the published PDF."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\ntoc: true\nnumber-sections: true\nformat:\n  html:\n    embed-resources: true\n    html-math-method: mathml\n  docx:\n    reference-doc: gastat-reference.docx\n  typst:\n    papersize: a4\n    margin:\n      x: 2cm\n      y: 2cm\n    mainfont: Tajawal\n    font-paths: fonts\n    page-numbering: \"1 / 1\"\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nrates <- read_csv(\"unemployment.csv\")\nREGION <- \"Jazan\"\nnow <- rates |>\n  filter(region == REGION, quarter == \"2025Q4\") |>\n  pull(rate)\nthen <- rates |>\n  filter(region == REGION, quarter == \"2022Q1\") |>\n  pull(rate)\n```\n\n## Summary\n\n::: {.column-margin}\nRates are a share of the labour force, in %.\n:::\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend (@fig-trend) and the latest rates\n(@tbl-latest).[^1]\n\nIn `r REGION` the rate was\n`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,\nagainst `r scales::number(then, accuracy = 0.1)`% in\n2022 Q1: a change of\n`r scales::number(now - then, accuracy = 0.1, style_positive = \"plus\")`\npoints.\n\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\n@sec-method defines the rate.\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n::: {.content-visible when-format=\"html\"}\n::: {.callout-tip}\nThis page is updated every quarter. Bookmark it.\n:::\n:::\n\n::: {.content-visible unless-format=\"html\"}\nPrinted `r format(Sys.Date(), \"%d %B %Y\")`. The latest version is online.\n:::\n\n::: {.content-visible when-format=\"docx\"}\n**Reviewer:** check the Jazan figures against the Q4 file.\n:::\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method {#sec-method}\n\n::: {.callout-note collapse=\"true\" title=\"How the rate is defined\"}\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n:::\n\n## Data\n\n```{r}\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\n#| label: fig-trend\n#| fig-width: 8\n#| fig-height: 3.5\n#| fig-cap: \"Unemployment rate, Kingdom, 2022 to 2025 (%)\"\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n```{r}\n#| layout-ncol: 2\n#| fig-height: 4\n#| fig-cap: !expr c(\"The Kingdom\", REGION)\nggplot(kingdom, aes(date, rate)) + geom_line()\nrates |>\n  filter(region == REGION) |>\n  ggplot(aes(date, rate)) + geom_line()\n```\n\n## Latest rates\n\n::: {.panel-tabset}\n### Table\n\n```{r}\n#| label: tbl-latest\n#| tbl-cap: \"Unemployment rate by region, 2025 Q4 (%)\"\nlatest <- rates |> filter(quarter == \"2025Q4\")\nlatest |>\n  arrange(rate) |>\n  select(Region = region, `Rate (%)` = rate) |>\n  tt() |>\n  format_tt(digits = 1, num_fmt = \"decimal\",\n            num_zero = TRUE) |>\n  theme_html(portable = TRUE)\n```\n\n### Chart\n\n```{r}\nlatest |>\n  ggplot(aes(rate, fct_reorder(region, rate))) +\n  geom_col() + labs(x = \"Rate (%)\", y = NULL)\n```\n:::\n",
+ "live": "report.docx"
+}

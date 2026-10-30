@@ -1,0 +1,43 @@
+{
+ "id": "s-turn",
+ "title": "Annotate the moment that matters",
+ "eyebrow": "Afterword · When did it turn?",
+ "show": "turn.qmd",
+ "duration": 61.73,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.79,
+   "say": "Jazan against the Kingdom, from the panel that stood out. Default colours and a legend: correct, and silent about the moment that matters."
+  },
+  {
+   "t": 10.79,
+   "d": 13.0,
+   "say": "Your colours, not the defaults: the accent for the region, grey for the yardstick. <code>slice_max(date, by = region)</code> finds the last point of each line, which is where its name goes instead of a legend."
+  },
+  {
+   "t": 23.79,
+   "d": 13.0,
+   "say": "Find the turning point with code, <code>slice_min()</code>, then mark it three ways: a point on the line, a shaded period behind it and a note that says what it is. The shading comes first in the code, so it is drawn under the lines."
+  },
+  {
+   "t": 36.79,
+   "d": 12.8,
+   "say": "<code>since</code> holds each line's change from the turning point, as a named vector for the title. But read the subtitle: in a computer, 6.6 minus 7.4 is not exactly −0.8."
+  },
+  {
+   "t": 49.59,
+   "d": 12.14,
+   "say": "Round a number before it goes into a sentence. Jazan's 3.6 looked fine only by luck; the rule is for every number, not just the one that went wrong."
+  }
+ ],
+ "downloads": [
+  "step1-turn.qmd",
+  "step2-turn.qmd",
+  "step3-turn.qmd",
+  "step4-turn.qmd",
+  "step5-turn.qmd"
+ ],
+ "final": "---\ntitle: \"When Jazan turned\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\npair <- read_csv(\"unemployment.csv\") |>\n  filter(region %in% c(\"Jazan\", \"Kingdom\"))\nends <- pair |> slice_max(date, by = region)\nlow <- pair |>\n  filter(region == \"Jazan\") |>\n  slice_min(rate, n = 1)\nsince <- pair |>\n  filter(date >= low$date) |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate)) |>\n  mutate(change = round(change, 1)) |>\n  deframe()\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(pair, aes(date, rate, colour = region)) +\n  annotate(\"rect\", fill = \"#F5F7FA\",\n           xmin = low$date, xmax = max(pair$date),\n           ymin = -Inf, ymax = Inf) +\n  geom_line(linewidth = 1.2) +\n  geom_point(data = low, size = 3) +\n  annotate(\"text\", x = low$date, y = low$rate - 0.3,\n           vjust = 1, colour = \"#00803A\",\n           label = str_glue(\"Lowest: {low$rate}%, \",\n                            \"{low$quarter}\")) +\n  geom_text(data = ends, aes(label = region),\n            hjust = -0.15, size = 4.5) +\n  scale_colour_manual(values = c(Jazan = \"#00803A\",\n                                 Kingdom = \"grey50\"),\n                      guide = \"none\") +\n  scale_x_date(\n    expand = expansion(mult = c(0.02, 0.14))) +\n  labs(title = str_glue(\n         \"Jazan tracked the Kingdom until \",\n         \"{low$quarter}, then rose \",\n         \"{since['Jazan']} points\"),\n       subtitle = str_glue(\n         \"Unemployment rate, %. Since \",\n         \"{low$quarter}, the Kingdom moved \",\n         \"{since['Kingdom']}\"),\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 13) +\n  theme(panel.grid.minor = element_blank())\n```\n",
+ "live": "turn.html"
+}

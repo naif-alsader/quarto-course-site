@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tables, cross-references and layout · Quarto, step by step</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b3">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1" class="on">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 1 · Block 3 · 12:15–13:15</div><h1>Tables, cross-references and layout</h1>
+<p class="goal">Turn data frames into tables, number and link every figure and table, and set method notes and alternatives out of the reader's way.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d1-tables">
+<div class="head"><span class="e">Day 1 · Build 8</span><h3>Tables with tinytable</h3>
+<span class="len">6 steps · 65 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-tables.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-tables.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.06"><button type="button"><span class="n">1</span><span>Printing a tibble gives console text. Fine for you while you work; not a table for a reader.</span></button></li><li data-t="9.06" data-d="9.72"><button type="button"><span class="n">2</span><span><code>tt()</code> from tinytable turns the data into a real table, and the same call makes the table in Word and PDF.</span></button></li><li data-t="18.78" data-d="12.03"><button type="button"><span class="n">3</span><span>Shape the data before the table, the tidyverse way: <code>arrange()</code> sorts by rate, <code>select()</code> keeps two columns and gives them names a reader understands.</span></button></li><li data-t="30.81" data-d="11.65"><button type="button"><span class="n">4</span><span>Set the number format yourself, but read the help first: in <code>format_tt()</code>, <code>digits = 1</code> means one significant digit. Jazan's 11.1 now reads 11.</span></button></li><li data-t="42.46" data-d="10.27"><button type="button"><span class="n">5</span><span><code>num_fmt = "decimal"</code> makes it one decimal place, and <code>num_zero = TRUE</code> keeps the zero, so Al Jouf reads 10.0, not 10.</span></button></li><li data-t="52.73" data-d="11.84"><button type="button"><span class="n">6</span><span>tinytable takes its HTML styles from the internet by default. <code>theme_html(portable = TRUE)</code> takes them from the package instead: what an offline machine needs.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d1-tables/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d1-tables/step6-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-crossrefs">
+<div class="head"><span class="e">Day 1 · Build 9</span><h3>Cross-references</h3>
+<span class="len">4 steps · 37 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-crossrefs.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-crossrefs.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span>A label that starts with <code>fig-</code> makes the chart a numbered figure. Its caption now begins Figure 1.</span></button></li><li data-t="9.34" data-d="9.83"><button type="button"><span class="n">2</span><span>Write <code>@fig-trend</code> in the text and Quarto writes Figure 1, as a link. Move the chart and the number follows.</span></button></li><li data-t="19.17" data-d="9.01"><button type="button"><span class="n">3</span><span>Tables work the same way: a <code>tbl-</code> label, a <code>tbl-cap</code>, and <code>@tbl-latest</code> where the text needs it.</span></button></li><li data-t="28.18" data-d="9.17"><button type="button"><span class="n">4</span><span>A section needs an id, <code>{#sec-method}</code>, and numbered headings. Then <code>@sec-method</code> reads Section 2.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d1-crossrefs/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d1-crossrefs/step4-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-layout">
+<div class="head"><span class="e">Day 1 · Build 10</span><h3>Callouts, tabsets and the margin</h3>
+<span class="len">4 steps · 36 s</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-layout.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-layout.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.01"><button type="button"><span class="n">1</span><span>A callout box sets the definition apart from the argument. The <code>:::</code> lines open and close it.</span></button></li><li data-t="9.01" data-d="8.15"><button type="button"><span class="n">2</span><span>Add <code>collapse="true"</code> and the box folds shut: one click for the readers who want the detail.</span></button></li><li data-t="17.16" data-d="11.26"><button type="button"><span class="n">3</span><span>A tabset holds alternatives in one place. Each <code>###</code> inside it becomes a tab: here the Chart tab is open, the table is one click away.</span></button></li><li data-t="28.42" data-d="8.07"><button type="button"><span class="n">4</span><span><code>.column-margin</code> puts a short note beside the text, out of the reader's way.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="../live/d1-layout/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="../files/d1-layout/step4-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
+<h3>Link everything</h3><ol><li>Add the Latest rates table with <code>tt()</code> and a <code>tbl-cap</code>.</li><li>Label the trend chart <code>fig-trend</code> and the table <code>tbl-latest</code>.</li><li>Write <code>@fig-trend</code> and <code>@tbl-latest</code> in the summary. Render and click the links.</li><li>Fold the method into a <code>collapse="true"</code> callout.</li></ol><details class="full"><summary>The whole file so far (123 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    number-sections: true
+    html-math-method: mathml
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+::: {.column-margin}
+Rates are a share of the labour force, in %.
+:::
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend (@fig-trend) and the latest rates
+(@tbl-latest).[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+@sec-method defines the rate.
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method {#sec-method}
+
+::: {.callout-note collapse=&quot;true&quot; title=&quot;How the rate is defined&quot;}
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+:::
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| label: fig-trend
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```
+
+## Latest rates
+
+::: {.panel-tabset}
+### Table
+
+```{r}
+#| label: tbl-latest
+#| tbl-cap: &quot;Unemployment rate by region, 2025 Q4 (%)&quot;
+latest &lt;- rates |&gt; filter(quarter == &quot;2025Q4&quot;)
+latest |&gt;
+  arrange(rate) |&gt;
+  select(Region = region, `Rate (%)` = rate) |&gt;
+  tt() |&gt;
+  format_tt(digits = 1, num_fmt = &quot;decimal&quot;,
+            num_zero = TRUE) |&gt;
+  theme_html(portable = TRUE)
+```
+
+### Chart
+
+```{r}
+latest |&gt;
+  ggplot(aes(rate, fct_reorder(region, rate))) +
+  geom_col() + labs(x = &quot;Rate (%)&quot;, y = NULL)
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">Start timer</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d1-b3"><script type="application/json">[{"q": "<code>format_tt(digits = 1)</code> on a column with 11.1 and 5.7 prints what?", "code": null, "options": ["11.1 and 5.7", "11 and 6", "11.0 and 5.7"], "answer": 1, "why": "<code>digits</code> counts significant digits. Add <code>num_fmt = \"decimal\"</code> for decimal places, and <code>num_zero = TRUE</code> to keep 10.0."}, {"q": "<code>@fig-trend</code> prints <code>?@fig-trend</code> instead of Figure 1. What is wrong?", "code": null, "options": ["The chunk label is <code>trend</code>, not <code>fig-trend</code>", "The chart has no <code>fig-width</code>", "Cross-references only work in PDF"], "answer": 0, "why": "Only labels that start with <code>fig-</code> (or <code>tbl-</code>, <code>sec-</code>, <code>eq-</code>) can be cross-referenced."}, {"q": "What does <code>@sec-method</code> need to read Section 2?", "code": null, "options": ["Just the heading <code>## Method</code>", "An id <code>{#sec-method}</code> on the heading, and <code>number-sections: true</code>", "A callout around the section"], "answer": 1, "why": "Sections are referenced by id, and a section reference needs section numbers to point to."}, {"q": "Where do the tabs of a <code>.panel-tabset</code> come from?", "code": null, "options": ["The headings one level below the section, inside the div", "A <code>tabs:</code> option in YAML", "Each chunk in the div"], "answer": 0, "why": "Inside a <code>##</code> section, each <code>###</code> heading in the tabset becomes a tab."}, {"q": "Why <code>theme_html(portable = TRUE)</code> on the table?", "code": null, "options": ["It makes the table smaller", "tinytable's HTML styles then come from the package, not the internet", "It is required for Word"], "answer": 1, "why": "An offline machine cannot fetch the default style sheet."}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Find the three bugs</h3><p class="prompt">This part of a report renders, but wrongly. Tap the three lines that cause it.</p><div class="gbody"></div><script type="application/json">{"type": "bug", "title": "Find the three bugs", "prompt": "This part of a report renders, but wrongly. Tap the three lines that cause it.", "code": "The rate fell in most regions:\n- 12 of 13 regions fell\n- Jazan rose\n\n```{r}\n#| label: trend\n#| fig-cap: \"Unemployment rate, Kingdom (%)\"\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nAs @fig-trend shows, the rate fell.\n\n::: {.callout-note collapse=\"true\" title=\"Method\"}\nThe rate is the unemployed as a share of the labour force.\n\n## Latest rates\n", "bad": [2, 6, 13], "why": "Line 2: the list starts straight under a line of text, so it joins the paragraph; it needs a blank line above. Line 6: the label must start with <code>fig-</code>, or <code>@fig-trend</code> finds nothing. Line 13: the callout is never closed with <code>:::</code>, so the Latest rates heading ends up inside the folded box."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>Number it, link it, fold the detail away: no reader should have to hunt for Figure 1.</p></div>
+<nav class="pager"><a href="d1-b2.html"><small>Back</small>Code, numbers and figures</a><a class="next" href="d1-lab.html"><small>Next</small>Lab 1: a regional note from a script</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

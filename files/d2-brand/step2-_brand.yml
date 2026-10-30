@@ -1,0 +1,7 @@
+color:
+  palette:
+    indigo: "#4137A8"
+    green: "#00803A"
+    dark: "#2C2D3F"
+  primary: indigo
+  foreground: dark

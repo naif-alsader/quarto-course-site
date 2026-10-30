@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 1: a regional note from a script · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-lab">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1" class="on">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 1 · Lab · 13:15–14:00</div><h1>Lab 1: a regional note from a script</h1>
+<p class="goal">Turn a plain R script into a report where no number is typed by hand.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Build it</h2><p><code>analysis.R</code> makes two charts, a table and three numbers for one region. Build <code>note.qmd</code> from <code>lab1-start.qmd</code> so that it says the same thing as a report. Render <code>lab1-start.qmd</code> untouched first: if that fails, it is the machine, not your code.</p><div class="files"><a class="btn" href="files/analysis.R" download>analysis.R</a><a class="btn" href="files/lab1-start.qmd" download>lab1-start.qmd</a><a class="btn" href="files/unemployment.csv" download>unemployment.csv</a></div><ul class="checklist"><li><label><input type="checkbox" value="0"><span>A header with a subtitle, <code>date: today</code>, a contents list and <code>embed-resources: true</code>.</span></label></li><li><label><input type="checkbox" value="1"><span>A setup chunk with <code>include: false</code>: packages, data, <code>REGION</code> and the three numbers.</span></label></li><li><label><input type="checkbox" value="2"><span>A summary paragraph with every number written by inline R.</span></label></li><li><label><input type="checkbox" value="3"><span>Two figures with labels and captions; one of them two charts side by side with <code>layout-ncol: 2</code>.</span></label></li><li><label><input type="checkbox" value="4"><span>One table made with <code>tt()</code>, with a <code>tbl-cap</code>.</span></label></li><li><label><input type="checkbox" value="5"><span>A method note in a <code>collapse="true"</code> callout.</span></label></li><li><label><input type="checkbox" value="6"><span>The summary cross-references both figures and the table.</span></label></li></ul><div class="done-test"><div class="eyebrow">Done test</div><p>Change <code>REGION</code> at the top, render, and every number, caption and chart moves.</p></div></section>
+<section class="part"><h2><span class="k">02</span>Stuck? Watch the solution</h2><p class="lead">Only after you have tried.</p><div class="build" data-build="d1-lab">
+<div class="head"><span class="e">Lab 1 · Solution</span><h3>A regional note, from script to report</h3>
+<span class="len">5 steps · 50 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-lab.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-lab.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.19"><button type="button"><span class="n">1</span><span>Start with the header and a setup chunk. The top of <code>analysis.R</code> moves in almost unchanged; <code>include: false</code> keeps it off the page.</span></button></li><li data-t="10.19" data-d="10.66"><button type="button"><span class="n">2</span><span>The summary is written once, with every number inline. The chart gets a label, a caption that follows <code>REGION</code>, and a size.</span></button></li><li data-t="20.85" data-d="9.94"><button type="button"><span class="n">3</span><span>The second figure is two charts in two columns. <code>fig-subcap</code> names each panel; <code>fig-cap</code> names the whole figure.</span></button></li><li data-t="30.79" data-d="9.12"><button type="button"><span class="n">4</span><span>Add the table and a folded method note, and point to every figure and table from the summary.</span></button></li><li data-t="39.91" data-d="10.55"><button type="button"><span class="n">5</span><span>The done test: change <code>REGION</code>, render, and every number, caption and chart moves. Nothing in the text was typed by hand.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-lab/note.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-lab/step5-note.qmd" download>Download note.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">03</span>Day test</h2><p class="lead">Eight questions on the whole day.</p><div class="quiz" data-id="d1-lab"><script type="application/json">[{"q": "Which line makes a chunk run without showing anything?", "code": null, "options": ["<code>#| echo: false</code>", "<code>#| include: false</code>", "<code>#| eval: false</code>"]}, {"q": "You render for Tabuk and the summary still says Asir in one place. What happened?", "code": null, "options": ["That word was typed, not inline R", "knitr cached the old value", "The YAML title is wrong"]}, {"q": "Which of these is not something the YAML header does?", "code": null, "options": ["Set the title and date", "Choose the output format and its options", "Run the R code"]}, {"q": "<code>layout-ncol: 2</code> with <code>fig-subcap</code> gives what?", "code": null, "options": ["Two figures, numbered 1 and 2", "One figure with two panels, (a) and (b)", "A two-column page"]}, {"q": "A colleague opens your HTML offline and the table looks unstyled. Which fix belongs in the code?", "code": null, "options": ["<code>theme_html(portable = TRUE)</code>", "<code>toc: true</code>", "<code>fig-width: 8</code>"]}, {"q": "Where should <code>library(tidyverse)</code> live in a report?", "code": null, "options": ["In the chunk that first draws a chart", "In a setup chunk at the top, with <code>include: false</code>", "In the YAML header"]}, {"q": "<code>@tbl-recent</code> renders as Table 1. You add a table above it. What happens?", "code": null, "options": ["It still says Table 1", "It becomes Table 2, with no edit from you", "The render fails"]}, {"q": "What does Pandoc do in a Quarto render?", "code": null, "options": ["Runs R", "Converts Markdown into HTML, Word or Typst", "Draws the charts"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Day 1 speed round</h3><p class="prompt">True or false, against the clock.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "Day 1 speed round", "prompt": "True or false, against the clock.", "seconds": 60, "items": [{"s": "A <code>.qmd</code> file is plain text.", "a": true, "why": ""}, {"s": "<code>echo: false</code> stops the code from running.", "a": false, "why": "It hides the code; the code still runs."}, {"s": "Inline R can sit in the middle of a sentence.", "a": true, "why": ""}, {"s": "<code>fig-width</code> is in pixels.", "a": false, "why": "Inches."}, {"s": "<code>@fig-trend</code> needs the chunk label <code>fig-trend</code>.", "a": true, "why": ""}, {"s": "A list needs a blank line before it.", "a": true, "why": ""}, {"s": "<code>embed-resources: true</code> makes one file that works offline.", "a": true, "why": ""}, {"s": "<code>format_tt(digits = 1)</code> means one decimal place.", "a": false, "why": "One significant digit."}, {"s": "knitr converts Markdown to HTML.", "a": false, "why": "Pandoc does; knitr runs the R."}, {"s": "<code>collapse=\"true\"</code> folds a callout shut.", "a": true, "why": ""}]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>If you can change one line and every number moves, the report is reproducible.</p></div>
+<nav class="pager"><a href="d1-b3.html"><small>Back</small>Tables, cross-references and layout</a><a class="next" href="d2-b1.html"><small>Next</small>One source, many formats</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

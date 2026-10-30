@@ -1,0 +1,43 @@
+{
+ "id": "d1-chunks",
+ "title": "Chunk options: what each chunk shows",
+ "eyebrow": "Day 1 · Build 5",
+ "show": "report.qmd",
+ "duration": 49.51,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.26,
+   "say": "Options go on <code>#|</code> lines at the top of a chunk. <code>message: false</code> drops the notes the tidyverse and readr print while they load and read."
+  },
+  {
+   "t": 11.26,
+   "d": 7.99,
+   "say": "<code>echo: false</code> hides the code and keeps the chart: what a reader of a report wants to see."
+  },
+  {
+   "t": 19.25,
+   "d": 10.29,
+   "say": "A setup chunk with <code>include: false</code> runs first and shows nothing at all. The tidyverse and the data load once, quietly, at the top."
+  },
+  {
+   "t": 29.54,
+   "d": 9.78,
+   "say": "<code>code-fold: true</code> tucks each chunk's code behind a Code button. Readers see results; the curious can click."
+  },
+  {
+   "t": 39.32,
+   "d": 10.19,
+   "say": "For a report that goes to managers, hide code everywhere: <code>execute: echo: false</code> in the YAML covers every chunk, in every format."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd",
+  "step5-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n    html-math-method: mathml\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\n```\n\n## Summary\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend and the latest rates.[^1]\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method\n\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n\n## Data\n\n```{r}\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

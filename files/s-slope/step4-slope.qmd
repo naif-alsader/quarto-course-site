@@ -1,0 +1,41 @@
+---
+title: "What changed"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+ends <- read_csv("unemployment.csv") |>
+  filter(region != "Kingdom",
+         date %in% range(date)) |>
+  group_by(region) |>
+  mutate(rose = last(rate) > first(rate)) |>
+  ungroup() |>
+  arrange(rose)
+riser <- ends |>
+  filter(rose) |>
+  mutate(hjust = if_else(date == min(date),
+                         1.5, -0.5))
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(ends, aes(quarter, rate, group = region,
+                 colour = rose)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2.5) +
+  scale_colour_manual(values = c(`TRUE` = "#00803A",
+                                 `FALSE` = "grey75"),
+                      guide = "none") +
+  geom_text(
+    data = riser,
+    aes(label = scales::number(rate, accuracy = 0.1),
+        hjust = hjust),
+    size = 4.5)
+```

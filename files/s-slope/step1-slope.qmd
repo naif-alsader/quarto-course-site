@@ -1,0 +1,23 @@
+---
+title: "What changed"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+ends <- read_csv("unemployment.csv") |>
+  filter(region != "Kingdom",
+         date %in% range(date))
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+ggplot(ends, aes(region, rate, fill = quarter)) +
+  geom_col(position = "dodge")
+```

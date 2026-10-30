@@ -1,0 +1,24 @@
+---
+title: "Unemployment by region"
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates <- read_csv("unemployment.csv") |>
+  filter(region != "Kingdom")
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 4.5
+ggplot(rates, aes(date, rate, group = region)) +
+  geom_line(colour = "grey80") +
+  geom_line(data = filter(rates, region == "Jazan"),
+            colour = "#00803A", linewidth = 1.2)
+```

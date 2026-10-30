@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code, data and motion on slides · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-b2">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3" class="on">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 3 · Block 2 · 10:30–11:45</div><h1>Code, data and motion on slides</h1>
+<p class="goal">Walk the room through code, show code beside its chart, animate a change, and give one number the whole slide.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d3-lines">
+<div class="head"><span class="e">Day 3 · Build 5</span><h3>Walk through code, line by line</h3>
+<span class="len">4 steps · 36 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-lines.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-lines.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.2"><button type="button"><span class="n">1</span><span>A slide about code: <code>echo: true</code> shows it, <code>eval: false</code> keeps it from running. A deck hides code unless you ask.</span></button></li><li data-t="9.2" data-d="11.15"><button type="button"><span class="n">2</span><span><code>code-line-numbers: "|1|2|3-4"</code> steps through the code: each click highlights the next lines. First click: where the data come from.</span></button></li><li data-t="20.35" data-d="8.95"><button type="button"><span class="n">3</span><span>Next click: the filter. You explain one move at a time, and the room reads along with you.</span></button></li><li data-t="29.3" data-d="6.53"><button type="button"><span class="n">4</span><span>Last click: the two lines that draw the chart.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-lines/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-lines/step4-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-code">
+<div class="head"><span class="e">Day 3 · Build 6</span><h3>Code beside its chart</h3>
+<span class="len">4 steps · 37 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-code.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-code.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.24"><button type="button"><span class="n">1</span><span>With <code>echo: true</code> the code goes on the slide, and the chart under it runs off the bottom. Code and chart fight for the same space.</span></button></li><li data-t="10.24" data-d="10.99"><button type="button"><span class="n">2</span><span><code>output-location: column</code> puts the code on the left and the chart on the right. Both fit, and the eye goes from one to the other.</span></button></li><li data-t="21.23" data-d="8.1"><button type="button"><span class="n">3</span><span><code>column-fragment</code> holds the chart back. Explain the code first; the room cannot read ahead.</span></button></li><li data-t="29.33" data-d="7.46"><button type="button"><span class="n">4</span><span>One click, and the result appears beside the code that made it.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-code/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-code/step4-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-animate">
+<div class="head"><span class="e">Day 3 · Build 7</span><h3>Auto-animate</h3>
+<span class="len">2 steps · 20 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-animate.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-animate.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.43"><button type="button"><span class="n">1</span><span><code>{auto-animate=true}</code> on a slide's heading marks it for animation. On its own, nothing moves yet.</span></button></li><li data-t="8.43" data-d="11.39"><button type="button"><span class="n">2</span><span>Add the next slide with the same attribute. Reveal slides the matching lines into place and fades the new ones in. Open the real deck to see it move.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-animate/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-animate/step2-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-backgrounds">
+<div class="head"><span class="e">Day 3 · Build 8</span><h3>One big number</h3>
+<span class="len">2 steps · 19 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d3-backgrounds.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d3-backgrounds.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span><code>.r-fit-text</code> sizes text to fill the slide: one number, as large as the screen allows, and computed like every other.</span></button></li><li data-t="9.53" data-d="9.53"><button type="button"><span class="n">2</span><span><code>background-color</code> on the heading paints the whole slide. Reveal sees the dark ground and switches the text to white.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d3-backgrounds/slides.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d3-backgrounds/step2-slides.qmd" download>Download slides.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 6 minutes</div>
+<h3>A method slide</h3><ol><li>Add a slide with your chart's code, <code>echo: true</code> and <code>output-location: column-fragment</code>.</li><li>Present it: explain the code, then click for the chart.</li><li>Add a big-number slide with <code>.r-fit-text</code> and a <code>background-color</code>.</li></ol><details class="full"><summary>The whole file so far (117 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Quarterly briefing · synthetic data&quot;
+format:
+  revealjs:
+    chalkboard: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+jazan &lt;- rates |&gt; filter(region == &quot;Jazan&quot;)
+change &lt;- rates |&gt;
+  filter(region != &quot;Kingdom&quot;) |&gt;
+  group_by(region) |&gt;
+  summarise(change = last(rate) - first(rate))
+up &lt;- change |&gt; filter(change &gt; 0) |&gt; pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change &lt; 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width=&quot;40%&quot;}
+Jazan&#x27;s rate rose while the Kingdom&#x27;s fell.
+:::
+::: {.column width=&quot;60%&quot;}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+
+# How the chart is made
+
+## Reading the pipeline
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: &quot;|1|2|3-4&quot;
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## The chart and its code
+
+```{r}
+#| echo: true
+#| output-location: column-fragment
+ggplot(jazan, aes(date, rate)) +
+  geom_line(linewidth = 1)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## Jazan, 2025 Q4 {background-color=&quot;#4137A8&quot;}
+
+::: {.r-fit-text}
+`r last(jazan$rate)`%
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">Start timer</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d3-b2"><script type="application/json">[{"q": "What does <code>code-line-numbers: \"|1|2|3-4\"</code> do?", "code": null, "options": ["Shows line numbers only", "Starts with no highlight, then highlights line 1, line 2, then lines 3 and 4, one per click", "Hides lines 1 to 4"]}, {"q": "<code>output-location: column</code> against <code>column-fragment</code>?", "code": null, "options": ["The same", "<code>column-fragment</code> holds the output back until a click", "<code>column-fragment</code> puts output below the code"]}, {"q": "Auto-animate moves nothing. What is missing?", "code": null, "options": ["The next slide also needs <code>{auto-animate=true}</code>", "A chunk option", "<code>embed-resources</code>"]}, {"q": "Why compute the big number with inline R on its slide?", "code": null, "options": ["It looks better", "So it changes with the data and the parameter, like every other number", "Slides cannot hold typed numbers"]}, {"q": "On a slide with <code>background-color=\"#4137A8\"</code>, the text turns white. Who did that?", "code": null, "options": ["You, with CSS", "Reveal, which detects a dark background", "The brand file"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Order the clicks</h3><p class="prompt">The slide uses <code>code-line-numbers: "|1|2|3-4"</code>. Put what the room sees in order.</p><div class="gbody"></div><script type="application/json">{"type": "order", "title": "Order the clicks", "prompt": "The slide uses `code-line-numbers: \"|1|2|3-4\"`. Put what the room sees in order.", "items": ["All code, nothing highlighted", "Line 1 highlighted", "Line 2 highlighted", "Lines 3 and 4 highlighted"], "win": "Right. The empty part before the first <code>|</code> is the starting state."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>Show the code when the method is the point, and only then.</p></div>
+<nav class="pager"><a href="d3-b1.html"><small>Back</small>From report to deck</a><a class="next" href="d3-b3.html"><small>Next</small>Branded, parameterised and shared</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

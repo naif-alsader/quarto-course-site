@@ -1,0 +1,31 @@
+{
+ "id": "d2-lab",
+ "title": "The regional note goes to every format",
+ "eyebrow": "Lab 2 · Solution, part 1",
+ "show": "note.qmd",
+ "duration": 28.5,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.55,
+   "say": "Promote <code>REGION</code> to a parameter and put it in the title. Rendered for Riyadh, the title, numbers and captions all follow."
+  },
+  {
+   "t": 10.55,
+   "d": 6.94,
+   "say": "Two lines add Word and PDF. One render, three files, same parameter."
+  },
+  {
+   "t": 17.49,
+   "d": 11.01,
+   "say": "Copy Day 2's <code>_brand.yml</code> into the folder and render again: nothing in <code>note.qmd</code> changes, and the HTML and PDF take the GASTAT colours and fonts."
+  }
+ ],
+ "downloads": [
+  "step1-note.qmd",
+  "step2-note.qmd",
+  "step3-note.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in `r params$region`\"\nsubtitle: \"Synthetic data, for training only\"\ndate: today\nparams:\n  region: \"Tabuk\"\nformat:\n  html:\n    toc: true\n    embed-resources: true\n  docx: default\n  typst: default\nexecute:\n  echo: false\n---\n\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nrates <- read_csv(\"unemployment.csv\")\nREGION <- params$region\narea    <- rates |> filter(region == REGION)\nkingdom <- rates |> filter(region == \"Kingdom\")\nnow  <- last(area$rate)\nthen <- first(area$rate)\ngap  <- now - last(kingdom$rate)\n```\n\n## Summary\n\nIn `r REGION` the rate was\n`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,\n`r scales::number(now - then, accuracy = 0.1, style_positive = \"plus\")`\npoints since 2022 Q1 and\n`r scales::number(gap, accuracy = 0.1, style_positive = \"plus\")`\npoints against the Kingdom (@fig-trend, @fig-compare, @tbl-recent).\n\n## Trend\n\n```{r}\n#| label: fig-trend\n#| fig-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\n#| fig-width: 8\n#| fig-height: 3.5\nggplot(area, aes(date, rate)) + geom_line()\n```\n\n```{r}\n#| label: fig-compare\n#| fig-cap: \"Against the Kingdom\"\n#| layout-ncol: 2\n#| fig-subcap: [\"Both series\", \"The last four quarters\"]\nboth <- rates |> filter(region %in% c(REGION, \"Kingdom\"))\nggplot(both, aes(date, rate, colour = region)) +\n  geom_line()\nboth |>\n  filter(quarter >= \"2025Q1\") |>\n  ggplot(aes(quarter, rate, fill = region)) +\n  geom_col(position = \"dodge\")\n```\n\n## Latest quarters\n\n```{r}\n#| label: tbl-recent\n#| tbl-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\narea |>\n  select(quarter, rate) |>\n  slice_tail(n = 4) |>\n  tt() |>\n  theme_html(portable = TRUE)\n```\n\n::: {.callout-note collapse=\"true\" title=\"Method\"}\nRates are the unemployed as a share of the labour force.\nThe data are synthetic, made for training.\n:::\n",
+ "live": "note.html"
+}

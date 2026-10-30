@@ -1,0 +1,35 @@
+---
+title: "Unemployment in the regions"
+subtitle: "Synthetic data, for training only"
+author: "Labour statistics team"
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+## Data
+
+```{r}
+library(tidyverse)
+rates <- read_csv("unemployment.csv")
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+kingdom <- rates |> filter(region == "Kingdom")
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```

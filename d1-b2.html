@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code, numbers and figures · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b2">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1" class="on">Day 1</a><a href="index.html#day2">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 1 · Block 2 · 10:30–11:45</div><h1>Code, numbers and figures</h1>
+<p class="goal">Decide what each chunk shows, let R write every number in the text, and size and caption the charts.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d1-chunks">
+<div class="head"><span class="e">Day 1 · Build 5</span><h3>Chunk options: what each chunk shows</h3>
+<span class="len">5 steps · 50 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-chunks.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-chunks.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="11.26"><button type="button"><span class="n">1</span><span>Options go on <code>#|</code> lines at the top of a chunk. <code>message: false</code> drops the notes the tidyverse and readr print while they load and read.</span></button></li><li data-t="11.26" data-d="7.99"><button type="button"><span class="n">2</span><span><code>echo: false</code> hides the code and keeps the chart: what a reader of a report wants to see.</span></button></li><li data-t="19.25" data-d="10.29"><button type="button"><span class="n">3</span><span>A setup chunk with <code>include: false</code> runs first and shows nothing at all. The tidyverse and the data load once, quietly, at the top.</span></button></li><li data-t="29.54" data-d="9.78"><button type="button"><span class="n">4</span><span><code>code-fold: true</code> tucks each chunk's code behind a Code button. Readers see results; the curious can click.</span></button></li><li data-t="39.32" data-d="10.19"><button type="button"><span class="n">5</span><span>For a report that goes to managers, hide code everywhere: <code>execute: echo: false</code> in the YAML covers every chunk, in every format.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-chunks/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-chunks/step5-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-inline">
+<div class="head"><span class="e">Day 1 · Build 6</span><h3>Inline R: numbers that update themselves</h3>
+<span class="len">5 steps · 52 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-inline.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-inline.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.61"><button type="button"><span class="n">1</span><span>A number typed into the text is right today. When the data are revised, nobody remembers to change it.</span></button></li><li data-t="9.61" data-d="12.05"><button type="button"><span class="n">2</span><span><code>filter()</code> finds the row and <code>pull()</code> takes out the number. Inline R writes it into the sentence at render time: the page reads the same, but the number is computed.</span></button></li><li data-t="21.66" data-d="9.72"><button type="button"><span class="n">3</span><span>Any R expression works inline. Here: the rate in 2022 and the change since then, rounded to one decimal.</span></button></li><li data-t="31.38" data-d="8.95"><button type="button"><span class="n">4</span><span>Change one line in the setup chunk and render: every number in the sentence moves with it.</span></button></li><li data-t="40.33" data-d="12.09"><button type="button"><span class="n">5</span><span>Jazan's 9 and 2.1 read oddly. <code>scales::number()</code> fixes the format: always one decimal, and a plus sign on a rise, so 9 reads 9.0 and the change +2.1.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-inline/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-inline/step5-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-figures">
+<div class="head"><span class="e">Day 1 · Build 7</span><h3>Figures: size, caption, layout</h3>
+<span class="len">3 steps · 29 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d1-figures.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-figures.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span><code>fig-width</code> and <code>fig-height</code> set the chart's size in inches. A wide, short chart suits a time series.</span></button></li><li data-t="9.34" data-d="8.73"><button type="button"><span class="n">2</span><span><code>fig-cap</code> writes a caption under the chart. It travels with the chart into Word and PDF.</span></button></li><li data-t="18.07" data-d="10.55"><button type="button"><span class="n">3</span><span><code>layout-ncol: 2</code> sets two charts side by side. With <code>!expr</code>, an option can be R code, so the second caption follows <code>REGION</code>.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d1-figures/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-figures/step3-report.qmd" download>Download report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
+<h3>Make the numbers move</h3><ol><li>Add the setup chunk with <code>include: false</code> and <code>REGION &lt;- "Riyadh"</code> to your <code>report.qmd</code>.</li><li>Write the summary sentence with inline R, as in the build.</li><li>Render. Then change <code>REGION</code> to <code>"Makkah"</code> and render again: every number should change.</li></ol><details class="full"><summary>The whole file so far (84 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    html-math-method: mathml
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method
+
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">Start timer</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d1-b2"><script type="application/json">[{"q": "Which picture is the trend chunk with <code>echo: false</code>?", "code": null, "options": [{"text": "A", "img": "frames/out/d1-chunks-01.png", "alt": ""}, {"text": "B", "img": "frames/out/d1-chunks-02.png", "alt": ""}, {"text": "C", "img": "frames/out/d1-chunks-04.png", "alt": ""}]}, {"q": "What is the difference between <code>include: false</code> and <code>echo: false</code>?", "code": null, "options": ["None", "<code>include: false</code> runs the code and shows nothing; <code>echo: false</code> shows the result but not the code", "<code>include: false</code> does not run the code"]}, {"q": "<code>then</code> is 9. What does <code>&#96;r scales::number(then, accuracy = 0.1)&#96;</code> print?", "code": null, "options": ["9", "9.0", "9.00"]}, {"q": "And <code>&#96;r scales::number(2.14, accuracy = 0.1, style_positive = \"plus\")&#96;</code>?", "code": null, "options": ["2.1", "+2.1", "+2.14"]}, {"q": "<code>fig-width: 8</code> is measured in what?", "code": null, "options": ["Pixels", "Centimetres", "Inches"]}, {"q": "Why did the two-chart layout use <code>fig-cap: !expr c(\"The Kingdom\", REGION)</code>?", "code": null, "options": ["<code>!expr</code> makes the option R code, so the caption follows <code>REGION</code>", "It is needed for any list of captions", "It hides the caption in Word"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Match the option to what it does</h3><p class="prompt">Tap an option on the left, then what it does on the right.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "Match the option to what it does", "prompt": "Tap an option on the left, then what it does on the right.", "mono": "left", "pairs": [["echo: false", "Hide the code, keep the result"], ["eval: false", "Show the code, do not run it"], ["include: false", "Run the code, show nothing"], ["message: false", "Drop the notes packages print"], ["code-fold: true", "Code behind a click"], ["fig-cap", "A caption under the chart"], ["layout-ncol: 2", "Two charts side by side"]]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>One source. No typed numbers. Nothing left to re-check.</p></div>
+<nav class="pager"><a href="d1-b1.html"><small>Back</small>Your first Quarto document</a><a class="next" href="d1-b3.html"><small>Next</small>Tables, cross-references and layout</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+ "id": "d1-yaml",
+ "title": "The YAML header",
+ "eyebrow": "Day 1 · Build 2",
+ "show": "report.qmd",
+ "duration": 42.72,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.67,
+   "say": "<code>subtitle</code>, <code>author</code> and <code>date</code> fill the title block. <code>date: today</code> is the render date, so it never goes stale."
+  },
+  {
+   "t": 9.67,
+   "d": 10.0,
+   "say": "<code>format: html:</code> holds the options for one output format. <code>toc: true</code> builds a contents list from the <code>##</code> headings."
+  },
+  {
+   "t": 19.67,
+   "d": 12.93,
+   "say": "Look in the folder: next to <code>report.html</code> Quarto wrote <code>report_files</code>, with the chart picture, styles and scripts. E-mail the HTML alone and it arrives broken."
+  },
+  {
+   "t": 32.6,
+   "d": 10.12,
+   "say": "<code>embed-resources: true</code> packs everything into the HTML itself. One file that opens anywhere, even offline."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n---\n\nUnemployment fell in most regions between 2022 and 2025.\nThis note shows the national trend and the latest rates.\n\n## Data\n\n```{r}\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

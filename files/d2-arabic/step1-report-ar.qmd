@@ -1,0 +1,23 @@
+---
+title: "البطالة في المناطق"
+format: html
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates <- read_csv("unemployment.csv")
+kingdom <- rates |> filter(region == "Kingdom")
+```
+
+انخفض معدل البطالة في معظم المناطق بين 2022 و2025،
+وجازان هي الاستثناء.
+
+```{r}
+#| label: fig-trend
+#| fig-cap: "معدل البطالة في المملكة (%)"
+#| echo: false
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+يوضح @fig-trend الاتجاه العام في المملكة.

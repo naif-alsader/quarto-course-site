@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects, brand and language · Quarto, step by step</title>
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/course.css">
+<script src="frames/vendor/hyperframes-player.global.js"></script>
+<script src="assets/js/course.js" defer></script>
+</head>
+<body data-page="d2-b3">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto, step by step</span></a>
+<nav><a href="index.html#day1">Day 1</a><a href="index.html#day2" class="on">Day 2</a><a href="index.html#day3">Day 3</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">Day 2 · Block 3 · 12:15–13:15</div><h1>Projects, brand and language</h1>
+<p class="goal">Share settings across files, put the house style in one file, and publish in Arabic, right to left.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>Watch it build</h2><p class="lead">Press a step to play just that step, or play the whole build.</p><div class="build" data-build="d2-project">
+<div class="head"><span class="e">Day 2 · Build 8</span><h3>Projects: settings shared by every file</h3>
+<span class="len">4 steps · 45 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-project.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-project.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.85"><button type="button"><span class="n">1</span><span>A second document, <code>annex.qmd</code>, has none of the report's settings: no contents list, no embedding. Copying the header into every file drifts.</span></button></li><li data-t="10.85" data-d="10.39"><button type="button"><span class="n">2</span><span><code>_quarto.yml</code> makes the folder a project. <code>quarto render</code> with no file name renders every document, into <code>_output</code>.</span></button></li><li data-t="21.24" data-d="10.85"><button type="button"><span class="n">3</span><span>And every document inherits the project's settings: the annex now has a contents list and travels as one file, with no change to <code>annex.qmd</code>.</span></button></li><li data-t="32.09" data-d="12.87"><button type="button"><span class="n">4</span><span><code>freeze: auto</code> stores each document's results in <code>_freeze/</code>. Render again and no <code>processing file</code> appears: R did not run. It reruns only when the <code>.qmd</code> changes.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="files/d2-project/step4-_quarto.yml" download>Download _quarto.yml</a>
+</div>
+</div>
+<div class="build" data-build="d2-brand">
+<div class="head"><span class="e">Day 2 · Build 9</span><h3>_brand.yml: the house style as a file</h3>
+<span class="len">4 steps · 38 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-brand.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-brand.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="7.77"><button type="button"><span class="n">1</span><span>No brand file yet: Quarto's default look. Colours and fonts live in no file at all.</span></button></li><li data-t="7.77" data-d="10.96"><button type="button"><span class="n">2</span><span>Name the colours once in <code>palette</code>, then give them jobs: <code>primary</code> for links and accents, <code>foreground</code> for text. The report itself does not change.</span></button></li><li data-t="18.73" data-d="9.2"><button type="button"><span class="n">3</span><span>Fonts come from files kept with the project, not from the internet. Headings take the brand's indigo by name.</span></button></li><li data-t="27.93" data-d="9.69"><button type="button"><span class="n">4</span><span>The same file styles the Typst PDF: its colours, its fonts, and here the logo. Word keeps its styles in <code>reference-doc</code>.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d2-brand/report.pdf" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d2-brand/step4-_brand.yml" download>Download _brand.yml</a>
+</div>
+</div>
+<div class="build" data-build="d2-arabic">
+<div class="head"><span class="e">Day 2 · Build 10</span><h3>Arabic, right to left</h3>
+<span class="len">4 steps · 39 s</span></div>
+<div class="screen"><hyperframes-player src="frames/d2-arabic.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-arabic.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.63"><button type="button"><span class="n">1</span><span>An Arabic report with no language settings. The page still runs left to right, and the figure is labelled in English.</span></button></li><li data-t="9.63" data-d="8.75"><button type="button"><span class="n">2</span><span><code>lang: ar</code> and <code>dir: rtl</code> turn the page around: text, headings and the title block now run right to left.</span></button></li><li data-t="18.38" data-d="11.26"><button type="button"><span class="n">3</span><span>The figure still says Figure. Quarto has no Arabic labels built in; a small language file supplies them, so the caption reads شكل 1.</span></button></li><li data-t="29.64" data-d="8.92"><button type="button"><span class="n">4</span><span>The same settings carry into the Typst PDF, with an Arabic-capable font from the project's fonts folder.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">◀ Back</button>
+<button class="btn primary" type="button" data-act="step">▶ Play step</button>
+<button class="btn" type="button" data-act="next">Next ▶</button>
+<button class="btn" type="button" data-act="all">Play all</button>
+<span class="sp"></span><a class="btn" href="live/d2-arabic/report-ar.pdf" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d2-arabic/step4-report-ar.qmd" download>Download report-ar.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
+<h3>Brand your report</h3><ol><li>Download <code>_brand.yml</code> and the two Tajawal fonts into a <code>fonts</code> folder next to your report.</li><li>Render to HTML and to Typst: the colours and fonts change, <code>report.qmd</code> does not.</li><li>Make a two-line <code>report-ar.qmd</code> with <code>lang: ar</code> and <code>dir: rtl</code> and render it.</li></ol><div class="files"><a class="btn" href="files/_brand.yml" download>_brand.yml</a><a class="btn" href="files/fonts/Tajawal-Regular.ttf" download>Tajawal-Regular.ttf</a><a class="btn" href="files/fonts/Tajawal-Bold.ttf" download>Tajawal-Bold.ttf</a><a class="btn" href="files/_language-ar.yml" download>_language-ar.yml</a></div><div class="codebox"><button class="copy" type="button">Copy</button><pre>color:
+  palette:
+    indigo: &quot;#4137A8&quot;
+    green: &quot;#00803A&quot;
+    dark: &quot;#2C2D3F&quot;
+  primary: indigo
+  foreground: dark
+
+typography:
+  fonts:
+    - family: Tajawal
+      source: file
+      files:
+        - path: fonts/Tajawal-Regular.ttf
+          weight: 400
+        - path: fonts/Tajawal-Bold.ttf
+          weight: 700
+  base: Tajawal
+  headings:
+    family: Tajawal
+    weight: 700
+    color: indigo
+
+logo:
+  medium: gastat-logo-color.png</pre></div><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">Start timer</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>Check yourself</h2><div class="quiz" data-id="d2-b3"><script type="application/json">[{"q": "What does <code>quarto render</code> with no file name do in a folder with <code>_quarto.yml</code>?", "code": null, "options": ["Renders the first file only", "Renders every document in the project", "Nothing"]}, {"q": "With <code>freeze: auto</code>, when does R run again for a document?", "code": null, "options": ["On every render", "Only when that <code>.qmd</code> changes", "Never again"]}, {"q": "In <code>_brand.yml</code>, what is <code>palette</code> for?", "code": null, "options": ["Naming colours once, so other keys can refer to them", "Choosing the chart colours in ggplot", "Listing the fonts"]}, {"q": "Which output does <code>_brand.yml</code> not style?", "code": null, "options": ["HTML", "Typst PDF", "Word"]}, {"q": "An Arabic report still labels its chart Figure 1. What fixes it?", "code": null, "options": ["<code>dir: rtl</code>", "A language file with <code>crossref-fig-title: \"شكل\"</code>", "An Arabic font"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>Play</h2><div class="game"><div class="eyebrow">Game</div><h3>Which file, which key?</h3><p class="prompt">Match each setting to what it does.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "Which file, which key?", "prompt": "Match each setting to what it does.", "mono": "left", "pairs": [["output-dir: _output", "Where a project's files go"], ["freeze: auto", "Reuse R results until the file changes"], ["primary: indigo", "Links and accents in the brand colour"], ["source: file", "Fonts from the project, not the internet"], ["dir: rtl", "The page runs right to left"], ["language: _language-ar.yml", "Arabic labels: شكل, جدول"]]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">Takeaway</div><p>Branding is a file, not a habit, and so is language.</p></div>
+<nav class="pager"><a href="d2-b2.html"><small>Back</small>Parameters: one template, many reports</a><a class="next" href="d2-lab.html"><small>Next</small>Lab 2: brand, parameterise, batch-render</a></nav>
+</main>
+<footer><div class="wrap">Quarto, step by step · a GASTAT training course. Every chart and number comes from
+<b>synthetic</b> labour-force data made for training, not official statistics. Every output shown was made by
+really running Quarto 1.10 and R 4.3 on the code beside it.</div></footer>
+</body>
+</html>

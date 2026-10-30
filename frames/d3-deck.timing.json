@@ -1,0 +1,37 @@
+{
+ "id": "d3-deck",
+ "title": "From report to deck",
+ "eyebrow": "Day 3 · Build 1",
+ "show": "slides.qmd",
+ "duration": 41.19,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.53,
+   "say": "Same tool, new format: <code>format: revealjs</code> makes a slide deck. The header's title and subtitle become the title slide."
+  },
+  {
+   "t": 9.53,
+   "d": 11.5,
+   "say": "Each <code>##</code> heading starts a slide. The setup chunk works as in the report: <code>group_by()</code> and <code>summarise()</code> give each region's change, and inline R counts them."
+  },
+  {
+   "t": 21.03,
+   "d": 8.98,
+   "say": "A chunk on a slide puts its chart on the slide. Unlike a report, a deck hides code unless you ask for it."
+  },
+  {
+   "t": 30.01,
+   "d": 11.18,
+   "say": "A single <code>#</code> starts a section with its own title slide. The <code>##</code> slides after it stack under it, and the arrow keys still walk through them in order."
+  }
+ ],
+ "downloads": [
+  "step1-slides.qmd",
+  "step2-slides.qmd",
+  "step3-slides.qmd",
+  "step4-slides.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Quarterly briefing · synthetic data\"\nformat: revealjs\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\njazan <- rates |> filter(region == \"Jazan\")\nchange <- rates |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate))\nup <- change |> filter(change > 0) |> pull(region)\n```\n\n## Unemployment is falling\n\n- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022\n- It rose only in `r up`\n\n## The national trend\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n# Regions\n\n## Jazan moved the other way\n",
+ "live": "slides.html"
+}
