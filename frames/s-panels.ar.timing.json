@@ -1,0 +1,43 @@
+{
+ "id": "s-panels",
+ "title": "رسوم صغيرة متعددة بدل الخطوط المتشابكة",
+ "eyebrow": "خاتمة · منطقة واحدة أم مناطق كثيرة؟",
+ "show": "panels.qmd",
+ "duration": 62.39,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.9,
+   "say": "نعود إلى الخطوط الملوّنة الـ13. إبراز منطقة واحدة كان أحد الحلول. وهذا هو الحل الآخر: نعطي كل منطقة رسمًا صغيرًا خاصًا بها."
+  },
+  {
+   "t": 10.9,
+   "d": 12.96,
+   "say": "<code>facet_wrap()</code> يرسم لوحة لكل منطقة، وكلها بالمقاييس نفسها، فنقارن أي لوحتين بنظرة واحدة. ولم يعد للألوان ولا لمفتاحها أي دور."
+  },
+  {
+   "t": 23.86,
+   "d": 12.53,
+   "say": "نعطي كل لوحة المعيار نفسه. ليس في <code>kingdom</code> عمود <code>region</code>، فلا يستطيع <code>facet_wrap()</code> تقسيمه، ويُرسم خط المملكة في اللوحات الـ13 كلها."
+  },
+  {
+   "t": 36.39,
+   "d": 13.0,
+   "say": "نرتّب اللوحات حسب التغيّر لا حسب الحروف، ونلوّن كل خط بالقاعدة <code>change &gt; 0</code>. المنطقة التي سارت في الاتجاه المعاكس تأتي أولًا، وهي الوحيدة باللون الأخضر."
+  },
+  {
+   "t": 49.39,
+   "d": 13.0,
+   "say": "تسميات قصيرة للسنوات، وعنوان يذكر النمط، وعنوان فرعي يوضّح ما الخط الرمادي. ويختار R المنطقة للعنوان بالقاعدة نفسها، <code>change &gt; 0</code>، التي لوّنت خطها."
+  }
+ ],
+ "downloads": [
+  "step1-panels.qmd",
+  "step2-panels.qmd",
+  "step3-panels.qmd",
+  "step4-panels.qmd",
+  "step5-panels.qmd"
+ ],
+ "final": "---\ntitle: \"Every region, side by side\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nall <- read_csv(\"unemployment.csv\")\nrates <- all |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  mutate(change = last(rate) - first(rate)) |>\n  ungroup() |>\n  mutate(region = fct_reorder(region, change,\n                              .desc = TRUE))\nriser <- rates |>\n  filter(change > 0) |>\n  distinct(region) |>\n  pull(region)\nkingdom <- all |>\n  filter(region == \"Kingdom\") |>\n  select(-region)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(rates, aes(date, rate)) +\n  geom_line(data = kingdom, colour = \"grey70\") +\n  geom_line(aes(colour = change > 0), linewidth = 1) +\n  facet_wrap(vars(region), ncol = 5) +\n  scale_colour_manual(values = c(`TRUE` = \"#00803A\",\n                                 `FALSE` = \"#4137A8\"),\n                      guide = \"none\") +\n  scale_x_date(date_breaks = \"1 year\",\n               date_labels = \"'%y\") +\n  labs(title = str_glue(\n         \"Against the Kingdom, only {riser} \",\n         \"moved the other way\"),\n       subtitle = str_glue(\n         \"Unemployment rate, %. Grey: the Kingdom. \",\n         \"Ordered by the change since \",\n         \"{min(rates$quarter)}\"),\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(panel.grid.minor = element_blank())\n```\n",
+ "live": "panels.html"
+}

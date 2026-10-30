@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التطبيق العملي 1: مذكرة عن منطقة، من سكربت · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-lab">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1" class="on">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d1-lab.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 1 · التطبيق العملي · 13:15–14:00</div><h1>التطبيق العملي 1: مذكرة عن منطقة، من سكربت</h1>
+<p class="goal">حوّل سكربت R عاديًا إلى تقرير لا يُكتب فيه أي رقم يدويًا.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>ابنِه بنفسك</h2><p><code>analysis.R</code> يرسم رسمين بيانيين ويصنع جدولًا ويحسب ثلاثة أرقام لمنطقة واحدة. ابنِ <code>note.qmd</code> من <code>lab1-start.qmd</code> بحيث يقول الشيء نفسه في صورة تقرير. ولِّد <code>lab1-start.qmd</code> أولًا دون أي تعديل: إن فشل، فالمشكلة في الجهاز لا في الكود الذي كتبته.</p><div class="files"><a class="btn" href="../files/analysis.R" download>analysis.R</a><a class="btn" href="../files/lab1-start.qmd" download>lab1-start.qmd</a><a class="btn" href="../files/unemployment.csv" download>unemployment.csv</a></div><ul class="checklist"><li><label><input type="checkbox" value="0"><span>ترويسة فيها عنوان فرعي، و<code>date: today</code>، وقائمة محتويات، و<code>embed-resources: true</code>.</span></label></li><li><label><input type="checkbox" value="1"><span>مقطع إعداد مع <code>include: false</code>: الحزم، والبيانات، و<code>REGION</code>، والأرقام الثلاثة.</span></label></li><li><label><input type="checkbox" value="2"><span>فقرة ملخص يُكتب كل رقم فيها بـ R داخل النص.</span></label></li><li><label><input type="checkbox" value="3"><span>شكلان لكل منهما تسمية وعنوان؛ أحدهما رسمان بيانيان جنبًا إلى جنب باستخدام <code>layout-ncol: 2</code>.</span></label></li><li><label><input type="checkbox" value="4"><span>جدول واحد مصنوع بـ <code>tt()</code>، وله <code>tbl-cap</code>.</span></label></li><li><label><input type="checkbox" value="5"><span>ملاحظة منهجية في صندوق ملاحظة <code>collapse="true"</code>.</span></label></li><li><label><input type="checkbox" value="6"><span>الملخص يحيل إلى الشكلين وإلى الجدول.</span></label></li></ul><div class="done-test"><div class="eyebrow">اختبار الإنجاز</div><p>غيّر <code>REGION</code> في أعلى الملف، وولِّد التقرير، فيتغيّر كل رقم وكل عنوان وكل رسم بياني.</p></div></section>
+<section class="part"><h2><span class="k">02</span>توقفت؟ شاهد الحل</h2><p class="lead">بعد أن تحاول بنفسك أولًا.</p><div class="build" data-build="d1-lab">
+<div class="head"><span class="e">التطبيق العملي 1 · الحل</span><h3>مذكرة عن منطقة: من السكربت إلى التقرير</h3>
+<span class="len">5 خطوات · 50 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-lab.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-lab.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.19"><button type="button"><span class="n">1</span><span>نبدأ بالترويسة ومقطع الإعداد. أعلى <code>analysis.R</code> ينتقل إليه تقريبًا كما هو؛ و<code>include: false</code> يُبقيه خارج الصفحة.</span></button></li><li data-t="10.19" data-d="10.66"><button type="button"><span class="n">2</span><span>نكتب الملخص مرة واحدة، وكل رقم فيه بـ R داخل النص. ويأخذ الرسم البياني وسمًا، وعنوانًا يتبع <code>REGION</code>، وحجمًا.</span></button></li><li data-t="20.85" data-d="9.94"><button type="button"><span class="n">3</span><span>الشكل الثاني رسمان بيانيان في عمودين. يسمّي <code>fig-subcap</code> كل رسم منهما، ويسمّي <code>fig-cap</code> الشكل كله.</span></button></li><li data-t="30.79" data-d="9.12"><button type="button"><span class="n">4</span><span>نضيف الجدول وملاحظة منهجية مطوية، ونُحيل من الملخص إلى كل شكل وجدول.</span></button></li><li data-t="39.91" data-d="10.55"><button type="button"><span class="n">5</span><span>اختبار الإنجاز: نغيّر <code>REGION</code> ونولّد التقرير، فيتغيّر كل رقم وعنوان ورسم بياني. لا شيء في النص مكتوب يدويًا.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-lab/note.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-lab/step5-note.qmd" download>نزّل note.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">03</span>اختبار اليوم</h2><p class="lead">ثمانية أسئلة على اليوم كله.</p><div class="quiz" data-id="d1-lab"><script type="application/json">[{"q": "أي سطر يجعل المقطع يعمل دون أن يعرض شيئًا؟", "code": null, "options": ["<code>#| echo: false</code>", "<code>#| include: false</code>", "<code>#| eval: false</code>"]}, {"q": "ولّدت التقرير لتبوك، والملخص لا يزال يقول عسير في مكان واحد. ماذا حدث؟", "code": null, "options": ["تلك الكلمة كُتبت يدويًا، وليست R داخل النص", "knitr احتفظ بالقيمة القديمة في الذاكرة المؤقتة (cache)", "العنوان في YAML خاطئ"]}, {"q": "أي مما يلي لا تقوم به ترويسة YAML؟", "code": null, "options": ["تحديد العنوان والتاريخ", "اختيار صيغة المُخرَج وخياراتها", "تشغيل كود R"]}, {"q": "ماذا ينتج <code>layout-ncol: 2</code> مع <code>fig-subcap</code>؟", "code": null, "options": ["شكلين برقمين، 1 و2", "شكلًا واحدًا فيه لوحتان، (a) و(b)", "صفحة من عمودين"]}, {"q": "فتح زميلك ملف HTML الذي أرسلته دون إنترنت، فظهر الجدول بلا تنسيق. أي حل مكانه في الكود؟", "code": null, "options": ["<code>theme_html(portable = TRUE)</code>", "<code>toc: true</code>", "<code>fig-width: 8</code>"]}, {"q": "أين يجب أن يكون <code>library(tidyverse)</code> في التقرير؟", "code": null, "options": ["في المقطع الذي يرسم أول رسم بياني", "في مقطع إعداد في الأعلى، مع <code>include: false</code>", "في ترويسة YAML"]}, {"q": "<code>@tbl-recent</code> يظهر «Table 1». أضفت جدولًا فوقه. ماذا يحدث؟", "code": null, "options": ["يبقى «Table 1»", "يصبح «Table 2» دون أي تعديل منك", "يفشل التوليد"]}, {"q": "ماذا يفعل Pandoc عند التوليد في Quarto؟", "code": null, "options": ["يشغّل R", "يحوّل Markdown إلى HTML أو Word أو Typst", "يرسم الرسوم البيانية"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>الجولة السريعة لليوم 1</h3><p class="prompt">صح أم خطأ، في سباق مع الوقت.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "الجولة السريعة لليوم 1", "prompt": "صح أم خطأ، في سباق مع الوقت.", "seconds": 60, "items": [{"s": "ملف <code>.qmd</code> نص عادي.", "a": true, "why": ""}, {"s": "<code>echo: false</code> يمنع الكود من العمل.", "a": false, "why": "يخفي الكود فقط، والكود يعمل مع ذلك."}, {"s": "يمكن أن يأتي R داخل النص في وسط جملة.", "a": true, "why": ""}, {"s": "<code>fig-width</code> يُقاس بالبكسل.", "a": false, "why": "بالبوصة."}, {"s": "<code>@fig-trend</code> يحتاج إلى أن تكون تسمية المقطع <code>fig-trend</code>.", "a": true, "why": ""}, {"s": "القائمة تحتاج إلى سطر فارغ قبلها.", "a": true, "why": ""}, {"s": "<code>embed-resources: true</code> يصنع ملفًا واحدًا يعمل دون إنترنت.", "a": true, "why": ""}, {"s": "<code>format_tt(digits = 1)</code> تعني منزلة عشرية واحدة.", "a": false, "why": "تعني رقمًا معنويًا واحدًا."}, {"s": "knitr يحوّل Markdown إلى HTML.", "a": false, "why": "Pandoc هو الذي يحوّل، وknitr يشغّل R."}, {"s": "<code>collapse=\"true\"</code> يطوي صندوق الملاحظة.", "a": true, "why": ""}]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>إذا غيّرت سطرًا واحدًا فتغيّر معه كل رقم، فالتقرير قابل لإعادة الإنتاج.</p></div>
+<nav class="pager"><a href="d1-b3.html"><small>السابق</small>الجداول والإحالات والتخطيط</a><a class="next" href="d2-b1.html"><small>التالي</small>مصدر واحد، صيغ كثيرة</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

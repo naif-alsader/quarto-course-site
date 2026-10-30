@@ -148,3 +148,29 @@ body.presenter .pres[hidden] { display: flex; }
 .pnext { font-size: 17px; color: #6B6C7A; } .pnext b { display: block; color: #2C2D3F; font-size: 21px; }
 .pnotes { flex: 1; overflow: auto; font-size: 22px; line-height: 1.5; }
 .pclock { font: 700 44px "IBM Plex Mono", monospace; color: #4137A8; }
+
+/* ---- the Arabic deck (<html dir="rtl">): mirrored, with code kept left to right ---- */
+.dmenu h3 .lang { margin-inline-start: 18px; font: 700 18px Tajawal, sans-serif; color: #4137A8; }
+[dir="rtl"] .slide .eb, [dir="rtl"] .agn, [dir="rtl"] .th, [dir="rtl"] .k-day .dl span {
+  font-family: Tajawal, sans-serif; font-weight: 700; letter-spacing: 0; text-transform: none; }
+[dir="rtl"] .sf { font-family: Tajawal, sans-serif; padding-right: 0; padding-left: 150px; }
+[dir="rtl"] .lg, [dir="rtl"] .lgw { right: auto; left: 64px; }
+[dir="rtl"] .pts li { padding-left: 0; padding-right: 52px; }
+[dir="rtl"] .pts li::before { left: auto; right: 0; }
+[dir="rtl"] .slide.dark .eb, [dir="rtl"] .slide.dark .rule, [dir="rtl"] .k-day .dl { left: auto; right: 140px; }
+[dir="rtl"] .slide.dark h1 { left: 200px; right: 140px; }
+[dir="rtl"] .slide.dark .sub { left: 260px; right: 140px; }
+[dir="rtl"] .k-done .st { left: 220px; right: 140px; }
+[dir="rtl"] .k-statement .bar { left: auto; right: 0; }
+[dir="rtl"] .bp .hint { right: auto; left: 40px; }
+[dir="rtl"] .bdl { right: auto; left: 168px; }
+[dir="rtl"] .dopt { text-align: right; }
+[dir="rtl"] .ts { padding-left: 0; padding-right: 50px; }
+[dir="rtl"] .ts li { padding-left: 0; padding-right: 10px; }
+[dir="rtl"] .lt2 li { padding-left: 0; padding-right: 50px; }
+[dir="rtl"] .lt2 li::before { left: auto; right: 0; }
+[dir="rtl"] .hud .hn { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .dmenu { left: auto; right: 0; }
+[dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .qcode, [dir="rtl"] .bp, [dir="rtl"] hyperframes-player { direction: ltr; text-align: left; }
+[dir="rtl"] .sno, [dir="rtl"] .hn { direction: ltr; unicode-bidi: isolate; }

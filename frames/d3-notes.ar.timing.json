@@ -1,0 +1,37 @@
+{
+ "id": "d3-notes",
+ "title": "ملاحظات المتحدث واختصارات المقدّم",
+ "eyebrow": "اليوم 3 · المثال 4",
+ "show": "slides.qmd",
+ "duration": 36.39,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.46,
+   "say": "<code>::: {.notes}</code> يحفظ ما سنقوله، ولا يراه الحضور أبدًا. نضع الملاحظات قبل أي توقف <code>. . .</code>، وإلا صارت تابعة لآخر جزء يظهر تدريجيًا."
+  },
+  {
+   "t": 10.46,
+   "d": 8.64,
+   "say": "نضغط S فتُفتح شاشة المتحدث في نافذة مستقلة: الشريحة الحالية والتالية، ومؤقّت، والملاحظات."
+  },
+  {
+   "t": 19.1,
+   "d": 8.37,
+   "say": "نضغط O فتظهر كل الشرائح في نظرة عامة: هكذا نعود بسرعة حين يكون السؤال عن الشريحة 2."
+  },
+  {
+   "t": 27.47,
+   "d": 8.92,
+   "say": "<code>chalkboard: true</code> يضيف طبقة نكتب عليها ونخطّ. نضغط B لسبورة فارغة نوضّح عليها ما لا يُظهره الرسم البياني."
+  }
+ ],
+ "downloads": [
+  "step1-slides.qmd",
+  "step2-slides.qmd",
+  "step3-slides.qmd",
+  "step4-slides.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Quarterly briefing · synthetic data\"\nformat:\n  revealjs:\n    chalkboard: true\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\njazan <- rates |> filter(region == \"Jazan\")\nchange <- rates |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate))\nup <- change |> filter(change > 0) |> pull(region)\n```\n\n## Unemployment is falling\n\n::: {.incremental}\n- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022\n- It rose only in `r up`\n:::\n\n::: {.notes}\nPause here. Ask the room which region surprised them.\n:::\n\n. . .\n\nNext: why Jazan is different.\n\n## The national trend\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n# Regions\n\n## Jazan moved the other way\n\n:::: {.columns}\n::: {.column width=\"40%\"}\nJazan's rate rose while the Kingdom's fell.\n:::\n::: {.column width=\"60%\"}\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n::::\n\n## Two regions\n\n::: {.panel-tabset}\n### Kingdom\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n### Jazan\n\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n",
+ "live": "slides.html"
+}

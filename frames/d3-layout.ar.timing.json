@@ -1,0 +1,31 @@
+{
+ "id": "d3-layout",
+ "title": "تخطيط الشرائح",
+ "eyebrow": "اليوم 3 · المثال 2",
+ "show": "slides.qmd",
+ "duration": 30.25,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.29,
+   "say": "نص ورسم بياني فوق بعضهما على شريحة واحدة: يُدفع الرسم إلى الأسفل حتى يختفي. للشريحة حجم ثابت، على عكس الصفحة."
+  },
+  {
+   "t": 10.29,
+   "d": 9.94,
+   "say": "<code>.columns</code> مع حاويتين <code>.column</code> يضع الكلام بجانب الرسم البياني. والعرض نسبة من الشريحة: 40% و60%."
+  },
+  {
+   "t": 20.23,
+   "d": 10.02,
+   "say": "مجموعة التبويبات (tabset) تعمل على الشرائح أيضًا. هنا تبويب جازان مفتوح، والمملكة على بُعد نقرة، فتتّسع شريحة واحدة للرسمين."
+  }
+ ],
+ "downloads": [
+  "step1-slides.qmd",
+  "step2-slides.qmd",
+  "step3-slides.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Quarterly briefing · synthetic data\"\nformat: revealjs\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\njazan <- rates |> filter(region == \"Jazan\")\nchange <- rates |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate))\nup <- change |> filter(change > 0) |> pull(region)\n```\n\n## Unemployment is falling\n\n- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022\n- It rose only in `r up`\n\n## The national trend\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n# Regions\n\n## Jazan moved the other way\n\n:::: {.columns}\n::: {.column width=\"40%\"}\nJazan's rate rose while the Kingdom's fell.\n:::\n::: {.column width=\"60%\"}\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n::::\n\n## Two regions\n\n::: {.panel-tabset}\n### Kingdom\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n### Jazan\n\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n",
+ "live": "slides.html"
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الكود والأرقام والأشكال · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b2">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1" class="on">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d1-b2.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 1 · الجلسة 2 · 10:30–11:45</div><h1>الكود والأرقام والأشكال</h1>
+<p class="goal">حدّد ما يعرضه كل مقطع، ودع R يكتب كل رقم في النص، واضبط حجم الرسوم البيانية وعناوينها.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">اضغط خطوة لتشغيلها وحدها، أو شغّل المثال كله.</p><div class="build" data-build="d1-chunks">
+<div class="head"><span class="e">اليوم 1 · المثال 5</span><h3>خيارات المقطع: ماذا يُظهر كل مقطع</h3>
+<span class="len">5 خطوات · 50 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-chunks.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-chunks.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="11.26"><button type="button"><span class="n">1</span><span>تُكتب الخيارات في أسطر <code>#|</code> أعلى المقطع. والخيار <code>message: false</code> يحذف الرسائل التي يطبعها tidyverse وreadr أثناء التحميل والقراءة.</span></button></li><li data-t="11.26" data-d="7.99"><button type="button"><span class="n">2</span><span>الخيار <code>echo: false</code> يُخفي الكود ويُبقي الرسم البياني: وهذا ما يريد قارئ التقرير أن يراه.</span></button></li><li data-t="19.25" data-d="10.29"><button type="button"><span class="n">3</span><span>مقطع الإعداد مع <code>include: false</code> يعمل أولًا ولا يُظهر شيئًا أبدًا. فيُحمَّل tidyverse والبيانات مرة واحدة، بهدوء، في الأعلى.</span></button></li><li data-t="29.54" data-d="9.78"><button type="button"><span class="n">4</span><span>الخيار <code>code-fold: true</code> يطوي كود كل مقطع خلف زر Code. يرى القرّاء النتائج، ومن أراد الكود يضغط الزر.</span></button></li><li data-t="39.32" data-d="10.19"><button type="button"><span class="n">5</span><span>في تقرير يذهب إلى أصحاب القرار، نُخفي الكود في كل مكان: <code>execute: echo: false</code> في ترويسة YAML يشمل كل المقاطع، في كل الصيغ.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-chunks/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-chunks/step5-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-inline">
+<div class="head"><span class="e">اليوم 1 · المثال 6</span><h3>R داخل النص: أرقام تحدّث نفسها</h3>
+<span class="len">5 خطوات · 53 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-inline.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-inline.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.61"><button type="button"><span class="n">1</span><span>الرقم المكتوب يدويًا في النص صحيح اليوم. لكن عندما تُراجَع البيانات، لا أحد يتذكر تغييره.</span></button></li><li data-t="9.61" data-d="12.05"><button type="button"><span class="n">2</span><span>تجد <code>filter()</code> الصف، وتستخرج <code>pull()</code> الرقم. ثم يكتبه R داخل النص في الجملة عند التوليد: الصفحة تُقرأ كما هي، لكن الرقم محسوب.</span></button></li><li data-t="21.66" data-d="9.72"><button type="button"><span class="n">3</span><span>أي تعبير R يعمل داخل النص. هنا: المعدل في 2022، والتغيّر منذ ذلك الحين، مقرّبًا إلى منزلة عشرية واحدة.</span></button></li><li data-t="31.38" data-d="8.95"><button type="button"><span class="n">4</span><span>نغيّر سطرًا واحدًا في مقطع الإعداد ونولّد التقرير: فيتغيّر كل رقم في الجملة معه.</span></button></li><li data-t="40.33" data-d="13.0"><button type="button"><span class="n">5</span><span>رقما جازان 9 و2.1 يبدوان غريبين. تضبط <code>scales::number()</code> التنسيق: منزلة عشرية واحدة دائمًا، وإشارة زائد عند الارتفاع، فيُكتب 9 بالشكل 9.0، ويحمل التغيّر 2.1 إشارة زائد.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-inline/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-inline/step5-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-figures">
+<div class="head"><span class="e">اليوم 1 · المثال 7</span><h3>الأشكال: الحجم والعنوان والتخطيط</h3>
+<span class="len">3 خطوات · 29 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-figures.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-figures.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.39"><button type="button"><span class="n">1</span><span>يحدّد <code>fig-width</code> و<code>fig-height</code> حجم الرسم البياني بالبوصة. والرسم العريض القصير يناسب السلسلة الزمنية.</span></button></li><li data-t="9.39" data-d="8.73"><button type="button"><span class="n">2</span><span>يكتب <code>fig-cap</code> عنوان الشكل تحت الرسم البياني. وينتقل العنوان معه إلى Word وPDF.</span></button></li><li data-t="18.12" data-d="10.82"><button type="button"><span class="n">3</span><span>يضع <code>layout-ncol: 2</code> رسمين بيانيين جنبًا إلى جنب. ومع <code>!expr</code> يمكن أن يكون الخيار كود R، فيتبع عنوانُ الشكل الثاني قيمةَ <code>REGION</code>.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-figures/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-figures/step3-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
+<h3>اجعل الأرقام تتحرك</h3><ol><li>أضف مقطع الإعداد مع <code>include: false</code> و<code>REGION &lt;- "Riyadh"</code> إلى ملفك <code>report.qmd</code>.</li><li>اكتب جملة الملخص باستخدام R داخل النص، كما في المثال.</li><li>ولِّد التقرير، ثم غيّر <code>REGION</code> إلى <code>"Makkah"</code> وولِّده مرة أخرى: يجب أن يتغيّر كل رقم.</li></ol><details class="full"><summary>الملف كاملًا حتى الآن (84 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    html-math-method: mathml
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method
+
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">ابدأ المؤقت</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d1-b2"><script type="application/json">[{"q": "أي صورة تعرض مقطع رسم الاتجاه مع <code>echo: false</code>؟", "code": null, "options": [{"text": "أ", "img": "../frames/out/d1-chunks-01.png", "alt": ""}, {"text": "ب", "img": "../frames/out/d1-chunks-02.png", "alt": ""}, {"text": "ج", "img": "../frames/out/d1-chunks-04.png", "alt": ""}]}, {"q": "ما الفرق بين <code>include: false</code> و<code>echo: false</code>؟", "code": null, "options": ["لا فرق", "<code>include: false</code> يشغّل الكود ولا يعرض شيئًا؛ و<code>echo: false</code> يعرض النتيجة دون الكود", "<code>include: false</code> لا يشغّل الكود"]}, {"q": "قيمة <code>then</code> هي 9. ماذا يطبع <code>&#96;r scales::number(then, accuracy = 0.1)&#96;</code>؟", "code": null, "options": ["9", "9.0", "9.00"]}, {"q": "وماذا يطبع <code>&#96;r scales::number(2.14, accuracy = 0.1, style_positive = \"plus\")&#96;</code>؟", "code": null, "options": ["2.1", "+2.1", "+2.14"]}, {"q": "بأي وحدة يُقاس <code>fig-width: 8</code>؟", "code": null, "options": ["البكسل", "السنتيمتر", "البوصة"]}, {"q": "لماذا استخدم تخطيط الرسمين <code>fig-cap: !expr c(\"The Kingdom\", REGION)</code>؟", "code": null, "options": ["<code>!expr</code> يجعل الخيار كود R، فيتبع العنوان قيمة <code>REGION</code>", "لأنه مطلوب لأي قائمة من العناوين", "لأنه يخفي العنوان في Word"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>طابق الخيار مع ما يفعله</h3><p class="prompt">اضغط على خيار، ثم على ما يفعله.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "طابق الخيار مع ما يفعله", "prompt": "اضغط على خيار، ثم على ما يفعله.", "mono": "left", "pairs": [["echo: false", "إخفاء الكود مع إبقاء النتيجة"], ["eval: false", "عرض الكود دون تشغيله"], ["include: false", "تشغيل الكود دون عرض أي شيء"], ["message: false", "حذف الرسائل التي تطبعها الحزم"], ["code-fold: true", "الكود مطويّ خلف نقرة"], ["fig-cap", "عنوان تحت الرسم البياني"], ["layout-ncol: 2", "رسمان بيانيان جنبًا إلى جنب"]]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>مصدر واحد. لا أرقام مكتوبة يدويًا. لا شيء يحتاج إلى مراجعة من جديد.</p></div>
+<nav class="pager"><a href="d1-b1.html"><small>السابق</small>مستندك الأول في Quarto</a><a class="next" href="d1-b3.html"><small>التالي</small>الجداول والإحالات والتخطيط</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

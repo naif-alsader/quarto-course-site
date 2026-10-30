@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الكود والبيانات والحركة على الشرائح · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-b2">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3" class="on">اليوم 3</a><a class="lang" href="../d3-b2.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 3 · الجلسة 2 · 10:30–11:45</div><h1>الكود والبيانات والحركة على الشرائح</h1>
+<p class="goal">اشرح الكود للحاضرين خطوة بخطوة، واعرض الكود بجانب رسمه البياني، وأظهر التغيير بحركة، واجعل رقمًا واحدًا يملأ الشريحة.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">اضغط خطوة لتشغيلها وحدها، أو شغّل المثال كله.</p><div class="build" data-build="d3-lines">
+<div class="head"><span class="e">اليوم 3 · المثال 5</span><h3>شرح الكود سطرًا سطرًا</h3>
+<span class="len">4 خطوات · 36 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-lines.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-lines.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.2"><button type="button"><span class="n">1</span><span>شريحة عن الكود: <code>echo: true</code> يُظهره، و<code>eval: false</code> يمنع تشغيله. العرض التقديمي يخفي الكود ما لم نطلب.</span></button></li><li data-t="9.2" data-d="11.15"><button type="button"><span class="n">2</span><span><code>code-line-numbers: "|1|2|3-4"</code> يمرّ على الكود خطوة خطوة: كل نقرة تُبرز الأسطر التالية. النقرة الأولى: من أين تأتي البيانات.</span></button></li><li data-t="20.35" data-d="8.95"><button type="button"><span class="n">3</span><span>النقرة التالية: التصفية. نشرح خطوة واحدة في كل مرة، والحضور يقرؤون معنا.</span></button></li><li data-t="29.3" data-d="6.92"><button type="button"><span class="n">4</span><span>النقرة الأخيرة: السطران اللذان يُنتجان الرسم البياني.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d3-lines/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d3-lines/step4-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-code">
+<div class="head"><span class="e">اليوم 3 · المثال 6</span><h3>الكود بجانب رسمه البياني</h3>
+<span class="len">4 خطوات · 37 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-code.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-code.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.24"><button type="button"><span class="n">1</span><span>مع <code>echo: true</code> يظهر الكود على الشريحة، فيخرج الرسم البياني تحته من أسفلها. الكود والرسم يتنافسان على المساحة نفسها.</span></button></li><li data-t="10.24" data-d="10.99"><button type="button"><span class="n">2</span><span><code>output-location: column</code> يضع الكود على اليسار والرسم البياني على اليمين. يتّسع المكان للاثنين، وتنتقل العين من أحدهما إلى الآخر.</span></button></li><li data-t="21.23" data-d="8.15"><button type="button"><span class="n">3</span><span><code>column-fragment</code> يؤخّر ظهور الرسم البياني. نشرح الكود أولًا، فلا يسبقنا الحضور إلى النتيجة.</span></button></li><li data-t="29.38" data-d="7.46"><button type="button"><span class="n">4</span><span>نقرة واحدة، فتظهر النتيجة بجانب الكود الذي صنعها.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d3-code/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d3-code/step4-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-animate">
+<div class="head"><span class="e">اليوم 3 · المثال 7</span><h3>الحركة التلقائية (Auto-animate)</h3>
+<span class="len">2 خطوات · 20 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-animate.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-animate.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.43"><button type="button"><span class="n">1</span><span><code>{auto-animate=true}</code> على عنوان الشريحة يجهّزها للحركة. لكنه وحده لا يحرّك شيئًا بعد.</span></button></li><li data-t="8.43" data-d="11.39"><button type="button"><span class="n">2</span><span>نضيف الشريحة التالية بالخاصية نفسها. فيُزلق Reveal الأسطر المتطابقة إلى مكانها، ويُظهر الجديدة تدريجيًا. افتح العرض الحقيقي لترى الحركة.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d3-animate/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d3-animate/step2-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-backgrounds">
+<div class="head"><span class="e">اليوم 3 · المثال 8</span><h3>رقم واحد كبير</h3>
+<span class="len">2 خطوات · 19 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d3-backgrounds.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d3-backgrounds.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span><code>.r-fit-text</code> يكبّر النص حتى يملأ الشريحة: رقم واحد بأكبر حجم تسمح به الشاشة، ومحسوب مثل كل الأرقام الأخرى.</span></button></li><li data-t="9.53" data-d="9.53"><button type="button"><span class="n">2</span><span><code>background-color</code> على العنوان يلوّن الشريحة كلها. يلاحظ Reveal أن الخلفية داكنة، فيجعل النص أبيض.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d3-backgrounds/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d3-backgrounds/step2-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 6 دقائق</div>
+<h3>شريحة المنهجية</h3><ol><li>أضف شريحة فيها كود رسمك البياني، مع <code>echo: true</code> و<code>output-location: column-fragment</code>.</li><li>اعرضها: اشرح الكود، ثم انقر ليظهر الرسم البياني.</li><li>أضف شريحة للرقم الكبير باستخدام <code>.r-fit-text</code> و<code>background-color</code>.</li></ol><details class="full"><summary>الملف كاملًا حتى الآن (117 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Quarterly briefing · synthetic data&quot;
+format:
+  revealjs:
+    chalkboard: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+jazan &lt;- rates |&gt; filter(region == &quot;Jazan&quot;)
+change &lt;- rates |&gt;
+  filter(region != &quot;Kingdom&quot;) |&gt;
+  group_by(region) |&gt;
+  summarise(change = last(rate) - first(rate))
+up &lt;- change |&gt; filter(change &gt; 0) |&gt; pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change &lt; 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width=&quot;40%&quot;}
+Jazan&#x27;s rate rose while the Kingdom&#x27;s fell.
+:::
+::: {.column width=&quot;60%&quot;}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+
+# How the chart is made
+
+## Reading the pipeline
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: &quot;|1|2|3-4&quot;
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## The chart and its code
+
+```{r}
+#| echo: true
+#| output-location: column-fragment
+ggplot(jazan, aes(date, rate)) +
+  geom_line(linewidth = 1)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;)
+```
+
+## The pipeline grows {auto-animate=true}
+
+```r
+rates |&gt;
+  filter(region == &quot;Jazan&quot;) |&gt;
+  ggplot(aes(date, rate)) +
+  geom_line()
+```
+
+## Jazan, 2025 Q4 {background-color=&quot;#4137A8&quot;}
+
+::: {.r-fit-text}
+`r last(jazan$rate)`%
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">ابدأ المؤقت</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d3-b2"><script type="application/json">[{"q": "ماذا يفعل <code>code-line-numbers: \"|1|2|3-4\"</code>؟", "code": null, "options": ["يُظهر أرقام الأسطر فقط", "يبدأ دون إبراز، ثم يبرز السطر 1، ثم السطر 2، ثم السطرين 3 و4، خطوة مع كل نقرة", "يخفي الأسطر من 1 إلى 4"]}, {"q": "ما الفرق بين <code>output-location: column</code> و<code>column-fragment</code>؟", "code": null, "options": ["لا فرق", "<code>column-fragment</code> يؤخّر ظهور المُخرَج حتى النقرة", "<code>column-fragment</code> يضع المُخرَج تحت الكود"]}, {"q": "لا يتحرك شيء مع auto-animate. ما الناقص؟", "code": null, "options": ["الشريحة التالية تحتاج أيضًا إلى <code>{auto-animate=true}</code>", "خيار مقطع", "<code>embed-resources</code>"]}, {"q": "لماذا نحسب الرقم الكبير بـ R داخل النص على شريحته؟", "code": null, "options": ["لأن شكله أجمل", "ليتغيّر مع البيانات والمُعامِل، مثل أي رقم آخر", "الشرائح لا تقبل أرقامًا مكتوبة باليد"]}, {"q": "على شريحة فيها <code>background-color=\"#4137A8\"</code> يصبح النص أبيض. من فعل ذلك؟", "code": null, "options": ["أنت، عبر CSS", "Reveal، لأنه يكتشف أن الخلفية داكنة", "ملف الهوية المؤسسية"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>رتّب النقرات</h3><p class="prompt">الشريحة تستخدم <code>code-line-numbers: "|1|2|3-4"</code>. رتّب ما يراه الحاضرون.</p><div class="gbody"></div><script type="application/json">{"type": "order", "title": "رتّب النقرات", "prompt": "الشريحة تستخدم `code-line-numbers: \"|1|2|3-4\"`. رتّب ما يراه الحاضرون.", "items": ["كل الكود، دون إبراز", "إبراز السطر 1", "إبراز السطر 2", "إبراز السطرين 3 و4"], "win": "صحيح. الجزء الفارغ قبل أول <code>|</code> هو حالة البداية."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>اعرض الكود عندما تكون الطريقة هي المقصودة، وعندها فقط.</p></div>
+<nav class="pager"><a href="d3-b1.html"><small>السابق</small>من التقرير إلى العرض التقديمي</a><a class="next" href="d3-b3.html"><small>التالي</small>الهوية المؤسسية والمُعامِلات والمشاركة</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+ "id": "d2-batch",
+ "title": "13 تقريرًا من قالب واحد",
+ "eyebrow": "اليوم 2 · المثال 7",
+ "show": "render-all.R",
+ "duration": 48.31,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.82,
+   "say": "سكربت التوليد هو خط الإنتاج: <code>walk()</code> تستدعي <code>quarto_render()</code> مرة لكل منطقة. نبدأ بثلاث مناطق ونفحصها، قبل التشغيل على 13 منطقة."
+  },
+  {
+   "t": 11.82,
+   "d": 11.88,
+   "say": "نضيف الحدود الشمالية ونقرأ اسم ملفها: فيه مسافة. والمسافات تكسر الروابط ومرفقات البريد، والسكربت التالي الذي يقرأ هذا المجلد."
+  },
+  {
+   "t": 23.7,
+   "d": 11.61,
+   "say": "نبني اسم الملف من اسم المنطقة باستخدام stringr: أحرف صغيرة، وشَرطات بدل المسافات. الاسم <code>report-northern-borders.pdf</code> آمن في كل مكان."
+  },
+  {
+   "t": 35.31,
+   "d": 13.0,
+   "say": "نقرأ المناطق من <code>regions.csv</code>. لكل ملف PDF عنوانه وصياغته، لأن الاثنين يأتيان من المُعامِل. نضيف منطقة إلى الملف، فيظهر ملف PDF الخاص بها."
+  }
+ ],
+ "downloads": [
+  "step1-render-all.R",
+  "step2-render-all.R",
+  "step3-render-all.R",
+  "step4-render-all.R"
+ ],
+ "final": "library(tidyverse)\n\nregions <- read_csv(\"regions.csv\") |> pull(region_en)\n\nwalk(regions, \\(r) {\n  slug <- r |> str_to_lower() |> str_replace_all(\" \", \"-\")\n  quarto::quarto_render(\n    \"report.qmd\",\n    output_format = \"typst\",\n    execute_params = list(region = r),\n    output_file = str_glue(\"report-{slug}.pdf\")\n  )\n})\n",
+ "live": null
+}

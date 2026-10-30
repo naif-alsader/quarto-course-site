@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>مستندك الأول في Quarto</title>
+<link rel="stylesheet" href="frames.css">
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" class="rtl" data-composition-id="p-quarto" data-start="0" data-duration="54.29" data-width="1920" data-height="1080">
+<div id="stage" class="stage clip" data-start="0" data-duration="54.29" data-track-index="0">
+<div class="eyebrow">اليوم 1 · نبدأ مع Quarto</div>
+<div class="title">مستندك الأول في Quarto</div>
+<img class="logo" src="logo.png" alt="">
+<div class="shotbox"><div class="cam"><img class="shot" src="out/pos-palette-qmd.png" alt=""><img class="shot" src="out/pos-new-qmd.png" alt=""><img class="shot" src="out/pos-qmd.png" alt=""><img class="shot" src="out/pos-preview.png" alt=""><div class="ring"></div></div><div class="tag"></div><div class="tag">YAML header</div><div class="tag"></div><div class="tag">Preview</div><div class="tag">Viewer</div><div class="tag">the finished page</div></div>
+<div class="caps"><div class="cap"><div class="n">1</div><div class="t">يفتح Ctrl+Shift+P لوحة الأوامر، وفيها كل الأوامر. والأمر <code>Quarto: New Document</code> يبدأ تقريرًا جديدًا.</div></div><div class="cap"><div class="n">2</div><div class="t">يبدأ مستند Quarto بترويسة بين سطرين من <code>---</code>: فيها هنا العنوان وصيغة المُخرَج.</div></div><div class="cap"><div class="n">3</div><div class="t">تحت الترويسة: نصّك، ثم كود R في مقطع كود تحيط به ثلاث علامات backtick. وهو نفس كود R الذي شغّلناه في السكربت.</div></div><div class="cap"><div class="n">4</div><div class="t">نضغط Preview.</div></div><div class="cap"><div class="n">5</div><div class="t">يشغّل Quarto الكود ويعرض الصفحة النهائية في لوحة Viewer: النص، والرسم البياني مرسومًا من جديد. ملف واحد صنع كل هذا.</div></div><div class="cap"><div class="n">6</div><div class="t">عن قرب: العنوان من الترويسة، والجملة التي كتبناها، والرسم الذي رسمه R. نعدّل الملف، ونضغط Preview مرة أخرى، فتتغيّر الصفحة معه.</div></div></div>
+<div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+<script type="application/json" id="plan">{"t": [0, 8.92, 17.46, 26.93, 33.43, 43.39], "d": [8.92, 8.54, 9.47, 6.5, 9.96, 10.9], "steps": [{"shot": 0, "ring": [441, 77, 722, 134], "cam": {"s": 1.8204, "x": -730.0, "y": 0}, "tag": null, "label": null, "say_en": "Ctrl+Shift+P opens the command palette, where every command lives. `Quarto: New Document` starts a report."}, {"shot": 1, "ring": [383, 152, 260, 98], "cam": {"s": 1.6026, "x": -410.3, "y": 0}, "tag": {"x": 203.5, "y": 193.6}, "label": "YAML header", "say_en": "A Quarto document begins with a header between two `---` lines: here a title and the output format."}, {"shot": 2, "ring": [383, 176, 744, 362], "cam": {"s": 1.3526, "x": -232.3, "y": -50.0}, "tag": null, "label": null, "say_en": "Under the header: your words, then R code in a chunk, fenced by three backticks. The same R you ran in the script."}, {"shot": 2, "ring": [318, 120, 108, 30], "cam": {"s": 1.8718, "x": -479.2, "y": 0}, "tag": {"x": 116.0, "y": 174.6}, "label": "Preview", "say_en": "Press Preview."}, {"shot": 3, "ring": [1127, 77, 473, 797], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 1028.4, "y": 20.3}, "label": "Viewer", "say_en": "Quarto runs the code and shows the finished page in the Viewer: the words, and the chart drawn fresh. One file made it all."}, {"shot": 3, "ring": [1160, 140, 420, 280], "cam": {"s": 2.0024, "x": -1743.9, "y": -160.2}, "tag": {"x": 578.9, "y": 70.1}, "label": "the finished page", "say_en": "Up close: the title from the header, the sentence you wrote, and the chart R drew. Edit the file, press Preview again, and the page follows."}]}</script>
+<script>
+(function () {
+  const P = JSON.parse(document.getElementById("plan").textContent);
+  const q = s => Array.from(document.querySelectorAll(s));
+  const shots = q(".shot"), caps = q(".cap"), tags = q(".tag"), dots = q(".dots i");
+  const cam = document.querySelector(".cam"), ring = document.querySelector(".ring");
+  const tl = gsap.timeline({ paused: true });
+  const S = P.steps;
+  const ringAt = (st) => {
+    const r = st.ring, pad = 8 / st.cam.s;
+    return { left: r[0] - pad, top: r[1] - pad, width: r[2] + 2 * pad, height: r[3] + 2 * pad,
+             borderWidth: 4 / st.cam.s, borderRadius: 10 / st.cam.s };
+  };
+  // starting states at 0, then only forward tweens: seek-safe
+  tl.set(cam, { transformOrigin: "0 0", x: S[0].cam.x, y: S[0].cam.y, scale: S[0].cam.s }, 0);
+  // one set per element at time 0: two conflicting sets at 0 do not survive the renderer's seeks
+  tl.set(shots.filter((_, i) => i !== S[0].shot), { autoAlpha: 0 }, 0);
+  tl.fromTo(shots[S[0].shot], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, immediateRender: false }, 0.05);
+  tl.set(caps.concat(tags), { autoAlpha: 0 }, 0);
+  tl.set(dots, { backgroundColor: "#E6E7EC" }, 0);
+  tl.set(ring, Object.assign({ autoAlpha: 0 }, S[0].ring ? ringAt(S[0]) : { left: 700, top: 400, width: 200, height: 100 }), 0);
+  S.forEach((st, k) => {
+    const T = P.t[k], prev = k ? S[k - 1] : null;
+    if (prev) {
+      tl.to(caps[k - 1], { autoAlpha: 0, duration: 0.25 }, T);
+      if (prev.tag) tl.to(tags[k - 1], { autoAlpha: 0, duration: 0.2 }, T);
+      if (st.shot !== prev.shot) {
+        tl.to(shots[st.shot], { autoAlpha: 1, duration: 0.45 }, T + 0.1);
+        tl.to(shots[prev.shot], { autoAlpha: 0, duration: 0.45 }, T + 0.25);
+      }
+      tl.to(cam, { x: st.cam.x, y: st.cam.y, scale: st.cam.s, duration: 0.9, ease: "power2.inOut" }, T + 0.2);
+      if (st.ring && prev.ring) tl.to(ring, Object.assign({ duration: 0.8, ease: "power2.inOut" }, ringAt(st)), T + 0.2);
+      if (st.ring && !prev.ring) {
+        tl.set(ring, ringAt(st), T + 0.2);
+        tl.to(ring, { autoAlpha: 1, duration: 0.5 }, T + 0.7);
+      }
+      if (!st.ring && prev.ring) tl.to(ring, { autoAlpha: 0, duration: 0.3 }, T + 0.05);
+    } else if (st.ring) {
+      tl.to(ring, { autoAlpha: 1, duration: 0.5 }, 0.6);
+    }
+    tl.fromTo(caps[k], { y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, T + 0.25);
+    if (st.tag) {
+      tl.set(tags[k], { left: st.tag.x, top: st.tag.y }, T);
+      tl.to(tags[k], { autoAlpha: 1, duration: 0.3 }, T + 1.1);
+    }
+    tl.to(dots[k], { backgroundColor: "#4137A8", duration: 0.3 }, T);
+  });
+  tl.set({}, {}, 54.29);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["p-quarto"] = tl;
+})();
+</script>
+</body>
+</html>

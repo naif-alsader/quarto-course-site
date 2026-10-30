@@ -16,6 +16,39 @@
   };
   const page = document.body.dataset.page || 'home';
 
+  // In the Arabic edition, a bare value (+2.1, report.qmd) reads left to right
+  const AR = document.documentElement.lang === 'ar';
+  const ltr = (el, text) => { if (AR && !/[\u0600-\u06FF]/.test(String(text))) el.setAttribute('dir', 'ltr'); return el; };
+
+  // Interface text, in the page's language (<html lang="ar"> is the Arabic edition)
+  const L = document.documentElement.lang === 'ar' ? {
+    copied: 'نُسخ', selectCopy: 'حدِّد النص وانسخه', copy: 'انسخ', startTimer: 'ابدأ المؤقت', time: 'انتهى الوقت', stop: 'أوقف',
+    pick: 'اختر إجابة لكل سؤال، وسيناقشها المدرّب معكم في القاعة.', once: 'أجب عن كل سؤال مرة واحدة.',
+    question: (n, N) => `السؤال ${n} من ${N}`, right: 'صحيح. ', notQuite: 'ليس تمامًا. ',
+    allRight: 'كل إجاباتك صحيحة. أحسنت.', readWhy: 'اقرأ السبب في الأسئلة التي فاتتك.',
+    tapOrder: 'اضغط البطاقات أدناه بالترتيب.', arrow: '←', placeAll: n => `رتّب البطاقات كلها (${n}) أولًا.`,
+    correctOrder: 'الترتيب صحيح.', placed: (ok, n) => `${ok} من ${n} في مكانها الصحيح. اضغط بطاقة لإعادتها.`,
+    check: 'تحقّق', reset: 'من جديد', pickFirst: 'اختر بطاقة من العمود الأول أولًا.',
+    matched: miss => (miss ? `طابقتها كلها، مع ${miss} ${miss === 1 ? 'محاولة خاطئة' : 'محاولات خاطئة'}.` : 'طابقتها كلها دون أي خطأ.'),
+    found: (f, n) => `وجدت ${f} من ${n}. واصل البحث.`, statements: (n, sec) => `${n} عبارات، ${sec} ثانية. صح أم خطأ؟`,
+    score: (s, n) => `النتيجة: ${s} من ${n}`, perfect: 'جولة كاملة دون خطأ.', missed: 'العبارات التي فاتتك:',
+    yes: 'صح', no: 'خطأ', again: 'العب مرة أخرى', start: 'ابدأ', good: (g, n) => `${g} من ${n} صحيحة.`,
+    showAnswer: 'أظهر الإجابة', missingCode: 'الكود الناقص', started: 'بدأت هذه الصفحة',
+  } : {
+    copied: 'Copied', selectCopy: 'Select and copy', copy: 'Copy', startTimer: 'Start timer', time: 'Time', stop: 'Stop',
+    pick: 'Pick an answer for each question. The instructor goes through them in the room.', once: 'Answer each question once.',
+    question: (n, N) => `Question ${n} of ${N}`, right: 'Right. ', notQuite: 'Not quite. ',
+    allRight: 'All right. Well done.', readWhy: 'Read the reasons for the ones you missed.',
+    tapOrder: L.tapOrder, arrow: '→', placeAll: n => `Place all ${n} cards first.`,
+    correctOrder: 'Correct order.', placed: (ok, n) => `${ok} of ${n} in the right place. Tap a card to take it back.`,
+    check: 'Check', reset: 'Reset', pickFirst: L.pickFirst,
+    matched: miss => (L.matched(miss)),
+    found: (f, n) => `Found ${f} of ${n}. Keep looking.`, statements: (n, sec) => `${n} statements, ${sec} seconds. True or false?`,
+    score: (s, n) => `Score: ${s} of ${n}`, perfect: 'Perfect round.', missed: 'The ones you missed:',
+    yes: 'True', no: 'False', again: 'Play again', start: 'Start', good: (g, n) => `${g} of ${n} right.`,
+    showAnswer: 'Show answer', missingCode: 'missing code', started: 'You have started this',
+  };
+
   // Progress lives in this browser only. Private windows may refuse storage.
   const store = {
     get(k) { try { return localStorage.getItem('qc2:' + k); } catch (e) { return null; } },
@@ -81,20 +114,20 @@
   function initCopy(btn) {
     btn.addEventListener('click', async () => {
       const text = btn.parentElement.querySelector('pre').innerText;
-      try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; }
-      catch (e) { btn.textContent = 'Select and copy'; }
-      setTimeout(() => (btn.textContent = 'Copy'), 1800);
+      try { await navigator.clipboard.writeText(text); btn.textContent = L.copied; }
+      catch (e) { btn.textContent = L.selectCopy; }
+      setTimeout(() => (btn.textContent = L.copy), 1800);
     });
   }
   function initTimer(btn) {
     const out = btn.parentElement.querySelector('.timer');
     let id = null;
     btn.addEventListener('click', () => {
-      if (id) { clearInterval(id); id = null; btn.textContent = 'Start timer'; return; }
+      if (id) { clearInterval(id); id = null; btn.textContent = L.startTimer; return; }
       let left = +btn.dataset.min * 60;
       const tick = () => { out.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
-        if (left-- <= 0) { clearInterval(id); id = null; out.textContent = 'Time'; btn.textContent = 'Start timer'; } };
-      tick(); id = setInterval(tick, 1000); btn.textContent = 'Stop';
+        if (left-- <= 0) { clearInterval(id); id = null; out.textContent = L.time; btn.textContent = L.startTimer; } };
+      tick(); id = setInterval(tick, 1000); btn.textContent = L.stop;
     });
   }
 
@@ -105,18 +138,18 @@
     const open = qs.every(q => q.answer === undefined);
     let answered = 0, right = 0;
     const scoreBox = open
-      ? h('div', { class: 'score' }, h('span', {}, 'Pick an answer for each question. The instructor goes through them in the room.'))
-      : h('div', { class: 'score' }, h('span', { class: 'big' }, `0/${qs.length}`), h('span', {}, 'Answer each question once.'));
+      ? h('div', { class: 'score' }, h('span', {}, L.pick))
+      : h('div', { class: 'score' }, h('span', { class: 'big' }, `0/${qs.length}`), h('span', {}, L.once));
     qs.forEach((q, n) => {
       const box = h('div', { class: 'q' });
-      box.append(h('div', { class: 'qn' }, `Question ${n + 1} of ${qs.length}`), h('div', { class: 'qt', html: q.q }));
+      box.append(h('div', { class: 'qn' }, L.question(n + 1, qs.length)), h('div', { class: 'qt', html: q.q }));
       if (q.code) box.append(h('div', { class: 'codebox' }, h('pre', {}, q.code)));
       const opts = h('div', { class: 'opts' + (q.options.some(o => o.img) ? ' pics' : '') });
       const why = h('div', { class: 'why', html: q.why || '' });
       q.options.forEach((o, i) => {
         const b = h('button', { class: 'opt', type: 'button' });
         if (o.img) b.append(h('img', { src: o.img, alt: o.alt || '' }));
-        b.append(h('span', { html: o.text ?? o }));
+        b.append(ltr(h('span', { html: o.text ?? o }), o.text ?? o));
         b.addEventListener('click', () => {
           if (open) { [...opts.children].forEach(x => x.classList.toggle('sel', x === b)); return; }
           if (box.dataset.done) return;
@@ -124,11 +157,11 @@
           const ok = i === q.answer; if (ok) right++;
           b.classList.add(ok ? 'right' : 'wrong');
           opts.children[q.answer].classList.add('right');
-          why.prepend(h('b', {}, ok ? 'Right. ' : 'Not quite. '));
+          why.prepend(h('b', {}, ok ? L.right : L.notQuite));
           why.classList.add('show');
           scoreBox.firstChild.textContent = `${right}/${qs.length}`;
           if (answered === qs.length) {
-            scoreBox.lastChild.textContent = right === qs.length ? 'All right. Well done.' : 'Read the reasons for the ones you missed.';
+            scoreBox.lastChild.textContent = right === qs.length ? L.allRight : L.readWhy;
             const best = +(store.get(`quiz:${key}`) || 0);
             if (right > best) store.set(`quiz:${key}`, right);
             markDone('quiz:' + key);
@@ -152,23 +185,23 @@
       const items = shuffle(g.items, g.title);
       const draw = () => {
         slots.innerHTML = '';
-        if (!picked.length) slots.append(h('span', { class: 'note' }, 'Tap the cards below in order.'));
+        if (!picked.length) slots.append(h('span', { class: 'note' }, L.tapOrder));
         picked.forEach((it, i) => {
-          if (i) slots.append(h('span', { class: 'arrow' }, '→'));
-          slots.append(h('button', { class: 'chip', type: 'button', onclick: () => { picked.splice(i, 1); draw(); } }, it));
+          if (i) slots.append(h('span', { class: 'arrow' }, L.arrow));
+          slots.append(ltr(h('button', { class: 'chip', type: 'button', onclick: () => { picked.splice(i, 1); draw(); } }, it), it));
         });
         $$('.chip', pool).forEach(c => c.classList.toggle('used', picked.includes(c.dataset.v)));
       };
-      items.forEach(it => pool.append(h('button', { class: 'chip', type: 'button', 'data-v': it,
-        onclick: () => { if (!picked.includes(it)) { picked.push(it); draw(); res.textContent = ''; } } }, it)));
+      items.forEach(it => pool.append(ltr(h('button', { class: 'chip', type: 'button', 'data-v': it,
+        onclick: () => { if (!picked.includes(it)) { picked.push(it); draw(); res.textContent = ''; } } }, it), it)));
       const check = h('button', { class: 'btn primary', type: 'button', onclick: () => {
-        if (picked.length < g.items.length) { res.className = 'result no'; res.textContent = `Place all ${g.items.length} cards first.`; return; }
+        if (picked.length < g.items.length) { res.className = 'result no'; res.textContent = L.placeAll(g.items.length); return; }
         const chips = $$('.chip', slots);
         let ok = 0; picked.forEach((it, i) => { const good = it === g.items[i]; ok += good; chips[i].classList.add(good ? 'right' : 'wrong'); });
-        if (ok === g.items.length) { res.className = 'result ok'; res.innerHTML = g.win || 'Correct order.'; markDone('game'); }
-        else { res.className = 'result no'; res.textContent = `${ok} of ${g.items.length} in the right place. Tap a card to take it back.`; }
-      } }, 'Check');
-      const reset = h('button', { class: 'btn', type: 'button', onclick: () => { picked.length = 0; draw(); res.textContent = ''; } }, 'Reset');
+        if (ok === g.items.length) { res.className = 'result ok'; res.innerHTML = g.win || L.correctOrder; markDone('game'); }
+        else { res.className = 'result no'; res.textContent = L.placed(ok, g.items.length); }
+      } }, L.check);
+      const reset = h('button', { class: 'btn', type: 'button', onclick: () => { picked.length = 0; draw(); res.textContent = ''; } }, L.reset);
       el.append(slots, pool, h('div', { class: 'tools', style: 'padding:14px 0 0' }, check, reset), res);
       draw();
     },
@@ -184,12 +217,12 @@
       shuffle(g.pairs.map((p, i) => i), g.title).forEach(i => right.append(h('button', { class: 'chip' + (mono[1] ? ' mono' : ''), type: 'button',
         onclick: e => {
           const b = e.currentTarget; if (b.disabled) return;
-          if (sel === null) { res.className = 'result'; res.textContent = 'Pick a card on the left first.'; return; }
+          if (sel === null) { res.className = 'result'; res.textContent = L.pickFirst; return; }
           const lb = $(`[data-i="${sel}"]`, left);
           if (sel === i) {
             [b, lb].forEach(x => { x.classList.remove('sel'); x.classList.add('right'); x.disabled = true; });
             sel = null; done++;
-            if (done === g.pairs.length) { res.className = 'result ok'; res.textContent = miss ? `All matched, with ${miss} wrong ${miss === 1 ? 'try' : 'tries'}.` : 'All matched, no mistakes.'; markDone('game'); }
+            if (done === g.pairs.length) { res.className = 'result ok'; res.textContent = L.matched(miss); markDone('game'); }
           } else {
             miss++; b.classList.add('wrong'); setTimeout(() => b.classList.remove('wrong'), 500);
           }
@@ -208,7 +241,7 @@
           if (bad.has(n)) {
             b.dataset.done = '1'; b.classList.add('right'); found++;
             if (found === bad.size) { res.className = 'result ok'; res.innerHTML = g.why; markDone('game'); }
-            else { res.className = 'result'; res.textContent = `Found ${found} of ${bad.size}. Keep looking.`; }
+            else { res.className = 'result'; res.textContent = L.found(found, bad.size); }
           } else { b.classList.add('wrong'); setTimeout(() => b.classList.remove('wrong'), 600); }
         } }, h('span', { class: 'no' }, String(n)), line || ' '));
       });
@@ -217,7 +250,7 @@
 
     // true or false against the clock
     speed(el, g) {
-      const card = h('div', { class: 'card' }, `${g.items.length} statements, ${g.seconds} seconds. True or false?`);
+      const card = h('div', { class: 'card' }, L.statements(g.items.length, g.seconds));
       const bar = h('div', { class: 'bar' }, h('i', {}));
       const res = h('div', { class: 'result' }), review = h('ol', { class: 'review' });
       const tf = h('div', { class: 'tf' });
@@ -225,12 +258,12 @@
       const items = shuffle(g.items, g.title);
       const end = () => {
         clearInterval(timer); timer = null; tf.innerHTML = '';
-        card.textContent = `Score: ${score} of ${items.length}`;
+        card.textContent = L.score(score, items.length);
         res.className = 'result ' + (score === items.length ? 'ok' : 'no');
-        res.textContent = score === items.length ? 'Perfect round.' : 'The ones you missed:';
+        res.textContent = score === items.length ? L.perfect : L.missed;
         review.innerHTML = '';
-        wrong.forEach(w => review.append(h('li', { html: `${w.s} <b>${w.a ? 'True' : 'False'}</b>. ${w.why || ''}` })));
-        tf.append(h('button', { type: 'button', onclick: start }, 'Play again'));
+        wrong.forEach(w => review.append(h('li', { html: `${w.s} <b>${w.a ? L.yes : L.no}</b>. ${w.why || ''}` })));
+        tf.append(h('button', { type: 'button', onclick: start }, L.again));
         if (score >= Math.ceil(items.length * 0.8)) markDone('game');
       };
       const next = () => { if (i >= items.length) return end(); card.innerHTML = items[i].s; };
@@ -238,11 +271,11 @@
       function start() {
         i = 0; score = 0; wrong = []; left = g.seconds; res.textContent = ''; review.innerHTML = '';
         tf.innerHTML = '';
-        tf.append(h('button', { type: 'button', onclick: () => answer(true) }, 'True'), h('button', { type: 'button', onclick: () => answer(false) }, 'False'));
+        tf.append(h('button', { type: 'button', onclick: () => answer(true) }, L.yes), h('button', { type: 'button', onclick: () => answer(false) }, L.no));
         bar.firstChild.style.width = '100%'; next();
         timer = setInterval(() => { left -= 0.1; bar.firstChild.style.width = Math.max(0, left / g.seconds * 100) + '%'; if (left <= 0) end(); }, 100);
       }
-      tf.append(h('button', { type: 'button', onclick: start }, 'Start'));
+      tf.append(h('button', { type: 'button', onclick: start }, L.start));
       el.append(bar, card, tf, res, review);
     },
 
@@ -254,7 +287,7 @@
         const m = part.match(/^\[\[(.+)\]\]$/);
         if (m) {
           const ok = m[1].split('|').map(s => s.trim());  // code is case-sensitive
-          const inp = h('input', { type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': 'missing code' });
+          const inp = h('input', { type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': L.missingCode });
           inp.style.width = Math.max(5, ok[0].length + 1) + 'ch';
           inp.dataset.ok = JSON.stringify(ok); inputs.push(inp); pre.append(inp);
         } else pre.append(part);
@@ -266,12 +299,12 @@
         inputs.forEach(inp => { const ok = JSON.parse(inp.dataset.ok).includes(inp.value.trim());
           inp.classList.toggle('right', ok); inp.classList.toggle('wrong', !ok); good += ok; });
         if (good === inputs.length) { res.className = 'result ok'; res.innerHTML = g.why; markDone('game'); }
-        else { res.className = 'result no'; res.textContent = `${good} of ${inputs.length} right.`; }
-      } }, 'Check');
+        else { res.className = 'result no'; res.textContent = L.good(good, inputs.length); }
+      } }, L.check);
       const show = h('button', { class: 'btn', type: 'button', onclick: () => {
         inputs.forEach(inp => { inp.value = JSON.parse(inp.dataset.ok)[0]; inp.classList.add('right'); });
         res.className = 'result'; res.innerHTML = g.why;
-      } }, 'Show answer');
+      } }, L.showAnswer);
       el.append(box, h('div', { class: 'tools', style: 'padding:12px 0 0' }, check, show), res);
     },
   };
@@ -294,7 +327,7 @@
       const id = a.dataset.tick;
       let any = false;
       try { for (let i = 0; i < localStorage.length; i++) if (localStorage.key(i).startsWith(`qc2:done:${id}:`)) any = true; } catch (e) { /* no storage */ }
-      if (any) a.append(h('span', { class: 'tick', title: 'You have started this' }, '✓'));
+      if (any) a.append(h('span', { class: 'tick', title: L.started }, '✓'));
     });
   }
 

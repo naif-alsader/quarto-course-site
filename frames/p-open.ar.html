@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>فتح Positron</title>
+<link rel="stylesheet" href="frames.css">
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" class="rtl" data-composition-id="p-open" data-start="0" data-duration="61.24" data-width="1920" data-height="1080">
+<div id="stage" class="stage clip" data-start="0" data-duration="61.24" data-track-index="0">
+<div class="eyebrow">اليوم 1 · نقطة البداية</div>
+<div class="title">فتح Positron</div>
+<img class="logo" src="logo.png" alt="">
+<div class="shotbox"><div class="cam"><img class="shot" src="out/pos-welcome.png" alt=""><img class="shot" src="out/pos-pick-r.png" alt=""><img class="shot" src="out/pos-session.png" alt=""><div class="ring"></div></div><div class="tag"></div><div class="tag">Explorer</div><div class="tag">Start Session</div><div class="tag">R 4.3.3</div><div class="tag">Console</div><div class="tag">Variables</div><div class="tag">Plots</div><div class="tag">R is running</div></div>
+<div class="caps"><div class="cap"><div class="n">1</div><div class="t">هذا Positron، المحرّر الذي نستخدمه طوال الأسبوع. يفتح على صفحة Welcome، ومجلد المشروع على اليسار.</div></div><div class="cap"><div class="n">2</div><div class="t">تعرض لوحة Explorer ملفات مجلد المشروع. فيه الآن ملف واحد: البيانات، <code>unemployment.csv</code>.</div></div><div class="cap"><div class="n">3</div><div class="t">لا شيء يعمل بعد. نضغط Start Session في الأعلى لتشغيل R.</div></div><div class="cap"><div class="n">4</div><div class="t">نختار R. يعرض Positron أيضًا أي نسخة Python يجدها على الجهاز؛ لكننا في هذه الدورة نستخدم R دائمًا.</div></div><div class="cap"><div class="n">5</div><div class="t">R يعمل الآن. في لوحة Console نتحدث إلى R، وفيها يجيب.</div></div><div class="cap"><div class="n">6</div><div class="t">ستعرض لوحة Variables كل كائن ننشئه، وما يحمله من قيم.</div></div><div class="cap"><div class="n">7</div><div class="t">وستعرض لوحة Plots كل رسم بياني نرسمه.</div></div><div class="cap"><div class="n">8</div><div class="t">تظهر اللغة التي تعمل الآن في الأعلى. نضغط عليها لإعادة تشغيل R إذا توقف عن الاستجابة.</div></div></div>
+<div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+<script type="application/json" id="plan">{"t": [0, 9.3, 18.05, 24.55, 33.14, 40.25, 46.86, 53.36], "d": [9.3, 8.75, 6.5, 8.59, 7.11, 6.61, 6.5, 7.88], "steps": [{"shot": 0, "ring": null, "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": null, "label": null, "say_en": "This is Positron, the editor we use all week. It opens on a Welcome page, with your project folder on the left."}, {"shot": 0, "ring": [58, 77, 239, 797], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 52.9, "y": 20.3}, "label": "Explorer", "say_en": "The Explorer lists the files in the project folder. For now there is one: the data, `unemployment.csv`."}, {"shot": 0, "ring": [1205, 41, 147, 29], "cam": {"s": 1.8718, "x": -1534.9, "y": 0}, "tag": {"x": 720.6, "y": 26.7}, "label": "Start Session", "say_en": "Nothing runs yet. Press Start Session at the top to start R."}, {"shot": 1, "ring": [449, 204, 706, 53], "cam": {"s": 1.8204, "x": -730.0, "y": -21.9}, "tag": {"x": 87.4, "y": 299.5}, "label": "R 4.3.3", "say_en": "Choose R. Positron also lists any Python it finds on the machine; this course always uses R."}, {"shot": 2, "ring": [296, 77, 831, 797], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 270.1, "y": 20.3}, "label": "Console", "say_en": "R is running. The Console is where you talk to R, and where it answers."}, {"shot": 2, "ring": [1128, 119, 472, 377], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 1029.3, "y": 58.6}, "label": "Variables", "say_en": "Variables will list every object you make, with what it holds."}, {"shot": 2, "ring": [1128, 496, 472, 378], "cam": {"s": 0.9125, "x": 0, "y": 0}, "tag": {"x": 1029.3, "y": 402.6}, "label": "Plots", "say_en": "Plots will show every chart you draw."}, {"shot": 2, "ring": [1240, 41, 112, 29], "cam": {"s": 2.1471, "x": -1975.3, "y": 0}, "tag": {"x": 687.1, "y": 38.0}, "label": "R is running", "say_en": "The running language shows at the top. Click it to restart R when something hangs."}]}</script>
+<script>
+(function () {
+  const P = JSON.parse(document.getElementById("plan").textContent);
+  const q = s => Array.from(document.querySelectorAll(s));
+  const shots = q(".shot"), caps = q(".cap"), tags = q(".tag"), dots = q(".dots i");
+  const cam = document.querySelector(".cam"), ring = document.querySelector(".ring");
+  const tl = gsap.timeline({ paused: true });
+  const S = P.steps;
+  const ringAt = (st) => {
+    const r = st.ring, pad = 8 / st.cam.s;
+    return { left: r[0] - pad, top: r[1] - pad, width: r[2] + 2 * pad, height: r[3] + 2 * pad,
+             borderWidth: 4 / st.cam.s, borderRadius: 10 / st.cam.s };
+  };
+  // starting states at 0, then only forward tweens: seek-safe
+  tl.set(cam, { transformOrigin: "0 0", x: S[0].cam.x, y: S[0].cam.y, scale: S[0].cam.s }, 0);
+  // one set per element at time 0: two conflicting sets at 0 do not survive the renderer's seeks
+  tl.set(shots.filter((_, i) => i !== S[0].shot), { autoAlpha: 0 }, 0);
+  tl.fromTo(shots[S[0].shot], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, immediateRender: false }, 0.05);
+  tl.set(caps.concat(tags), { autoAlpha: 0 }, 0);
+  tl.set(dots, { backgroundColor: "#E6E7EC" }, 0);
+  tl.set(ring, Object.assign({ autoAlpha: 0 }, S[0].ring ? ringAt(S[0]) : { left: 700, top: 400, width: 200, height: 100 }), 0);
+  S.forEach((st, k) => {
+    const T = P.t[k], prev = k ? S[k - 1] : null;
+    if (prev) {
+      tl.to(caps[k - 1], { autoAlpha: 0, duration: 0.25 }, T);
+      if (prev.tag) tl.to(tags[k - 1], { autoAlpha: 0, duration: 0.2 }, T);
+      if (st.shot !== prev.shot) {
+        tl.to(shots[st.shot], { autoAlpha: 1, duration: 0.45 }, T + 0.1);
+        tl.to(shots[prev.shot], { autoAlpha: 0, duration: 0.45 }, T + 0.25);
+      }
+      tl.to(cam, { x: st.cam.x, y: st.cam.y, scale: st.cam.s, duration: 0.9, ease: "power2.inOut" }, T + 0.2);
+      if (st.ring && prev.ring) tl.to(ring, Object.assign({ duration: 0.8, ease: "power2.inOut" }, ringAt(st)), T + 0.2);
+      if (st.ring && !prev.ring) {
+        tl.set(ring, ringAt(st), T + 0.2);
+        tl.to(ring, { autoAlpha: 1, duration: 0.5 }, T + 0.7);
+      }
+      if (!st.ring && prev.ring) tl.to(ring, { autoAlpha: 0, duration: 0.3 }, T + 0.05);
+    } else if (st.ring) {
+      tl.to(ring, { autoAlpha: 1, duration: 0.5 }, 0.6);
+    }
+    tl.fromTo(caps[k], { y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, T + 0.25);
+    if (st.tag) {
+      tl.set(tags[k], { left: st.tag.x, top: st.tag.y }, T);
+      tl.to(tags[k], { autoAlpha: 1, duration: 0.3 }, T + 1.1);
+    }
+    tl.to(dots[k], { backgroundColor: "#4137A8", duration: 0.3 }, T);
+  });
+  tl.set({}, {}, 61.24);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["p-open"] = tl;
+})();
+</script>
+</body>
+</html>

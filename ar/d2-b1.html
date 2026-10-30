@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مصدر واحد، صيغ كثيرة · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d2-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2" class="on">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d2-b1.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 2 · الجلسة 1 · 09:00–10:15</div><h1>مصدر واحد، صيغ كثيرة</h1>
+<p class="goal">أرسل تقرير اليوم 1 إلى Word وPDF من الملف نفسه، بالهوية المؤسسية، وقرّر ما تعرضه كل صيغة.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">يبدأ اليوم 2 من تقرير اليوم 1 المكتمل. لا نعيد كتابة شيء؛ نضيف أسطرًا فقط.</p><div class="build" data-build="d2-formats">
+<div class="head"><span class="e">اليوم 2 · المثال 1</span><h3>مصدر واحد، ثلاث صيغ</h3>
+<span class="len">4 خطوات · 44 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-formats.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-formats.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.07"><button type="button"><span class="n">1</span><span>تقرير اليوم 1 كما هو، مع سطر واحد فقط: <code>docx: default</code> تحت <code>format:</code>. والآن يكتب توليد واحد الملفين <code>report.html</code> و<code>report.docx</code>.</span></button></li><li data-t="10.07" data-d="11.61"><button type="button"><span class="n">2</span><span>نضيف <code>typst: default</code> لنحصل على PDF، فيتوقف التوليد. لا يستطيع Typst أن يحيل إلى القسم 2، لأن ترقيم الأقسام مفعّل في HTML فقط.</span></button></li><li data-t="21.68" data-d="11.45"><button type="button"><span class="n">3</span><span>الخيارات في أعلى YAML تنطبق على كل الصيغ، والخيارات تحت <code>html:</code> على HTML وحده. ننقلها إلى الأعلى، فيصل الترقيم إلى Word وPDF، وينجح توليد PDF.</span></button></li><li data-t="33.13" data-d="10.62"><button type="button"><span class="n">4</span><span>المحتوى نفسه في ثلاث صيغ، وكل صيغة تقدّم أفضل ما عندها. التبويبات تصبح أقسامًا عادية في Word وPDF، وصندوق الملاحظة المطوي يظهر مفتوحًا.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d2-formats/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d2-formats/step4-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-word">
+<div class="head"><span class="e">اليوم 2 · المثال 2</span><h3>Word بالهوية المؤسسية</h3>
+<span class="len">3 خطوات · 35 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-word.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-word.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="12.87"><button type="button"><span class="n">1</span><span>شكل ملف Word يأتي من مستند مرجعي. هذا الأمر يكتب مستند Pandoc الافتراضي <code>my-reference.docx</code> لتعدّل تنسيقه في Word: العناوين والنص والجداول.</span></button></li><li data-t="12.87" data-d="10.57"><button type="button"><span class="n">2</span><span>نحفظ الملف بعد تعديله، ونوجّه <code>reference-doc</code> إليه. هنا نستخدم القالب المؤقت للهيئة العامة للإحصاء: التقرير نفسه، لكن بالهوية المؤسسية.</span></button></li><li data-t="23.44" data-d="11.39"><button type="button"><span class="n">3</span><span>يضع المراجعون ملاحظاتهم على ملف Word كالمعتاد. ثم تنقل تعديلاتهم إلى <code>report.qmd</code> وتولّد التقرير من جديد: يبقى الملف المصدر هو النسخة المعتمدة الوحيدة.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d2-word/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d2-word/step3-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-typst">
+<div class="head"><span class="e">اليوم 2 · المثال 3</span><h3>PDF باستخدام Typst</h3>
+<span class="len">3 خطوات · 26 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-typst.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-typst.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="7.66"><button type="button"><span class="n">1</span><span>خيارات Typst توضع تحت <code>typst:</code>. ورق A4 وهوامش 2 سم، كما تطبع الهيئة العامة للإحصاء.</span></button></li><li data-t="7.66" data-d="9.91"><button type="button"><span class="n">2</span><span><code>font-paths</code> يوجّه Typst إلى ملفات الخطوط المحفوظة مع المشروع، فيظهر PDF بالشكل نفسه على كل جهاز، حتى دون إنترنت.</span></button></li><li data-t="17.57" data-d="8.59"><button type="button"><span class="n">3</span><span><code>page-numbering: "1 / 1"</code> يكتب رقم الصفحة بالشكل 1 / 4 أسفل كل صفحة، وهذا ما يحتاجه التقرير المطبوع.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d2-typst/report.pdf" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d2-typst/step3-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d2-conditional">
+<div class="head"><span class="e">اليوم 2 · المثال 4</span><h3>محتوى لصيغة واحدة فقط</h3>
+<span class="len">3 خطوات · 27 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d2-conditional.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-conditional.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.29"><button type="button"><span class="n">1</span><span>عبارة «احفظ هذه الصفحة في المفضلة» لا معنى لها على الورق. <code>content-visible when-format="html"</code> يبقيها في HTML ويخفيها من Word وPDF.</span></button></li><li data-t="10.29" data-d="8.7"><button type="button"><span class="n">2</span><span><code>unless-format="html"</code> هو النصف الآخر: سطر للنسخة المطبوعة فقط، ومعه تاريخ إنشائها.</span></button></li><li data-t="18.99" data-d="8.32"><button type="button"><span class="n">3</span><span>ملاحظة للمراجعين تظهر في ملف Word وحده، فلا يمكن أن تتسرّب إلى ملف PDF المنشور.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d2-conditional/report.docx" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d2-conditional/step3-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
+<h3>ثلاثة ملفات من توليد واحد</h3><ol><li>أضف <code>docx: default</code> و<code>typst: default</code> تحت <code>format:</code> في ملف <code>report.qmd</code>، ثم ولِّد التقرير.</li><li>إذا توقّف Typst عند إحالة إلى قسم، فانقل <code>number-sections: true</code> إلى المستوى الأعلى، كما في المثال.</li><li>ضع <code>reference-doc: gastat-reference.docx</code> تحت <code>docx:</code> وولِّد التقرير مرة أخرى. افتح ملف Word.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download>gastat-reference.docx</a></div><details class="full"><summary>الملف كاملًا حتى الآن (147 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+toc: true
+number-sections: true
+format:
+  html:
+    embed-resources: true
+    html-math-method: mathml
+  docx:
+    reference-doc: gastat-reference.docx
+  typst:
+    papersize: a4
+    margin:
+      x: 2cm
+      y: 2cm
+    mainfont: Tajawal
+    font-paths: fonts
+    page-numbering: &quot;1 / 1&quot;
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+::: {.column-margin}
+Rates are a share of the labour force, in %.
+:::
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend (@fig-trend) and the latest rates
+(@tbl-latest).[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+@sec-method defines the rate.
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+::: {.content-visible when-format=&quot;html&quot;}
+::: {.callout-tip}
+This page is updated every quarter. Bookmark it.
+:::
+:::
+
+::: {.content-visible unless-format=&quot;html&quot;}
+Printed `r format(Sys.Date(), &quot;%d %B %Y&quot;)`. The latest version is online.
+:::
+
+::: {.content-visible when-format=&quot;docx&quot;}
+**Reviewer:** check the Jazan figures against the Q4 file.
+:::
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method {#sec-method}
+
+::: {.callout-note collapse=&quot;true&quot; title=&quot;How the rate is defined&quot;}
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+:::
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| label: fig-trend
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```
+
+## Latest rates
+
+::: {.panel-tabset}
+### Table
+
+```{r}
+#| label: tbl-latest
+#| tbl-cap: &quot;Unemployment rate by region, 2025 Q4 (%)&quot;
+latest &lt;- rates |&gt; filter(quarter == &quot;2025Q4&quot;)
+latest |&gt;
+  arrange(rate) |&gt;
+  select(Region = region, `Rate (%)` = rate) |&gt;
+  tt() |&gt;
+  format_tt(digits = 1, num_fmt = &quot;decimal&quot;,
+            num_zero = TRUE) |&gt;
+  theme_html(portable = TRUE)
+```
+
+### Chart
+
+```{r}
+latest |&gt;
+  ggplot(aes(rate, fct_reorder(region, rate))) +
+  geom_col() + labs(x = &quot;Rate (%)&quot;, y = NULL)
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">ابدأ المؤقت</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d2-b1"><script type="application/json">[{"q": "توقّف Typst برسالة <code>cannot reference heading without numbering</code>. لماذا؟", "code": null, "options": ["لا يستطيع Typst عمل الإحالات", "وُضع <code>number-sections: true</code> تحت <code>html:</code> فقط", "مُعرّف القسم مكتوب خطأ"]}, {"q": "من أين يأتي مظهر ملف Word؟", "code": null, "options": ["من <code>_brand.yml</code>", "من أنماط ملف <code>reference-doc</code>", "من سمة HTML"]}, {"q": "ماذا يعطيك الأمر <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code>؟", "code": null, "options": ["تقريرًا مكتملًا", "المستند المرجعي الافتراضي في Pandoc، لتعدّل أنماطه في Word", "ملف PDF"]}, {"q": "لماذا نكتب <code>font-paths: fonts</code> مع Typst؟", "code": null, "options": ["ليستخدم ملف PDF ملفات الخطوط المحفوظة مع المشروع، على أي جهاز", "لتنزيل الخطوط عند التوليد", "لأنه يحدد حجم الخط"]}, {"q": "ملاحظة للمراجعين يجب ألا تصل أبدًا إلى PDF المنشور. بأي غلاف تحيطها؟", "code": null, "options": ["<code>::: {.content-visible when-format=\"docx\"}</code>", "<code>::: {.content-hidden when-format=\"html\"}</code>", "<code>::: {.callout-note}</code>"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>ماذا يبقى في Word وPDF؟</h3><p class="prompt">صح أم خطأ، في سباق مع الوقت.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "ماذا يبقى في Word وPDF؟", "prompt": "صح أم خطأ، في سباق مع الوقت.", "seconds": 60, "items": [{"s": "مجموعة التبويبات (tabset) تبقى تبويبات في PDF.", "a": false, "why": "تصبح أقسامًا عادية، واحدًا بعد الآخر."}, {"s": "عنوان الشكل في <code>fig-cap</code> يظهر في Word.", "a": true, "why": ""}, {"s": "<code>code-fold</code> يعمل في PDF.", "a": false, "why": "الطيّ ميزة في HTML."}, {"s": "<code>@fig-trend</code> تصبح Figure 1 في الصيغ الثلاث.", "a": true, "why": ""}, {"s": "صندوق الملاحظة المطويّ يبقى مطويًّا في Word.", "a": false, "why": "الورق لا يعرف الطيّ: يظهر الصندوق مفتوحًا."}, {"s": "<code>html-math-method</code> يغيّر طريقة رسم المعادلات في PDF.", "a": false, "why": "هو خيار لـ HTML؛ أما Typst فيرسم المعادلات بنفسه."}, {"s": "<code>toc: true</code> في المستوى الأعلى يعطي Word قائمة محتويات أيضًا.", "a": true, "why": ""}, {"s": "<code>reference-doc</code> يضبط مظهر HTML.", "a": false, "why": "هو لـ Word فقط."}]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>المراجعون يبقون في Word، وأنت تبقى في الكود.</p></div>
+<nav class="pager"><a href="d1-lab.html"><small>السابق</small>التطبيق العملي 1: مذكرة عن منطقة، من سكربت</a><a class="next" href="d2-b2.html"><small>التالي</small>المُعامِلات: قالب واحد، تقارير كثيرة</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

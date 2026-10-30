@@ -1,0 +1,43 @@
+{
+ "id": "d1-lab",
+ "title": "مذكرة عن منطقة: من السكربت إلى التقرير",
+ "eyebrow": "التطبيق العملي 1 · الحل",
+ "show": "note.qmd",
+ "duration": 50.46,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.19,
+   "say": "نبدأ بالترويسة ومقطع الإعداد. أعلى <code>analysis.R</code> ينتقل إليه تقريبًا كما هو؛ و<code>include: false</code> يُبقيه خارج الصفحة."
+  },
+  {
+   "t": 10.19,
+   "d": 10.66,
+   "say": "نكتب الملخص مرة واحدة، وكل رقم فيه بـ R داخل النص. ويأخذ الرسم البياني وسمًا، وعنوانًا يتبع <code>REGION</code>، وحجمًا."
+  },
+  {
+   "t": 20.85,
+   "d": 9.94,
+   "say": "الشكل الثاني رسمان بيانيان في عمودين. يسمّي <code>fig-subcap</code> كل رسم منهما، ويسمّي <code>fig-cap</code> الشكل كله."
+  },
+  {
+   "t": 30.79,
+   "d": 9.12,
+   "say": "نضيف الجدول وملاحظة منهجية مطوية، ونُحيل من الملخص إلى كل شكل وجدول."
+  },
+  {
+   "t": 39.91,
+   "d": 10.55,
+   "say": "اختبار الإنجاز: نغيّر <code>REGION</code> ونولّد التقرير، فيتغيّر كل رقم وعنوان ورسم بياني. لا شيء في النص مكتوب يدويًا."
+  }
+ ],
+ "downloads": [
+  "step1-note.qmd",
+  "step2-note.qmd",
+  "step3-note.qmd",
+  "step4-note.qmd",
+  "step5-note.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in one region\"\nsubtitle: \"Synthetic data, for training only\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nrates <- read_csv(\"unemployment.csv\")\nREGION <- \"Tabuk\"\narea    <- rates |> filter(region == REGION)\nkingdom <- rates |> filter(region == \"Kingdom\")\nnow  <- last(area$rate)\nthen <- first(area$rate)\ngap  <- now - last(kingdom$rate)\n```\n\n## Summary\n\nIn `r REGION` the rate was\n`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,\n`r scales::number(now - then, accuracy = 0.1, style_positive = \"plus\")`\npoints since 2022 Q1 and\n`r scales::number(gap, accuracy = 0.1, style_positive = \"plus\")`\npoints against the Kingdom (@fig-trend, @fig-compare, @tbl-recent).\n\n## Trend\n\n```{r}\n#| label: fig-trend\n#| fig-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\n#| fig-width: 8\n#| fig-height: 3.5\nggplot(area, aes(date, rate)) + geom_line()\n```\n\n```{r}\n#| label: fig-compare\n#| fig-cap: \"Against the Kingdom\"\n#| layout-ncol: 2\n#| fig-subcap: [\"Both series\", \"The last four quarters\"]\nboth <- rates |> filter(region %in% c(REGION, \"Kingdom\"))\nggplot(both, aes(date, rate, colour = region)) +\n  geom_line()\nboth |>\n  filter(quarter >= \"2025Q1\") |>\n  ggplot(aes(quarter, rate, fill = region)) +\n  geom_col(position = \"dodge\")\n```\n\n## Latest quarters\n\n```{r}\n#| label: tbl-recent\n#| tbl-cap: !expr str_glue(\"Unemployment rate, {REGION} (%)\")\narea |>\n  select(quarter, rate) |>\n  slice_tail(n = 4) |>\n  tt() |>\n  theme_html(portable = TRUE)\n```\n\n::: {.callout-note collapse=\"true\" title=\"Method\"}\nRates are the unemployed as a share of the labour force.\nThe data are synthetic, made for training.\n:::\n",
+ "live": "note.html"
+}

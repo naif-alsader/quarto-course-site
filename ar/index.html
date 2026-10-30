@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="home">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../index.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">الهيئة العامة للإحصاء · 3 أيام · 09:00–14:00</div><h1>Quarto خطوة بخطوة</h1>
+<p class="goal">تقارير وشرائح تخرج مباشرة من كود R. كل ميزة لها مثال يُبنى خطوة بخطوة: الملف يكبر خطوة في كل مرة، وبجانبه يظهر ما يصنعه Quarto منه.</p><div class="rule"></div></div>
+<div class="tools" style="padding:0 0 6px"><a class="btn primary" href="deck.html">افتح العرض التقديمي</a>
+<span class="note">الدورة كلها في عرض واحد: السهم → يتقدّم في كل مثال خطوة خطوة، وM تفتح قائمة الفصول، وS شاشة المتحدث.</span></div>
+<p class="note"><b>نسخة المشاركين.</b> الاختبارات القصيرة واختبارات الأيام بلا إجابات هنا: اختر إجابتك، وسيناقشها المدرّب معكم في القاعة.</p>
+<div class="intro-grid"><div><b>تقرير واحد طوال الأسبوع</b>في اليوم 1 يكبر تقرير واحد من ملف فارغ. في اليوم 2 نرسل هذا التقرير إلى Word وPDF وإلى 13 منطقة. في اليوم 3 نحوّل التحليل إلى عرض تقديمي.</div><div><b>شاهد، ثم طبّق</b>تنقّل بين خطوات كل مثال بالسرعة التي تناسبك، ثم نفّذ المهمة القصيرة في Positron قبل أن تنتقل إلى ما بعدها.</div><div><b>تحقّق والعب</b>تنتهي كل جلسة بأسئلة قصيرة ولعبة، وينتهي كل تطبيق عملي باختبار اليوم. تبقى نتائجك في هذا المتصفح.</div></div>
+<section class="part"><h2><span class="k">ابدأ من هنا</span>كيف يعمل Quarto، في مثال واحد</h2><p class="lead">يدخل ملفك، فيشغّل knitr كود R، ثم يكتب Pandoc الصفحة. خمس خطوات، كل واحدة منها من توليد (render) حقيقي.</p><div class="build" data-build="d1-pipeline">
+<div class="head"><span class="e">اليوم 1 · المثال 4</span><h3>كيف يعمل Quarto</h3>
+<span class="len">5 خطوات · 54 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-pipeline.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-pipeline.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.95"><button type="button"><span class="n">1</span><span>نولّد التقرير مرة أخرى ونقرأ السجل. الخيار <code>keep-md: true</code> يُبقي الملف الذي يصنعه Quarto في منتصف الطريق، لنرى ما بداخله.</span></button></li><li data-t="10.95" data-d="11.61"><button type="button"><span class="n">2</span><span>المرحلة 1: يشغّل knitr كل مقاطع كود R ويكتب Markdown عاديًا: نصّك، والكود، وما طبعه، ورابطًا لصورة الرسم البياني.</span></button></li><li data-t="22.56" data-d="11.49"><button type="button"><span class="n">3</span><span>المرحلة 2: يحوّل Pandoc ذلك الـ Markdown إلى HTML. ومع <code>embed-resources</code> يُضمَّن حتى الرسم البياني داخله، على شكل سطر طويل من النص.</span></button></li><li data-t="34.05" data-d="10.85"><button type="button"><span class="n">4</span><span>يعرض المتصفح النتيجة. وإذا فشل التوليد، يخبرك السجل بالمرحلة التي تعطّلت: خطأ R يأتي من knitr، وخطأ الصيغة من Pandoc.</span></button></li><li data-t="44.9" data-d="9.03"><button type="button"><span class="n">5</span><span>الصيغ الأخرى تغيّر المرحلة الأخيرة فقط: الـ Markdown نفسه يصبح ملف Word، ومن خلال Typst ملف PDF.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-pipeline/report.docx" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-pipeline/step5-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">خريطة الدورة</span>ثلاثة أيام، تسع جلسات، ثلاثة تطبيقات عملية</h2><p class="lead">كل يوم: ثلاث جلسات، ثم تطبيق عملي مدته 45 دقيقة ينتهي باختبار الإنجاز.</p><div class="days"><div class="day" id="day1"><div class="dh"><div class="eyebrow">اليوم 1</div><h3>تقرير واحد، من ملف فارغ</h3><p>Markdown، وYAML، وخيارات المقاطع، والأرقام داخل النص، والأشكال، والجداول، والإحالات، والتخطيط.</p></div><ol><li><a href="d1-b1.html" data-tick="d1-b1"><span class="t">09:00</span><span>مستندك الأول في Quarto</span></a></li><li><a href="d1-b2.html" data-tick="d1-b2"><span class="t">10:30</span><span>الكود والأرقام والأشكال</span></a></li><li><a href="d1-b3.html" data-tick="d1-b3"><span class="t">12:15</span><span>الجداول والإحالات والتخطيط</span></a></li><li><a href="d1-lab.html" data-tick="d1-lab"><span class="t">13:15</span><span>التطبيق العملي 1: مذكرة عن منطقة، من سكربت</span></a></li></ol></div><div class="day" id="day2"><div class="dh"><div class="eyebrow">اليوم 2</div><h3>التقرير في كل مكان</h3><p>Word وPDF من مصدر واحد، والمُعامِلات، و13 منطقة من سكربت واحد، والهوية المؤسسية، والعربية.</p></div><ol><li><a href="d2-b1.html" data-tick="d2-b1"><span class="t">09:00</span><span>مصدر واحد، صيغ كثيرة</span></a></li><li><a href="d2-b2.html" data-tick="d2-b2"><span class="t">10:30</span><span>المُعامِلات: قالب واحد، تقارير كثيرة</span></a></li><li><a href="d2-b3.html" data-tick="d2-b3"><span class="t">12:15</span><span>المشاريع والهوية المؤسسية واللغة</span></a></li><li><a href="d2-lab.html" data-tick="d2-lab"><span class="t">13:15</span><span>التطبيق العملي 2: الهوية المؤسسية، والمُعامِلات، والتوليد دفعة واحدة</span></a></li></ol></div><div class="day" id="day3"><div class="dh"><div class="eyebrow">اليوم 3</div><h3>التحليل نفسه في عرض تقديمي</h3><p>شرائح Revealjs، والتخطيط، وإيقاع العرض، والكود على الشرائح، والحركة، والهوية المؤسسية، والمشاركة.</p></div><ol><li><a href="d3-b1.html" data-tick="d3-b1"><span class="t">09:00</span><span>من التقرير إلى العرض التقديمي</span></a></li><li><a href="d3-b2.html" data-tick="d3-b2"><span class="t">10:30</span><span>الكود والبيانات والحركة على الشرائح</span></a></li><li><a href="d3-b3.html" data-tick="d3-b3"><span class="t">12:15</span><span>الهوية المؤسسية والمُعامِلات والمشاركة</span></a></li><li><a href="d3-lab.html" data-tick="d3-lab"><span class="t">13:15</span><span>التطبيق العملي 3: عرض موجز لأي منطقة</span></a></li></ol></div></div></section>
+<p class="note">الأمثلة مبنية بـ HyperFrames. تعمل في المتصفح دون أن تجلب أي شيء من الإنترنت، لذلك تعمل الدورة على جهاز دون إنترنت.</p></main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

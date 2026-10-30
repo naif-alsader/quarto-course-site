@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الجداول والإحالات والتخطيط · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/course.css">
+<script src="../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b3">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1" class="on">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d1-b3.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 1 · الجلسة 3 · 12:15–13:15</div><h1>الجداول والإحالات والتخطيط</h1>
+<p class="goal">حوّل إطارات البيانات (data frames) إلى جداول، ورقّم كل شكل وجدول واربطه، وأبعد ملاحظات المنهجية والبدائل عن طريق القارئ.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">اضغط خطوة لتشغيلها وحدها، أو شغّل المثال كله.</p><div class="build" data-build="d1-tables">
+<div class="head"><span class="e">اليوم 1 · المثال 8</span><h3>الجداول مع tinytable</h3>
+<span class="len">6 خطوات · 65 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-tables.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-tables.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.06"><button type="button"><span class="n">1</span><span>طباعة tibble تعطي نصًا كما في Console: يكفيك أثناء العمل، لكنه ليس جدولًا يقرؤه أحد.</span></button></li><li data-t="9.06" data-d="9.72"><button type="button"><span class="n">2</span><span>تحوّل <code>tt()</code> من tinytable البيانات إلى جدول حقيقي، والاستدعاء نفسه يصنع الجدول في Word وPDF.</span></button></li><li data-t="18.78" data-d="12.03"><button type="button"><span class="n">3</span><span>نشكّل البيانات قبل الجدول بأسلوب tidyverse: ترتّب <code>arrange()</code> حسب المعدل، وتُبقي <code>select()</code> عمودين وتعطيهما اسمين يفهمهما القارئ.</span></button></li><li data-t="30.81" data-d="11.65"><button type="button"><span class="n">4</span><span>نضبط تنسيق الأرقام بأنفسنا، لكن نقرأ صفحة المساعدة أولًا: في <code>format_tt()</code> يعني <code>digits = 1</code> رقمًا معنويًا واحدًا. فصار 11.1 لجازان يظهر 11.</span></button></li><li data-t="42.46" data-d="10.27"><button type="button"><span class="n">5</span><span>الخيار <code>num_fmt = "decimal"</code> يجعلها منزلة عشرية واحدة، و<code>num_zero = TRUE</code> يُبقي الصفر، فيظهر رقم الجوف 10.0 لا 10.</span></button></li><li data-t="52.73" data-d="11.84"><button type="button"><span class="n">6</span><span>يجلب tinytable تنسيقات HTML من الإنترنت افتراضيًا. و<code>theme_html(portable = TRUE)</code> يأخذها من الحزمة نفسها: وهذا ما يحتاجه جهاز دون إنترنت.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-tables/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-tables/step6-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-crossrefs">
+<div class="head"><span class="e">اليوم 1 · المثال 9</span><h3>الإحالات</h3>
+<span class="len">4 خطوات · 38 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-crossrefs.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-crossrefs.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.39"><button type="button"><span class="n">1</span><span>الوسم (label) الذي يبدأ بـ <code>fig-</code> يجعل الرسم البياني شكلًا مرقّمًا. فيبدأ عنوانه الآن بـ «Figure 1».</span></button></li><li data-t="9.39" data-d="9.83"><button type="button"><span class="n">2</span><span>نكتب <code>@fig-trend</code> في النص فيكتب Quarto مكانه «Figure 1» على شكل رابط. وإذا نقلنا الرسم البياني يتبعه الرقم.</span></button></li><li data-t="19.22" data-d="9.01"><button type="button"><span class="n">3</span><span>والجداول بالطريقة نفسها: وسم يبدأ بـ <code>tbl-</code>، و<code>tbl-cap</code>، و<code>@tbl-latest</code> حيث يحتاجه النص.</span></button></li><li data-t="28.23" data-d="9.28"><button type="button"><span class="n">4</span><span>القسم يحتاج إلى معرّف، <code>{#sec-method}</code>، وعناوين مرقّمة. عندها يظهر <code>@sec-method</code> بالشكل «Section 2».</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-crossrefs/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-crossrefs/step4-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-layout">
+<div class="head"><span class="e">اليوم 1 · المثال 10</span><h3>صناديق الملاحظة والتبويبات والهامش</h3>
+<span class="len">4 خطوات · 36 ث</span></div>
+<div class="screen"><hyperframes-player src="../frames/d1-layout.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-layout.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.01"><button type="button"><span class="n">1</span><span>صندوق الملاحظة يفصل التعريف عن الحجة الأساسية. وسطرا <code>:::</code> يفتحانه ويغلقانه.</span></button></li><li data-t="9.01" data-d="8.15"><button type="button"><span class="n">2</span><span>نضيف <code>collapse="true"</code> فينطوي الصندوق مغلقًا: نقرة واحدة لمن يريد التفاصيل من القرّاء.</span></button></li><li data-t="17.16" data-d="11.26"><button type="button"><span class="n">3</span><span>مجموعة التبويبات تجمع البدائل في مكان واحد. وكل <code>###</code> داخلها يصبح تبويبًا: هنا تبويب Chart مفتوح، والجدول على بُعد نقرة.</span></button></li><li data-t="28.42" data-d="8.07"><button type="button"><span class="n">4</span><span>يضع <code>.column-margin</code> ملاحظة قصيرة بجانب النص، بعيدًا عن طريق القارئ.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../live/d1-layout/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-layout/step4-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
+<h3>اربط كل شيء</h3><ol><li>أضف جدول أحدث المعدلات (Latest rates) باستخدام <code>tt()</code> مع <code>tbl-cap</code>.</li><li>أعطِ رسم الاتجاه التسمية <code>fig-trend</code>، والجدول التسمية <code>tbl-latest</code>.</li><li>اكتب <code>@fig-trend</code> و<code>@tbl-latest</code> في الملخص. ولِّد التقرير واضغط على الروابط.</li><li>ضع المنهجية في صندوق ملاحظة مطويّ باستخدام <code>collapse="true"</code>.</li></ol><details class="full"><summary>الملف كاملًا حتى الآن (123 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    number-sections: true
+    html-math-method: mathml
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(tinytable)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+REGION &lt;- &quot;Jazan&quot;
+now &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2025Q4&quot;) |&gt;
+  pull(rate)
+then &lt;- rates |&gt;
+  filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
+  pull(rate)
+```
+
+## Summary
+
+::: {.column-margin}
+Rates are a share of the labour force, in %.
+:::
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend (@fig-trend) and the latest rates
+(@tbl-latest).[^1]
+
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+against `r scales::number(then, accuracy = 0.1)`% in
+2022 Q1: a change of
+`r scales::number(now - then, accuracy = 0.1, style_positive = &quot;plus&quot;)`
+points.
+
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+@sec-method defines the rate.
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method {#sec-method}
+
+::: {.callout-note collapse=&quot;true&quot; title=&quot;How the rate is defined&quot;}
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+:::
+
+## Data
+
+```{r}
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+#| label: fig-trend
+#| fig-width: 8
+#| fig-height: 3.5
+#| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+rates |&gt;
+  filter(region == REGION) |&gt;
+  ggplot(aes(date, rate)) + geom_line()
+```
+
+## Latest rates
+
+::: {.panel-tabset}
+### Table
+
+```{r}
+#| label: tbl-latest
+#| tbl-cap: &quot;Unemployment rate by region, 2025 Q4 (%)&quot;
+latest &lt;- rates |&gt; filter(quarter == &quot;2025Q4&quot;)
+latest |&gt;
+  arrange(rate) |&gt;
+  select(Region = region, `Rate (%)` = rate) |&gt;
+  tt() |&gt;
+  format_tt(digits = 1, num_fmt = &quot;decimal&quot;,
+            num_zero = TRUE) |&gt;
+  theme_html(portable = TRUE)
+```
+
+### Chart
+
+```{r}
+latest |&gt;
+  ggplot(aes(rate, fct_reorder(region, rate))) +
+  geom_col() + labs(x = &quot;Rate (%)&quot;, y = NULL)
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">ابدأ المؤقت</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d1-b3"><script type="application/json">[{"q": "ماذا يطبع <code>format_tt(digits = 1)</code> على عمود فيه 11.1 و5.7؟", "code": null, "options": ["11.1 و5.7", "11 و6", "11.0 و5.7"]}, {"q": "<code>@fig-trend</code> يظهر <code>?@fig-trend</code> بدل «Figure 1». ما الخطأ؟", "code": null, "options": ["تسمية المقطع <code>trend</code> وليست <code>fig-trend</code>", "الرسم البياني ليس له <code>fig-width</code>", "الإحالات تعمل في PDF فقط"]}, {"q": "ماذا يحتاج <code>@sec-method</code> حتى يظهر «Section 2»؟", "code": null, "options": ["العنوان <code>## Method</code> فقط", "مُعرّف <code>{#sec-method}</code> على العنوان، و<code>number-sections: true</code>", "صندوق ملاحظة حول القسم"]}, {"q": "من أين تأتي تبويبات <code>.panel-tabset</code>؟", "code": null, "options": ["من العناوين التي تقع مستوى واحدًا تحت القسم، داخل الـ div", "من خيار <code>tabs:</code> في YAML", "من كل مقطع كود داخل الـ div"]}, {"q": "لماذا نضع <code>theme_html(portable = TRUE)</code> على الجدول؟", "code": null, "options": ["لأنه يجعل الجدول أصغر", "لأن أنماط HTML في tinytable تأتي عندها من الحزمة نفسها، لا من الإنترنت", "لأنه مطلوب لـ Word"]}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>اعثر على الأخطاء الثلاثة</h3><p class="prompt">هذا الجزء من تقرير يتولّد، لكن بشكل خاطئ. اضغط على الأسطر الثلاثة التي تسبّب ذلك.</p><div class="gbody"></div><script type="application/json">{"type": "bug", "title": "اعثر على الأخطاء الثلاثة", "prompt": "هذا الجزء من تقرير يتولّد، لكن بشكل خاطئ. اضغط على الأسطر الثلاثة التي تسبّب ذلك.", "code": "The rate fell in most regions:\n- 12 of 13 regions fell\n- Jazan rose\n\n```{r}\n#| label: trend\n#| fig-cap: \"Unemployment rate, Kingdom (%)\"\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nAs @fig-trend shows, the rate fell.\n\n::: {.callout-note collapse=\"true\" title=\"Method\"}\nThe rate is the unemployed as a share of the labour force.\n\n## Latest rates\n", "bad": [2, 6, 13], "why": "السطر 2: القائمة تبدأ مباشرة تحت سطر من النص، فتنضم إلى الفقرة؛ تحتاج إلى سطر فارغ فوقها. السطر 6: يجب أن تبدأ التسمية بـ <code>fig-</code>، وإلا فلن يجد <code>@fig-trend</code> شيئًا. السطر 13: صندوق الملاحظة لا يُغلق أبدًا بـ <code>:::</code>، فيدخل عنوان Latest rates في الصندوق المطويّ."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>رقّمه، واربطه، واطوِ التفاصيل: لا ينبغي أن يبحث أي قارئ عن الشكل 1.</p></div>
+<nav class="pager"><a href="d1-b2.html"><small>السابق</small>الكود والأرقام والأشكال</a><a class="next" href="d1-lab.html"><small>التالي</small>التطبيق العملي 1: مذكرة عن منطقة، من سكربت</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

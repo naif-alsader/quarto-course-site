@@ -126,3 +126,15 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F5F7F
 
 /* what a step changed in the output */
 .spot { position: absolute; left: 0; top: 0; width: 912px; height: 704px; pointer-events: none; }
+
+/* the Arabic frames: the header and the captions read right to left; the code and the
+   output panels keep their places, because code reads left to right */
+.rtl .eyebrow, .rtl .title { left: auto; right: 64px; direction: rtl; }
+.rtl .eyebrow { font: 700 25px Tajawal, sans-serif; letter-spacing: 0; text-transform: none; top: 40px; }
+.rtl .logo { right: auto; left: 64px; }
+.rtl .caps { left: auto; right: 64px; }
+.rtl .cap { left: auto; right: 0; direction: rtl; }
+.rtl .cap .t { text-align: right; }
+.rtl .cap .t code { direction: ltr; unicode-bidi: isolate; }
+.rtl .dots { right: auto; left: 64px; }
+.rtl .empty { direction: rtl; font-family: Tajawal, sans-serif; font-weight: 500; }

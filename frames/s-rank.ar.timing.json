@@ -1,0 +1,43 @@
+{
+ "id": "s-rank",
+ "title": "ترتيب مع خط مرجع",
+ "eyebrow": "خاتمة · أين نقف؟",
+ "show": "rank.qmd",
+ "duration": 61.71,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.34,
+   "say": "أول رسم بياني يصنعه أي شخص: عمود لكل منطقة في الربع الأخير، بالترتيب الأبجدي. الأسماء تتزاحم، والمملكة مجرد عمود آخر."
+  },
+  {
+   "t": 11.34,
+   "d": 11.37,
+   "say": "نبدّل المحورين لتُقرأ الأسماء أفقيًا، ونرتّب الأعمدة حسب المعدل باستخدام <code>fct_reorder()</code>. صار الترتيب أول ما يقوله الرسم."
+  },
+  {
+   "t": 22.71,
+   "d": 13.0,
+   "say": "المملكة ليست منطقة، بل هي المعيار. نُخرجها من الأعمدة ونرسمها خطًا بدلًا منها. يأتي الخط قبل <code>geom_col()</code>، فتُرسم الأعمدة فوقه."
+  },
+  {
+   "t": 35.71,
+   "d": 13.0,
+   "say": "نلوّن بقاعدة لا باليد: <code>above</code> يقارن كل منطقة بالمملكة. ونكتب كل قيمة عند نهاية عمودها، على خلفية بيضاء حتى لا يقطعها الخط المتقطع."
+  },
+  {
+   "t": 48.71,
+   "d": 13.0,
+   "say": "نكتب اسم خط المرجع عليه مباشرة، ونقول النتيجة في العنوان، ونحذف الشبكة والمحور اللذين أغنت عنهما التسميات. العدد في العنوان محسوب، فيبقى صحيحًا في الربع القادم."
+  }
+ ],
+ "downloads": [
+  "step1-rank.qmd",
+  "step2-rank.qmd",
+  "step3-rank.qmd",
+  "step4-rank.qmd",
+  "step5-rank.qmd"
+ ],
+ "final": "---\ntitle: \"Where each region stands\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlatest <- read_csv(\"unemployment.csv\") |>\n  filter(date == max(date))\nkingdom <- latest |>\n  filter(region == \"Kingdom\") |>\n  pull(rate)\nregions <- latest |>\n  filter(region != \"Kingdom\") |>\n  mutate(above = rate > kingdom)\nn_above <- sum(regions$above)\n```\n\n```{r}\n#| fig-width: 8\n#| fig-height: 5.5\nggplot(regions,\n       aes(rate, fct_reorder(region, rate),\n           fill = above)) +\n  geom_vline(xintercept = kingdom,\n             linetype = \"dashed\") +\n  geom_col(width = 0.7) +\n  geom_label(\n    aes(label = scales::number(rate, accuracy = 0.1)),\n    hjust = -0.1, fill = \"white\", label.size = 0) +\n  scale_fill_manual(values = c(`TRUE` = \"#00803A\",\n                               `FALSE` = \"grey75\"),\n                    guide = \"none\") +\n  scale_x_continuous(\n    expand = expansion(mult = c(0, 0.08))) +\n  scale_y_discrete(\n    expand = expansion(add = c(0.6, 1.2))) +\n  annotate(\"text\", x = kingdom, y = Inf,\n           label = str_glue(\"Kingdom {kingdom}%\"),\n           hjust = -0.05, vjust = 1.5) +\n  labs(title = str_glue(\n         \"{n_above} of {nrow(regions)} regions \",\n         \"are above the Kingdom rate\"),\n       subtitle = str_glue(\n         \"Unemployment rate, %, {latest$quarter[1]}\"),\n       x = NULL, y = NULL) +\n  theme_minimal(base_size = 13) +\n  theme(panel.grid = element_blank(),\n        axis.text.x = element_blank())\n```\n",
+ "live": "rank.html"
+}

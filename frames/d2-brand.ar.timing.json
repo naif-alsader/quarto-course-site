@@ -1,0 +1,36 @@
+{
+ "id": "d2-brand",
+ "title": "_brand.yml: الهوية المؤسسية في ملف",
+ "eyebrow": "اليوم 2 · المثال 9",
+ "show": "_brand.yml",
+ "duration": 37.84,
+ "steps": [
+  {
+   "t": 0,
+   "d": 7.99,
+   "say": "لا يوجد ملف للهوية بعد: هذا شكل Quarto الافتراضي. الألوان والخطوط غير محفوظة في أي ملف."
+  },
+  {
+   "t": 7.99,
+   "d": 10.96,
+   "say": "نسمّي الألوان مرة واحدة في <code>palette</code>، ثم نعطي كل لون وظيفة: <code>primary</code> للروابط والعناصر البارزة، و<code>foreground</code> للنص. والتقرير نفسه لا يتغيّر."
+  },
+  {
+   "t": 18.95,
+   "d": 9.2,
+   "say": "الخطوط تأتي من ملفات محفوظة مع المشروع، لا من الإنترنت. وتأخذ العناوين لون الهوية النيلي باسمه: indigo."
+  },
+  {
+   "t": 28.15,
+   "d": 9.69,
+   "say": "الملف نفسه ينسّق ملف PDF من Typst: ألوانه وخطوطه، وهنا الشعار أيضًا. أما Word فيأخذ تنسيقاته من <code>reference-doc</code>."
+  }
+ ],
+ "downloads": [
+  "step2-_brand.yml",
+  "step3-_brand.yml",
+  "step4-_brand.yml"
+ ],
+ "final": "color:\n  palette:\n    indigo: \"#4137A8\"\n    green: \"#00803A\"\n    dark: \"#2C2D3F\"\n  primary: indigo\n  foreground: dark\n\ntypography:\n  fonts:\n    - family: Tajawal\n      source: file\n      files:\n        - path: fonts/Tajawal-Regular.ttf\n          weight: 400\n        - path: fonts/Tajawal-Bold.ttf\n          weight: 700\n  base: Tajawal\n  headings:\n    family: Tajawal\n    weight: 700\n    color: indigo\n\nlogo:\n  medium: gastat-logo-color.png\n",
+ "live": "report.pdf"
+}

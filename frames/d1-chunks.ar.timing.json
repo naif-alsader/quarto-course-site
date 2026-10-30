@@ -1,0 +1,43 @@
+{
+ "id": "d1-chunks",
+ "title": "خيارات المقطع: ماذا يُظهر كل مقطع",
+ "eyebrow": "اليوم 1 · المثال 5",
+ "show": "report.qmd",
+ "duration": 49.51,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.26,
+   "say": "تُكتب الخيارات في أسطر <code>#|</code> أعلى المقطع. والخيار <code>message: false</code> يحذف الرسائل التي يطبعها tidyverse وreadr أثناء التحميل والقراءة."
+  },
+  {
+   "t": 11.26,
+   "d": 7.99,
+   "say": "الخيار <code>echo: false</code> يُخفي الكود ويُبقي الرسم البياني: وهذا ما يريد قارئ التقرير أن يراه."
+  },
+  {
+   "t": 19.25,
+   "d": 10.29,
+   "say": "مقطع الإعداد مع <code>include: false</code> يعمل أولًا ولا يُظهر شيئًا أبدًا. فيُحمَّل tidyverse والبيانات مرة واحدة، بهدوء، في الأعلى."
+  },
+  {
+   "t": 29.54,
+   "d": 9.78,
+   "say": "الخيار <code>code-fold: true</code> يطوي كود كل مقطع خلف زر Code. يرى القرّاء النتائج، ومن أراد الكود يضغط الزر."
+  },
+  {
+   "t": 39.32,
+   "d": 10.19,
+   "say": "في تقرير يذهب إلى أصحاب القرار، نُخفي الكود في كل مكان: <code>execute: echo: false</code> في ترويسة YAML يشمل كل المقاطع، في كل الصيغ."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd",
+  "step5-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n    html-math-method: mathml\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\n```\n\n## Summary\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend and the latest rates.[^1]\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method\n\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n\n## Data\n\n```{r}\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

@@ -2,6 +2,10 @@
 // and quiz answers. Builds are HyperFrames players, made only near the current slide.
 (function () {
   'use strict';
+  // Interface text, in the deck's language (<html lang="ar"> is the Arabic edition)
+  const L = document.documentElement.lang === 'ar'
+    ? { answer: 'الإجابة', time: 'انتهى الوقت', noNotes: 'لا ملاحظات لهذه الشريحة.', next: 'التالي', last: 'آخر شريحة', letters: 'أبجدهو' }
+    : { answer: 'Answer', time: 'Time', noNotes: 'No notes for this slide.', next: 'Next', last: 'Last slide', letters: 'ABCDEF' };
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const stage = $('#stage');
@@ -93,13 +97,13 @@
           if (i === ans) b.classList.add('right');
           else if (b.classList.contains('sel')) b.classList.add('wrong');
         });
-        why.prepend(Object.assign(document.createElement('b'), { textContent: 'Answer ' + 'ABCDEF'[ans] + '. ' }));
+        why.prepend(Object.assign(document.createElement('b'), { textContent: L.answer + ' ' + L.letters[ans] + '. ' }));
         why.classList.add('show');
       },
       reset() {
         delete box.dataset.shown;
         $$('.dopt', box).forEach(b => b.classList.remove('sel', 'right', 'wrong'));
-        const b = $('b', why); if (b && b.textContent.startsWith('Answer')) b.remove();
+        const b = $('b', why); if (b && b.textContent.startsWith(L.answer)) b.remove();
         why.classList.remove('show');
       },
     };
@@ -112,7 +116,7 @@
     if (timerId) { clearInterval(timerId); timerId = null; return; }
     let left = +el.dataset.min * 60; el.classList.remove('done');
     const tick = () => { el.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
-      if (left-- <= 0) { clearInterval(timerId); timerId = null; el.textContent = 'Time'; el.classList.add('done'); } };
+      if (left-- <= 0) { clearInterval(timerId); timerId = null; el.textContent = L.time; el.classList.add('done'); } };
     tick(); timerId = setInterval(tick, 1000);
   }
 
@@ -142,10 +146,10 @@
     $('.hc').textContent = s.dataset.chapter;
     $('.hn').textContent = `${cur + 1} / ${N}`;
     $('.prog i').style.width = `${(cur + 1) / N * 100}%`;
-    $('.dnotes').textContent = s.dataset.notes || 'No notes for this slide.';
+    $('.dnotes').textContent = s.dataset.notes || L.noNotes;
     if (presenter) {
       const nx = slides[cur + 1];
-      $('.pnext').innerHTML = nx ? `Next<b>${nx.dataset.title || nx.dataset.chapter}</b>` : 'Last slide';
+      $('.pnext').innerHTML = nx ? `${L.next}<b>${nx.dataset.title || nx.dataset.chapter}</b>` : L.last;
       $('.pnotes').textContent = s.dataset.notes || '';
     }
     if (location.hash !== `#/${cur + 1}`) history.replaceState(null, '', `#/${cur + 1}`);

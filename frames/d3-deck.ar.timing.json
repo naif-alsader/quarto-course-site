@@ -1,0 +1,37 @@
+{
+ "id": "d3-deck",
+ "title": "من التقرير إلى العرض التقديمي",
+ "eyebrow": "اليوم 3 · المثال 1",
+ "show": "slides.qmd",
+ "duration": 41.79,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.91,
+   "say": "الأداة نفسها بصيغة جديدة: <code>format: revealjs</code> يصنع عرضًا تقديميًا. والعنوان والعنوان الفرعي في الترويسة يصبحان شريحة العنوان."
+  },
+  {
+   "t": 9.91,
+   "d": 11.5,
+   "say": "كل عنوان <code>##</code> يبدأ شريحة. ومقطع الإعداد يعمل كما في التقرير: <code>group_by()</code> و<code>summarise()</code> تحسبان تغيّر كل منطقة، وR داخل النص يعدّها."
+  },
+  {
+   "t": 21.41,
+   "d": 9.2,
+   "say": "مقطع الكود على الشريحة يضع رسمه البياني عليها. وعلى عكس التقرير، يخفي العرض التقديمي الكود ما لم نطلب إظهاره."
+  },
+  {
+   "t": 30.61,
+   "d": 11.18,
+   "say": "علامة <code>#</code> واحدة تبدأ قسمًا له شريحة عنوان خاصة. وشرائح <code>##</code> التي تليه تنتظم تحته عموديًا، وتبقى مفاتيح الأسهم تمرّ عليها بالترتيب."
+  }
+ ],
+ "downloads": [
+  "step1-slides.qmd",
+  "step2-slides.qmd",
+  "step3-slides.qmd",
+  "step4-slides.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Quarterly briefing · synthetic data\"\nformat: revealjs\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\njazan <- rates |> filter(region == \"Jazan\")\nchange <- rates |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate))\nup <- change |> filter(change > 0) |> pull(region)\n```\n\n## Unemployment is falling\n\n- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022\n- It rose only in `r up`\n\n## The national trend\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n# Regions\n\n## Jazan moved the other way\n",
+ "live": "slides.html"
+}

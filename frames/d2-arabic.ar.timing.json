@@ -1,0 +1,37 @@
+{
+ "id": "d2-arabic",
+ "title": "العربية، من اليمين إلى اليسار",
+ "eyebrow": "اليوم 2 · المثال 10",
+ "show": "report-ar.qmd",
+ "duration": 38.56,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.63,
+   "say": "تقرير عربي دون أي إعدادات للغة. الصفحة ما زالت تسير من اليسار إلى اليمين، وتسمية الشكل بالإنجليزية."
+  },
+  {
+   "t": 9.63,
+   "d": 8.75,
+   "say": "<code>lang: ar</code> و<code>dir: rtl</code> يقلبان اتجاه الصفحة: النص والعناوين ومنطقة العنوان تسير الآن من اليمين إلى اليسار."
+  },
+  {
+   "t": 18.38,
+   "d": 11.26,
+   "say": "الشكل ما زال مكتوبًا عليه Figure. لا يحوي Quarto تسميات عربية جاهزة؛ يوفّرها ملف لغة صغير، فيصبح عنوان الشكل «شكل 1»."
+  },
+  {
+   "t": 29.64,
+   "d": 8.92,
+   "say": "الإعدادات نفسها تنتقل إلى ملف PDF من Typst، مع خط يدعم العربية من مجلد الخطوط في المشروع."
+  }
+ ],
+ "downloads": [
+  "step1-report-ar.qmd",
+  "step2-report-ar.qmd",
+  "step3-report-ar.qmd",
+  "step4-report-ar.qmd"
+ ],
+ "final": "---\ntitle: \"البطالة في المناطق\"\nlang: ar\ndir: rtl\nlanguage: _language-ar.yml\nformat:\n  html: default\n  typst:\n    mainfont: Tajawal\n    font-paths: fonts\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\n```\n\nانخفض معدل البطالة في معظم المناطق بين 2022 و2025،\nوجازان هي الاستثناء.\n\n```{r}\n#| label: fig-trend\n#| fig-cap: \"معدل البطالة في المملكة (%)\"\n#| echo: false\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nيوضح @fig-trend الاتجاه العام في المملكة.\n",
+ "live": "report-ar.pdf"
+}

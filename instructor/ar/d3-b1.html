@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>من التقرير إلى العرض التقديمي · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/course.css">
+<script src="../../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../../assets/js/course.js" defer></script>
+</head>
+<body data-page="d3-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3" class="on">اليوم 3</a><a class="lang" href="../d3-b1.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 3 · الجلسة 1 · 09:00–10:15</div><h1>من التقرير إلى العرض التقديمي</h1>
+<p class="goal">ابنِ عرضًا تقديميًا بـ Revealjs من التحليل نفسه: الشرائح والأقسام، وتخطيط يناسب الشريحة، وإيقاع العرض، وأدوات المتحدث.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">ملف جديد، <code>slides.qmd</code>، يكبر معنا طوال اليوم. مقطع الإعداد فيه هو الفكرة نفسها التي في التقرير.</p><div class="build" data-build="d3-deck">
+<div class="head"><span class="e">اليوم 3 · المثال 1</span><h3>من التقرير إلى العرض التقديمي</h3>
+<span class="len">4 خطوات · 42 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d3-deck.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d3-deck.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.91"><button type="button"><span class="n">1</span><span>الأداة نفسها بصيغة جديدة: <code>format: revealjs</code> يصنع عرضًا تقديميًا. والعنوان والعنوان الفرعي في الترويسة يصبحان شريحة العنوان.</span></button></li><li data-t="9.91" data-d="11.5"><button type="button"><span class="n">2</span><span>كل عنوان <code>##</code> يبدأ شريحة. ومقطع الإعداد يعمل كما في التقرير: <code>group_by()</code> و<code>summarise()</code> تحسبان تغيّر كل منطقة، وR داخل النص يعدّها.</span></button></li><li data-t="21.41" data-d="9.2"><button type="button"><span class="n">3</span><span>مقطع الكود على الشريحة يضع رسمه البياني عليها. وعلى عكس التقرير، يخفي العرض التقديمي الكود ما لم نطلب إظهاره.</span></button></li><li data-t="30.61" data-d="11.18"><button type="button"><span class="n">4</span><span>علامة <code>#</code> واحدة تبدأ قسمًا له شريحة عنوان خاصة. وشرائح <code>##</code> التي تليه تنتظم تحته عموديًا، وتبقى مفاتيح الأسهم تمرّ عليها بالترتيب.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d3-deck/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-deck/step4-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-layout">
+<div class="head"><span class="e">اليوم 3 · المثال 2</span><h3>تخطيط الشرائح</h3>
+<span class="len">3 خطوات · 30 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d3-layout.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d3-layout.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.29"><button type="button"><span class="n">1</span><span>نص ورسم بياني فوق بعضهما على شريحة واحدة: يُدفع الرسم إلى الأسفل حتى يختفي. للشريحة حجم ثابت، على عكس الصفحة.</span></button></li><li data-t="10.29" data-d="9.94"><button type="button"><span class="n">2</span><span><code>.columns</code> مع حاويتين <code>.column</code> يضع الكلام بجانب الرسم البياني. والعرض نسبة من الشريحة: 40% و60%.</span></button></li><li data-t="20.23" data-d="10.02"><button type="button"><span class="n">3</span><span>مجموعة التبويبات (tabset) تعمل على الشرائح أيضًا. هنا تبويب جازان مفتوح، والمملكة على بُعد نقرة، فتتّسع شريحة واحدة للرسمين.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d3-layout/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-layout/step3-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-pacing">
+<div class="head"><span class="e">اليوم 3 · المثال 3</span><h3>الإيقاع: نقطة واحدة في كل مرة</h3>
+<span class="len">3 خطوات · 29 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d3-pacing.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d3-pacing.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.53"><button type="button"><span class="n">1</span><span>نضع القائمة داخل <code>::: {.incremental}</code> فتظهر نقطة بعد نقطة. النقرة الأولى تُظهر النقطة الأولى فقط.</span></button></li><li data-t="9.53" data-d="9.72"><button type="button"><span class="n">2</span><span>النقرة التالية تُظهر النقطة التالية. نتحدث عن رقم واحد، والحضور ينظرون إلى هذا الرقم وحده.</span></button></li><li data-t="19.25" data-d="9.5"><button type="button"><span class="n">3</span><span>ثلاث نقاط بينها مسافات، <code>. . .</code>، توقف أي شيء وليس القوائم فقط: السطر الأخير ينتظر نقرته الخاصة.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d3-pacing/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-pacing/step3-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d3-notes">
+<div class="head"><span class="e">اليوم 3 · المثال 4</span><h3>ملاحظات المتحدث واختصارات المقدّم</h3>
+<span class="len">4 خطوات · 36 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d3-notes.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d3-notes.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.46"><button type="button"><span class="n">1</span><span><code>::: {.notes}</code> يحفظ ما سنقوله، ولا يراه الحضور أبدًا. نضع الملاحظات قبل أي توقف <code>. . .</code>، وإلا صارت تابعة لآخر جزء يظهر تدريجيًا.</span></button></li><li data-t="10.46" data-d="8.64"><button type="button"><span class="n">2</span><span>نضغط S فتُفتح شاشة المتحدث في نافذة مستقلة: الشريحة الحالية والتالية، ومؤقّت، والملاحظات.</span></button></li><li data-t="19.1" data-d="8.37"><button type="button"><span class="n">3</span><span>نضغط O فتظهر كل الشرائح في نظرة عامة: هكذا نعود بسرعة حين يكون السؤال عن الشريحة 2.</span></button></li><li data-t="27.47" data-d="8.92"><button type="button"><span class="n">4</span><span><code>chalkboard: true</code> يضيف طبقة نكتب عليها ونخطّ. نضغط B لسبورة فارغة نوضّح عليها ما لا يُظهره الرسم البياني.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d3-notes/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-notes/step4-slides.qmd" download>نزّل slides.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 6 دقائق</div>
+<h3>أول أربع شرائح لك</h3><ol><li>أنشئ <code>slides.qmd</code> فيه <code>format: revealjs</code> ومقطع الإعداد وشريحتان تبدأ كل منهما بـ <code>##</code>.</li><li>ضع النص والرسم البياني جنبًا إلى جنب باستخدام <code>.columns</code>.</li><li>اجعل القائمة بإظهار تدريجي، وأضف ملاحظة للمتحدث قبل الوقفة، ثم اضغط S أثناء العرض.</li></ol><details class="full"><summary>الملف كاملًا حتى الآن (72 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Quarterly briefing · synthetic data&quot;
+format:
+  revealjs:
+    chalkboard: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+jazan &lt;- rates |&gt; filter(region == &quot;Jazan&quot;)
+change &lt;- rates |&gt;
+  filter(region != &quot;Kingdom&quot;) |&gt;
+  group_by(region) |&gt;
+  summarise(change = last(rate) - first(rate))
+up &lt;- change |&gt; filter(change &gt; 0) |&gt; pull(region)
+```
+
+## Unemployment is falling
+
+::: {.incremental}
+- Down in `r sum(change$change &lt; 0)` of `r nrow(change)` regions since 2022
+- It rose only in `r up`
+:::
+
+::: {.notes}
+Pause here. Ask the room which region surprised them.
+:::
+
+. . .
+
+Next: why Jazan is different.
+
+## The national trend
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+# Regions
+
+## Jazan moved the other way
+
+:::: {.columns}
+::: {.column width=&quot;40%&quot;}
+Jazan&#x27;s rate rose while the Kingdom&#x27;s fell.
+:::
+::: {.column width=&quot;60%&quot;}
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::
+::::
+
+## Two regions
+
+::: {.panel-tabset}
+### Kingdom
+
+```{r}
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```
+
+### Jazan
+
+```{r}
+ggplot(jazan, aes(date, rate)) + geom_line()
+```
+:::</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">ابدأ المؤقت</button><span class="timer">6:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d3-b1"><script type="application/json">[{"q": "ما الذي يبدأ شريحة جديدة؟", "code": null, "options": ["عنوان <code>##</code>", "سطر فارغ", "مقطع كود جديد"], "answer": 0, "why": "<code>##</code> يبدأ شريحة؛ أما <code>#</code> فيبدأ قسمًا له شريحة عنوان خاصة به."}, {"q": "وضعت رسمًا بيانيًا على شريحة ولم يظهر أي كود. لماذا؟", "code": null, "options": ["العروض التقديمية تخفي الكود تلقائيًا", "فشل مقطع الكود", "لا يجتمع الرسم البياني والكود على شريحة واحدة"], "answer": 0, "why": "أضف <code>#| echo: true</code> عندما يكون الكود هو موضوع الشريحة."}, {"q": "نص ورسم بياني على شريحة واحدة، والرسم يخرج من أسفلها. ما الحل؟", "code": null, "options": ["تصغير النص", "<code>.columns</code>، النص في عمود والرسم البياني في الآخر", "<code>embed-resources: true</code>"], "answer": 1, "why": "للشريحة حجم ثابت، والأعمدة تستفيد من عرضها بدلًا من طولها."}, {"q": "الملاحظات المكتوبة بعد وقفة <code>. . .</code>، متى تظهر في شاشة المتحدث؟", "code": null, "options": ["من بداية الشريحة", "فقط بعد ظهور آخر جزء من الإظهار التدريجي", "لا تظهر أبدًا"], "answer": 1, "why": "كل ما يأتي بعد الوقفة يتبع ذلك الجزء، ومعه الملاحظات. جرّبنا ذلك في العرض التقديمي لهذه الدورة."}, {"q": "أي مفتاح يفتح شاشة المتحدث؟", "code": null, "options": ["S", "O", "B"], "answer": 0, "why": "المفتاح O للنظرة العامة على الشرائح، وB للسبورة."}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>طابق المفتاح مع الأداة</h3><p class="prompt">اختر مفتاحًا، ثم اختر ما يفعله أثناء العرض.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "طابق المفتاح مع الأداة", "prompt": "اختر مفتاحًا، ثم اختر ما يفعله أثناء العرض.", "mono": "left", "pairs": [["S", "شاشة المتحدث: الملاحظات والمؤقت والشريحة التالية"], ["O", "نظرة عامة على كل الشرائح"], ["B", "السبورة، عند تفعيل chalkboard: true"], ["R", "وضع التمرير: العرض التقديمي صفحة واحدة طويلة"], ["F", "ملء الشاشة"]]}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>العرض التقديمي جزء من التقرير، لا مستند آخر.</p></div>
+<nav class="pager"><a href="d2-lab.html"><small>السابق</small>التطبيق العملي 2: الهوية المؤسسية، والمُعامِلات، والتوليد دفعة واحدة</a><a class="next" href="d3-b2.html"><small>التالي</small>الكود والبيانات والحركة على الشرائح</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

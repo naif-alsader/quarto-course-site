@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مستندك الأول في Quarto · Quarto خطوة بخطوة</title>
+<link rel="icon" href="../../assets/img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/course.css">
+<script src="../../frames/vendor/hyperframes-player.global.js"></script>
+<script src="../../assets/js/course.js" defer></script>
+</head>
+<body data-page="d1-b1">
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html"><img src="../../assets/img/gastat-logo-color.png" alt="GASTAT"><span>Quarto خطوة بخطوة</span></a>
+<nav><a href="index.html#day1" class="on">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d1-b1.html" lang="en" hreflang="en">English</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero"><div class="eyebrow">اليوم 1 · الجلسة 1 · 09:00–10:15</div><h1>مستندك الأول في Quarto</h1>
+<p class="goal">افتح Positron، واكتب قليلًا من R وشغّله، ثم اكتب ملف <code>.qmd</code> من الصفر، وشاهد ما يفعله Quarto في الطريق إلى الصفحة.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">نبدأ بـ Positron وقليل من R، ثم Quarto. من المثال الخامس فصاعدًا يكبر تقرير واحد طوال اليوم، وكل مثال يبدأ من حيث توقّف الذي قبله.</p><div class="build" data-build="p-open">
+<div class="head"><span class="e">اليوم 1 · نقطة البداية</span><h3>فتح Positron</h3>
+<span class="len">8 خطوات · 61 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/p-open.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/p-open.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.3"><button type="button"><span class="n">1</span><span>هذا Positron، المحرّر الذي نستخدمه طوال الأسبوع. يفتح على صفحة Welcome، ومجلد المشروع على اليسار.</span></button></li><li data-t="9.3" data-d="8.75"><button type="button"><span class="n">2</span><span>تعرض لوحة Explorer ملفات مجلد المشروع. فيه الآن ملف واحد: البيانات، <code>unemployment.csv</code>.</span></button></li><li data-t="18.05" data-d="6.5"><button type="button"><span class="n">3</span><span>لا شيء يعمل بعد. نضغط Start Session في الأعلى لتشغيل R.</span></button></li><li data-t="24.55" data-d="8.59"><button type="button"><span class="n">4</span><span>نختار R. يعرض Positron أيضًا أي نسخة Python يجدها على الجهاز؛ لكننا في هذه الدورة نستخدم R دائمًا.</span></button></li><li data-t="33.14" data-d="7.11"><button type="button"><span class="n">5</span><span>R يعمل الآن. في لوحة Console نتحدث إلى R، وفيها يجيب.</span></button></li><li data-t="40.25" data-d="6.61"><button type="button"><span class="n">6</span><span>ستعرض لوحة Variables كل كائن ننشئه، وما يحمله من قيم.</span></button></li><li data-t="46.86" data-d="6.5"><button type="button"><span class="n">7</span><span>وستعرض لوحة Plots كل رسم بياني نرسمه.</span></button></li><li data-t="53.36" data-d="7.88"><button type="button"><span class="n">8</span><span>تظهر اللغة التي تعمل الآن في الأعلى. نضغط عليها لإعادة تشغيل R إذا توقف عن الاستجابة.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-console">
+<div class="head"><span class="e">اليوم 1 · كتابة الكود</span><h3>الحديث مع R في لوحة Console</h3>
+<span class="len">4 خطوات · 35 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/p-console.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/p-console.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.75"><button type="button"><span class="n">1</span><span>نضغط داخل لوحة Console، ونكتب <code>1 + 1</code> ثم نضغط Enter. يحسبها R ويجيب في السطر التالي: <code>[1] 2</code>.</span></button></li><li data-t="8.75" data-d="9.53"><button type="button"><span class="n">2</span><span>السطر <code>x &lt;- c(8.8, 6.6)</code> يحفظ رقمين باسم <code>x</code>: معدل المملكة في 2022 Q1 وفي 2025 Q4. والرمز <code>&lt;-</code> معناه: احفظ.</span></button></li><li data-t="18.28" data-d="7.88"><button type="button"><span class="n">3</span><span>يظهر <code>x</code> الآن في لوحة Variables مع القيم التي يحملها. وتبقى الكائنات حتى نغلق R.</span></button></li><li data-t="26.16" data-d="8.87"><button type="button"><span class="n">4</span><span>الدالة تعمل على ما نعطيها: <code>mean(x)</code> تساوي 7.7. ومعظم العمل في R استدعاء دوال مثل هذه.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-script">
+<div class="head"><span class="e">اليوم 1 · كتابة الكود</span><h3>من لوحة Console إلى سكربت</h3>
+<span class="len">7 خطوات · 63 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/p-script.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/p-script.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.91"><button type="button"><span class="n">1</span><span>ما نكتبه في لوحة Console يضيع غدًا. السكربت يحفظه: ملف اسمه <code>analysis.R</code> نشغّله من جديد في أي وقت.</span></button></li><li data-t="9.91" data-d="10.73"><button type="button"><span class="n">2</span><span>السطر <code>library(tidyverse)</code> يحمّل tidyverse: مجموعة حزم لقراءة البيانات وتشكيلها ورسمها، منها readr وdplyr وggplot2.</span></button></li><li data-t="20.64" data-d="10.35"><button type="button"><span class="n">3</span><span>تقرأ <code>read_csv()</code> الملف. ثم يمرّر <code>|&gt;</code> البيانات إلى <code>filter()</code>، فتُبقي صفوف المملكة. وكل سطر يحفظ نتيجته بـ <code>&lt;-</code>.</span></button></li><li data-t="30.99" data-d="9.14"><button type="button"><span class="n">4</span><span>نحدّد الأسطر ونضغط Ctrl+Enter: فتعمل في لوحة Console من الأعلى إلى الأسفل، كأننا كتبناها بأنفسنا.</span></button></li><li data-t="40.13" data-d="9.2"><button type="button"><span class="n">5</span><span>صارت <code>rates</code> و<code>kingdom</code> و<code>latest</code> في لوحة Variables: 224 صفًا من البيانات، و16 صفًا للمملكة، وآخر معدل لها: 6.6.</span></button></li><li data-t="49.33" data-d="6.5"><button type="button"><span class="n">6</span><span>السطر الأخير يُنشئ الرسم البياني، فيظهر في لوحة Plots.</span></button></li><li data-t="55.83" data-d="7.49"><button type="button"><span class="n">7</span><span>تفتح <code>View(rates)</code> البيانات في جدول: كل عمود، ونوعه، وتوزيع قيمه.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="p-quarto">
+<div class="head"><span class="e">اليوم 1 · نبدأ مع Quarto</span><h3>مستندك الأول في Quarto</h3>
+<span class="len">6 خطوات · 54 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/p-quarto.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/p-quarto.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.92"><button type="button"><span class="n">1</span><span>يفتح Ctrl+Shift+P لوحة الأوامر، وفيها كل الأوامر. والأمر <code>Quarto: New Document</code> يبدأ تقريرًا جديدًا.</span></button></li><li data-t="8.92" data-d="8.54"><button type="button"><span class="n">2</span><span>يبدأ مستند Quarto بترويسة بين سطرين من <code>---</code>: فيها هنا العنوان وصيغة المُخرَج.</span></button></li><li data-t="17.46" data-d="9.47"><button type="button"><span class="n">3</span><span>تحت الترويسة: نصّك، ثم كود R في مقطع كود تحيط به ثلاث علامات backtick. وهو نفس كود R الذي شغّلناه في السكربت.</span></button></li><li data-t="26.93" data-d="6.5"><button type="button"><span class="n">4</span><span>نضغط Preview.</span></button></li><li data-t="33.43" data-d="9.96"><button type="button"><span class="n">5</span><span>يشغّل Quarto الكود ويعرض الصفحة النهائية في لوحة Viewer: النص، والرسم البياني مرسومًا من جديد. ملف واحد صنع كل هذا.</span></button></li><li data-t="43.39" data-d="10.9"><button type="button"><span class="n">6</span><span>عن قرب: العنوان من الترويسة، والجملة التي كتبناها، والرسم الذي رسمه R. نعدّل الملف، ونضغط Preview مرة أخرى، فتتغيّر الصفحة معه.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span>
+</div>
+</div>
+<div class="build" data-build="d1-hello">
+<div class="head"><span class="e">اليوم 1 · المثال 1</span><h3>من ملف فارغ إلى أول توليد</h3>
+<span class="len">4 خطوات · 42 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d1-hello.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d1-hello.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="8.7"><button type="button"><span class="n">1</span><span>كل ملف <code>.qmd</code> يبدأ بترويسة YAML بين سطرين من <code>---</code>. ويكفي عنوان واحد لتوليد (render) صفحة.</span></button></li><li data-t="8.7" data-d="8.9"><button type="button"><span class="n">2</span><span>تحت الترويسة نكتب نصًا عاديًا. ويحوّله Quarto إلى الصفحة: دون أي تنسيق يدوي.</span></button></li><li data-t="17.6" data-d="12.69"><button type="button"><span class="n">3</span><span>مقطع كود R يعمل عند التوليد. وكل ما يطبعه يظهر في الصفحة تحته: رسائل بدء tidyverse، ورسائل readr، ونتيجة <code>glimpse()</code> للبيانات.</span></button></li><li data-t="30.29" data-d="11.48"><button type="button"><span class="n">4</span><span>مقطع ثانٍ يُبقي صفوف المملكة بـ <code>filter()</code> ويرسم الرسم البياني. ويُعاد رسمه في كل توليد، فيطابق البيانات دائمًا.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d1-hello/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d1-hello/step4-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-yaml">
+<div class="head"><span class="e">اليوم 1 · المثال 2</span><h3>ترويسة YAML</h3>
+<span class="len">4 خطوات · 43 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d1-yaml.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d1-yaml.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.67"><button type="button"><span class="n">1</span><span>الحقول <code>subtitle</code> و<code>author</code> و<code>date</code> تملأ منطقة العنوان. و<code>date: today</code> هو تاريخ التوليد، فلا يصبح قديمًا أبدًا.</span></button></li><li data-t="9.67" data-d="10.0"><button type="button"><span class="n">2</span><span>تحت <code>format: html:</code> نضع خيارات صيغة مُخرَج واحدة. و<code>toc: true</code> يبني قائمة محتويات من عناوين <code>##</code>.</span></button></li><li data-t="19.67" data-d="13.0"><button type="button"><span class="n">3</span><span>ننظر في المجلد: بجانب <code>report.html</code> كتب Quarto المجلد <code>report_files</code>، وفيه صورة الرسم البياني والتنسيقات والسكربتات. لو أرسلنا ملف HTML وحده بالبريد لوصل معطوبًا.</span></button></li><li data-t="32.67" data-d="10.12"><button type="button"><span class="n">4</span><span>الخيار <code>embed-resources: true</code> يضع كل شيء داخل ملف HTML نفسه. ملف واحد يفتح في أي مكان، حتى دون إنترنت.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d1-yaml/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d1-yaml/step4-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-markdown">
+<div class="head"><span class="e">اليوم 1 · المثال 3</span><h3>ما تحتاجه التقارير من Markdown</h3>
+<span class="len">6 خطوات · 62 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d1-markdown.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d1-markdown.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="9.78"><button type="button"><span class="n">1</span><span>يبدأ <code>##</code> قسمًا جديدًا، وتلتقطه قائمة المحتويات. و<code>**bold**</code> و<code>*italic*</code> تُبرزان الكلمات المهمة.</span></button></li><li data-t="9.78" data-d="10.44"><button type="button"><span class="n">2</span><span>القائمة المكتوبة مباشرة تحت سطر نص لا تصبح قائمة. يقرؤها Markdown على أنها تكملة للفقرة نفسها.</span></button></li><li data-t="20.22" data-d="9.06"><button type="button"><span class="n">3</span><span>الحل سطر فارغ واحد قبل القائمة. ومعظم مفاجآت Markdown سببها سطر فارغ ناقص.</span></button></li><li data-t="29.28" data-d="10.99"><button type="button"><span class="n">4</span><span>الرابط يُكتب <code>[text](address)</code>. والحاشية <code>[^1]</code> في النص وسطر <code>[^1]:</code> في أي مكان؛ ويرقّمها Quarto وينقلها إلى النهاية.</span></button></li><li data-t="40.27" data-d="9.28"><button type="button"><span class="n">5</span><span>المعادلة تُكتب بين علامتي <code>$</code> داخل الجملة، أو بين <code>$$</code> في أسطر مستقلة. فتكون ملاحظة المنهجية دقيقة.</span></button></li><li data-t="49.55" data-d="12.53"><button type="button"><span class="n">6</span><span>لكن انتبه: MathJax هو الذي يرسم المعادلة، ويُجلب من الإنترنت عند فتح الصفحة. والخيار <code>html-math-method: mathml</code> يكتبها داخل الصفحة، فتظهر دون إنترنت.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d1-markdown/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d1-markdown/step6-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+<div class="build" data-build="d1-pipeline">
+<div class="head"><span class="e">اليوم 1 · المثال 4</span><h3>كيف يعمل Quarto</h3>
+<span class="len">5 خطوات · 54 ث</span></div>
+<div class="screen"><hyperframes-player src="../../frames/d1-pipeline.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d1-pipeline.ar.jpg" controls></hyperframes-player></div>
+<ol class="steps"><li data-t="0" data-d="10.95"><button type="button"><span class="n">1</span><span>نولّد التقرير مرة أخرى ونقرأ السجل. الخيار <code>keep-md: true</code> يُبقي الملف الذي يصنعه Quarto في منتصف الطريق، لنرى ما بداخله.</span></button></li><li data-t="10.95" data-d="11.61"><button type="button"><span class="n">2</span><span>المرحلة 1: يشغّل knitr كل مقاطع كود R ويكتب Markdown عاديًا: نصّك، والكود، وما طبعه، ورابطًا لصورة الرسم البياني.</span></button></li><li data-t="22.56" data-d="11.49"><button type="button"><span class="n">3</span><span>المرحلة 2: يحوّل Pandoc ذلك الـ Markdown إلى HTML. ومع <code>embed-resources</code> يُضمَّن حتى الرسم البياني داخله، على شكل سطر طويل من النص.</span></button></li><li data-t="34.05" data-d="10.85"><button type="button"><span class="n">4</span><span>يعرض المتصفح النتيجة. وإذا فشل التوليد، يخبرك السجل بالمرحلة التي تعطّلت: خطأ R يأتي من knitr، وخطأ الصيغة من Pandoc.</span></button></li><li data-t="44.9" data-d="9.03"><button type="button"><span class="n">5</span><span>الصيغ الأخرى تغيّر المرحلة الأخيرة فقط: الـ Markdown نفسه يصبح ملف Word، ومن خلال Typst ملف PDF.</span></button></li></ol>
+<div class="tools">
+<button class="btn" type="button" data-act="prev">السابق</button>
+<button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
+<button class="btn" type="button" data-act="next">التالي</button>
+<button class="btn" type="button" data-act="all">شغّل الكل</button>
+<span class="sp"></span><a class="btn" href="../../live/d1-pipeline/report.docx" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d1-pipeline/step5-report.qmd" download>نزّل report.qmd</a>
+</div>
+</div>
+</section>
+<section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
+<h3>ابدأ ملفك <code>report.qmd</code></h3><ol><li>في Positron: <b>File → New File → Quarto Document</b>. احفظه باسم <code>report.qmd</code> في مجلد فيه <code>unemployment.csv</code>.</li><li>الصق الكود أدناه واضغط <b>Render</b>، أو شغّل <code>quarto render report.qmd</code> في لوحة Terminal.</li><li>أضف <code>toc: true</code> و<code>embed-resources: true</code>، ثم ولِّد التقرير (render) مرة أخرى وافحص المجلد: ملف HTML واحد.</li><li>احذف السطر الفارغ قبل القائمة، وولِّد التقرير، ولاحظ كيف تختلّ القائمة. ثم أعِده كما كان.</li></ol><div class="files"><a class="btn" href="../../files/unemployment.csv" download>unemployment.csv</a></div><details class="full"><summary>الملف كاملًا حتى الآن (50 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+title: &quot;Unemployment in the regions&quot;
+subtitle: &quot;Synthetic data, for training only&quot;
+author: &quot;Labour statistics team&quot;
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+    html-math-method: mathml
+---
+
+## Summary
+
+Unemployment **fell** in most regions between 2022 and 2025.
+*Jazan* is the exception. This note shows the national
+trend and the latest rates.[^1]
+The data cover:
+
+- 13 regions and the Kingdom as a whole
+- 16 quarters, from 2022 Q1 to 2025 Q4
+
+Official figures are on the [GASTAT website](https://www.stats.gov.sa).
+
+[^1]: All figures in this note are synthetic, made for training.
+
+## Method
+
+The unemployment rate is
+
+$$
+u = \frac{U}{U + E} \times 100
+$$
+
+where $U$ is the number unemployed and $E$ the number employed.
+
+## Data
+
+```{r}
+library(tidyverse)
+rates &lt;- read_csv(&quot;unemployment.csv&quot;)
+glimpse(rates)
+```
+
+## Trend
+
+```{r}
+kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
+ggplot(kingdom, aes(date, rate)) + geom_line()
+```</pre></div></details><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="5">ابدأ المؤقت</button><span class="timer">5:00</span></div></div>
+</section>
+<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d1-b1"><script type="application/json">[{"q": "في لوحة Console، ماذا يفعل <code>x &lt;- c(8.8, 6.6)</code>؟", "code": null, "options": ["يطبع 8.8 و6.6", "يحفظ الرقمين تحت الاسم <code>x</code>", "يرسم رسمًا بيانيًا"], "answer": 1, "why": "<code>&lt;-</code> يحفظ قيمة تحت اسم، ثم يظهر الكائن في لوحة Variables."}, {"q": "لماذا نكتب الكود في سكربت، لا في Console فقط؟", "code": null, "options": ["السكربت يعمل أسرع", "السكربت يحفظ الخطوات، فتشغّلها مرة أخرى ويقرؤها غيرك", "لا يستطيع Console قراءة الملفات"], "answer": 1, "why": "أسطر Console تضيع عند إغلاق R. السكربت هو سجلّ ما فعلته."}, {"q": "أين توضع ترويسة YAML في ملف <code>.qmd</code>؟", "code": null, "options": ["في أعلى الملف تمامًا، بين سطرين <code>---</code>", "في أي مكان، ما دامت بين سطرين <code>---</code>", "في ملف <code>.yml</code> منفصل"], "answer": 0, "why": "يجب أن تكون الترويسة أول شيء في الملف. أي كتلة <code>---</code> ثانية في الأسفل تُقرأ على أنها Markdown."}, {"q": "ماذا يضع <code>date: today</code> في منطقة العنوان؟", "code": null, "options": ["تاريخ إنشاء الملف", "تاريخ كل توليد", "لا شيء حتى تكتب تاريخًا"], "answer": 1, "why": "يُملأ عند التوليد، فالتقرير الذي تولّده في الربع القادم يحمل تاريخ الربع القادم."}, {"q": "كتبت <code>The data cover:</code> ووضعت قائمة في السطر التالي مباشرة. ظهرت القائمة سطرًا واحدًا متصلًا. لماذا؟", "code": null, "options": ["القوائم تحتاج <code>*</code> وليس <code>-</code>", "القائمة تحتاج سطرًا فارغًا قبلها", "القوائم لا تعمل إلا داخل مقطع كود"], "answer": 1, "why": "بدون السطر الفارغ، يقرأ Markdown القائمة على أنها تكملة للفقرة التي فوقها."}, {"q": "أرسلت <code>report.html</code> بالبريد، ولم يظهر الرسم البياني عند المستلم. ما الحل؟", "code": null, "options": ["<code>toc: true</code>", "<code>embed-resources: true</code>", "<code>keep-md: true</code>"], "answer": 1, "why": "بدونه يبقى الرسم البياني في <code>report_files/</code>، وهذا المجلد لم يُرسل مع ملف HTML."}, {"q": "أي مرحلة من مراحل التوليد تشغّل كود R؟", "code": null, "options": ["مرحلة Pandoc", "مرحلة knitr", "المتصفح"], "answer": 1, "why": "knitr يشغّل مقاطع الكود ويكتب Markdown؛ أما Pandoc فيحوّل هذا الـ Markdown فقط إلى HTML أو Word أو Typst."}, {"q": "تظهر معادلة نصًا خامًا فيه <code>$$</code> على جهاز دون إنترنت. ما الحل؟", "code": null, "options": ["<code>html-math-method: mathml</code>", "ضع المعادلة داخل مقطع كود", "استخدم <code>embed-resources: false</code>"], "answer": 0, "why": "MathJax يُجلب من الإنترنت عند فتح الصفحة، أما MathML فيُكتب داخل الصفحة عند التوليد."}]</script></div>
+</section>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>رتّب مراحل التوليد</h3><p class="prompt">من الملف الذي تكتبه إلى الصفحة التي ترسلها. اضغط على البطاقات بالترتيب.</p><div class="gbody"></div><script type="application/json">{"type": "order", "title": "رتّب مراحل التوليد", "prompt": "من الملف الذي تكتبه إلى الصفحة التي ترسلها. اضغط على البطاقات بالترتيب.", "items": ["report.qmd", "knitr يشغّل مقاطع R", "report.knit.md", "Pandoc يحوّل", "report.html"], "win": "صحيح. knitr يشغّل الكود، وPandoc يبني الصفحة. خطأ في R مشكلة في knitr، وتخطيط مكسور مشكلة في Pandoc."}</script></div>
+</section>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>التقرير كود. أنت تولّده، ولا تعدّل أبدًا ما يخرج منه.</p></div>
+<nav class="pager"><a href="index.html"><small>السابق</small>خريطة الدورة</a><a class="next" href="d1-b2.html"><small>التالي</small>الكود والأرقام والأشكال</a></nav>
+</main>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+</body>
+</html>

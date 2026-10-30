@@ -186,3 +186,21 @@ footer { border-top: 1px solid var(--line); color: var(--grey); font-size: 15px;
   .match { grid-template-columns: 1fr; }
   .pager a { min-width: 0; flex: 1; }
 }
+
+/* ---- the Arabic edition (<html dir="rtl">): mirrored, with code kept left to right ---- */
+.top nav .lang { font-family: Tajawal, sans-serif; font-weight: 700; color: var(--indigo); }
+[dir="rtl"] .eyebrow, [dir="rtl"] section.part > h2 .k, [dir="rtl"] .build .head .e, [dir="rtl"] .pager a small, [dir="rtl"] .qn {
+  font-family: Tajawal, sans-serif; font-weight: 700; letter-spacing: 0; text-transform: none; }
+[dir="rtl"] .top nav { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .build .head .len { margin-left: 0; margin-right: auto; font-family: Tajawal, sans-serif; }
+[dir="rtl"] .steps button, [dir="rtl"] .opt, [dir="rtl"] .match .chip { text-align: right; }
+[dir="rtl"] .try { border-left: 0; border-right: 8px solid var(--green); }
+[dir="rtl"] .try ol { padding-left: 0; padding-right: 22px; }
+[dir="rtl"] .codebox .copy { right: auto; left: 8px; }
+[dir="rtl"] .review { padding-left: 0; padding-right: 20px; }
+[dir="rtl"] .takeaway { border-left: 0; border-right: 10px solid var(--green); border-radius: 16px 0 0 16px; }
+[dir="rtl"] .pager a.next { text-align: left; margin-left: 0; margin-right: auto; }
+[dir="rtl"] .day li .tick { margin-left: 0; margin-right: auto; }
+[dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] pre, [dir="rtl"] .codebox, [dir="rtl"] .buglines, [dir="rtl"] .chip.mono, [dir="rtl"] hyperframes-player {
+  direction: ltr; text-align: left; }

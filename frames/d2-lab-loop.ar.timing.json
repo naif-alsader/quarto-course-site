@@ -1,0 +1,25 @@
+{
+ "id": "d2-lab-loop",
+ "title": "خمس مناطق، ثم اختبار الإنجاز",
+ "eyebrow": "التطبيق العملي 2 · الحل، الجزء 2",
+ "show": "render-notes.R",
+ "duration": 21.23,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.05,
+   "say": "نبدأ بخمس مناطق، وبأسماء ملفات نظيفة. نفتح ملفين من ملفات PDF ونقارن رقمًا بالبيانات قبل أن نكمل."
+  },
+  {
+   "t": 11.05,
+   "d": 10.18,
+   "say": "اختبار الإنجاز: نضيف منطقة إلى القائمة ونشغّل السكربت. يظهر ملف PDF الخاص بها، دون تعديل أي شيء آخر."
+  }
+ ],
+ "downloads": [
+  "step1-render-notes.R",
+  "step2-render-notes.R"
+ ],
+ "final": "library(tidyverse)\n\nregions <- c(\"Riyadh\", \"Makkah\", \"Eastern Province\",\n             \"Asir\", \"Tabuk\", \"Jazan\")\n\nwalk(regions, \\(r) {\n  slug <- r |> str_to_lower() |> str_replace_all(\" \", \"-\")\n  quarto::quarto_render(\n    \"note.qmd\",\n    output_format = \"typst\",\n    execute_params = list(region = r),\n    output_file = str_glue(\"note-{slug}.pdf\")\n  )\n})\n",
+ "live": null
+}

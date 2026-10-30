@@ -1,0 +1,36 @@
+{
+ "id": "d2-project",
+ "title": "المشاريع: إعدادات تشترك فيها كل الملفات",
+ "eyebrow": "اليوم 2 · المثال 8",
+ "show": "_quarto.yml",
+ "duration": 45.01,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.9,
+   "say": "مستند ثانٍ، <code>annex.qmd</code>، ليس فيه أي من إعدادات التقرير: لا قائمة محتويات، ولا دمج للموارد. ونسخ الترويسة إلى كل ملف يجعل النسخ تختلف مع الوقت."
+  },
+  {
+   "t": 10.9,
+   "d": 10.39,
+   "say": "<code>_quarto.yml</code> يجعل المجلد مشروعًا. و<code>quarto render</code> دون اسم ملف يولّد كل المستندات، داخل <code>_output</code>."
+  },
+  {
+   "t": 21.29,
+   "d": 10.85,
+   "say": "وكل مستند يرث إعدادات المشروع: الملحق الآن فيه قائمة محتويات، ويُرسل كملف واحد، دون أي تعديل على <code>annex.qmd</code>."
+  },
+  {
+   "t": 32.14,
+   "d": 12.87,
+   "say": "<code>freeze: auto</code> يحفظ نتائج كل مستند في <code>_freeze/</code>. نولّد مرة أخرى فلا تظهر <code>processing file</code>: لم يعمل R. ولا يعيد التشغيل إلا إذا تغيّر ملف <code>.qmd</code>."
+  }
+ ],
+ "downloads": [
+  "step2-_quarto.yml",
+  "step3-_quarto.yml",
+  "step4-_quarto.yml"
+ ],
+ "final": "project:\n  output-dir: _output\n\nformat:\n  html:\n    toc: true\n    embed-resources: true\n\nexecute:\n  freeze: auto\n",
+ "live": null
+}

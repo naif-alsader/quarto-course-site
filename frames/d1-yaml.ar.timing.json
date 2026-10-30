@@ -1,0 +1,37 @@
+{
+ "id": "d1-yaml",
+ "title": "ترويسة YAML",
+ "eyebrow": "اليوم 1 · المثال 2",
+ "show": "report.qmd",
+ "duration": 42.79,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.67,
+   "say": "الحقول <code>subtitle</code> و<code>author</code> و<code>date</code> تملأ منطقة العنوان. و<code>date: today</code> هو تاريخ التوليد، فلا يصبح قديمًا أبدًا."
+  },
+  {
+   "t": 9.67,
+   "d": 10.0,
+   "say": "تحت <code>format: html:</code> نضع خيارات صيغة مُخرَج واحدة. و<code>toc: true</code> يبني قائمة محتويات من عناوين <code>##</code>."
+  },
+  {
+   "t": 19.67,
+   "d": 13.0,
+   "say": "ننظر في المجلد: بجانب <code>report.html</code> كتب Quarto المجلد <code>report_files</code>، وفيه صورة الرسم البياني والتنسيقات والسكربتات. لو أرسلنا ملف HTML وحده بالبريد لوصل معطوبًا."
+  },
+  {
+   "t": 32.67,
+   "d": 10.12,
+   "say": "الخيار <code>embed-resources: true</code> يضع كل شيء داخل ملف HTML نفسه. ملف واحد يفتح في أي مكان، حتى دون إنترنت."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd",
+  "step4-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n---\n\nUnemployment fell in most regions between 2022 and 2025.\nThis note shows the national trend and the latest rates.\n\n## Data\n\n```{r}\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

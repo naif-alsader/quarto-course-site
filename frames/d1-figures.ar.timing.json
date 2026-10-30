@@ -1,0 +1,31 @@
+{
+ "id": "d1-figures",
+ "title": "الأشكال: الحجم والعنوان والتخطيط",
+ "eyebrow": "اليوم 1 · المثال 7",
+ "show": "report.qmd",
+ "duration": 28.94,
+ "steps": [
+  {
+   "t": 0,
+   "d": 9.39,
+   "say": "يحدّد <code>fig-width</code> و<code>fig-height</code> حجم الرسم البياني بالبوصة. والرسم العريض القصير يناسب السلسلة الزمنية."
+  },
+  {
+   "t": 9.39,
+   "d": 8.73,
+   "say": "يكتب <code>fig-cap</code> عنوان الشكل تحت الرسم البياني. وينتقل العنوان معه إلى Word وPDF."
+  },
+  {
+   "t": 18.12,
+   "d": 10.82,
+   "say": "يضع <code>layout-ncol: 2</code> رسمين بيانيين جنبًا إلى جنب. ومع <code>!expr</code> يمكن أن يكون الخيار كود R، فيتبع عنوانُ الشكل الثاني قيمةَ <code>REGION</code>."
+  }
+ ],
+ "downloads": [
+  "step1-report.qmd",
+  "step2-report.qmd",
+  "step3-report.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Synthetic data, for training only\"\nauthor: \"Labour statistics team\"\ndate: today\nformat:\n  html:\n    toc: true\n    embed-resources: true\n    html-math-method: mathml\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nREGION <- \"Jazan\"\nnow <- rates |>\n  filter(region == REGION, quarter == \"2025Q4\") |>\n  pull(rate)\nthen <- rates |>\n  filter(region == REGION, quarter == \"2022Q1\") |>\n  pull(rate)\n```\n\n## Summary\n\nUnemployment **fell** in most regions between 2022 and 2025.\n*Jazan* is the exception. This note shows the national\ntrend and the latest rates.[^1]\n\nIn `r REGION` the rate was\n`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,\nagainst `r scales::number(then, accuracy = 0.1)`% in\n2022 Q1: a change of\n`r scales::number(now - then, accuracy = 0.1, style_positive = \"plus\")`\npoints.\n\nThe data cover:\n\n- 13 regions and the Kingdom as a whole\n- 16 quarters, from 2022 Q1 to 2025 Q4\n\nOfficial figures are on the [GASTAT website](https://www.stats.gov.sa).\n\n[^1]: All figures in this note are synthetic, made for training.\n\n## Method\n\nThe unemployment rate is\n\n$$\nu = \\frac{U}{U + E} \\times 100\n$$\n\nwhere $U$ is the number unemployed and $E$ the number employed.\n\n## Data\n\n```{r}\nglimpse(rates)\n```\n\n## Trend\n\n```{r}\n#| fig-width: 8\n#| fig-height: 3.5\n#| fig-cap: \"Unemployment rate, Kingdom, 2022 to 2025 (%)\"\nkingdom <- rates |> filter(region == \"Kingdom\")\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n```{r}\n#| layout-ncol: 2\n#| fig-height: 4\n#| fig-cap: !expr c(\"The Kingdom\", REGION)\nggplot(kingdom, aes(date, rate)) + geom_line()\nrates |>\n  filter(region == REGION) |>\n  ggplot(aes(date, rate)) + geom_line()\n```\n",
+ "live": "report.html"
+}

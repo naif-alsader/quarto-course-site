@@ -1,0 +1,31 @@
+{
+ "id": "d3-export",
+ "title": "مشاركة العرض التقديمي",
+ "eyebrow": "اليوم 3 · المثال 11",
+ "show": "slides.qmd",
+ "duration": 31.3,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.33,
+   "say": "لنرسل العرض بالبريد ملفًا واحدًا، نضيف <code>embed-resources: true</code>. لكن مع تفعيل السبورة يرفض Quarto: لا يجتمع الاثنان."
+  },
+  {
+   "t": 11.33,
+   "d": 10.34,
+   "say": "نوقف السبورة في النسخة التي نرسلها. ملف واحد، <code>slides.html</code>، يُفتح في أي مكان، حتى دون إنترنت."
+  },
+  {
+   "t": 21.67,
+   "d": 9.63,
+   "say": "وللحصول على PDF، نفتح العرض مع <code>?print-pdf</code> في آخر الرابط ونطبعه من المتصفح: شريحة في كل صفحة."
+  }
+ ],
+ "downloads": [
+  "step1-slides.qmd",
+  "step2-slides.qmd",
+  "step3-slides.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment in the regions\"\nsubtitle: \"Quarterly briefing · synthetic data\"\nparams:\n  region: \"Jazan\"\nformat:\n  revealjs:\n    logo: gastat-logo-color.png\n    footer: \"Unemployment briefing · synthetic data\"\n    slide-number: true\n    embed-resources: true\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\njazan <- rates |> filter(region == \"Jazan\")\nfocus <- rates |> filter(region == params$region)\nchange <- rates |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(change = last(rate) - first(rate))\nup <- change |> filter(change > 0) |> pull(region)\n```\n\n## Unemployment is falling\n\n::: {.incremental}\n- Down in `r sum(change$change < 0)` of `r nrow(change)` regions since 2022\n- It rose only in `r up`\n:::\n\n::: {.notes}\nPause here. Ask the room which region surprised them.\n:::\n\n. . .\n\nNext: why Jazan is different.\n\n## The national trend\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n# Regions\n\n## Jazan moved the other way\n\n:::: {.columns}\n::: {.column width=\"40%\"}\nJazan's rate rose while the Kingdom's fell.\n:::\n::: {.column width=\"60%\"}\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n::::\n\n## Two regions\n\n::: {.panel-tabset}\n### Kingdom\n\n```{r}\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\n### Jazan\n\n```{r}\nggplot(jazan, aes(date, rate)) + geom_line()\n```\n:::\n\n# How the chart is made\n\n## Reading the pipeline\n\n```{r}\n#| echo: true\n#| eval: false\n#| code-line-numbers: \"|1|2|3-4\"\nrates |>\n  filter(region == \"Jazan\") |>\n  ggplot(aes(date, rate)) +\n  geom_line()\n```\n\n## The chart and its code\n\n```{r}\n#| echo: true\n#| output-location: column-fragment\nggplot(jazan, aes(date, rate)) +\n  geom_line(linewidth = 1)\n```\n\n## The pipeline grows {auto-animate=true}\n\n```r\nrates |>\n  filter(region == \"Jazan\")\n```\n\n## The pipeline grows {auto-animate=true}\n\n```r\nrates |>\n  filter(region == \"Jazan\") |>\n  ggplot(aes(date, rate)) +\n  geom_line()\n```\n\n## `r params$region`, 2025 Q4 {background-color=\"#4137A8\"}\n\n::: {.r-fit-text}\n`r last(focus$rate)`%\n:::\n",
+ "live": "slides.pdf"
+}

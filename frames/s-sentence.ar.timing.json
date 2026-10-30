@@ -1,0 +1,43 @@
+{
+ "id": "s-sentence",
+ "title": "من جدول إلى جملة",
+ "eyebrow": "خاتمة · هل نحتاج رسمًا بيانيًا؟",
+ "show": "sentence.qmd",
+ "duration": 57.41,
+ "steps": [
+  {
+   "t": 0,
+   "d": 11.34,
+   "say": "الجدول الذي تحمله أغلب التقارير: كل منطقة بأول معدل وآخر معدل، بالترتيب الأبجدي. القصة موجودة فيه، لكن على القارئ أن يبحث عنها."
+  },
+  {
+   "t": 11.34,
+   "d": 10.88,
+   "say": "نضيف العمود الذي يريده القارئ فعلًا، أي التغيّر، ونرتّب حسبه. فتصعد الحالة الاستثنائية إلى أعلى الجدول وحدها."
+  },
+  {
+   "t": 22.22,
+   "d": 12.25,
+   "say": "أسماء أعمدة يفهمها القارئ، وإشارة إلى الصف المهم: <code>style_tt(i = 1)</code> ينسّق الصف الأول، وهو بعد الترتيب الحالة الاستثنائية."
+  },
+  {
+   "t": 34.47,
+   "d": 9.94,
+   "say": "والآن نقولها بالكلام. جملتان من R داخل النص تحملان رسالة الجدول كلها، وكل رقم فيهما محسوب."
+  },
+  {
+   "t": 44.41,
+   "d": 13.0,
+   "say": "الجملة هي القصة، والجدول صار دليلها، بمعرّف وعنوان للجدول وإحالة. من أراد التحقق يستطيع، ولا يحتاج أحد إلى قراءة 13 صفًا ليصل إلى الفكرة."
+  }
+ ],
+ "downloads": [
+  "step1-sentence.qmd",
+  "step2-sentence.qmd",
+  "step3-sentence.qmd",
+  "step4-sentence.qmd",
+  "step5-sentence.qmd"
+ ],
+ "final": "---\ntitle: \"Unemployment by region\"\nformat:\n  html:\n    embed-resources: true\nexecute:\n  echo: false\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nlibrary(tinytable)\nchange <- read_csv(\"unemployment.csv\") |>\n  filter(region != \"Kingdom\") |>\n  group_by(region) |>\n  summarise(first = first(rate),\n            last = last(rate)) |>\n  mutate(change = last - first) |>\n  arrange(desc(change))\n```\n\nUnemployment fell in `r sum(change$change < 0)` of\n`r nrow(change)` regions. The exception is\n`r change$region[1]`: up `r change$change[1]` points,\nto `r change$last[1]`% (@tbl-change).\n\n```{r}\n#| label: tbl-change\n#| tbl-cap: \"Unemployment rate by region, %\"\nchange |>\n  select(Region = region,\n         `First quarter` = first,\n         `Last quarter` = last,\n         `Change, points` = change) |>\n  tt() |>\n  format_tt(digits = 1, num_fmt = \"decimal\",\n            num_zero = TRUE) |>\n  style_tt(i = 1, bold = TRUE, color = \"#00803A\") |>\n  theme_html(portable = TRUE)\n```\n",
+ "live": "sentence.html"
+}
