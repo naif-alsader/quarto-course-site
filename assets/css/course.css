@@ -204,3 +204,12 @@ footer { border-top: 1px solid var(--line); color: var(--grey); font-size: 15px;
 [dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }
 [dir="rtl"] pre, [dir="rtl"] .codebox, [dir="rtl"] .buglines, [dir="rtl"] .chip.mono, [dir="rtl"] hyperframes-player {
   direction: ltr; text-align: left; }
+
+/* the bonus on the home page: pictures of what the GASTAT template makes */
+.gal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 6px 0 18px; }
+.gal figure { margin: 0; }
+.gal img { display: block; width: 100%; height: 170px; object-fit: cover; object-position: top;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--white); }
+.gal figcaption { font-size: 14px; color: var(--grey); margin-top: 6px; }
+.bsteps { margin: 6px 0 14px; }
+@media (max-width: 760px) { .gal { grid-template-columns: 1fr 1fr; } }

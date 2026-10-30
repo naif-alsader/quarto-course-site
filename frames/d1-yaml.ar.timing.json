@@ -1,29 +1,29 @@
 {
  "id": "d1-yaml",
- "title": "ترويسة YAML",
+ "title": "الترويسة تضبط الصفحة",
  "eyebrow": "اليوم 1 · المثال 2",
  "show": "report.qmd",
- "duration": 42.79,
+ "duration": 43.21,
  "steps": [
   {
    "t": 0,
-   "d": 9.67,
-   "say": "الحقول <code>subtitle</code> و<code>author</code> و<code>date</code> تملأ منطقة العنوان. و<code>date: today</code> هو تاريخ التوليد، فلا يصبح قديمًا أبدًا."
+   "d": 10.16,
+   "say": "نضيف <code>subtitle</code> و<code>author</code> و<code>date</code> فتكتمل منطقة العنوان. و<code>date: today</code> يكتب تاريخ يوم التوليد، فما يتقادم التاريخ أبدًا."
   },
   {
-   "t": 9.67,
+   "t": 10.16,
    "d": 10.0,
-   "say": "تحت <code>format: html:</code> نضع خيارات صيغة مُخرَج واحدة. و<code>toc: true</code> يبني قائمة محتويات من عناوين <code>##</code>."
+   "say": "تحت <code>format: html:</code> نحط خيارات صيغة واحدة، هنا HTML. و<code>toc: true</code> يبني قائمة محتويات من عناوين <code>##</code> لحاله."
   },
   {
-   "t": 19.67,
-   "d": 13.0,
-   "say": "ننظر في المجلد: بجانب <code>report.html</code> كتب Quarto المجلد <code>report_files</code>، وفيه صورة الرسم البياني والتنسيقات والسكربتات. لو أرسلنا ملف HTML وحده بالبريد لوصل معطوبًا."
+   "t": 20.16,
+   "d": 12.93,
+   "say": "شوف المجلد: جنب <code>report.html</code> كتب Quarto مجلد <code>report_files</code> فيه صورة الرسم والتنسيقات والسكربتات. لو أرسلت ملف HTML وحده بالإيميل، يوصل ناقص."
   },
   {
-   "t": 32.67,
+   "t": 33.09,
    "d": 10.12,
-   "say": "الخيار <code>embed-resources: true</code> يضع كل شيء داخل ملف HTML نفسه. ملف واحد يفتح في أي مكان، حتى دون إنترنت."
+   "say": "ومع <code>embed-resources: true</code> ينحزم كل شيء داخل ملف HTML نفسه: ملف واحد ينفتح في أي جهاز، حتى دون إنترنت."
   }
  ],
  "downloads": [

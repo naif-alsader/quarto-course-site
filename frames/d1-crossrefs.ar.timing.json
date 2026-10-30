@@ -1,29 +1,29 @@
 {
  "id": "d1-crossrefs",
- "title": "الإحالات",
+ "title": "الإحالة تلحق الشكل",
  "eyebrow": "اليوم 1 · المثال 9",
  "show": "report.qmd",
- "duration": 37.51,
+ "duration": 39.77,
  "steps": [
   {
    "t": 0,
    "d": 9.39,
-   "say": "الوسم (label) الذي يبدأ بـ <code>fig-</code> يجعل الرسم البياني شكلًا مرقّمًا. فيبدأ عنوانه الآن بـ «Figure 1»."
+   "say": "نعطي الرسم وسمًا (label) يبدأ بـ <code>fig-</code>، فيصير شكلًا مرقّمًا. لاحظ أن عنوانه صار يبدأ بـ «Figure 1»."
   },
   {
    "t": 9.39,
-   "d": 9.83,
-   "say": "نكتب <code>@fig-trend</code> في النص فيكتب Quarto مكانه «Figure 1» على شكل رابط. وإذا نقلنا الرسم البياني يتبعه الرقم."
+   "d": 10.0,
+   "say": "نكتب <code>@fig-trend</code> في النص، ويكتب Quarto مكانها «Figure 1» رابطًا للشكل. ولو نقلت الرسم لمكان ثاني، الرقم يلحقه."
   },
   {
-   "t": 19.22,
-   "d": 9.01,
-   "say": "والجداول بالطريقة نفسها: وسم يبدأ بـ <code>tbl-</code>، و<code>tbl-cap</code>، و<code>@tbl-latest</code> حيث يحتاجه النص."
+   "t": 19.39,
+   "d": 9.34,
+   "say": "والجداول نفس الشيء: وسم يبدأ بـ <code>tbl-</code>، وعنوان في <code>tbl-cap</code>، و<code>@tbl-latest</code> في المكان اللي يحتاجه النص."
   },
   {
-   "t": 28.23,
-   "d": 9.28,
-   "say": "القسم يحتاج إلى معرّف، <code>{#sec-method}</code>، وعناوين مرقّمة. عندها يظهر <code>@sec-method</code> بالشكل «Section 2»."
+   "t": 28.73,
+   "d": 11.04,
+   "say": "القسم يحتاج شيئين: معرّف زي <code>{#sec-method}</code>، وعناوين مرقّمة بـ <code>number-sections: true</code>. وبعدها تطلع <code>@sec-method</code> في النص «Section 2»."
   }
  ],
  "downloads": [

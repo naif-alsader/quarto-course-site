@@ -3,7 +3,7 @@
  "title": "Your first Quarto document",
  "eyebrow": "Day 1 · Enter Quarto",
  "show": null,
- "duration": 54.29,
+ "duration": 63.82,
  "type": "screen",
  "steps": [
   {
@@ -18,21 +18,26 @@
   },
   {
    "t": 17.46,
+   "d": 9.53,
+   "say": "The example is only a start. Select all, delete it and type your own report, then Ctrl+S and save it as <code>report.qmd</code>."
+  },
+  {
+   "t": 26.99,
    "d": 9.47,
    "say": "Under the header: your words, then R code in a chunk, fenced by three backticks. The same R you ran in the script."
   },
   {
-   "t": 26.93,
+   "t": 36.46,
    "d": 6.5,
    "say": "Press Preview."
   },
   {
-   "t": 33.43,
+   "t": 42.96,
    "d": 9.96,
    "say": "Quarto runs the code and shows the finished page in the Viewer: the words, and the chart drawn fresh. One file made it all."
   },
   {
-   "t": 43.39,
+   "t": 52.92,
    "d": 10.9,
    "say": "Up close: the title from the header, the sentence you wrote, and the chart R drew. Edit the file, press Preview again, and the page follows."
   }

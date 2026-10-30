@@ -1,6 +1,6 @@
 {
  "id": "d3-brand",
- "title": "الهوية المؤسسية والشعار والتذييل",
+ "title": "هوية الهيئة على كل شريحة",
  "eyebrow": "اليوم 3 · المثال 9",
  "show": "slides.qmd",
  "duration": 19.16,
@@ -8,12 +8,12 @@
   {
    "t": 0,
    "d": 9.8,
-   "say": "ننسخ <code>_brand.yml</code> من اليوم 2 بجانب العرض ونولّده: يأخذ Revealjs الألوان والخطوط دون أي تغيير في <code>slides.qmd</code>."
+   "say": "نفس <code>_brand.yml</code> من اليوم 2، ننسخه جنب العرض ونولّد: Revealjs يأخذ الألوان والخطوط على طول، وما لمسنا <code>slides.qmd</code> بحرف."
   },
   {
    "t": 9.8,
    "d": 9.36,
-   "say": "<code>logo</code> و<code>footer</code> و<code>slide-number</code> تظهر على كل شريحة. والرقم أهمها: به يسأل الحضور عن الشريحة 6."
+   "say": "<code>logo</code> و<code>footer</code> و<code>slide-number</code> تظهر على كل شريحة. وأهمها الرقم: به يقول لك أحد الحضور «ارجع للشريحة 6»."
   }
  ],
  "downloads": [

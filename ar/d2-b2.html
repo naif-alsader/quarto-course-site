@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>المُعامِلات: قالب واحد، تقارير كثيرة · Quarto خطوة بخطوة</title>
+<title>المُعامِلات: قالب واحد، وتقرير لكل منطقة · Quarto خطوة بخطوة</title>
 <link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/course.css">
 <script src="../frames/vendor/hyperframes-player.global.js"></script>
@@ -15,13 +15,13 @@
 <nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2" class="on">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d2-b2.html" lang="en" hreflang="en">English</a></nav>
 </div></header>
 <main class="wrap">
-<div class="hero"><div class="eyebrow">اليوم 2 · الجلسة 2 · 10:30–11:45</div><h1>المُعامِلات: قالب واحد، تقارير كثيرة</h1>
-<p class="goal">حوّل المنطقة إلى مُعامِل، واجعل كل كلمة تعتمد عليها تتبعها، ثم ولِّد تقارير المناطق الـ 13 كلها من سكربت.</p><div class="rule"></div></div>
-<section class="part"><h2><span class="k">01</span>شاهد المثال</h2><p class="lead">اضغط خطوة لتشغيلها وحدها، أو شغّل المثال كله.</p><div class="build" data-build="d2-params">
-<div class="head"><span class="e">اليوم 2 · المثال 5</span><h3>المُعامِلات</h3>
-<span class="len">3 خطوات · 31 ث</span></div>
+<div class="hero"><div class="eyebrow">اليوم 2 · الجلسة 2 · 10:30–11:45</div><h1>المُعامِلات: قالب واحد، وتقرير لكل منطقة</h1>
+<p class="goal">نحوّل المنطقة إلى مُعامِل، ونخلّي كل كلمة تعتمد عليها تتغيّر معها، وبعدها نولّد تقارير المناطق الـ 13 كلها من سكربت واحد.</p><div class="rule"></div></div>
+<section class="part"><h2><span class="k">01</span>شوف المثال خطوة بخطوة</h2><p class="lead">اضغط أي خطوة تشتغل لحالها، أو شغّل المثال كامل.</p><div class="build" data-build="d2-params">
+<div class="head"><span class="e">اليوم 2 · المثال 5</span><h3>المنطقة تتغيّر من خارج الملف</h3>
+<span class="len">3 خطوات · 34 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d2-params.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-params.ar.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="10.35"><button type="button"><span class="n">1</span><span>الثابت <code>REGION</code> من اليوم 1 يصبح مُعامِلًا: نعرّفه في YAML، ونقرؤه في R باسم <code>params$region</code>. ولا يتغيّر شيء آخر في التقرير.</span></button></li><li data-t="10.35" data-d="10.16"><button type="button"><span class="n">2</span><span><code>-P region:Riyadh</code> يستبدل القيمة الافتراضية عند التوليد. وكل رقم ورسم بياني وعنوان شكل يستخدم <code>REGION</code> يتبعه.</span></button></li><li data-t="20.51" data-d="10.49"><button type="button"><span class="n">3</span><span>ومن داخل R، تفعل <code>quarto::quarto_render()</code> الشيء نفسه عبر <code>execute_params</code>. سطر واحد يستطيع السكربت أن يكرّره لكل منطقة.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="11.39"><button type="button"><span class="n">1</span><span>تذكرون <code>REGION &lt;- "Jazan"</code> من اليوم 1؟ الحين يصير مُعامِلًا: نعرّفه في YAML تحت <code>params:</code>، ونقرؤه في R بـ <code>params$region</code>. وباقي التقرير ما يتغيّر فيه حرف.</span></button></li><li data-t="11.39" data-d="11.43"><button type="button"><span class="n">2</span><span>مع <code>-P region:Riyadh</code> نغيّر القيمة وقت التوليد، بدون ما نفتح الملف. وكل رقم ورسم بياني وعنوان شكل يعتمد على <code>REGION</code> يتحوّل للرياض على طول.</span></button></li><li data-t="22.82" data-d="11.48"><button type="button"><span class="n">3</span><span>ونفس الشيء من داخل R: <code>quarto::quarto_render()</code> مع <code>execute_params</code>، وهنا لعسير. سطر واحد، والسكربت يقدر يكرّره لكل منطقة من المناطق الـ 13.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">السابق</button>
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
@@ -31,10 +31,10 @@
 </div>
 </div>
 <div class="build" data-build="d2-titles">
-<div class="head"><span class="e">اليوم 2 · المثال 6</span><h3>كلمات تتبع المُعامِل</h3>
+<div class="head"><span class="e">اليوم 2 · المثال 6</span><h3>حتى الجمل تتبع المنطقة</h3>
 <span class="len">3 خطوات · 35 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d2-titles.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-titles.ar.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="9.94"><button type="button"><span class="n">1</span><span>نكتب اسم المنطقة في العنوان يدويًا، ثم نولّد التقرير للرياض: الملخص يقول الرياض، والعنوان ما زال يقول جازان.</span></button></li><li data-t="9.94" data-d="12.09"><button type="button"><span class="n">2</span><span>R داخل النص يعمل في الترويسة أيضًا: knitr يقرأ الملف كله، ومعه الترويسة. فقط الملف الذي لا يحوي أي مقطع كود R يتجاوز knitr، فيظهر الكود كنص.</span></button></li><li data-t="22.03" data-d="12.66"><button type="button"><span class="n">3</span><span>الجزء الصعب: الجملة التي تحمل حكمًا يجب أن تأتي من قاعدة. <code>case_when()</code> تحدد العتبة والنتائج الثلاث كلها. في الرياض انخفض، وفي جازان ارتفع، ولم نكتب أيًّا من الكلمتين.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="9.83"><button type="button"><span class="n">1</span><span>نكتب جازان في العنوان بيدنا، ونولّد للرياض. شوف النتيجة: الملخص يتكلم عن الرياض، والعنوان باقي يقول جازان.</span></button></li><li data-t="9.83" data-d="12.58"><button type="button"><span class="n">2</span><span>نحط <code>r params$region</code> في العنوان: R داخل النص يشتغل حتى في الترويسة، لأن knitr يقرأ الملف كله. إلا ملف ما فيه ولا مقطع R، فهذا يتخطاه knitr ويطلع الكود نصًّا.</span></button></li><li data-t="22.41" data-d="12.66"><button type="button"><span class="n">3</span><span>وهنا الصعب: الجملة اللي فيها حكم لازم تجي من قاعدة. <code>case_when()</code> تحدد العتبة والاحتمالات الثلاثة. في الرياض نزل المعدل وفي جازان ارتفع، ولا كلمة منهما كتبناها بيدنا.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">السابق</button>
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
@@ -44,10 +44,10 @@
 </div>
 </div>
 <div class="build" data-build="d2-batch">
-<div class="head"><span class="e">اليوم 2 · المثال 7</span><h3>13 تقريرًا من قالب واحد</h3>
-<span class="len">4 خطوات · 48 ث</span></div>
+<div class="head"><span class="e">اليوم 2 · المثال 7</span><h3>13 منطقة، تشغيل واحد</h3>
+<span class="len">4 خطوات · 50 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d2-batch.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-batch.ar.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="11.82"><button type="button"><span class="n">1</span><span>سكربت التوليد هو خط الإنتاج: <code>walk()</code> تستدعي <code>quarto_render()</code> مرة لكل منطقة. نبدأ بثلاث مناطق ونفحصها، قبل التشغيل على 13 منطقة.</span></button></li><li data-t="11.82" data-d="11.88"><button type="button"><span class="n">2</span><span>نضيف الحدود الشمالية ونقرأ اسم ملفها: فيه مسافة. والمسافات تكسر الروابط ومرفقات البريد، والسكربت التالي الذي يقرأ هذا المجلد.</span></button></li><li data-t="23.7" data-d="11.61"><button type="button"><span class="n">3</span><span>نبني اسم الملف من اسم المنطقة باستخدام stringr: أحرف صغيرة، وشَرطات بدل المسافات. الاسم <code>report-northern-borders.pdf</code> آمن في كل مكان.</span></button></li><li data-t="35.31" data-d="13.0"><button type="button"><span class="n">4</span><span>نقرأ المناطق من <code>regions.csv</code>. لكل ملف PDF عنوانه وصياغته، لأن الاثنين يأتيان من المُعامِل. نضيف منطقة إلى الملف، فيظهر ملف PDF الخاص بها.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="11.82"><button type="button"><span class="n">1</span><span>سكربت التوليد هو خط الإنتاج كله: <code>walk()</code> تنادي <code>quarto_render()</code> مرة لكل منطقة. نبدأ بثلاث مناطق ونراجعها، وبعدها نشغّل الـ 13.</span></button></li><li data-t="11.82" data-d="11.88"><button type="button"><span class="n">2</span><span>نضيف الحدود الشمالية، وشوف اسم ملفها: فيه مسافة. والمسافة تخرّب الروابط ومرفقات البريد، وأي سكربت يجي بعدك ويقرأ هذا المجلد.</span></button></li><li data-t="23.7" data-d="13.0"><button type="button"><span class="n">3</span><span>نبني اسم الملف من اسم المنطقة بـ stringr: <code>str_to_lower()</code> للأحرف الصغيرة، و<code>str_replace_all(" ", "-")</code> تحط شَرطة مكان المسافة. و<code>report-northern-borders.pdf</code> يمشي في أي مكان.</span></button></li><li data-t="36.7" data-d="13.0"><button type="button"><span class="n">4</span><span>الحين نقرأ المناطق من <code>regions.csv</code>، فيطلع 13 ملف PDF، كل واحد بعنوانه وصياغته، لأن الاثنين من المُعامِل. وأي منطقة تنضاف للملف، يطلع تقريرها على طول.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">السابق</button>
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
@@ -58,7 +58,7 @@
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 6 دقائق</div>
-<h3>ولِّد تقريرك لثلاث مناطق</h3><ol><li>أضف <code>params:</code> وتحته <code>region: "Jazan"</code>، واكتب <code>REGION &lt;- params$region</code> في مقطع الإعداد.</li><li>ولِّد التقرير بالأمر <code>quarto render report.qmd -P region:Riyadh</code> واقرأ كل جملة: هل بقي شيء يذكر جازان؟</li><li>اكتب <code>render-all.R</code> بالحلقة التي في المثال، لثلاث مناطق أولًا.</li></ol><div class="codebox"><button class="copy" type="button">انسخ</button><pre>library(tidyverse)
+<h3>تقريرك لثلاث مناطق</h3><ol><li>أضف في الترويسة <code>params:</code> وتحتها <code>region: "Jazan"</code>، وفي مقطع الإعداد اكتب <code>REGION &lt;- params$region</code>.</li><li>ولِّد بـ <code>quarto render report.qmd -P region:Riyadh</code> واقرأ التقرير سطرًا سطرًا: فيه شيء باقي يقول جازان؟</li><li>اكتب <code>render-all.R</code> بالحلقة اللي في المثال، وابدأ بثلاث مناطق، لا بالـ 13 كلها.</li></ol><div class="codebox"><button class="copy" type="button">انسخ</button><pre>library(tidyverse)
 
 regions &lt;- read_csv(&quot;regions.csv&quot;) |&gt; pull(region_en)
 
@@ -72,13 +72,13 @@ walk(regions, \(r) {
   )
 })</pre></div><div class="tools" style="padding:8px 0 0"><button class="btn primary timer-btn" type="button" data-min="6">ابدأ المؤقت</button><span class="timer">6:00</span></div></div>
 </section>
-<section class="part"><h2><span class="k">03</span>تحقّق من فهمك</h2><div class="quiz" data-id="d2-b2"><script type="application/json">[{"q": "في كود R، كيف تقرأ المُعامِل <code>region</code>؟", "code": null, "options": ["<code>region</code>", "<code>params$region</code>", "<code>yaml$region</code>"]}, {"q": "العنوان هو <code>\"Unemployment in </code>r params$region<code>\"</code>. هل يتبع <code>-P region:Riyadh</code>؟", "code": null, "options": ["نعم، إذا كان في الملف مقاطع R، لأن knitr يقرأ الترويسة أيضًا", "أبدًا: YAML ليس R", "في PDF فقط"]}, {"q": "وماذا عن <code>{{&lt; meta params.region &gt;}}</code> في العنوان، عند التوليد بـ <code>-P region:Riyadh</code>؟", "code": null, "options": ["الرياض", "جازان، القيمة الافتراضية في YAML", "خطأ"]}, {"q": "لماذا نحتاج قاعدة لها ثلاث نتائج لكلمات مثل «ارتفع» و«انخفض»؟", "code": null, "options": ["لأن R يحتاج ثلاثة فروع", "لأن المنطقة التي بالكاد تغيّرت ستحصل على جملة خاطئة من قاعدة لها نتيجتان فقط", "لإطالة النص"]}, {"q": "ماذا يعطي <code>output_file = str_glue(\"report-{r}.pdf\")</code> لمنطقة الحدود الشمالية؟", "code": null, "options": ["<code>report-northern-borders.pdf</code>", "<code>report-Northern Borders.pdf</code>، وفيه مسافة", "خطأ"]}]</script></div>
+<section class="part"><h2><span class="k">03</span>اختبر فهمك</h2><div class="quiz" data-id="d2-b2"><script type="application/json">[{"q": "داخل كود R، كيف تقرأ المُعامِل <code>region</code>؟", "code": null, "options": ["<code>region</code>", "<code>params$region</code>", "<code>yaml$region</code>"]}, {"q": "عنوان التقرير <code>\"Unemployment in </code>r params$region<code>\"</code>. لو ولّدت بـ <code>-P region:Riyadh</code>، يتغيّر العنوان معه؟", "code": null, "options": ["نعم، ما دام في الملف مقاطع R، لأن knitr يقرأ الترويسة أيضًا", "أبدًا، فالترويسة YAML وليست R", "في PDF فقط"]}, {"q": "وإذا كان في العنوان <code>{{&lt; meta params.region &gt;}}</code> وولّدت بـ <code>-P region:Riyadh</code>؟", "code": null, "options": ["يظهر Riyadh", "يظهر Jazan، القيمة الافتراضية في YAML", "خطأ"]}, {"q": "لماذا تحتاج كلمات مثل «ارتفع» و«انخفض» قاعدة بثلاث نتائج؟", "code": null, "options": ["لأن R يحتاج ثلاثة فروع", "المنطقة اللي بالكاد تحرّكت، قاعدة الخيارين تكتب عنها جملة غلط", "عشان يطول النص"]}, {"q": "ما اسم الملف اللي يطلع لمنطقة الحدود الشمالية من <code>output_file = str_glue(\"report-{r}.pdf\")</code>؟", "code": null, "options": ["<code>report-northern-borders.pdf</code>", "<code>report-Northern Borders.pdf</code>، وفيه مسافة", "خطأ"]}]</script></div>
 </section>
-<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>أكمل المُعامِل</h3><p class="prompt">اكتب الأجزاء الناقصة، ثم اضغط «تحقّق».</p><div class="gbody"></div><script type="application/json">{"type": "fill", "title": "أكمل المُعامِل", "prompt": "اكتب الأجزاء الناقصة، ثم اضغط «تحقّق».", "code": "# report.qmd\n---\n[[params]]:\n  region: \"Jazan\"\n---\nREGION <- [[params$region]]\n\n# Terminal\nquarto render report.qmd [[-P]] region:Riyadh\n\n# R\nquarto::quarto_render(\"report.qmd\",\n  [[execute_params]] = list(region = \"Asir\"))\n", "why": "<code>params:</code> يعرّفه، و<code>params$region</code> يقرؤه، و<code>-P</code> يضبطه في Terminal، و<code>execute_params</code> يضبطه من R."}</script></div>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>كمّل المُعامِل</h3><p class="prompt">اكتب الناقص، ثم اضغط تحقّق.</p><div class="gbody"></div><script type="application/json">{"type": "fill", "title": "كمّل المُعامِل", "prompt": "اكتب الناقص، ثم اضغط تحقّق.", "code": "# report.qmd\n---\n[[params]]:\n  region: \"Jazan\"\n---\nREGION <- [[params$region]]\n\n# Terminal\nquarto render report.qmd [[-P]] region:Riyadh\n\n# R\nquarto::quarto_render(\"report.qmd\",\n  [[execute_params]] = list(region = \"Asir\"))\n", "why": "<code>params:</code> تعلن عن المُعامِل، و<code>params$region</code> تقرؤه، و<code>-P</code> تعطيه قيمة من Terminal، و<code>execute_params</code> تعطيه قيمة من R."}</script></div>
 </section>
-<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>قالب واحد، تقارير كثيرة، وكل جملة فيها صحيحة.</p></div>
-<nav class="pager"><a href="d2-b1.html"><small>السابق</small>مصدر واحد، صيغ كثيرة</a><a class="next" href="d2-b3.html"><small>التالي</small>المشاريع والهوية المؤسسية واللغة</a></nav>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>قالب واحد لكل المناطق، وما فيه جملة وحدة غلط.</p></div>
+<nav class="pager"><a href="d2-b1.html"><small>السابق</small>ملف واحد لكل الصيغ</a><a class="next" href="d2-b3.html"><small>التالي</small>المشروع والهوية واللغة</a></nav>
 </main>
-<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. كل رسم ورقم هنا مأخوذ من بيانات <b>مصطنعة</b> لقوة العمل أُعدّت للتدريب، وليست إحصاءات رسمية. وكل مُخرَج معروض صُنع بتشغيل Quarto 1.10 وR 4.3 فعلًا على الكود المجاور له.</div></footer>
+<footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. الأرقام والرسوم هنا من بيانات <b>مصطنعة</b> لقوة العمل جهّزناها للتدريب، وليست إحصاءات رسمية. وكل مُخرَج تشوفه طلع فعلًا من تشغيل Quarto 1.10 وR 4.3 على الكود اللي بجانبه.</div></footer>
 </body>
 </html>

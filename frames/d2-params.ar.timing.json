@@ -1,24 +1,24 @@
 {
  "id": "d2-params",
- "title": "المُعامِلات",
+ "title": "المنطقة تتغيّر من خارج الملف",
  "eyebrow": "اليوم 2 · المثال 5",
  "show": "report.qmd",
- "duration": 31.0,
+ "duration": 34.3,
  "steps": [
   {
    "t": 0,
-   "d": 10.35,
-   "say": "الثابت <code>REGION</code> من اليوم 1 يصبح مُعامِلًا: نعرّفه في YAML، ونقرؤه في R باسم <code>params$region</code>. ولا يتغيّر شيء آخر في التقرير."
+   "d": 11.39,
+   "say": "تذكرون <code>REGION &lt;- \"Jazan\"</code> من اليوم 1؟ الحين يصير مُعامِلًا: نعرّفه في YAML تحت <code>params:</code>، ونقرؤه في R بـ <code>params$region</code>. وباقي التقرير ما يتغيّر فيه حرف."
   },
   {
-   "t": 10.35,
-   "d": 10.16,
-   "say": "<code>-P region:Riyadh</code> يستبدل القيمة الافتراضية عند التوليد. وكل رقم ورسم بياني وعنوان شكل يستخدم <code>REGION</code> يتبعه."
+   "t": 11.39,
+   "d": 11.43,
+   "say": "مع <code>-P region:Riyadh</code> نغيّر القيمة وقت التوليد، بدون ما نفتح الملف. وكل رقم ورسم بياني وعنوان شكل يعتمد على <code>REGION</code> يتحوّل للرياض على طول."
   },
   {
-   "t": 20.51,
-   "d": 10.49,
-   "say": "ومن داخل R، تفعل <code>quarto::quarto_render()</code> الشيء نفسه عبر <code>execute_params</code>. سطر واحد يستطيع السكربت أن يكرّره لكل منطقة."
+   "t": 22.82,
+   "d": 11.48,
+   "say": "ونفس الشيء من داخل R: <code>quarto::quarto_render()</code> مع <code>execute_params</code>، وهنا لعسير. سطر واحد، والسكربت يقدر يكرّره لكل منطقة من المناطق الـ 13."
   }
  ],
  "downloads": [

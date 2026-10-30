@@ -3,41 +3,61 @@
  "title": "From the Console to a script",
  "eyebrow": "Day 1 · Writing code",
  "show": null,
- "duration": 63.32,
+ "duration": 99.55,
  "type": "screen",
  "steps": [
   {
    "t": 0,
-   "d": 9.91,
-   "say": "Lines typed in the Console are gone tomorrow. A script keeps them: a file, <code>analysis.R</code>, that you can run again at any time."
+   "d": 10.29,
+   "say": "Lines typed in the Console are gone tomorrow. A script keeps them in a file. To start one, press New at the top, then New File..."
   },
   {
-   "t": 9.91,
+   "t": 10.29,
+   "d": 8.81,
+   "say": "Positron asks what kind of file. Choose R File; the same list makes Python files and Quarto documents."
+  },
+  {
+   "t": 19.1,
+   "d": 8.1,
+   "say": "An empty R script opens in the editor, above the Console. It has no name yet: Untitled-1."
+  },
+  {
+   "t": 27.2,
+   "d": 8.26,
+   "say": "Type the code into it. The dot on the tab means the file has changes that are not saved yet."
+  },
+  {
+   "t": 35.46,
+   "d": 10.68,
+   "say": "Press Ctrl+S, type the name <code>analysis.R</code> and press Enter. The file now sits in the Explorer, next to the data, ready to run again any day."
+  },
+  {
+   "t": 46.14,
    "d": 10.73,
    "say": "<code>library(tidyverse)</code> loads the tidyverse: a family of packages for reading, shaping and charting data, readr, dplyr and ggplot2 among them."
   },
   {
-   "t": 20.64,
+   "t": 56.87,
    "d": 10.35,
    "say": "<code>read_csv()</code> reads the file. <code>|&gt;</code> passes the data on to <code>filter()</code>, which keeps the Kingdom's rows. Each line stores its result with <code>&lt;-</code>."
   },
   {
-   "t": 30.99,
+   "t": 67.22,
    "d": 9.14,
    "say": "Select the lines and press Ctrl+Enter: they run in the Console, top to bottom, exactly as if you typed them."
   },
   {
-   "t": 40.13,
+   "t": 76.36,
    "d": 9.2,
    "say": "Now <code>rates</code>, <code>kingdom</code> and <code>latest</code> are in Variables: 224 rows of data, the Kingdom's 16, and its latest rate, 6.6."
   },
   {
-   "t": 49.33,
+   "t": 85.56,
    "d": 6.5,
    "say": "The last line draws the chart, and it appears in Plots."
   },
   {
-   "t": 55.83,
+   "t": 92.06,
    "d": 7.49,
    "say": "<code>View(rates)</code> opens the data as a table: every column, its type, and its spread."
   }
