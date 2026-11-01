@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ملف واحد لكل الصيغ · Quarto خطوة بخطوة</title>
+<title>مصدر واحد، صيغ متعددة · Quarto خطوة بخطوة</title>
 <link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/course.css">
 <script src="../frames/vendor/hyperframes-player.global.js"></script>
@@ -15,10 +15,10 @@
 <nav><a href="index.html#day1">اليوم 1</a><a href="index.html#day2" class="on">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d2-b1.html" lang="en" hreflang="en">English</a></nav>
 </div></header>
 <main class="wrap">
-<div class="hero"><div class="eyebrow">اليوم 2 · الجلسة 1 · 09:00–10:15</div><h1>ملف واحد لكل الصيغ</h1>
+<div class="hero"><div class="eyebrow">اليوم 2 · الجلسة 1 · 09:00–10:15</div><h1>مصدر واحد، صيغ متعددة</h1>
 <p class="goal">نأخذ تقرير أمس كما هو ونطلّعه Word وPDF بهوية الهيئة، من غير ما نفتح ملفًا ثانيًا، ونقرّر بأنفسنا ما يظهر في كل صيغة.</p><div class="rule"></div></div>
 <section class="part"><h2><span class="k">01</span>شوف المثال خطوة بخطوة</h2><p class="lead">نكمل من التقرير اللي خلّصناه في اليوم 1. ما نعيد كتابة شيء منه؛ كل اللي نسويه أننا نضيف أسطرًا.</p><div class="build" data-build="d2-formats">
-<div class="head"><span class="e">اليوم 2 · المثال 1</span><h3>HTML وWord وPDF من ملف واحد</h3>
+<div class="head"><span class="e">اليوم 2 · المثال 1</span><h3>ملف واحد لثلاثة صيغ: HTML وWord وPDF</h3>
 <span class="len">4 خطوات · 44 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d2-formats.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-formats.ar.jpg" controls></hyperframes-player></div>
 <ol class="steps"><li data-t="0" data-d="10.62"><button type="button"><span class="n">1</span><span>تقرير اليوم 1 كما تركناه، وأضفنا له سطرًا واحدًا: <code>docx: default</code> تحت <code>format:</code>. والحين توليد واحد يكتب لك <code>report.html</code> و<code>report.docx</code> مع بعض.</span></button></li><li data-t="10.62" data-d="11.66"><button type="button"><span class="n">2</span><span>نضيف <code>typst: default</code> عشان نطلع PDF، فيتوقف التوليد بخطأ. السبب: Typst ما يقدر يحيل إلى القسم 2، لأن ترقيم الأقسام مفعّل لـ HTML وحده.</span></button></li><li data-t="22.28" data-d="11.62"><button type="button"><span class="n">3</span><span>القاعدة: ما في أعلى YAML يسري على كل الصيغ، وما تحت <code>html:</code> يخص HTML وحده. ننقل قائمة المحتويات والترقيم للأعلى، فيوصل الترقيم إلى Word وPDF وينجح التوليد.</span></button></li><li data-t="33.9" data-d="10.52"><button type="button"><span class="n">4</span><span>نفس المحتوى في الصيغ الثلاث، وكل صيغة تعطي أحسن ما عندها. التبويبات تصير أقسامًا عادية في Word وPDF، وصندوق الملاحظة المطوي ينفتح.</span></button></li></ol>
@@ -57,7 +57,7 @@
 </div>
 </div>
 <div class="build" data-build="d2-conditional">
-<div class="head"><span class="e">اليوم 2 · المثال 4</span><h3>لكل صيغة كلامها</h3>
+<div class="head"><span class="e">اليوم 2 · المثال 4</span><h3>محتوى لصيغة واحدة فقط</h3>
 <span class="len">3 خطوات · 31 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d2-conditional.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d2-conditional.ar.jpg" controls></hyperframes-player></div>
 <ol class="steps"><li data-t="0" data-d="10.46"><button type="button"><span class="n">1</span><span>«احفظ الصفحة في المفضلة» كلام ما له معنى على الورق. نحطه داخل <code>content-visible when-format="html"</code>، فيظهر في HTML ويختفي من Word وPDF.</span></button></li><li data-t="10.46" data-d="10.62"><button type="button"><span class="n">2</span><span>والعكس مع <code>unless-format="html"</code>: سطر يظهر في النسخة المطبوعة فقط، ومعه تاريخ طباعتها، عشان اللي بيده الورقة يعرف أن آخر نسخة على الموقع.</span></button></li><li data-t="21.08" data-d="10.07"><button type="button"><span class="n">3</span><span>وملاحظة المراجع، «طابق أرقام جازان مع ملف Q4»، نحطها في Word وحده بـ <code>when-format="docx"</code>. وبهذا ما توصل أبدًا إلى PDF المنشور.</span></button></li></ol>
@@ -71,7 +71,7 @@
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
-<h3>توليد واحد، ثلاثة ملفات</h3><ol><li>في <code>report.qmd</code> أضف تحت <code>format:</code> السطرين <code>docx: default</code> و<code>typst: default</code>، ثم ولِّد التقرير.</li><li>وقف Typst عند إحالة إلى قسم؟ انقل <code>number-sections: true</code> من تحت <code>html:</code> إلى المستوى الأعلى من الترويسة، زي ما سوّينا في المثال.</li><li>تحت <code>docx:</code> اكتب <code>reference-doc: gastat-reference.docx</code>، وولِّد مرة ثانية، وافتح ملف Word: نفس التقرير، لكن بهوية الهيئة.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download>gastat-reference.docx</a></div><details class="full"><summary>الملف كاملًا حتى الآن (147 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+<h3>توليد واحد، ثلاثة ملفات</h3><ol><li>في <code>report.qmd</code> أضف تحت <code>format:</code> السطرين <code>docx: default</code> و<code>typst: default</code>، ثم ولِّد التقرير.</li><li>لو وقف Typst عند إحالة لقسم، انقل <code>number-sections: true</code> للمستوى الأعلى في الـ header، زي ما سوينا في البناء.</li><li>في <code>docx:</code> أضف <code>reference-doc: gastat-reference.docx</code> ثم أعد التوليد وافتح ملف Word، بيطلع التقرير بنفس المحتوى لكن بهوية الهيئة.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download>gastat-reference.docx</a></div><details class="full"><summary>الملف كاملًا حتى الآن (147 سطرًا)، للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
 title: &quot;Unemployment in the regions&quot;
 subtitle: &quot;Synthetic data, for training only&quot;
 author: &quot;Labour statistics team&quot;
@@ -221,10 +221,10 @@ latest |&gt;
 </section>
 <section class="part"><h2><span class="k">03</span>اختبر فهمك</h2><div class="quiz" data-id="d2-b1"><script type="application/json">[{"q": "وقف Typst وطلّع لك <code>cannot reference heading without numbering</code>. ما السبب؟", "code": null, "options": ["Typst ما يعرف الإحالات أصلًا", "<code>number-sections: true</code> مكتوب تحت <code>html:</code> فقط", "معرّف القسم مكتوب غلط"]}, {"q": "من أين يأخذ ملف Word شكله؟", "code": null, "options": ["من <code>_brand.yml</code>", "من أنماط الملف اللي يشير إليه <code>reference-doc</code>", "من سمة HTML"]}, {"q": "ماذا تحصل عليه من <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code>؟", "code": null, "options": ["تقرير جاهز", "المستند المرجعي الافتراضي من Pandoc، تعدّل أنماطه في Word", "ملف PDF"]}, {"q": "ما فائدة <code>font-paths: fonts</code> مع Typst؟", "code": null, "options": ["عشان يستخدم PDF ملفات الخطوط اللي مع المشروع، على أي جهاز", "عشان ينزّل الخطوط وقت التوليد", "يحدد حجم الخط"]}, {"q": "ملاحظة للمراجعين، ولازم ما توصل أبدًا إلى PDF المنشور. أي غلاف تستخدم؟", "code": null, "options": ["<code>::: {.content-visible when-format=\"docx\"}</code>", "<code>::: {.content-hidden when-format=\"html\"}</code>", "<code>::: {.callout-note}</code>"]}]</script></div>
 </section>
-<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>ما الذي يبقى في Word وPDF؟</h3><p class="prompt">صح أو خطأ، والوقت يمشي.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "ما الذي يبقى في Word وPDF؟", "prompt": "صح أو خطأ، والوقت يمشي.", "seconds": 60, "items": [{"s": "التبويبات (tabset) تبقى تبويبات في PDF.", "a": false, "why": "تتحوّل إلى أقسام عادية، واحد تحت الثاني."}, {"s": "عنوان الشكل اللي في <code>fig-cap</code> يظهر في Word.", "a": true, "why": ""}, {"s": "<code>code-fold</code> يشتغل في PDF.", "a": false, "why": "طيّ الكود من مزايا HTML وحده."}, {"s": "<code>@fig-trend</code> تصير Figure 1 في الصيغ الثلاث كلها.", "a": true, "why": ""}, {"s": "صندوق الملاحظة المطويّ يبقى مطويًّا في Word.", "a": false, "why": "الورق ما يعرف الطيّ، فيطلع الصندوق مفتوحًا."}, {"s": "<code>html-math-method</code> يغيّر طريقة رسم المعادلات في PDF.", "a": false, "why": "الاسم يقولها: خيار لـ HTML. أما Typst فيرسم المعادلات بنفسه."}, {"s": "<code>toc: true</code> في المستوى الأعلى يخلّي حتى Word فيه قائمة محتويات.", "a": true, "why": ""}, {"s": "<code>reference-doc</code> يضبط شكل HTML.", "a": false, "why": "هذا لـ Word وحده."}]}</script></div>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>وش اللي يوصل لـ Word وPDF؟</h3><p class="prompt">صح أو خطأ، والوقت يمشي.</p><div class="gbody"></div><script type="application/json">{"type": "speed", "title": "وش اللي يوصل لـ Word وPDF؟", "prompt": "صح أو خطأ، والوقت يمشي.", "seconds": 60, "items": [{"s": "التبويبات (tabset) تبقى تبويبات في PDF.", "a": false, "why": "تتحوّل إلى أقسام عادية، واحد تحت الثاني."}, {"s": "عنوان الشكل اللي في <code>fig-cap</code> يظهر في Word.", "a": true, "why": ""}, {"s": "<code>code-fold</code> يشتغل في PDF.", "a": false, "why": "طيّ الكود من مزايا HTML وحده."}, {"s": "<code>@fig-trend</code> تصير Figure 1 في الصيغ الثلاث كلها.", "a": true, "why": ""}, {"s": "صندوق الملاحظة المطويّ يبقى مطويًّا في Word.", "a": false, "why": "الورق ما يعرف الطيّ، فيطلع الصندوق مفتوحًا."}, {"s": "<code>html-math-method</code> يغيّر طريقة رسم المعادلات في PDF.", "a": false, "why": "الاسم يقولها: خيار لـ HTML. أما Typst فيرسم المعادلات بنفسه."}, {"s": "<code>toc: true</code> في المستوى الأعلى يخلّي حتى Word فيه قائمة محتويات.", "a": true, "why": ""}, {"s": "<code>reference-doc</code> يضبط شكل HTML.", "a": false, "why": "هذا لـ Word وحده."}]}</script></div>
 </section>
-<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>المراجعون على Word زي ما تعوّدوا، وأنت على الكود.</p></div>
-<nav class="pager"><a href="d1-lab.html"><small>السابق</small>التطبيق العملي 1: من سكربت إلى تقرير منطقة</a><a class="next" href="d2-b2.html"><small>التالي</small>المُعامِلات: قالب واحد، وتقرير لكل منطقة</a></nav>
+<div class="takeaway"><div class="eyebrow">الخلاصة</div><p>مراجعوك في Word، وأنت في الكود.</p></div>
+<nav class="pager"><a href="d1-lab.html"><small>السابق</small>المختبر 1: تقرير منطقة من سكربت R</a><a class="next" href="d2-b2.html"><small>التالي</small>المُعامِلات: قالب واحد، وتقرير لكل منطقة</a></nav>
 </main>
 <footer><div class="wrap">Quarto خطوة بخطوة · دورة تدريبية في الهيئة العامة للإحصاء. الأرقام والرسوم هنا من بيانات <b>مصطنعة</b> لقوة العمل جهّزناها للتدريب، وليست إحصاءات رسمية. وكل مُخرَج تشوفه طلع فعلًا من تشغيل Quarto 1.10 وR 4.3 على الكود اللي بجانبه.</div></footer>
 </body>

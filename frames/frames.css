@@ -132,6 +132,7 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F5F7F
 .rtl .eyebrow, .rtl .title { left: auto; right: 64px; direction: rtl; }
 .rtl .eyebrow { font: 700 25px Tajawal, sans-serif; letter-spacing: 0; text-transform: none; top: 40px; }
 .rtl .logo { right: auto; left: 64px; }
+.rtl .rail { top: 36px; }   /* a right-aligned title reaches under the rail; above it the band is empty */
 .rtl .caps { left: auto; right: 64px; }
 .rtl .cap { left: auto; right: 0; direction: rtl; }
 .rtl .cap .t { text-align: right; }

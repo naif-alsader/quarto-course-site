@@ -1,6 +1,6 @@
 {
  "id": "d2-params",
- "title": "المنطقة تتغيّر من خارج الملف",
+ "title": "المنطقة تتغير من خارج الملف",
  "eyebrow": "اليوم 2 · المثال 5",
  "show": "report.qmd",
  "duration": 34.3,
@@ -18,7 +18,7 @@
   {
    "t": 22.82,
    "d": 11.48,
-   "say": "ونفس الشيء من داخل R: <code>quarto::quarto_render()</code> مع <code>execute_params</code>، وهنا لعسير. سطر واحد، والسكربت يقدر يكرّره لكل منطقة من المناطق الـ 13."
+   "say": "ونفس الشيء من داخل R: <code>quarto::quarto_render()</code> مع <code>execute_params</code>، وهنا لعسير. سطر واحد، والسكربت يقدر يكرّره لكل منطقة من المناطق الـ 13."
   }
  ],
  "downloads": [

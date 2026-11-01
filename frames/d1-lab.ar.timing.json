@@ -1,6 +1,6 @@
 {
  "id": "d1-lab",
- "title": "سكربت المنطقة صار مذكرة",
+ "title": "مذكرة منطقة، من سكربت إلى تقرير",
  "eyebrow": "التطبيق العملي 1 · الحل",
  "show": "note.qmd",
  "duration": 51.01,
@@ -8,7 +8,7 @@
   {
    "t": 0,
    "d": 10.19,
-   "say": "نبدأ بالترويسة ومقطع الإعداد. أول <code>analysis.R</code> ينتقل هنا تقريبًا زي ما هو، و<code>include: false</code> يخلّيه بعيد عن الصفحة."
+   "say": "نبدأ بالـ header والـ setup chunk. أول <code>analysis.R</code> ينتقل هنا تقريبًا زي ما هو، و<code>include: false</code> يخلّيه بعيد عن الصفحة."
   },
   {
    "t": 10.19,

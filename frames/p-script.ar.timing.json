@@ -1,6 +1,6 @@
 {
  "id": "p-script",
- "title": "سكربت يحفظ شغلك",
+ "title": "من الكونسول إلى السكربت",
  "eyebrow": "اليوم 1 · كتابة الكود",
  "show": null,
  "duration": 101.15,
@@ -49,7 +49,7 @@
   {
    "t": 77.24,
    "d": 9.2,
-   "say": "شوف لوحة Variables: فيها <code>rates</code> بـ 224 صفًا، و<code>kingdom</code> بصفوف المملكة الـ 16، و<code>latest</code> آخر معدل لها: 6.6."
+   "say": "شوف لوحة Variables: فيها <code>rates</code> بـ 224 صفًا، و<code>kingdom</code> بصفوف المملكة الـ 16، و<code>latest</code> آخر معدل لها: 6.6."
   },
   {
    "t": 86.44,
