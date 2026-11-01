@@ -5,14 +5,19 @@ or later and nothing else: no packages, no internet.
 
 ## Start
 
-This folder sits inside the published course. On the laptop you present from, in the
-course folder:
+This folder sits inside the published course. On the laptop you present from, double-click
+`start-course.command` (Mac) or `start-course.bat` (Windows) at the top of the course folder:
+it starts the room and opens the deck in the browser. Or, in the course folder:
 
 ```
-python3 room/room.py
+python3 room/room.py --open
 ```
 
-It prints the addresses:
+Always start the course this way. Opened straight from the folder (a `file://` address), the
+pages and slides show but the animated builds stay blank: their player has to load each build's
+frames, which a browser allows only from a server. The builds then say so.
+
+It prints the addresses (8080, or the next free port when 8080 is busy):
 
 | Address | Where it opens |
 |---|---|

@@ -4,8 +4,8 @@
   'use strict';
   // Interface text, in the deck's language (<html lang="ar"> is the Arabic edition)
   const L = document.documentElement.lang === 'ar'
-    ? { answer: 'الإجابة', time: 'انتهى الوقت', noNotes: 'لا ملاحظات لهذه الشريحة.', next: 'التالي', last: 'آخر شريحة', letters: 'أبجدهو' }
-    : { answer: 'Answer', time: 'Time', noNotes: 'No notes for this slide.', next: 'Next', last: 'Last slide', letters: 'ABCDEF' };
+    ? { fileNote: 'الأمثلة المتحركة تحتاج تفتح الدورة عن طريق الخادم الصغير حقها. افتح مجلد الدورة واضغط مرتين على <code>start-course</code> (في ماك <code>start-course.command</code>، وفي ويندوز <code>start-course.bat</code>)، أو شغّل <code>python3 room/room.py</code> هناك وافتح العنوان اللي يطلع.', answer: 'الإجابة', time: 'انتهى الوقت', noNotes: 'لا ملاحظات لهذه الشريحة.', next: 'التالي', last: 'آخر شريحة', letters: 'أبجدهو' }
+    : { fileNote: 'The animated builds need the course opened through its small server. In the course folder, double-click <code>start-course</code> (<code>start-course.command</code> on a Mac, <code>start-course.bat</code> on Windows), or run <code>python3 room/room.py</code> there and open the address it prints.', answer: 'Answer', time: 'Time', noNotes: 'No notes for this slide.', next: 'Next', last: 'Last slide', letters: 'ABCDEF' };
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const stage = $('#stage');
@@ -35,6 +35,8 @@
     const ctl = {
       make() {
         if (p) return;
+        // opened from disk the player cannot load its frames: say how to open the course instead of a blank box
+        if (location.protocol === 'file:' && !$('.bpnote', el)) el.appendChild(Object.assign(document.createElement('p'), { className: 'bpnote', innerHTML: L.fileNote }));
         p = document.createElement('hyperframes-player');
         p.setAttribute('src', el.dataset.src);
         p.setAttribute('runtime-src', el.dataset.src.replace(/[^/]+$/, '') + 'vendor/hyperframe.runtime.iife.js');

@@ -6,7 +6,8 @@ no packages. Participants join from a laptop or a phone on the same network.
 
     python3 room.py              start the room, or carry on with the last one, on port 8080
                                  (in the course folder it also serves the deck: see /deck below)
-    python3 room.py --port 9000  another port
+    python3 room.py --port 9000  another port (without it: 8080, or the next free one)
+    python3 room.py --open       and open the deck in the browser (what start-course does)
     python3 room.py --fresh      start over with an empty leaderboard
 
     http://localhost:8080/deck   the instructor's deck, with each quiz played live in it (this laptop only)
@@ -27,6 +28,7 @@ import secrets
 import socket
 import threading
 import time
+import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
@@ -470,7 +472,8 @@ def lan_addresses():
 
 def main():
     ap = argparse.ArgumentParser(description="The course's quiz room.")
-    ap.add_argument("--port", type=int, default=8080)
+    ap.add_argument("--port", type=int, help="the port; without it 8080, or the next free one")
+    ap.add_argument("--open", action="store_true", help="open the deck in the browser once the room is up")
     ap.add_argument("--ip", help="the address to show on the board, when the first guess is wrong")
     ap.add_argument("--url", help="the whole join address to show, e.g. for pictures of the room")
     ap.add_argument("--state", default=str(HERE / "room-state.json"), help="where the scores are kept")
@@ -479,13 +482,25 @@ def main():
     a = ap.parse_args()
     ips = lan_addresses()
     ip = a.ip or ips[0]
-    join = a.url or (f"http://{ip}:{a.port}/" if a.port != 80 else f"http://{ip}/")
-    room = Room(json.loads((HERE / "questions.json").read_text()), Path(a.state), a.fresh, join)
+    room = Room(json.loads((HERE / "questions.json").read_text()), Path(a.state), a.fresh, "")
     # the course this room sits in: the published site (room/ beside index.html), or v2/site in the source
     site = Path(a.site).resolve() if a.site else next(
         (d for d in (HERE.parent, HERE.parent / "site") if (d / "index.html").exists()), None)
-    srv = ThreadingHTTPServer(("0.0.0.0", a.port), make_handler(room, site))
+    # the port asked for; otherwise 8080, or the next free one: a busy port must not stop the class
+    srv = None
+    for port in ([a.port] if a.port else range(8080, 8100)):
+        try:
+            srv = ThreadingHTTPServer(("0.0.0.0", port), make_handler(room, site))
+            break
+        except OSError:
+            if a.port:
+                raise SystemExit(f"Port {port} is in use: try another, e.g. --port {port + 1}")
+    if not srv:
+        raise SystemExit("Ports 8080 to 8099 are all in use: pass a free one with --port")
+    a.port = port
     srv.daemon_threads = True
+    room.join = a.url or (f"http://{ip}:{port}/" if port != 80 else f"http://{ip}/")
+    join = room.join
     n = len(room.s["players"])
     print(f"""
   The quiz room is open{f', carrying on with {n} players' if n else ''}.
@@ -498,6 +513,8 @@ def main():
 
   Scores are saved in {a.state}. Ctrl+C closes the room; start it again to carry on.
 """, flush=True)
+    if a.open:
+        threading.Timer(1.0, webbrowser.open, [f"http://localhost:{port}/deck"]).start()
     try:
         srv.serve_forever(poll_interval=0.25)
     except KeyboardInterrupt:

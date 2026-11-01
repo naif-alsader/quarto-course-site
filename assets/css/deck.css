@@ -255,3 +255,9 @@ body.room-lost .hud .rlive { color: #F28B82; }
 .rscan { font-size: 26px; color: #6B6C7A; margin-top: 12px; }
 @keyframes rpop { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
 [dir="rtl"] .rsn { font-family: Tajawal, sans-serif; letter-spacing: 0; text-transform: none; font-weight: 700; }
+
+/* opened from disk: a build cannot load its frames, so it says how to open the course */
+.bp { position: relative; }
+.bpnote { position: absolute; inset: 30% 12% auto; z-index: 3; margin: 0; padding: 34px 40px; border-radius: 18px; background: #FFFFFF;
+  border: 2px solid #4137A8; color: #2C2D3F; font-size: 32px; line-height: 1.5; text-align: center; box-shadow: 0 10px 40px rgba(0, 0, 0, .12); }
+.bpnote code { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }

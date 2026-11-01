@@ -213,3 +213,9 @@ footer { border-top: 1px solid var(--line); color: var(--grey); font-size: 15px;
 .gal figcaption { font-size: 14px; color: var(--grey); margin-top: 6px; }
 .bsteps { margin: 6px 0 14px; }
 @media (max-width: 760px) { .gal { grid-template-columns: 1fr 1fr; } }
+
+/* opened from disk: the builds cannot play, so the page says how to open the course */
+.filenote { background: #EFEEFB; border: 1px solid var(--tint); border-radius: 12px; padding: 12px 16px; color: var(--dark); margin: 14px 0; }
+.screen { position: relative; }
+.filenote.over { position: absolute; inset: 22% 10% auto; z-index: 3; text-align: center; background: var(--white); border: 2px solid var(--indigo); }
+.filenote code { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }

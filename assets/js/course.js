@@ -22,7 +22,7 @@
 
   // Interface text, in the page's language (<html lang="ar"> is the Arabic edition)
   const L = document.documentElement.lang === 'ar' ? {
-    copied: 'نُسخ', selectCopy: 'حدِّد النص وانسخه', copy: 'انسخ', startTimer: 'ابدأ المؤقت', time: 'انتهى الوقت', stop: 'أوقف',
+    fileNote: 'الأمثلة المتحركة تحتاج تفتح الدورة عن طريق الخادم الصغير حقها. افتح مجلد الدورة واضغط مرتين على <code>start-course</code> (في ماك <code>start-course.command</code>، وفي ويندوز <code>start-course.bat</code>)، أو شغّل <code>python3 room/room.py</code> هناك وافتح العنوان اللي يطلع.', copied: 'نُسخ', selectCopy: 'حدِّد النص وانسخه', copy: 'انسخ', startTimer: 'ابدأ المؤقت', time: 'انتهى الوقت', stop: 'أوقف',
     pick: 'اختر إجابتك لكل سؤال، ونراجعها سوا في القاعة.', once: 'أجب عن كل سؤال مرة واحدة.',
     question: (n, N) => `السؤال ${n} من ${N}`, right: 'صح. ', notQuite: 'مو بالضبط. ',
     allRight: 'كفو! كل إجاباتك صحيحة.', readWhy: 'اقرأ السبب في الأسئلة اللي فاتتك.',
@@ -35,7 +35,7 @@
     yes: 'صح', no: 'خطأ', again: 'العب مرة أخرى', start: 'ابدأ', good: (g, n) => `${g} من ${n} صحيحة.`,
     showAnswer: 'أظهر الإجابة', missingCode: 'الكود الناقص', started: 'بدأت هذه الصفحة',
   } : {
-    copied: 'Copied', selectCopy: 'Select and copy', copy: 'Copy', startTimer: 'Start timer', time: 'Time', stop: 'Stop',
+    fileNote: 'The animated builds need the course opened through its small server. In the course folder, double-click <code>start-course</code> (<code>start-course.command</code> on a Mac, <code>start-course.bat</code> on Windows), or run <code>python3 room/room.py</code> there and open the address it prints.', copied: 'Copied', selectCopy: 'Select and copy', copy: 'Copy', startTimer: 'Start timer', time: 'Time', stop: 'Stop',
     pick: 'Pick an answer for each question. The instructor goes through them in the room.', once: 'Answer each question once.',
     question: (n, N) => `Question ${n} of ${N}`, right: 'Right. ', notQuite: 'Not quite. ',
     allRight: 'All right. Well done.', readWhy: 'Read the reasons for the ones you missed.',
@@ -332,6 +332,11 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // opened from disk the builds cannot play: say how to open the course, at the top and on each build
+    if (location.protocol === 'file:' && document.querySelector('.build')) {
+      $('main').prepend(h('p', { class: 'filenote', html: L.fileNote }));
+      $$('.build .screen').forEach(sc => sc.append(h('p', { class: 'filenote over', html: L.fileNote })));
+    }
     $$('.build').forEach(initBuild);
     $$('.copy').forEach(initCopy);
     $$('.timer-btn').forEach(initTimer);
