@@ -445,6 +445,8 @@
     fit();
     const m = location.hash.match(/^#\/(\d+)/);
     show(m ? +m[1] - 1 : 0, 1, true);
-    roomPoll().then(on => { if (on) setInterval(roomPoll, 700); });   // only when room.py serves the deck
+    // room.py serves the deck to its own laptop only, under /course/: anywhere else, no probe (and no 404)
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && location.pathname.startsWith('/course/'))
+      roomPoll().then(on => { if (on) setInterval(roomPoll, 700); });
   });
 })();
