@@ -1,0 +1,3177 @@
+{
+ "rounds": [
+  {
+   "id": "d1-b1",
+   "day": 1,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "In the Console, what does <code>x &lt;- c(8.8, 6.6)</code> do?",
+      "ar": "كتبت في Console السطر <code>x &lt;- c(8.8, 6.6)</code>. ما الذي فعله؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Prints 8.8 and 6.6",
+       "Stores the two numbers under the name <code>x</code>",
+       "Draws a chart"
+      ],
+      "ar": [
+       "طبع 8.8 و6.6",
+       "حفظ الرقمين باسم <code>x</code>",
+       "رسم رسمًا بيانيًا"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>&lt;-</code> stores a value under a name. The object then appears in the Variables pane.",
+      "ar": "<code>&lt;-</code> يحفظ القيمة باسم تختاره أنت، وبعدها تلقى الكائن في لوحة Variables."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why write code in a script rather than only in the Console?",
+      "ar": "ما الفائدة من كتابة الكود في سكربت، بدل ما تكتفي بـ Console؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Scripts run faster",
+       "A script keeps the steps, so you can run them again and others can read them",
+       "The Console cannot read files"
+      ],
+      "ar": [
+       "السكربت أسرع في التشغيل",
+       "السكربت يحفظ خطواتك، فتشغّلها من جديد متى ما احتجت ويقرؤها زملاؤك",
+       "Console ما يقدر يقرأ الملفات"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Console lines are gone when R closes. The script is the record of what you did.",
+      "ar": "اللي تكتبه في Console يروح أول ما تقفل R. السكربت هو سجلّ شغلك، تفتحه بعد شهر وتلقى كل خطوة في مكانها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where does the YAML header go in a <code>.qmd</code> file?",
+      "ar": "أين يُكتب الـ YAML header في ملف <code>.qmd</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "At the very top, between two <code>---</code> lines",
+       "Anywhere, as long as it is inside <code>---</code> lines",
+       "In a separate <code>.yml</code> file"
+      ],
+      "ar": [
+       "في أول الملف تمامًا، بين سطرين <code>---</code>",
+       "في أي مكان، المهم تكون بين سطرين <code>---</code>",
+       "في ملف <code>.yml</code> مستقل"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "The header must be the first thing in the file. A second <code>---</code> block further down is read as Markdown.",
+      "ar": "الـ header لازم يكون أول شيء في الملف، وأي كتلة <code>---</code> ثانية تحتها تُقرأ على أنها Markdown عادي."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "What does <code>date: today</code> put in the title block?",
+      "ar": "كتبت <code>date: today</code> في الـ header. أي تاريخ يظهر تحت العنوان؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The date you created the file",
+       "The date of each render",
+       "Nothing until you type a date"
+      ],
+      "ar": [
+       "تاريخ إنشاء الملف",
+       "تاريخ كل توليد",
+       "لا شيء، حتى تكتب التاريخ بنفسك"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It is filled in at render time, so a report rendered next quarter shows next quarter's date.",
+      "ar": "يُعبّأ وقت التوليد. فإذا ولّدت التقرير في الربع القادم، طلع بتاريخ الربع القادم من غير ما تعدّل شيئًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You wrote <code>The data cover:</code> and a list on the next line. The list shows as one run-on line. Why?",
+      "ar": "كتبت <code>The data cover:</code> وتحته مباشرة قائمة، فطلعت القائمة سطرًا واحدًا ملتصقًا بالكلام. ما السبب؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Lists need <code>*</code>, not <code>-</code>",
+       "A list needs a blank line before it",
+       "Lists only work inside a chunk"
+      ],
+      "ar": [
+       "القوائم تحتاج <code>*</code> لا <code>-</code>",
+       "القائمة تحتاج سطرًا فارغًا قبلها",
+       "القوائم ما تشتغل إلا داخل chunk"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Without the blank line, Markdown reads the list as more of the paragraph above.",
+      "ar": "من غير السطر الفارغ يعتبر Markdown القائمة تكملةً للفقرة اللي فوقها. وأغلب مفاجآت Markdown سببها سطر فارغ ناقص."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You e-mail <code>report.html</code> and the chart is missing on the other side. What fixes it?",
+      "ar": "أرسلت <code>report.html</code> لمديرك بالإيميل، ففتحه وما لقى الرسم البياني. ما الحل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>toc: true</code>",
+       "<code>embed-resources: true</code>",
+       "<code>keep-md: true</code>"
+      ],
+      "ar": [
+       "<code>toc: true</code>",
+       "<code>embed-resources: true</code>",
+       "<code>keep-md: true</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Without it, the chart lives in <code>report_files/</code>, which did not travel with the HTML.",
+      "ar": "من غيره يبقى الرسم في مجلد <code>report_files/</code>، والمجلد هذا ما راح مع الإيميل."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Which stage of the render runs your R code?",
+      "ar": "في أي مرحلة من التوليد يشتغل كود R؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Pandoc",
+       "knitr",
+       "The browser"
+      ],
+      "ar": [
+       "مرحلة Pandoc",
+       "مرحلة knitr",
+       "في المتصفح، لحظة فتح الصفحة"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "knitr runs the chunks and writes Markdown; Pandoc only converts that Markdown into HTML, Word or Typst.",
+      "ar": "knitr يشغّل الـ chunks ويكتب منها Markdown. أما Pandoc فشغله التحويل فقط: من Markdown إلى HTML أو Word أو Typst."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A formula shows as raw <code>$$</code> text on an offline machine. What is the fix?",
+      "ar": "على جهاز ما فيه إنترنت، طلعت المعادلة نصًّا خامًا فيه <code>$$</code>. كيف تصلحها؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>html-math-method: mathml</code>",
+       "Put the formula in a chunk",
+       "Use <code>embed-resources: false</code>"
+      ],
+      "ar": [
+       "<code>html-math-method: mathml</code>",
+       "ضع المعادلة داخل chunk",
+       "استخدم <code>embed-resources: false</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "MathJax is fetched from the internet when the page opens. MathML is written into the page at render time.",
+      "ar": "MathJax يُجلب من الإنترنت لحظة فتح الصفحة، فإذا ما فيه شبكة ما تظهر المعادلة. أما MathML فيُكتب داخل الصفحة وقت التوليد."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Your first Quarto document",
+    "ar": "أول ملف Quarto لك"
+   },
+   "eyebrow": {
+    "en": "Day 1 · Block 1 · 09:00–10:15",
+    "ar": "اليوم 1 · الجلسة 1 · 09:00–10:15"
+   }
+  },
+  {
+   "id": "d1-b2",
+   "day": 1,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "Which picture is the trend chunk with <code>echo: false</code>?",
+      "ar": "أي الصور الثلاث فيها chunk رسم الاتجاه وعليه <code>echo: false</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "A",
+       "B",
+       "C"
+      ],
+      "ar": [
+       "أ",
+       "ب",
+       "ج"
+      ]
+     },
+     "imgs": [
+      "static/img/d1-chunks-01.png",
+      "static/img/d1-chunks-02.png",
+      "static/img/d1-chunks-04.png"
+     ],
+     "answer": 1,
+     "why": {
+      "en": "A still shows each chunk's code. C folds the code behind a Code button. B shows the chart alone.",
+      "ar": "في (أ) الكود ظاهر فوق كل chunk، وفي (ج) الكود مطوي خلف زر Code، أما (ب) فيعرض الرسم وحده."
+     },
+     "seconds": 30
+    },
+    {
+     "q": {
+      "en": "What is the difference between <code>include: false</code> and <code>echo: false</code>?",
+      "ar": "ما الفرق بين <code>include: false</code> و<code>echo: false</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "None",
+       "<code>include: false</code> runs the code and shows nothing; <code>echo: false</code> shows the result but not the code",
+       "<code>include: false</code> does not run the code"
+      ],
+      "ar": [
+       "ما فيه فرق",
+       "<code>include: false</code> يشغّل الكود وما يعرض شيئًا، و<code>echo: false</code> يعرض النتيجة ويخفي الكود",
+       "<code>include: false</code> ما يشغّل الكود أصلًا"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>include: false</code> is for setup work. Not running the code at all is <code>eval: false</code>.",
+      "ar": "<code>include: false</code> مكانه شغل التجهيز اللي ما يحتاج القارئ يشوفه. أما إذا ما تبغى الكود يشتغل أصلًا، فهذا <code>eval: false</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>then</code> is 9. What does <code>&#96;r scales::number(then, accuracy = 0.1)&#96;</code> print?",
+      "ar": "قيمة <code>then</code> هي 9. ماذا يطبع <code>&#96;r scales::number(then, accuracy = 0.1)&#96;</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "9",
+       "9.0",
+       "9.00"
+      ],
+      "ar": [
+       "9",
+       "9.0",
+       "9.00"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>accuracy = 0.1</code> means one decimal place, always.",
+      "ar": "<code>accuracy = 0.1</code> يعني منزلة عشرية واحدة دائمًا، حتى لو كان الرقم صحيحًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "And <code>&#96;r scales::number(2.14, accuracy = 0.1, style_positive = \"plus\")&#96;</code>?",
+      "ar": "وماذا عن <code>&#96;r scales::number(2.14, accuracy = 0.1, style_positive = \"plus\")&#96;</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "2.1",
+       "+2.1",
+       "+2.14"
+      ],
+      "ar": [
+       "2.1",
+       "+2.1",
+       "+2.14"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>style_positive = \"plus\"</code> puts a sign on positive numbers too, so a rise and a fall read differently.",
+      "ar": "<code>style_positive = \"plus\"</code> يضع إشارة + أمام الموجب أيضًا، فيتميّز الارتفاع عن الانخفاض من أول نظرة."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>fig-width: 8</code> is measured in what?",
+      "ar": "<code>fig-width: 8</code>، ثمانية بأي وحدة؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Pixels",
+       "Centimetres",
+       "Inches"
+      ],
+      "ar": [
+       "بكسل",
+       "سنتيمتر",
+       "إنش"
+      ]
+     },
+     "imgs": null,
+     "answer": 2,
+     "why": {
+      "en": "knitr sizes figures in inches; <code>out-width</code> is the option for display width in the page.",
+      "ar": "knitr يقيس الأشكال بالإنش. أما عرض الشكل داخل الصفحة فله خيار ثاني: <code>out-width</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why did the two-chart layout use <code>fig-cap: !expr c(\"The Kingdom\", REGION)</code>?",
+      "ar": "في الرسمين المتجاورين كتبنا <code>fig-cap: !expr c(\"The Kingdom\", REGION)</code>. لماذا؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>!expr</code> makes the option R code, so the caption follows <code>REGION</code>",
+       "It is needed for any list of captions",
+       "It hides the caption in Word"
+      ],
+      "ar": [
+       "<code>!expr</code> يخلّي الخيار كود R، فيتبع العنوان قيمة <code>REGION</code>",
+       "لازم مع أي قائمة عناوين",
+       "يخفي العنوان في Word"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "A typed caption would say Jazan forever. With <code>!expr</code> it is computed on every render.",
+      "ar": "لو كتبت العنوان بيدك لبقي «جازان» للأبد، حتى لو غيّرت المنطقة. مع <code>!expr</code> يُحسب العنوان من جديد في كل توليد."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Code, numbers and figures",
+    "ar": "R يكتب الأرقام والرسوم البيانية"
+   },
+   "eyebrow": {
+    "en": "Day 1 · Block 2 · 10:30–11:45",
+    "ar": "اليوم 1 · الجلسة 2 · 10:30–11:45"
+   }
+  },
+  {
+   "id": "d1-b3",
+   "day": 1,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "<code>format_tt(digits = 1)</code> on a column with 11.1 and 5.7 prints what?",
+      "ar": "عمود فيه 11.1 و5.7، وطبّقت عليه <code>format_tt(digits = 1)</code>. ماذا يظهر؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "11.1 and 5.7",
+       "11 and 6",
+       "11.0 and 5.7"
+      ],
+      "ar": [
+       "11.1 و5.7",
+       "11 و6",
+       "11.0 و5.7"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>digits</code> counts significant digits. Add <code>num_fmt = \"decimal\"</code> for decimal places, and <code>num_zero = TRUE</code> to keep 10.0.",
+      "ar": "<code>digits</code> يعدّ الأرقام المعنوية، لا المنازل العشرية. للمنازل العشرية أضف <code>num_fmt = \"decimal\"</code>، وعشان يبقى الصفر في 10.0 أضف <code>num_zero = TRUE</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>@fig-trend</code> prints <code>?@fig-trend</code> instead of Figure 1. What is wrong?",
+      "ar": "كتبت <code>@fig-trend</code> فطلع لك <code>?@fig-trend</code> بدل «Figure 1». ما الخطأ؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The chunk label is <code>trend</code>, not <code>fig-trend</code>",
+       "The chart has no <code>fig-width</code>",
+       "Cross-references only work in PDF"
+      ],
+      "ar": [
+       "اسم الـ chunk <code>trend</code>، وليس <code>fig-trend</code>",
+       "الرسم ما له <code>fig-width</code>",
+       "الإحالات ما تشتغل إلا في PDF"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Only labels that start with <code>fig-</code> (or <code>tbl-</code>, <code>sec-</code>, <code>eq-</code>) can be cross-referenced.",
+      "ar": "الإحالة ما تعرف إلا الأسماء اللي تبدأ بـ <code>fig-</code> (أو <code>tbl-</code> أو <code>sec-</code> أو <code>eq-</code>)."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "What does <code>@sec-method</code> need to read Section 2?",
+      "ar": "ماذا يحتاج <code>@sec-method</code> حتى يظهر «Section 2»؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Just the heading <code>## Method</code>",
+       "An id <code>{#sec-method}</code> on the heading, and <code>number-sections: true</code>",
+       "A callout around the section"
+      ],
+      "ar": [
+       "العنوان <code>## Method</code> يكفي",
+       "معرّف <code>{#sec-method}</code> على العنوان، و<code>number-sections: true</code>",
+       "صندوق ملاحظة حول القسم"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Sections are referenced by id, and a section reference needs section numbers to point to.",
+      "ar": "القسم يُحال إليه بمعرّفه، والإحالة تكتب رقمًا، فلازم تكون الأقسام مرقّمة أصلًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where do the tabs of a <code>.panel-tabset</code> come from?",
+      "ar": "تبويبات <code>.panel-tabset</code>، من أين تأتي؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The headings one level below the section, inside the div",
+       "A <code>tabs:</code> option in YAML",
+       "Each chunk in the div"
+      ],
+      "ar": [
+       "من العناوين اللي أدنى من القسم بدرجة، داخل الـ div",
+       "من خيار <code>tabs:</code> في YAML",
+       "من كل chunk داخل الـ div"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Inside a <code>##</code> section, each <code>###</code> heading in the tabset becomes a tab.",
+      "ar": "داخل قسم <code>##</code>، كل عنوان <code>###</code> داخل الـ tabset يصير تبويبًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why <code>theme_html(portable = TRUE)</code> on the table?",
+      "ar": "لماذا نضيف <code>theme_html(portable = TRUE)</code> على الجدول؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "It makes the table smaller",
+       "tinytable's HTML styles then come from the package, not the internet",
+       "It is required for Word"
+      ],
+      "ar": [
+       "يصغّر الجدول",
+       "تنسيقات HTML في tinytable تجي من الحزمة نفسها، لا من الإنترنت",
+       "مطلوب عشان Word"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "An offline machine cannot fetch the default style sheet.",
+      "ar": "الجهاز اللي ما فيه إنترنت ما يقدر يجلب ملف التنسيق الافتراضي، فيطلع الجدول بلا تنسيق."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Tables, cross-references and layout",
+    "ar": "جداول، مراجع، وتنسيق"
+   },
+   "eyebrow": {
+    "en": "Day 1 · Block 3 · 12:15–13:15",
+    "ar": "اليوم 1 · الجلسة 3 · 12:15–13:15"
+   }
+  },
+  {
+   "id": "d1-lab",
+   "day": 1,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "Which line makes a chunk run without showing anything?",
+      "ar": "أي سطر يخلّي الـ chunk يشتغل بدون ما يظهر منه شيء؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>#| echo: false</code>",
+       "<code>#| include: false</code>",
+       "<code>#| eval: false</code>"
+      ],
+      "ar": [
+       "<code>#| echo: false</code>",
+       "<code>#| include: false</code>",
+       "<code>#| eval: false</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>echo: false</code> still shows results; <code>eval: false</code> does not run the code.",
+      "ar": "<code>echo: false</code> يُبقي النتائج ظاهرة، و<code>eval: false</code> ما يشغّل الكود أصلًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You render for Tabuk and the summary still says Asir in one place. What happened?",
+      "ar": "ولّدت التقرير لتبوك، لكن بقيت كلمة «عسير» في مكان واحد من الملخص. ما السبب؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "That word was typed, not inline R",
+       "knitr cached the old value",
+       "The YAML title is wrong"
+      ],
+      "ar": [
+       "الكلمة هذي مكتوبة باليد، لا بـ R داخل النص",
+       "knitr احتفظ بالقيمة القديمة في الـ cache",
+       "العنوان في YAML غلط"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Only inline R moves. Search the text for anything you typed that depends on the data.",
+      "ar": "ما يتحرك إلا اللي يكتبه R داخل النص. دوّر في الكلام على أي شيء كتبته بيدك وهو يعتمد على البيانات."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Which of these is not something the YAML header does?",
+      "ar": "أي هذه ليس من شغل الـ YAML header؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Set the title and date",
+       "Choose the output format and its options",
+       "Run the R code"
+      ],
+      "ar": [
+       "تحدد العنوان والتاريخ",
+       "تختار صيغة المُخرَج وخياراتها",
+       "تشغّل كود R"
+      ]
+     },
+     "imgs": null,
+     "answer": 2,
+     "why": {
+      "en": "knitr runs the code from the chunks. The header only configures the document.",
+      "ar": "الكود يشغّله knitr من الـ chunks. الـ header دوره الإعدادات فقط."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>layout-ncol: 2</code> with <code>fig-subcap</code> gives what?",
+      "ar": "ما الذي تحصل عليه من <code>layout-ncol: 2</code> مع <code>fig-subcap</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Two figures, numbered 1 and 2",
+       "One figure with two panels, (a) and (b)",
+       "A two-column page"
+      ],
+      "ar": [
+       "شكلان، رقم 1 ورقم 2",
+       "شكل واحد فيه لوحتان، (a) و(b)",
+       "صفحة بعمودين"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The panels share one figure number and caption; <code>fig-subcap</code> labels each panel.",
+      "ar": "اللوحتان تتشاركان رقم شكل واحد وعنوانًا واحدًا، و<code>fig-subcap</code> يعطي كل لوحة عنوانها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A colleague opens your HTML offline and the table looks unstyled. Which fix belongs in the code?",
+      "ar": "زميلك في الإدارة فتح ملفك HTML على جهاز بلا إنترنت، فطلع الجدول بلا تنسيق. أي حل مكانه في الكود؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>theme_html(portable = TRUE)</code>",
+       "<code>toc: true</code>",
+       "<code>fig-width: 8</code>"
+      ],
+      "ar": [
+       "<code>theme_html(portable = TRUE)</code>",
+       "<code>toc: true</code>",
+       "<code>fig-width: 8</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Combined with <code>embed-resources: true</code>, the page needs nothing from the internet.",
+      "ar": "ومعه <code>embed-resources: true</code>، ما تحتاج الصفحة أي شيء من الإنترنت."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where should <code>library(tidyverse)</code> live in a report?",
+      "ar": "أين تضع <code>library(tidyverse)</code> في التقرير؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "In the chunk that first draws a chart",
+       "In a setup chunk at the top, with <code>include: false</code>",
+       "In the YAML header"
+      ],
+      "ar": [
+       "في أول chunk يرسم رسمًا بيانيًا",
+       "في setup chunk أعلى الملف، عليه <code>include: false</code>",
+       "في الـ YAML header"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "One place to load everything, run first, shown to nobody.",
+      "ar": "مكان واحد تحمّل فيه كل شيء: يشتغل أول، وما يشوفه أحد."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>@tbl-recent</code> renders as Table 1. You add a table above it. What happens?",
+      "ar": "<code>@tbl-recent</code> يظهر «Table 1». أضفت جدولًا فوقه، فماذا يحدث؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "It still says Table 1",
+       "It becomes Table 2, with no edit from you",
+       "The render fails"
+      ],
+      "ar": [
+       "يبقى «Table 1»",
+       "يصير «Table 2» من غير ما تعدّل شيئًا",
+       "يفشل التوليد"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Numbers are assigned at render time, in order.",
+      "ar": "الأرقام تُحسب وقت التوليد، بالترتيب."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "What does Pandoc do in a Quarto render?",
+      "ar": "ما دور Pandoc حين يولّد Quarto التقرير؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Runs R",
+       "Converts Markdown into HTML, Word or Typst",
+       "Draws the charts"
+      ],
+      "ar": [
+       "يشغّل R",
+       "يحوّل Markdown إلى HTML أو Word أو Typst",
+       "يرسم الرسوم البيانية"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "knitr runs R and draws the charts; Pandoc converts.",
+      "ar": "knitr يشغّل R ويرسم الرسوم، وPandoc يحوّل."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Lab 1: a regional note from a script",
+    "ar": "المختبر 1: تقرير منطقة من سكربت R"
+   },
+   "eyebrow": {
+    "en": "Day 1 · Lab · 13:15–14:00",
+    "ar": "اليوم 1 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "d1-lab-speed",
+   "day": 1,
+   "kind": "speed",
+   "questions": [
+    {
+     "q": {
+      "en": "A <code>.qmd</code> file is plain text.",
+      "ar": "ملف <code>.qmd</code> نص عادي."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>echo: false</code> stops the code from running.",
+      "ar": "<code>echo: false</code> يوقف تشغيل الكود."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It hides the code; the code still runs.",
+      "ar": "يخفي الكود فقط، والكود يشتغل عادي."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Inline R can sit in the middle of a sentence.",
+      "ar": "R داخل النص يصلح في وسط الجملة."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>fig-width</code> is in pixels.",
+      "ar": "<code>fig-width</code> بالبكسل."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Inches.",
+      "ar": "بالإنش."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>@fig-trend</code> needs the chunk label <code>fig-trend</code>.",
+      "ar": "<code>@fig-trend</code> يحتاج chunk اسمه <code>fig-trend</code>."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "A list needs a blank line before it.",
+      "ar": "القائمة تحتاج سطرًا فارغًا قبلها."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>embed-resources: true</code> makes one file that works offline.",
+      "ar": "<code>embed-resources: true</code> يطلّع ملفًا واحدًا يشتغل بدون إنترنت."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>format_tt(digits = 1)</code> means one decimal place.",
+      "ar": "<code>format_tt(digits = 1)</code> يعني منزلة عشرية واحدة."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "One significant digit.",
+      "ar": "رقم معنوي واحد."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "knitr converts Markdown to HTML.",
+      "ar": "knitr يحوّل Markdown إلى HTML."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Pandoc does; knitr runs the R.",
+      "ar": "هذا شغل Pandoc. knitr يشغّل R."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>collapse=\"true\"</code> folds a callout shut.",
+      "ar": "<code>collapse=\"true\"</code> يطوي صندوق الملاحظة."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    }
+   ],
+   "title": {
+    "en": "Day 1 speed round",
+    "ar": "اليوم 1: جولة السرعة"
+   },
+   "eyebrow": {
+    "en": "Day 1 · Lab · 13:15–14:00",
+    "ar": "اليوم 1 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "d2-b1",
+   "day": 2,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "Typst stopped with <code>cannot reference heading without numbering</code>. Why?",
+      "ar": "وقف Typst وطلّع لك <code>cannot reference heading without numbering</code>. ما السبب؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Typst cannot do cross-references",
+       "<code>number-sections: true</code> was set under <code>html:</code> only",
+       "The section id was misspelled"
+      ],
+      "ar": [
+       "Typst ما يعرف الإحالات أصلًا",
+       "<code>number-sections: true</code> مكتوب تحت <code>html:</code> فقط",
+       "معرّف القسم مكتوب غلط"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Options under one format stay with it. At the top level they reach every format.",
+      "ar": "الخيار اللي تكتبه تحت صيغة يخصّها هي وحدها. ارفعه إلى المستوى الأعلى ويوصل لكل الصيغ."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where does Word's look come from?",
+      "ar": "من أين يأخذ ملف Word شكله؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "From <code>_brand.yml</code>",
+       "From the <code>reference-doc</code> file's styles",
+       "From the HTML theme"
+      ],
+      "ar": [
+       "من <code>_brand.yml</code>",
+       "من أنماط الملف اللي يشير إليه <code>reference-doc</code>",
+       "من سمة HTML"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Word takes Heading 1, Body Text and the table style from the reference document. The brand file styles HTML and Typst.",
+      "ar": "Word ياخذ Heading 1 وBody Text ونمط الجداول من المستند المرجعي. أما ملف الهوية فشغله HTML وTypst."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "What does <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code> give you?",
+      "ar": "ماذا تحصل عليه من <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "A finished report",
+       "Pandoc's default reference document, to restyle in Word",
+       "A PDF"
+      ],
+      "ar": [
+       "تقرير جاهز",
+       "المستند المرجعي الافتراضي من Pandoc، تعدّل أنماطه في Word",
+       "ملف PDF"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Start from it, change the styles in Word, save, and point <code>reference-doc</code> at it.",
+      "ar": "تبدأ منه: تعدّل الأنماط في Word وتحفظه، ثم تخلّي <code>reference-doc</code> يشير إليه. تسويها مرة وحدة، وبعدها كل تقرير Word يطلع بنفس الشكل."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why <code>font-paths: fonts</code> for Typst?",
+      "ar": "ما فائدة <code>font-paths: fonts</code> مع Typst؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "So the PDF uses font files kept with the project, on any machine",
+       "To download fonts at render time",
+       "It sets the font size"
+      ],
+      "ar": [
+       "عشان يستخدم PDF ملفات الخطوط اللي مع المشروع، على أي جهاز",
+       "عشان ينزّل الخطوط وقت التوليد",
+       "يحدد حجم الخط"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Typst reads fonts from files. Kept with the project, the PDF looks the same everywhere, offline too.",
+      "ar": "Typst يقرأ الخط من ملف. خلّ ملفات الخطوط مع المشروع، ويطلع PDF بنفس الشكل على جهازك وجهاز زميلك، حتى لو ما فيه إنترنت."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A note for reviewers must never reach the published PDF. Which wrapper?",
+      "ar": "ملاحظة للمراجعين، ولازم ما توصل أبدًا إلى PDF المنشور. أي غلاف تستخدم؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>::: {.content-visible when-format=\"docx\"}</code>",
+       "<code>::: {.content-hidden when-format=\"html\"}</code>",
+       "<code>::: {.callout-note}</code>"
+      ],
+      "ar": [
+       "<code>::: {.content-visible when-format=\"docx\"}</code>",
+       "<code>::: {.content-hidden when-format=\"html\"}</code>",
+       "<code>::: {.callout-note}</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Visible in Word only. Everything else, the PDF included, leaves it out.",
+      "ar": "تظهر في Word وحده، والمراجع يشوفها هناك. كل صيغة غيره، ومنها PDF، تتجاهلها."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "One source, many formats",
+    "ar": "مصدر واحد، صيغ متعددة"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Block 1 · 09:00–10:15",
+    "ar": "اليوم 2 · الجلسة 1 · 09:00–10:15"
+   }
+  },
+  {
+   "id": "d2-b1-speed",
+   "day": 2,
+   "kind": "speed",
+   "questions": [
+    {
+     "q": {
+      "en": "A tabset stays a set of tabs in the PDF.",
+      "ar": "التبويبات (tabset) تبقى تبويبات في PDF."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It becomes plain sections, one after the other.",
+      "ar": "تتحوّل إلى أقسام عادية، واحد تحت الثاني."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "A <code>fig-cap</code> caption appears in Word.",
+      "ar": "عنوان الشكل اللي في <code>fig-cap</code> يظهر في Word."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>code-fold</code> works in the PDF.",
+      "ar": "<code>code-fold</code> يشتغل في PDF."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Folding is an HTML feature.",
+      "ar": "طيّ الكود من مزايا HTML وحده."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>@fig-trend</code> becomes Figure 1 in all three formats.",
+      "ar": "<code>@fig-trend</code> تصير Figure 1 في الصيغ الثلاث كلها."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "A collapsed callout stays folded in Word.",
+      "ar": "صندوق الملاحظة المطويّ يبقى مطويًّا في Word."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Paper cannot fold: it opens up.",
+      "ar": "الورق ما يعرف الطيّ، فيطلع الصندوق مفتوحًا."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>html-math-method</code> changes how the PDF draws math.",
+      "ar": "<code>html-math-method</code> يغيّر طريقة رسم المعادلات في PDF."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It is an HTML option; Typst draws math itself.",
+      "ar": "الاسم يقولها: خيار لـ HTML. أما Typst فيرسم المعادلات بنفسه."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Top-level <code>toc: true</code> gives Word a contents list too.",
+      "ar": "<code>toc: true</code> في المستوى الأعلى يخلّي حتى Word فيه قائمة محتويات."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>reference-doc</code> styles the HTML.",
+      "ar": "<code>reference-doc</code> يضبط شكل HTML."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It is for Word only.",
+      "ar": "هذا لـ Word وحده."
+     },
+     "seconds": 10
+    }
+   ],
+   "title": {
+    "en": "What survives into Word and PDF?",
+    "ar": "وش اللي يوصل لـ Word وPDF؟"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Block 1 · 09:00–10:15",
+    "ar": "اليوم 2 · الجلسة 1 · 09:00–10:15"
+   }
+  },
+  {
+   "id": "d2-b2",
+   "day": 2,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "In R code, how do you read the parameter <code>region</code>?",
+      "ar": "داخل كود R، كيف تقرأ المُعامِل <code>region</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>region</code>",
+       "<code>params$region</code>",
+       "<code>yaml$region</code>"
+      ],
+      "ar": [
+       "<code>region</code>",
+       "<code>params$region</code>",
+       "<code>yaml$region</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Parameters arrive as the list <code>params</code>.",
+      "ar": "المُعامِلات توصلك في قائمة اسمها <code>params</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "The title is <code>\"Unemployment in </code>r params$region<code>\"</code>. Does it follow <code>-P region:Riyadh</code>?",
+      "ar": "عنوان التقرير <code>\"Unemployment in </code>r params$region<code>\"</code>. لو ولّدت بـ <code>-P region:Riyadh</code>، يتغيّر العنوان معه؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Yes, when the file has R chunks, because knitr reads the header too",
+       "Never: YAML is not R",
+       "Only in PDF"
+      ],
+      "ar": [
+       "نعم، ما دام في الملف chunks R، لأن knitr يقرأ الـ header أيضًا",
+       "أبدًا، فالـ header YAML وليس R",
+       "في PDF فقط"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "knitr evaluates inline R everywhere in the file. A file with no R chunk skips knitr, and prints the code as text.",
+      "ar": "knitr يشغّل R داخل النص في أي مكان من الملف، والـ header منه. لكن الملف اللي ما فيه ولا chunk R ما يمرّ على knitr أصلًا، فيطلع الكود نصًا زي ما كتبته."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "And <code>{{&lt; meta params.region &gt;}}</code> in the title, rendered with <code>-P region:Riyadh</code>?",
+      "ar": "وإذا كان في العنوان <code>{{&lt; meta params.region &gt;}}</code> وولّدت بـ <code>-P region:Riyadh</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Riyadh",
+       "Jazan, the default in the YAML",
+       "An error"
+      ],
+      "ar": [
+       "يظهر Riyadh",
+       "يظهر Jazan، القيمة الافتراضية في YAML",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The shortcode reads the document's metadata, which still holds the default. Tested on this course's Quarto.",
+      "ar": "الـ shortcode يقرأ بيانات المستند الوصفية، وهذه ما زالت تحمل القيمة الافتراضية. جرّبناها على نسخة Quarto اللي نشتغل عليها في الدورة."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why a rule with three outcomes for words like rose and fell?",
+      "ar": "لماذا تحتاج كلمات مثل «ارتفع» و«انخفض» قاعدة بثلاث نتائج؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "R needs three branches",
+       "A region that barely moved would get a false sentence from a two-way rule",
+       "To make the text longer"
+      ],
+      "ar": [
+       "لأن R يحتاج ثلاثة فروع",
+       "المنطقة اللي بالكاد تحرّكت، قاعدة الخيارين تكتب عنها جملة غلط",
+       "عشان يطول النص"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "State the threshold, test the rule on all 13 regions, and say which sentences are computed.",
+      "ar": "اكتب العتبة صريحة (في المثال نصف نقطة)، وجرّب القاعدة على المناطق الـ 13 كلها، وقل بوضوح أي الجمل يحسبها الكود."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>output_file = str_glue(\"report-{r}.pdf\")</code> for Northern Borders gives what?",
+      "ar": "ما اسم الملف اللي يطلع لمنطقة الحدود الشمالية من <code>output_file = str_glue(\"report-{r}.pdf\")</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>report-northern-borders.pdf</code>",
+       "<code>report-Northern Borders.pdf</code>, with a space",
+       "An error"
+      ],
+      "ar": [
+       "<code>report-northern-borders.pdf</code>",
+       "<code>report-Northern Borders.pdf</code>، وفيه مسافة",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Build a slug first with stringr: <code>str_to_lower()</code>, then <code>str_replace_all()</code> for the spaces.",
+      "ar": "جهّز من اسم المنطقة اسمًا نظيفًا للملف (slug) بـ stringr: <code>str_to_lower()</code> للأحرف الصغيرة، ثم <code>str_replace_all()</code> تبدّل المسافات بشَرطة."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Parameters: one template, many reports",
+    "ar": "المُعامِلات: قالب واحد، وتقرير لكل منطقة"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Block 2 · 10:30–11:45",
+    "ar": "اليوم 2 · الجلسة 2 · 10:30–11:45"
+   }
+  },
+  {
+   "id": "d2-b3",
+   "day": 2,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "What does <code>quarto render</code> with no file name do in a folder with <code>_quarto.yml</code>?",
+      "ar": "في مجلد فيه <code>_quarto.yml</code>، ماذا يفعل <code>quarto render</code> بلا اسم ملف؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Renders the first file only",
+       "Renders every document in the project",
+       "Nothing"
+      ],
+      "ar": [
+       "يولّد أول ملف فقط",
+       "يولّد كل مستندات المشروع",
+       "لا شيء"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The project file makes the folder one unit, with shared settings and one output folder.",
+      "ar": "ملف المشروع يخلّي المجلد وحدة واحدة: إعدادات مشتركة، ومجلد واحد للمُخرَجات."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "With <code>freeze: auto</code>, when does R run again for a document?",
+      "ar": "مع <code>freeze: auto</code>، متى يشتغل R من جديد على المستند؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "On every render",
+       "Only when that <code>.qmd</code> changes",
+       "Never again"
+      ],
+      "ar": [
+       "مع كل توليد",
+       "فقط إذا تغيّر ملف <code>.qmd</code> نفسه",
+       "ما يشتغل بعدها أبدًا"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Results are kept in <code>_freeze/</code>. Change the file and it reruns; otherwise Quarto reuses them.",
+      "ar": "النتائج تنحفظ في <code>_freeze/</code>. عدّلت الملف؟ يشتغل R من جديد. ما عدّلته؟ Quarto يستخدم المحفوظ على طول."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "In <code>_brand.yml</code>, what is <code>palette</code> for?",
+      "ar": "في <code>_brand.yml</code>، ما فائدة <code>palette</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Naming colours once, so other keys can refer to them",
+       "Choosing the chart colours in ggplot",
+       "Listing the fonts"
+      ],
+      "ar": [
+       "تسمّي الألوان مرة وحدة، وبعدها تشير إليها بقية المفاتيح بالاسم",
+       "تختار ألوان الرسوم البيانية في ggplot",
+       "تسرد الخطوط"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "<code>primary: indigo</code> then means the indigo defined once in the palette.",
+      "ar": "فيصير <code>primary: indigo</code> يعني النيلي اللي عرّفته مرة وحدة في <code>palette</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Which output does <code>_brand.yml</code> not style?",
+      "ar": "أي صيغة لا يضبط <code>_brand.yml</code> شكلها؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "HTML",
+       "Typst PDF",
+       "Word"
+      ],
+      "ar": [
+       "صفحة HTML",
+       "ملف PDF من Typst",
+       "ملف Word"
+      ]
+     },
+     "imgs": null,
+     "answer": 2,
+     "why": {
+      "en": "Word takes its styles from <code>reference-doc</code>.",
+      "ar": "Word ياخذ شكله من <code>reference-doc</code>، لا من ملف الهوية."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "An Arabic report still labels its chart Figure 1. What fixes it?",
+      "ar": "تقريرك عربي، ومع ذلك تحت الرسم مكتوب Figure 1. ما الحل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>dir: rtl</code>",
+       "A language file with <code>crossref-fig-title: \"شكل\"</code>",
+       "An Arabic font"
+      ],
+      "ar": [
+       "<code>dir: rtl</code>",
+       "ملف لغة فيه <code>crossref-fig-title: \"شكل\"</code>",
+       "خط عربي"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Quarto has no Arabic labels built in, so a language file supplies them.",
+      "ar": "Quarto ما عنده تسميات عربية جاهزة، فنعطيه إياها في ملف لغة صغير."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Projects, brand and language",
+    "ar": "المشروع والهوية واللغة"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Block 3 · 12:15–13:15",
+    "ar": "اليوم 2 · الجلسة 3 · 12:15–13:15"
+   }
+  },
+  {
+   "id": "d2-lab",
+   "day": 2,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "One render of a file with <code>html</code>, <code>docx</code> and <code>typst</code> under <code>format:</code> makes how many files?",
+      "ar": "ملف تحت <code>format:</code> فيه <code>html</code> و<code>docx</code> و<code>typst</code>. كم ملف يطلع من توليد واحد؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "One",
+       "Three",
+       "It depends on the data"
+      ],
+      "ar": [
+       "ملف واحد",
+       "ثلاثة",
+       "حسب البيانات"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Each format listed is rendered.",
+      "ar": "كل صيغة تكتبها تحت <code>format:</code> يطلع لها ملف."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You want the contents list in all formats. Where does <code>toc: true</code> go?",
+      "ar": "تحتاج قائمة المحتويات في كل الصيغ. أين تضع <code>toc: true</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Under <code>html:</code>",
+       "At the top level of the YAML",
+       "In <code>_brand.yml</code>"
+      ],
+      "ar": [
+       "تحت <code>html:</code>",
+       "في المستوى الأعلى من YAML",
+       "في <code>_brand.yml</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Top-level options apply to every format.",
+      "ar": "الخيار اللي في المستوى الأعلى يسري على كل الصيغ."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>quarto render note.qmd -P region:Hail</code> sets what?",
+      "ar": "ماذا يغيّر الأمر <code>quarto render note.qmd -P region:Hail</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The title",
+       "The parameter <code>region</code>, for this render only",
+       "The default in the file"
+      ],
+      "ar": [
+       "العنوان",
+       "المُعامِل <code>region</code>، لهذا التوليد فقط",
+       "القيمة الافتراضية في الملف"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The file's default stays; <code>-P</code> overrides it once.",
+      "ar": "القيمة الافتراضية في الملف ما تتغيّر؛ <code>-P</code> يتجاوزها مرة واحدة فقط."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Your loop wrote <code>report-Al Jouf.pdf</code>. What is the fix?",
+      "ar": "الحلقة كتبت لك <code>report-Al Jouf.pdf</code>. ما الحل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Rename it by hand",
+       "Build the name from a slug: <code>r |&gt; str_to_lower() |&gt; str_replace_all(\" \", \"-\")</code>",
+       "Remove Al Jouf"
+      ],
+      "ar": [
+       "تغيّر الاسم بيدك",
+       "تبني الاسم من slug: <code>r |&gt; str_to_lower() |&gt; str_replace_all(\" \", \"-\")</code>",
+       "تشيل الجوف من القائمة"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "A file name made by rule is right for every region, including the next one.",
+      "ar": "الاسم اللي تطلّعه قاعدة يصلح لكل منطقة، حتى المنطقة اللي بتنضاف بعدين."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where do Word's heading styles come from?",
+      "ar": "أنماط العناوين في Word، من أين تأتي؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>reference-doc</code>",
+       "<code>_brand.yml</code>",
+       "<code>mainfont</code>"
+      ],
+      "ar": [
+       "<code>reference-doc</code>",
+       "<code>_brand.yml</code>",
+       "<code>mainfont</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "The brand file styles HTML and Typst; Word keeps its own styles.",
+      "ar": "ملف الهوية يضبط HTML وTypst، أما Word فله أنماطه في المستند المرجعي."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "What makes <code>quarto render</code> render every file in a folder?",
+      "ar": "ما الذي يجعل <code>quarto render</code> يولّد كل ملفات المجلد؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "A <code>_quarto.yml</code> in the folder",
+       "<code>embed-resources: true</code>",
+       "<code>freeze: auto</code>"
+      ],
+      "ar": [
+       "وجود <code>_quarto.yml</code> في المجلد",
+       "<code>embed-resources: true</code>",
+       "<code>freeze: auto</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "The project file. <code>freeze</code> only decides whether R reruns.",
+      "ar": "ملف المشروع. أما <code>freeze</code> فكل شغله أنه يقرّر هل يعيد R التشغيل أو لا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "How does Typst find the Tajawal font for the Arabic PDF?",
+      "ar": "كيف يلقى Typst خط Tajawal عشان PDF العربي؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>mainfont: Tajawal</code> and <code>font-paths: fonts</code> under <code>typst:</code>",
+       "<code>dir: rtl</code>",
+       "<code>lang: ar</code>"
+      ],
+      "ar": [
+       "<code>mainfont: Tajawal</code> و<code>font-paths: fonts</code> تحت <code>typst:</code>",
+       "<code>dir: rtl</code>",
+       "<code>lang: ar</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Typst draws with the fonts it can find; <code>font-paths</code> points it at the project's own files.",
+      "ar": "Typst يرسم بالخطوط اللي يلقاها، و<code>font-paths</code> يدلّه على ملفات الخطوط اللي مع المشروع."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A sentence says Jazan fell. Jazan rose. What went wrong?",
+      "ar": "التقرير يقول إن البطالة في جازان انخفضت، وهي في الحقيقة ارتفعت. أين الخلل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The data",
+       "The word was typed, or the rule had only two outcomes",
+       "Typst"
+      ],
+      "ar": [
+       "في البيانات",
+       "الكلمة مكتوبة باليد، أو القاعدة لها نتيجتان فقط",
+       "في Typst"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Claims in a parameterised report come from a tested rule, or not at all.",
+      "ar": "في تقرير بمُعامِلات، أي حكم في النص يجي من قاعدة مجرّبة، وإلا لا تكتبه أصلًا."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Lab 2: brand, parameterise, batch-render",
+    "ar": "التطبيق العملي 2: هوية الهيئة، المعاملات، والتقارير بالجملة"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Lab · 13:15–14:00",
+    "ar": "اليوم 2 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "d2-lab-speed",
+   "day": 2,
+   "kind": "speed",
+   "questions": [
+    {
+     "q": {
+      "en": "<code>params$region</code> reads a parameter in R.",
+      "ar": "<code>params$region</code> تقرأ المُعامِل داخل R."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>-P</code> sets a parameter in the terminal.",
+      "ar": "<code>-P</code> تعطي المُعامِل قيمة من Terminal."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>_brand.yml</code> styles Word documents.",
+      "ar": "<code>_brand.yml</code> يضبط شكل مستندات Word."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Word uses <code>reference-doc</code>.",
+      "ar": "Word ياخذ شكله من <code>reference-doc</code>."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>freeze: auto</code> reruns R on every render.",
+      "ar": "<code>freeze: auto</code> يعيد تشغيل R مع كل توليد."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Only when the file changes.",
+      "ar": "فقط إذا تغيّر الملف."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Typst needs LaTeX installed.",
+      "ar": "Typst يحتاج تثبيت LaTeX."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Typst ships inside Quarto.",
+      "ar": "Typst جاي مع Quarto، وما يحتاج تثبّت شيء."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>content-visible when-format=\"docx\"</code> hides text from the PDF.",
+      "ar": "<code>content-visible when-format=\"docx\"</code> يخفي النص عن PDF."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Inline R in the title works when the file has R chunks.",
+      "ar": "R داخل النص يشتغل في العنوان، ما دام في الملف chunks R."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "A file name with a space is fine everywhere.",
+      "ar": "اسم الملف اللي فيه مسافة يمشي في كل مكان."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Make a slug.",
+      "ar": "حوّله إلى slug."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>dir: rtl</code> turns the page right to left.",
+      "ar": "<code>dir: rtl</code> يقلب الصفحة من اليمين إلى اليسار."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Quarto has Arabic figure labels built in.",
+      "ar": "Quarto فيه تسميات عربية جاهزة للأشكال."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "A language file supplies them.",
+      "ar": "ملف اللغة هو اللي يعطيه إياها."
+     },
+     "seconds": 10
+    }
+   ],
+   "title": {
+    "en": "Day 2 speed round",
+    "ar": "جولة سريعة على اليوم 2"
+   },
+   "eyebrow": {
+    "en": "Day 2 · Lab · 13:15–14:00",
+    "ar": "اليوم 2 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "d3-b1",
+   "day": 3,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "What starts a new slide?",
+      "ar": "بأي شيء تبدأ شريحة جديدة؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "A <code>##</code> heading",
+       "A blank line",
+       "A new chunk"
+      ],
+      "ar": [
+       "بعنوان <code>##</code>",
+       "بسطر فاضي",
+       "بـ chunk جديد"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "<code>##</code> starts a slide; <code>#</code> starts a section with its own title slide.",
+      "ar": "كل <code>##</code> يفتح شريحة. أما <code>#</code> الواحدة فتفتح قسمًا كاملًا، وله شريحة عنوان خاصة فيه."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You put a chart on a slide and no code appears. Why?",
+      "ar": "حطّيت رسمًا بيانيًا على شريحة، فطلع الرسم وما طلع الكود. لماذا؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Decks hide code by default",
+       "The chunk failed",
+       "Charts and code cannot share a slide"
+      ],
+      "ar": [
+       "العرض التقديمي يخفي الكود من نفسه",
+       "الـ chunk فشل",
+       "الرسم والكود ما يجتمعان في شريحة وحدة"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Add <code>#| echo: true</code> when the code is the point of the slide.",
+      "ar": "في العرض، الكود مخفي إلا إذا طلبته. أضف <code>#| echo: true</code> لما يكون الكود نفسه هو موضوع الشريحة."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Text and a chart on one slide: the chart runs off the bottom. The fix?",
+      "ar": "كلام ورسم بياني في شريحة وحدة، والرسم ينزل ويطلع من أسفل الشريحة. ما الحل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Make the text smaller",
+       "<code>.columns</code>, with the text in one column and the chart in the other",
+       "<code>embed-resources: true</code>"
+      ],
+      "ar": [
+       "تصغّر الخط",
+       "<code>.columns</code>: الكلام في عمود والرسم في العمود الثاني",
+       "<code>embed-resources: true</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "A slide has a fixed size; columns use its width instead of its height.",
+      "ar": "مقاس الشريحة ثابت ما يتمدّد. الأعمدة تستغل عرضها بدل ما تزيد طولها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Notes written after a <code>. . .</code> pause show in the speaker view when?",
+      "ar": "كتبت ملاحظاتك بعد الوقفة <code>. . .</code>. متى تشوفها في شاشة المتحدث؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "From the start of the slide",
+       "Only once the last fragment is shown",
+       "Never"
+      ],
+      "ar": [
+       "من أول ما تفتح الشريحة",
+       "بس لما يظهر آخر جزء من الشريحة",
+       "ما تظهر أبدًا"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Everything after a pause belongs to that fragment, notes included. Tested in this course's deck.",
+      "ar": "كل ما بعد الوقفة يتبعها، والملاحظات معه. يعني لو كتبتها في الآخر، ما تشوفها إلا وأنت مخلّص الشريحة. جرّبناها على عرض هذه الدورة نفسه."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Which key opens the speaker view?",
+      "ar": "أي مفتاح يفتح شاشة المتحدث؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "S",
+       "O",
+       "B"
+      ],
+      "ar": [
+       "S",
+       "O",
+       "B"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "O is the overview, B the chalkboard.",
+      "ar": "O يعطيك نظرة على كل الشرائح، وB يفتح السبورة."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "From report to deck",
+    "ar": "التحليل نفسه، على شرائح"
+   },
+   "eyebrow": {
+    "en": "Day 3 · Block 1 · 09:00–10:15",
+    "ar": "اليوم 3 · الجلسة 1 · 09:00–10:15"
+   }
+  },
+  {
+   "id": "d3-b2",
+   "day": 3,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "What does <code>code-line-numbers: \"|1|2|3-4\"</code> do?",
+      "ar": "ماذا يفعل <code>code-line-numbers: \"|1|2|3-4\"</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Shows line numbers only",
+       "Starts with no highlight, then highlights line 1, line 2, then lines 3 and 4, one per click",
+       "Hides lines 1 to 4"
+      ],
+      "ar": [
+       "يعرض أرقام الأسطر فقط",
+       "يبدأ بلا إبراز، ثم يُبرز السطر 1، ثم السطر 2، ثم السطرين 3 و4، كل واحد بنقرة",
+       "يخفي الأسطر من 1 إلى 4"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Each <code>|</code> separates one click's highlight; the empty first part means start with none.",
+      "ar": "كل <code>|</code> يفصل نقرة عن اللي بعدها، والجزء الفاضي في البداية معناه: ابدأ بدون إبراز."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>output-location: column</code> against <code>column-fragment</code>?",
+      "ar": "ما الفرق بين <code>output-location: column</code> و<code>column-fragment</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The same",
+       "<code>column-fragment</code> holds the output back until a click",
+       "<code>column-fragment</code> puts output below the code"
+      ],
+      "ar": [
+       "ما فيه فرق",
+       "<code>column-fragment</code> يأخّر المُخرَج حتى تنقر",
+       "<code>column-fragment</code> يحط المُخرَج تحت الكود"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Explain the code first, then reveal what it makes.",
+      "ar": "تشرح الكود والرسم ما زال مخفيًا، وبنقرة يطلع الرسم جنبه. الحضور يسمعونك أول، وبعدها يشوفون النتيجة."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Auto-animate moves nothing. What is missing?",
+      "ar": "فعّلت الحركة التلقائية وما تحرّك شيء. ما الناقص؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The next slide also needs <code>{auto-animate=true}</code>",
+       "A chunk option",
+       "<code>embed-resources</code>"
+      ],
+      "ar": [
+       "الشريحة اللي بعدها لازم تحمل <code>{auto-animate=true}</code> هي أيضًا",
+       "خيار في الـ chunk",
+       "<code>embed-resources</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Reveal animates between two neighbouring slides that both carry the attribute.",
+      "ar": "Reveal يحرّك بين شريحتين متجاورتين، ولازم كل وحدة منهما تحمل الخاصية."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why compute the big number with inline R on its slide?",
+      "ar": "رقم واحد على شريحة. لماذا نحسبه بـ R داخل النص بدل ما نكتبه؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "It looks better",
+       "So it changes with the data and the parameter, like every other number",
+       "Slides cannot hold typed numbers"
+      ],
+      "ar": [
+       "عشان شكله أحلى",
+       "عشان يتغيّر مع البيانات والمُعامِل، زي أي رقم ثاني",
+       "لأن الشرائح ما تقبل أرقامًا مكتوبة"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Rendered for Riyadh, the same slide said 5.7%.",
+      "ar": "ولّدنا نفس الشريحة للرياض، فطلع فيها 5.7% من غير ما نلمسها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "On a slide with <code>background-color=\"#4137A8\"</code>, the text turns white. Who did that?",
+      "ar": "شريحة فيها <code>background-color=\"#4137A8\"</code>، ونصّها صار أبيض. مَن غيّره؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "You, with CSS",
+       "Reveal, which detects a dark background",
+       "The brand file"
+      ],
+      "ar": [
+       "أنت، بـ CSS",
+       "Reveal، لأنه انتبه إن الخلفية غامقة",
+       "ملف الهوية المؤسسية"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Reveal checks the background's brightness and switches the text colour.",
+      "ar": "Reveal يقيس سطوع الخلفية، ويقلب لون النص على حسبها."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Code, data and motion on slides",
+    "ar": "كود، بيانات، وحركة في الشرائح"
+   },
+   "eyebrow": {
+    "en": "Day 3 · Block 2 · 10:30–11:45",
+    "ar": "اليوم 3 · الجلسة 2 · 10:30–11:45"
+   }
+  },
+  {
+   "id": "d3-b3",
+   "day": 3,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "You copy Day 2's <code>_brand.yml</code> next to the deck. What changes in <code>slides.qmd</code>?",
+      "ar": "نسخت <code>_brand.yml</code> من اليوم 2 جنب العرض. ما الذي تحتاج تغيّره في <code>slides.qmd</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Nothing",
+       "Every heading needs a class",
+       "The format line"
+      ],
+      "ar": [
+       "ولا شيء",
+       "كل عنوان يحتاج class",
+       "سطر الصيغة"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Revealjs reads the brand file by itself.",
+      "ar": "Revealjs يقرأ ملف الهوية من نفسه، وما يحتاج منك أي سطر زيادة."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Why does <code>slide-number: true</code> matter in a briefing?",
+      "ar": "في اجتماع مع الإدارة، لماذا يهمّك <code>slide-number: true</code>؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "It is required",
+       "People ask about slide 6; you can find it",
+       "It enables the PDF export"
+      ],
+      "ar": [
+       "لأنه إلزامي",
+       "يسألك المدير عن الشريحة 6، فتعرف مكانها على طول",
+       "لأنه يشغّل التصدير إلى PDF"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "With the overview (O) you jump straight back to it.",
+      "ar": "ومع النظرة العامة (O) ترجع لها مباشرة، بدل ما تقلّب الشرائح وحدة وحدة قدام الكل."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Quarto refuses <code>embed-resources: true</code>. What is on in the deck?",
+      "ar": "Quarto رفض <code>embed-resources: true</code>. ما الشيء المفعَّل في العرض؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "The chalkboard",
+       "Speaker notes",
+       "Auto-animate"
+      ],
+      "ar": [
+       "السبورة",
+       "ملاحظات المتحدث",
+       "الحركة التلقائية (auto-animate)"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "The chalkboard plugin cannot be packed into one file. Turn it off for the copy you send.",
+      "ar": "إضافة السبورة ما تنحزم في ملف واحد. أوقفها في النسخة اللي ترسلها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "How do you make a PDF of a Revealjs deck?",
+      "ar": "كيف تطلّع PDF من عرض Revealjs؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>--to pdf</code>",
+       "Open it with <code>?print-pdf</code> at the end of the address and print from the browser",
+       "Word, then save as PDF"
+      ],
+      "ar": [
+       "<code>--to pdf</code>",
+       "تفتحه في المتصفح، وتضيف <code>?print-pdf</code> في آخر الرابط، وتطبع",
+       "تنقله إلى Word وتحفظه PDF"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "One slide per page, with backgrounds.",
+      "ar": "كل شريحة في صفحة، والخلفيات معها."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Branded, parameterised and shared",
+    "ar": "بهوية الهيئة، لكل منطقة، وجاهز للإرسال"
+   },
+   "eyebrow": {
+    "en": "Day 3 · Block 3 · 12:15–13:15",
+    "ar": "اليوم 3 · الجلسة 3 · 12:15–13:15"
+   }
+  },
+  {
+   "id": "d3-lab",
+   "day": 3,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "Which stage of a render runs your R code?",
+      "ar": "عند التوليد، أي مرحلة هي اللي تشغّل كود R؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "knitr",
+       "Pandoc",
+       "Typst"
+      ],
+      "ar": [
+       "مرحلة knitr",
+       "مرحلة Pandoc",
+       "مرحلة Typst"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "knitr runs R; Pandoc converts; Typst makes the PDF.",
+      "ar": "knitr يشغّل R، وPandoc يحوّل، وTypst يطلّع PDF."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A number in the text must update with the data. How is it written?",
+      "ar": "رقم في النص لازم يتحدّث مع كل إصدار جديد للبيانات. كيف تكتبه؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Typed",
+       "Inline R",
+       "In a callout"
+      ],
+      "ar": [
+       "تكتبه بيدك",
+       "R داخل النص",
+       "داخل صندوق ملاحظة"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Inline R is computed on every render.",
+      "ar": "R داخل النص ينحسب من جديد مع كل توليد."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>@tbl-latest</code> needs what on the table chunk?",
+      "ar": "عشان تشتغل <code>@tbl-latest</code>، ماذا يحتاج chunk الجدول؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>#| label: tbl-latest</code>",
+       "<code>#| echo: false</code>",
+       "<code>#| fig-cap:</code>"
+      ],
+      "ar": [
+       "<code>#| label: tbl-latest</code>",
+       "<code>#| echo: false</code>",
+       "<code>#| fig-cap:</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "And a <code>tbl-cap</code> for the caption.",
+      "ar": "ومعه <code>tbl-cap</code> لعنوان الجدول."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Options at the top level of the YAML apply to what?",
+      "ar": "الخيارات اللي في المستوى الأعلى من YAML، على أي شيء تنطبق؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "HTML only",
+       "Every format",
+       "The first format listed"
+      ],
+      "ar": [
+       "HTML فقط",
+       "كل الصيغ",
+       "أول صيغة مكتوبة"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Options under a format apply to that format only.",
+      "ar": "أما الخيارات اللي تحت صيغة معيّنة فتخصّها هي بس."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Thirteen regional PDFs come from what?",
+      "ar": "13 ملف PDF، واحد لكل منطقة. من أين تجي؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Thirteen files",
+       "One template, a parameter, and a loop of <code>quarto_render()</code> calls",
+       "Copy and paste"
+      ],
+      "ar": [
+       "من 13 ملفًا",
+       "من قالب واحد ومُعامِل، وحلقة تستدعي <code>quarto_render()</code>",
+       "من النسخ واللصق"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Add a region to the list and its PDF appears.",
+      "ar": "أضف منطقة إلى القائمة، ويطلع ملفها PDF معها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Where does the house style live?",
+      "ar": "أين تُحفظ الهوية المؤسسية؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "In each document",
+       "In <code>_brand.yml</code>, plus <code>reference-doc</code> for Word",
+       "In the R code"
+      ],
+      "ar": [
+       "في كل مستند",
+       "في <code>_brand.yml</code>، ومعه <code>reference-doc</code> لـ Word",
+       "في كود R"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "One file for HTML, Typst and Revealjs; Word keeps its reference document.",
+      "ar": "ملف واحد يخدم HTML وTypst وRevealjs، وWord له مستنده المرجعي."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "A deck shows no code although the chunk ran. Why?",
+      "ar": "الـ chunk اشتغل، والعرض ما فيه ولا سطر كود. لماذا؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Decks hide code unless <code>echo: true</code>",
+       "The code failed",
+       "Revealjs cannot show code"
+      ],
+      "ar": [
+       "العرض يخفي الكود إلا مع <code>echo: true</code>",
+       "الكود فشل",
+       "Revealjs ما يقدر يعرض كود"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "Reports show code by default; decks do not.",
+      "ar": "التقرير يعرض الكود افتراضيًا، والعرض لا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "The deck must open on a machine with no internet. What do you set?",
+      "ar": "العرض لازم ينفتح على جهاز ما فيه إنترنت. ماذا تضبط؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>embed-resources: true</code>, with the chalkboard off",
+       "<code>freeze: auto</code>",
+       "<code>slide-number: true</code>"
+      ],
+      "ar": [
+       "<code>embed-resources: true</code>، والسبورة مطفأة",
+       "<code>freeze: auto</code>",
+       "<code>slide-number: true</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "One self-contained file. The chalkboard cannot be embedded.",
+      "ar": "ملف واحد فيه كل شيء يحتاجه. والسبورة ما تنحزم معه."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Lab 3: a briefing deck for any region",
+    "ar": "التطبيق العملي 3: عرض إحاطة لأي منطقة"
+   },
+   "eyebrow": {
+    "en": "Day 3 · Lab · 13:15–14:00",
+    "ar": "اليوم 3 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "d3-lab-speed",
+   "day": 3,
+   "kind": "speed",
+   "questions": [
+    {
+     "q": {
+      "en": "The same setup chunk idea works in a report and a deck.",
+      "ar": "فكرة الـ setup chunk نفسها تمشي في التقرير وفي العرض."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>##</code> starts a new slide.",
+      "ar": "<code>##</code> يفتح شريحة جديدة."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Decks show code by default.",
+      "ar": "العرض يُظهر الكود من نفسه."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Add <code>echo: true</code>.",
+      "ar": "لا، تحتاج <code>echo: true</code>."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>. . .</code> pauses a slide until the next click.",
+      "ar": "<code>. . .</code> يوقّف الشريحة حتى النقرة التالية."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>column-fragment</code> shows the chart before the code.",
+      "ar": "<code>column-fragment</code> يعرض الرسم قبل الكود."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "It holds the chart back until a click.",
+      "ar": "بالعكس: يخبّي الرسم حتى تنقر."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>_brand.yml</code> works for Revealjs too.",
+      "ar": "حتى Revealjs يقرأ <code>_brand.yml</code>."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "The chalkboard can be embedded in one file.",
+      "ar": "السبورة تنحزم مع العرض في ملف واحد."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Quarto refuses.",
+      "ar": "Quarto يرفض."
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>?print-pdf</code> prepares a deck for printing to PDF.",
+      "ar": "<code>?print-pdf</code> يجهّز العرض للطباعة إلى PDF."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "<code>-P region:Riyadh</code> works for decks as well as reports.",
+      "ar": "<code>-P region:Riyadh</code> يشتغل في العرض زي التقرير بالضبط."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "",
+      "ar": ""
+     },
+     "seconds": 10
+    },
+    {
+     "q": {
+      "en": "Notes after a pause show from the start of the slide.",
+      "ar": "الملاحظات اللي بعد الوقفة تظهر من أول الشريحة."
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "True",
+       "False"
+      ],
+      "ar": [
+       "صح",
+       "خطأ"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Only at the last fragment.",
+      "ar": "لا، ما تظهر إلا مع آخر جزء."
+     },
+     "seconds": 10
+    }
+   ],
+   "title": {
+    "en": "The final speed round",
+    "ar": "جولة السرعة الأخيرة"
+   },
+   "eyebrow": {
+    "en": "Day 3 · Lab · 13:15–14:00",
+    "ar": "اليوم 3 · التطبيق العملي · 13:15–14:00"
+   }
+  },
+  {
+   "id": "afterword",
+   "day": 3,
+   "kind": "quiz",
+   "questions": [
+    {
+     "q": {
+      "en": "Which title tells a manager what to think?",
+      "ar": "أي عنوان يقول للمدير وش يستنتج، على طول؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Unemployment rate by region, 2022 to 2025",
+       "Jazan rose while every other region fell",
+       "Chart 3: rates"
+      ],
+      "ar": [
+       "معدل البطالة حسب المنطقة، 2022 إلى 2025",
+       "البطالة ترتفع في جازان وتنخفض في بقية المناطق",
+       "الشكل 3: المعدلات"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "A message title states the finding; the units and years go in the subtitle.",
+      "ar": "العنوان اللي يحمل الرسالة يقول النتيجة نفسها، والوحدات والسنوات مكانها العنوان الفرعي."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "Thirteen coloured lines and a legend. What turns it into an explanatory chart?",
+      "ar": "قدامك 13 خطًا ملوّنًا ومفتاح ألوان. وش اللي يخلّيه رسمًا تفسيريًا؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "More colours, one per region",
+       "Grey for the context, one colour for the point, and a label on the line",
+       "A thicker legend"
+      ],
+      "ar": [
+       "ألوان أكثر، لون لكل منطقة",
+       "رمادي للسياق، ولون واحد للفكرة، واسم المنطقة على خطها",
+       "مفتاح ألوان أكبر"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The reader should see the point before reading anything else.",
+      "ar": "القارئ لازم يشوف الفكرة قبل ما يقرأ أي شيء ثاني."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You want to show how each region changed between the first and the last quarter. Which chart?",
+      "ar": "تبي توضّح كيف تغيّرت كل منطقة بين أول ربع وآخر ربع. أي رسم تختار؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Grouped bars, two per region",
+       "A slope chart: two points per region, joined by a line",
+       "One pie chart per quarter"
+      ],
+      "ar": [
+       "أعمدة متجاورة، عمودان لكل منطقة",
+       "رسم الميل (slope chart): نقطتان لكل منطقة، بينهما خط",
+       "رسم دائري لكل ربع"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "The slope is the change: its direction and size are seen at once, and the one line that goes the other way stands out.",
+      "ar": "ميل الخط هو التغيّر نفسه: تشوف اتجاهه وحجمه بنظرة، والخط الوحيد اللي يمشي عكس الباقين يبان على طول."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "In the small multiples, why is the Kingdom's line drawn in every panel?",
+      "ar": "في الرسوم الصغيرة المتعددة، وش السبب إن خط المملكة يطلع في كل لوحة؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>facet_wrap()</code> repeats every layer",
+       "<code>kingdom</code> has no <code>region</code> column, so <code>facet_wrap()</code> cannot split it",
+       "<code>colour = \"grey70\"</code> makes it a reference line"
+      ],
+      "ar": [
+       "<code>facet_wrap()</code> يكرّر كل طبقة",
+       "الكائن <code>kingdom</code> ما فيه عمود <code>region</code>، فما يقدر <code>facet_wrap()</code> يقسّمه",
+       "اللون <code>colour = \"grey70\"</code> يخلّيه خط مرجع"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "A layer without the facetting column is not split; it appears in every panel. That is how you give each panel the same yardstick.",
+      "ar": "الطبقة اللي ما فيها عمود التقسيم ما تنقسم، فتطلع في كل لوحة. وبهذه الطريقة تعطي كل اللوحات خط المقارنة نفسه."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "The subtitle reads: the Kingdom moved <code>-0.800000000000001</code>. What is the fix?",
+      "ar": "العنوان الفرعي مكتوب فيه: المملكة تغيّرت <code>-0.800000000000001</code>. وش الحل؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "Type <code>-0.8</code> into the subtitle",
+       "Round the computed number before it goes into the text",
+       "Make the subtitle smaller"
+      ],
+      "ar": [
+       "اكتب <code>-0.8</code> بيدك في العنوان الفرعي",
+       "قرّب الرقم المحسوب قبل ما يدخل النص",
+       "صغّر خط العنوان الفرعي"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "Never type the number: round or format the computed value, every time, so it stays right next quarter.",
+      "ar": "لا تكتب الرقم بيدك أبدًا: قرّب القيمة المحسوبة أو نسّقها كل مرة، عشان تبقى صحيحة في الربع الجاي."
+     },
+     "seconds": 20
+    }
+   ],
+   "title": {
+    "en": "Afterword: telling the story",
+    "ar": "خاتمة: سرد القصة"
+   },
+   "eyebrow": {
+    "en": "Afterword · Storytelling",
+    "ar": "خاتمة · سرد القصة"
+   }
+  }
+ ]
+}
