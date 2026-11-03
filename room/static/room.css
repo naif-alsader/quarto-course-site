@@ -166,6 +166,7 @@ body.play { background: var(--soft); }
 .pbar.low i { background: var(--bad); }
 .pq { font: 700 21px/1.4 Tajawal; margin: 4px 0 14px; }
 .pq code, .qtext code, .popt code { white-space: nowrap; }
+[dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }   /* `<-` stays `<-`, and a code's brackets stay put */
 .pq-code { background: var(--code-bg); color: #E8E8F0; border-radius: 12px; padding: 12px; font: 400 13px/1.5 var(--mono); overflow-x: auto; margin: 0 0 14px; }
 .popts { display: grid; gap: 10px; }
 .popt { display: flex; align-items: center; gap: 14px; text-align: start; width: 100%; padding: 12px 14px; border-radius: 14px; border: 2px solid var(--line); background: var(--white); font-size: 18px; font-weight: 500; color: var(--dark); }
