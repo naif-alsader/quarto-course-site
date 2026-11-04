@@ -3,7 +3,7 @@
  "title": "شرح الكود سطر بسطر",
  "eyebrow": "اليوم 3 · المثال 5",
  "show": "slides.qmd",
- "duration": 40.11,
+ "duration": 38.63,
  "steps": [
   {
    "t": 0,
@@ -22,8 +22,8 @@
   },
   {
    "t": 29.9,
-   "d": 10.21,
-   "say": "وآخر نقرة على السطرين اللي يرسمون: <code>ggplot(aes(date, rate))</code> و<code>geom_line()</code>. والحين فهمت القاعة الكود كله، خطوة خطوة."
+   "d": 8.73,
+   "say": "وآخر نقرة على السطرين اللي يرسمون الرسم البياني: <code>ggplot(aes(date, rate))</code> و<code>geom_line()</code>."
   }
  ],
  "downloads": [

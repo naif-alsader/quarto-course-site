@@ -1,9 +1,9 @@
 {
  "id": "d3-brand",
- "title": "الهوية: شعار الهيئة والتذييل في كل شريحة",
+ "title": "الهوية والشعار والتذييل",
  "eyebrow": "اليوم 3 · المثال 9",
  "show": "slides.qmd",
- "duration": 19.16,
+ "duration": 19.55,
  "steps": [
   {
    "t": 0,
@@ -12,8 +12,8 @@
   },
   {
    "t": 9.8,
-   "d": 9.36,
-   "say": "<code>logo</code> و<code>footer</code> و<code>slide-number</code> تظهر على كل شريحة. وأهمها الرقم: به يقول لك أحد الحضور «ارجع للشريحة 6»."
+   "d": 9.75,
+   "say": "<code>logo</code> و<code>footer</code> و<code>slide-number</code> تظهر على كل شريحة. وأهمها رقم الشريحة: بدونه ما يقدر أحد في القاعة يقول لك «ارجع للشريحة 6»."
   }
  ],
  "downloads": [

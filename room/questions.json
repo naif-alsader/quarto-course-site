@@ -44,7 +44,7 @@
        "The Console cannot read files"
       ],
       "ar": [
-       "السكربت أسرع في التشغيل",
+       "السكربت يشتغل أسرع",
        "السكربت يحفظ خطواتك، فتشغّلها من جديد متى ما احتجت ويقرؤها زملاؤك",
        "Console ما يقدر يقرأ الملفات"
       ]
@@ -70,8 +70,8 @@
        "In a separate <code>.yml</code> file"
       ],
       "ar": [
-       "في أول الملف تمامًا، بين سطرين <code>---</code>",
-       "في أي مكان، المهم تكون بين سطرين <code>---</code>",
+       "في أول الملف مباشرة، بين سطرين <code>---</code>",
+       "في أي مكان، المهم يكون بين سطرين <code>---</code>",
        "في ملف <code>.yml</code> مستقل"
       ]
      },
@@ -79,7 +79,7 @@
      "answer": 0,
      "why": {
       "en": "The header must be the first thing in the file. A second <code>---</code> block further down is read as Markdown.",
-      "ar": "الـ header لازم يكون أول شيء في الملف، وأي كتلة <code>---</code> ثانية تحتها تُقرأ على أنها Markdown عادي."
+      "ar": "الـ header لازم يكون أول شيء في الملف. وأي كتلة <code>---</code> ثانية تجي بعده تُقرأ على أنها Markdown عادي."
      },
      "seconds": 20
     },
@@ -131,7 +131,7 @@
      "answer": 1,
      "why": {
       "en": "Without the blank line, Markdown reads the list as more of the paragraph above.",
-      "ar": "من غير السطر الفارغ يعتبر Markdown القائمة تكملةً للفقرة اللي فوقها. وأغلب مفاجآت Markdown سببها سطر فارغ ناقص."
+      "ar": "من غير السطر الفارغ يقرأ Markdown القائمة على أنها تكملة للفقرة اللي فوقها."
      },
      "seconds": 20
     },
@@ -176,7 +176,7 @@
       "ar": [
        "مرحلة Pandoc",
        "مرحلة knitr",
-       "في المتصفح، لحظة فتح الصفحة"
+       "المتصفح"
       ]
      },
      "imgs": null,
@@ -190,7 +190,7 @@
     {
      "q": {
       "en": "A formula shows as raw <code>$$</code> text on an offline machine. What is the fix?",
-      "ar": "على جهاز ما فيه إنترنت، طلعت المعادلة نصًّا خامًا فيه <code>$$</code>. كيف تصلحها؟"
+      "ar": "على جهاز ما فيه إنترنت، طلعت المعادلة نصًّا عاديًا فيه <code>$$</code>. ما الحل؟"
      },
      "code": null,
      "options": {
@@ -209,14 +209,14 @@
      "answer": 0,
      "why": {
       "en": "MathJax is fetched from the internet when the page opens. MathML is written into the page at render time.",
-      "ar": "MathJax يُجلب من الإنترنت لحظة فتح الصفحة، فإذا ما فيه شبكة ما تظهر المعادلة. أما MathML فيُكتب داخل الصفحة وقت التوليد."
+      "ar": "MathJax يتحمّل من الإنترنت لحظة ما تفتح الصفحة، فإذا ما فيه شبكة ما تظهر المعادلة. أما MathML فيُكتب داخل الصفحة وقت التوليد."
      },
      "seconds": 20
     }
    ],
    "title": {
     "en": "Your first Quarto document",
-    "ar": "أول ملف Quarto لك"
+    "ar": "تقريرك الأول في Quarto"
    },
    "eyebrow": {
     "en": "Day 1 · Block 1 · 09:00–10:15",
@@ -254,7 +254,7 @@
      "answer": 1,
      "why": {
       "en": "A still shows each chunk's code. C folds the code behind a Code button. B shows the chart alone.",
-      "ar": "في (أ) الكود ظاهر فوق كل chunk، وفي (ج) الكود مطوي خلف زر Code، أما (ب) فيعرض الرسم وحده."
+      "ar": "في (أ) كود كل chunk ما زال ظاهرًا، وفي (ج) الكود مطوي خلف زر Code، أما (ب) فيعرض الرسم وحده."
      },
      "seconds": 30
     },
@@ -375,7 +375,7 @@
        "It hides the caption in Word"
       ],
       "ar": [
-       "<code>!expr</code> يخلّي الخيار كود R، فيتبع العنوان قيمة <code>REGION</code>",
+       "<code>!expr</code> يخلّي الخيار كود R، فيتغيّر العنوان مع <code>REGION</code>",
        "لازم مع أي قائمة عناوين",
        "يخفي العنوان في Word"
       ]
@@ -442,7 +442,7 @@
        "Cross-references only work in PDF"
       ],
       "ar": [
-       "اسم الـ chunk <code>trend</code>، وليس <code>fig-trend</code>",
+       "اسم الـ chunk <code>trend</code>، لا <code>fig-trend</code>",
        "الرسم ما له <code>fig-width</code>",
        "الإحالات ما تشتغل إلا في PDF"
       ]
@@ -451,7 +451,7 @@
      "answer": 0,
      "why": {
       "en": "Only labels that start with <code>fig-</code> (or <code>tbl-</code>, <code>sec-</code>, <code>eq-</code>) can be cross-referenced.",
-      "ar": "الإحالة ما تعرف إلا الأسماء اللي تبدأ بـ <code>fig-</code> (أو <code>tbl-</code> أو <code>sec-</code> أو <code>eq-</code>)."
+      "ar": "الإحالة ما تشتغل إلا مع الأسماء اللي تبدأ بـ <code>fig-</code> (أو <code>tbl-</code> أو <code>sec-</code> أو <code>eq-</code>)."
      },
      "seconds": 20
     },
@@ -477,7 +477,7 @@
      "answer": 1,
      "why": {
       "en": "Sections are referenced by id, and a section reference needs section numbers to point to.",
-      "ar": "القسم يُحال إليه بمعرّفه، والإحالة تكتب رقمًا، فلازم تكون الأقسام مرقّمة أصلًا."
+      "ar": "تحيل إلى القسم بمعرّفه، والإحالة تكتب رقمه، فلازم تكون الأقسام مرقّمة أصلًا."
      },
      "seconds": 20
     },
@@ -494,7 +494,7 @@
        "Each chunk in the div"
       ],
       "ar": [
-       "من العناوين اللي أدنى من القسم بدرجة، داخل الـ div",
+       "من العناوين اللي تحت مستوى القسم بدرجة واحدة، داخل الـ div",
        "من خيار <code>tabs:</code> في YAML",
        "من كل chunk داخل الـ div"
       ]
@@ -536,7 +536,7 @@
    ],
    "title": {
     "en": "Tables, cross-references and layout",
-    "ar": "جداول، مراجع، وتنسيق"
+    "ar": "الجداول والإحالات وتخطيط الصفحة"
    },
    "eyebrow": {
     "en": "Day 1 · Block 3 · 12:15–13:15",
@@ -587,7 +587,7 @@
        "The YAML title is wrong"
       ],
       "ar": [
-       "الكلمة هذي مكتوبة باليد، لا بـ R داخل النص",
+       "الكلمة هذه مكتوبة باليد، لا بـ R داخل النص",
        "knitr احتفظ بالقيمة القديمة في الـ cache",
        "العنوان في YAML غلط"
       ]
@@ -596,14 +596,14 @@
      "answer": 0,
      "why": {
       "en": "Only inline R moves. Search the text for anything you typed that depends on the data.",
-      "ar": "ما يتحرك إلا اللي يكتبه R داخل النص. دوّر في الكلام على أي شيء كتبته بيدك وهو يعتمد على البيانات."
+      "ar": "ما يتغيّر إلا اللي يكتبه R داخل النص. دوّر في النص على كل شيء كتبته بيدك وهو يعتمد على البيانات."
      },
      "seconds": 20
     },
     {
      "q": {
       "en": "Which of these is not something the YAML header does?",
-      "ar": "أي هذه ليس من شغل الـ YAML header؟"
+      "ar": "أي هذه ما هو من شغل الـ YAML header؟"
      },
      "code": null,
      "options": {
@@ -613,9 +613,9 @@
        "Run the R code"
       ],
       "ar": [
-       "تحدد العنوان والتاريخ",
-       "تختار صيغة المُخرَج وخياراتها",
-       "تشغّل كود R"
+       "يحدد العنوان والتاريخ",
+       "يختار صيغة المُخرَج وخياراتها",
+       "يشغّل كود R"
       ]
      },
      "imgs": null,
@@ -629,7 +629,7 @@
     {
      "q": {
       "en": "<code>layout-ncol: 2</code> with <code>fig-subcap</code> gives what?",
-      "ar": "ما الذي تحصل عليه من <code>layout-ncol: 2</code> مع <code>fig-subcap</code>؟"
+      "ar": "<code>layout-ncol: 2</code> مع <code>fig-subcap</code>، ماذا يطلع لك؟"
      },
      "code": null,
      "options": {
@@ -648,14 +648,14 @@
      "answer": 1,
      "why": {
       "en": "The panels share one figure number and caption; <code>fig-subcap</code> labels each panel.",
-      "ar": "اللوحتان تتشاركان رقم شكل واحد وعنوانًا واحدًا، و<code>fig-subcap</code> يعطي كل لوحة عنوانها."
+      "ar": "اللوحتان لهما رقم شكل واحد وعنوان واحد، و<code>fig-subcap</code> يعطي كل لوحة عنوانها."
      },
      "seconds": 20
     },
     {
      "q": {
       "en": "A colleague opens your HTML offline and the table looks unstyled. Which fix belongs in the code?",
-      "ar": "زميلك في الإدارة فتح ملفك HTML على جهاز بلا إنترنت، فطلع الجدول بلا تنسيق. أي حل مكانه في الكود؟"
+      "ar": "زميلك في الإدارة فتح ملف HTML حقك على جهاز دون إنترنت، فطلع الجدول بلا تنسيق. أي حل مكانه في الكود؟"
      },
      "code": null,
      "options": {
@@ -674,7 +674,7 @@
      "answer": 0,
      "why": {
       "en": "Combined with <code>embed-resources: true</code>, the page needs nothing from the internet.",
-      "ar": "ومعه <code>embed-resources: true</code>، ما تحتاج الصفحة أي شيء من الإنترنت."
+      "ar": "وإذا أضفت معه <code>embed-resources: true</code>، ما تحتاج الصفحة شيئًا من الإنترنت."
      },
      "seconds": 20
     },
@@ -692,7 +692,7 @@
       ],
       "ar": [
        "في أول chunk يرسم رسمًا بيانيًا",
-       "في setup chunk أعلى الملف، عليه <code>include: false</code>",
+       "في الـ setup chunk أعلى الملف، عليه <code>include: false</code>",
        "في الـ YAML header"
       ]
      },
@@ -700,7 +700,7 @@
      "answer": 1,
      "why": {
       "en": "One place to load everything, run first, shown to nobody.",
-      "ar": "مكان واحد تحمّل فيه كل شيء: يشتغل أول، وما يشوفه أحد."
+      "ar": "مكان واحد تحمّل فيه كل شيء، يشتغل قبل الباقي وما يشوفه أحد."
      },
      "seconds": 20
     },
@@ -726,14 +726,14 @@
      "answer": 1,
      "why": {
       "en": "Numbers are assigned at render time, in order.",
-      "ar": "الأرقام تُحسب وقت التوليد، بالترتيب."
+      "ar": "الأرقام تتحدد وقت التوليد، بالترتيب."
      },
      "seconds": 20
     },
     {
      "q": {
       "en": "What does Pandoc do in a Quarto render?",
-      "ar": "ما دور Pandoc حين يولّد Quarto التقرير؟"
+      "ar": "ما دور Pandoc لما يولّد Quarto التقرير؟"
      },
      "code": null,
      "options": {
@@ -759,7 +759,7 @@
    ],
    "title": {
     "en": "Lab 1: a regional note from a script",
-    "ar": "المختبر 1: تقرير منطقة من سكربت R"
+    "ar": "التطبيق العملي 1: تقرير منطقة من سكربت R"
    },
    "eyebrow": {
     "en": "Day 1 · Lab · 13:15–14:00",
@@ -918,7 +918,7 @@
     {
      "q": {
       "en": "<code>embed-resources: true</code> makes one file that works offline.",
-      "ar": "<code>embed-resources: true</code> يطلّع ملفًا واحدًا يشتغل بدون إنترنت."
+      "ar": "<code>embed-resources: true</code> يطلّع ملفًا واحدًا يشتغل دون إنترنت."
      },
      "code": null,
      "options": {
@@ -1081,7 +1081,7 @@
     {
      "q": {
       "en": "What does <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code> give you?",
-      "ar": "ماذا تحصل عليه من <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code>؟"
+      "ar": "ماذا يعطيك الأمر <code>quarto pandoc -o my-reference.docx --print-default-data-file reference.docx</code>؟"
      },
      "code": null,
      "options": {
@@ -1100,7 +1100,7 @@
      "answer": 1,
      "why": {
       "en": "Start from it, change the styles in Word, save, and point <code>reference-doc</code> at it.",
-      "ar": "تبدأ منه: تعدّل الأنماط في Word وتحفظه، ثم تخلّي <code>reference-doc</code> يشير إليه. تسويها مرة وحدة، وبعدها كل تقرير Word يطلع بنفس الشكل."
+      "ar": "ابدأ منه، عدّل الأنماط في Word واحفظه، ثم خلّ <code>reference-doc</code> يشير إليه."
      },
      "seconds": 20
     },
@@ -1133,7 +1133,7 @@
     {
      "q": {
       "en": "A note for reviewers must never reach the published PDF. Which wrapper?",
-      "ar": "ملاحظة للمراجعين، ولازم ما توصل أبدًا إلى PDF المنشور. أي غلاف تستخدم؟"
+      "ar": "ملاحظة للمراجعين لازم ما توصل أبدًا إلى PDF المنشور. في أي كتلة تحطها؟"
      },
      "code": null,
      "options": {
@@ -1152,7 +1152,7 @@
      "answer": 0,
      "why": {
       "en": "Visible in Word only. Everything else, the PDF included, leaves it out.",
-      "ar": "تظهر في Word وحده، والمراجع يشوفها هناك. كل صيغة غيره، ومنها PDF، تتجاهلها."
+      "ar": "تظهر في Word وحده، وهو اللي يفتحه المراجع. باقي الصيغ، ومنها PDF، ما تطلع فيها."
      },
      "seconds": 20
     }
@@ -1311,14 +1311,14 @@
      "answer": 1,
      "why": {
       "en": "It is an HTML option; Typst draws math itself.",
-      "ar": "الاسم يقولها: خيار لـ HTML. أما Typst فيرسم المعادلات بنفسه."
+      "ar": "خيار لـ HTML وحده، والاسم يدل عليه. أما Typst فيرسم المعادلات بنفسه."
      },
      "seconds": 10
     },
     {
      "q": {
       "en": "Top-level <code>toc: true</code> gives Word a contents list too.",
-      "ar": "<code>toc: true</code> في المستوى الأعلى يخلّي حتى Word فيه قائمة محتويات."
+      "ar": "<code>toc: true</code> في المستوى الأعلى يطلّع قائمة المحتويات حتى في Word."
      },
      "code": null,
      "options": {
@@ -1366,7 +1366,7 @@
    ],
    "title": {
     "en": "What survives into Word and PDF?",
-    "ar": "وش اللي يوصل لـ Word وPDF؟"
+    "ar": "ما الذي يصل إلى Word وPDF؟"
    },
    "eyebrow": {
     "en": "Day 2 · Block 1 · 09:00–10:15",
@@ -1381,7 +1381,7 @@
     {
      "q": {
       "en": "In R code, how do you read the parameter <code>region</code>?",
-      "ar": "داخل كود R، كيف تقرأ المُعامِل <code>region</code>؟"
+      "ar": "في كود R، كيف تقرأ المُعامِل <code>region</code>؟"
      },
      "code": null,
      "options": {
@@ -1426,7 +1426,7 @@
      "answer": 0,
      "why": {
       "en": "knitr evaluates inline R everywhere in the file. A file with no R chunk skips knitr, and prints the code as text.",
-      "ar": "knitr يشغّل R داخل النص في أي مكان من الملف، والـ header منه. لكن الملف اللي ما فيه ولا chunk R ما يمرّ على knitr أصلًا، فيطلع الكود نصًا زي ما كتبته."
+      "ar": "knitr يشغّل R داخل النص في أي مكان من الملف، حتى في الـ header. لكن الملف اللي ما فيه ولا chunk R ما يمرّ على knitr أصلًا، فيطلع الكود نصًا زي ما كتبته."
      },
      "seconds": 20
     },
@@ -1452,7 +1452,7 @@
      "answer": 1,
      "why": {
       "en": "The shortcode reads the document's metadata, which still holds the default. Tested on this course's Quarto.",
-      "ar": "الـ shortcode يقرأ بيانات المستند الوصفية، وهذه ما زالت تحمل القيمة الافتراضية. جرّبناها على نسخة Quarto اللي نشتغل عليها في الدورة."
+      "ar": "الـ shortcode يقرأ البيانات الوصفية للمستند، وفيها القيمة الافتراضية زي ما هي. جرّبناها على نسخة Quarto اللي نشتغل عليها في الدورة."
      },
      "seconds": 20
     },
@@ -1470,7 +1470,7 @@
       ],
       "ar": [
        "لأن R يحتاج ثلاثة فروع",
-       "المنطقة اللي بالكاد تحرّكت، قاعدة الخيارين تكتب عنها جملة غلط",
+       "قاعدة الخيارين تكتب جملة غلط عن المنطقة اللي بالكاد تحرّكت",
        "عشان يطول النص"
       ]
      },
@@ -1545,7 +1545,7 @@
      "answer": 1,
      "why": {
       "en": "The project file makes the folder one unit, with shared settings and one output folder.",
-      "ar": "ملف المشروع يخلّي المجلد وحدة واحدة: إعدادات مشتركة، ومجلد واحد للمُخرَجات."
+      "ar": "ملف المشروع يخلّي المجلد كله مشروعًا واحدًا، بإعدادات مشتركة ومجلد واحد للمُخرَجات."
      },
      "seconds": 20
     },
@@ -1571,7 +1571,7 @@
      "answer": 1,
      "why": {
       "en": "Results are kept in <code>_freeze/</code>. Change the file and it reruns; otherwise Quarto reuses them.",
-      "ar": "النتائج تنحفظ في <code>_freeze/</code>. عدّلت الملف؟ يشتغل R من جديد. ما عدّلته؟ Quarto يستخدم المحفوظ على طول."
+      "ar": "النتائج تنحفظ في <code>_freeze/</code>: لو عدّلت الملف يشتغل R من جديد، ولو ما عدّلته يستخدم Quarto المحفوظ على طول."
      },
      "seconds": 20
     },
@@ -1630,7 +1630,7 @@
     {
      "q": {
       "en": "An Arabic report still labels its chart Figure 1. What fixes it?",
-      "ar": "تقريرك عربي، ومع ذلك تحت الرسم مكتوب Figure 1. ما الحل؟"
+      "ar": "تقريرك بالعربي، وتحت الرسم للحين مكتوب Figure 1. ما الحل؟"
      },
      "code": null,
      "options": {
@@ -1671,7 +1671,7 @@
     {
      "q": {
       "en": "One render of a file with <code>html</code>, <code>docx</code> and <code>typst</code> under <code>format:</code> makes how many files?",
-      "ar": "ملف تحت <code>format:</code> فيه <code>html</code> و<code>docx</code> و<code>typst</code>. كم ملف يطلع من توليد واحد؟"
+      "ar": "ملف فيه تحت <code>format:</code> الصيغ <code>html</code> و<code>docx</code> و<code>typst</code>. كم ملف يطلع من توليد واحد؟"
      },
      "code": null,
      "options": {
@@ -1742,7 +1742,7 @@
      "answer": 1,
      "why": {
       "en": "The file's default stays; <code>-P</code> overrides it once.",
-      "ar": "القيمة الافتراضية في الملف ما تتغيّر؛ <code>-P</code> يتجاوزها مرة واحدة فقط."
+      "ar": "القيمة الافتراضية في الملف تبقى زي ما هي؛ <code>-P</code> يبدّلها لهذا التوليد فقط."
      },
      "seconds": 20
     },
@@ -1820,7 +1820,7 @@
      "answer": 0,
      "why": {
       "en": "The project file. <code>freeze</code> only decides whether R reruns.",
-      "ar": "ملف المشروع. أما <code>freeze</code> فكل شغله أنه يقرّر هل يعيد R التشغيل أو لا."
+      "ar": "ملف المشروع. أما <code>freeze</code> فكل شغله أنه يقرّر هل يشتغل R من جديد أو لا."
      },
      "seconds": 20
     },
@@ -1879,7 +1879,7 @@
    ],
    "title": {
     "en": "Lab 2: brand, parameterise, batch-render",
-    "ar": "التطبيق العملي 2: هوية الهيئة، المعاملات، والتقارير بالجملة"
+    "ar": "التطبيق العملي 2: هوية الهيئة والمُعامِلات والتقارير بالجملة"
    },
    "eyebrow": {
     "en": "Day 2 · Lab · 13:15–14:00",
@@ -2014,7 +2014,7 @@
     {
      "q": {
       "en": "<code>content-visible when-format=\"docx\"</code> hides text from the PDF.",
-      "ar": "<code>content-visible when-format=\"docx\"</code> يخفي النص عن PDF."
+      "ar": "<code>content-visible when-format=\"docx\"</code> يخفي النص من ملف PDF."
      },
      "code": null,
      "options": {
@@ -2086,7 +2086,7 @@
     {
      "q": {
       "en": "<code>dir: rtl</code> turns the page right to left.",
-      "ar": "<code>dir: rtl</code> يقلب الصفحة من اليمين إلى اليسار."
+      "ar": "<code>dir: rtl</code> يخلي الصفحة من اليمين إلى اليسار."
      },
      "code": null,
      "options": {
@@ -2127,14 +2127,14 @@
      "answer": 1,
      "why": {
       "en": "A language file supplies them.",
-      "ar": "ملف اللغة هو اللي يعطيه إياها."
+      "ar": "ملف اللغة هو اللي يوفّرها."
      },
      "seconds": 10
     }
    ],
    "title": {
     "en": "Day 2 speed round",
-    "ar": "جولة سريعة على اليوم 2"
+    "ar": "جولة السرعة على اليوم 2"
    },
    "eyebrow": {
     "en": "Day 2 · Lab · 13:15–14:00",
@@ -2149,7 +2149,7 @@
     {
      "q": {
       "en": "What starts a new slide?",
-      "ar": "بأي شيء تبدأ شريحة جديدة؟"
+      "ar": "كيف تبدأ شريحة جديدة؟"
      },
      "code": null,
      "options": {
@@ -2160,7 +2160,7 @@
       ],
       "ar": [
        "بعنوان <code>##</code>",
-       "بسطر فاضي",
+       "بسطر فارغ",
        "بـ chunk جديد"
       ]
      },
@@ -2175,7 +2175,7 @@
     {
      "q": {
       "en": "You put a chart on a slide and no code appears. Why?",
-      "ar": "حطّيت رسمًا بيانيًا على شريحة، فطلع الرسم وما طلع الكود. لماذا؟"
+      "ar": "حطّيت رسمًا بيانيًا في شريحة، فطلع الرسم بدون الكود. ما السبب؟"
      },
      "code": null,
      "options": {
@@ -2185,9 +2185,9 @@
        "Charts and code cannot share a slide"
       ],
       "ar": [
-       "العرض التقديمي يخفي الكود من نفسه",
+       "العرض التقديمي يخفي الكود افتراضيًا",
        "الـ chunk فشل",
-       "الرسم والكود ما يجتمعان في شريحة وحدة"
+       "ما ينفع رسم وكود في شريحة وحدة"
       ]
      },
      "imgs": null,
@@ -2201,7 +2201,7 @@
     {
      "q": {
       "en": "Text and a chart on one slide: the chart runs off the bottom. The fix?",
-      "ar": "كلام ورسم بياني في شريحة وحدة، والرسم ينزل ويطلع من أسفل الشريحة. ما الحل؟"
+      "ar": "كلام ورسم بياني في شريحة وحدة، والرسم ينزل ويخرج من أسفل الشريحة. ما الحل؟"
      },
      "code": null,
      "options": {
@@ -2246,7 +2246,7 @@
      "answer": 1,
      "why": {
       "en": "Everything after a pause belongs to that fragment, notes included. Tested in this course's deck.",
-      "ar": "كل ما بعد الوقفة يتبعها، والملاحظات معه. يعني لو كتبتها في الآخر، ما تشوفها إلا وأنت مخلّص الشريحة. جرّبناها على عرض هذه الدورة نفسه."
+      "ar": "كل شيء بعد الوقفة يتبع الجزء اللي تفتحه النقرة، حتى الملاحظات. يعني لو كتبتها في آخر الشريحة ما تشوفها إلا بعد آخر نقرة. جرّبناها في عرض هذه الدورة نفسه."
      },
      "seconds": 20
     },
@@ -2279,7 +2279,7 @@
    ],
    "title": {
     "en": "From report to deck",
-    "ar": "التحليل نفسه، على شرائح"
+    "ar": "من التقرير إلى العرض التقديمي"
    },
    "eyebrow": {
     "en": "Day 3 · Block 1 · 09:00–10:15",
@@ -2313,7 +2313,7 @@
      "answer": 1,
      "why": {
       "en": "Each <code>|</code> separates one click's highlight; the empty first part means start with none.",
-      "ar": "كل <code>|</code> يفصل نقرة عن اللي بعدها، والجزء الفاضي في البداية معناه: ابدأ بدون إبراز."
+      "ar": "كل <code>|</code> يفصل نقرة عن اللي بعدها، والجزء الفارغ في البداية معناه: ابدأ بدون إبراز."
      },
      "seconds": 20
     },
@@ -2339,7 +2339,7 @@
      "answer": 1,
      "why": {
       "en": "Explain the code first, then reveal what it makes.",
-      "ar": "تشرح الكود والرسم ما زال مخفيًا، وبنقرة يطلع الرسم جنبه. الحضور يسمعونك أول، وبعدها يشوفون النتيجة."
+      "ar": "تشرح الكود أول والرسم ما زال مخفيًا، وبنقرة وحدة يطلع جنبه."
      },
      "seconds": 20
     },
@@ -2356,7 +2356,7 @@
        "<code>embed-resources</code>"
       ],
       "ar": [
-       "الشريحة اللي بعدها لازم تحمل <code>{auto-animate=true}</code> هي أيضًا",
+       "الشريحة اللي بعدها كذلك تحتاج <code>{auto-animate=true}</code>",
        "خيار في الـ chunk",
        "<code>embed-resources</code>"
       ]
@@ -2365,14 +2365,14 @@
      "answer": 0,
      "why": {
       "en": "Reveal animates between two neighbouring slides that both carry the attribute.",
-      "ar": "Reveal يحرّك بين شريحتين متجاورتين، ولازم كل وحدة منهما تحمل الخاصية."
+      "ar": "Reveal يحرّك بين شريحتين متجاورتين، ولازم تكون الخاصية على الشريحتين معًا."
      },
      "seconds": 20
     },
     {
      "q": {
       "en": "Why compute the big number with inline R on its slide?",
-      "ar": "رقم واحد على شريحة. لماذا نحسبه بـ R داخل النص بدل ما نكتبه؟"
+      "ar": "لماذا نحسب الرقم الكبير بـ R داخل النص على شريحته، بدل ما نكتبه بيدنا؟"
      },
      "code": null,
      "options": {
@@ -2384,7 +2384,7 @@
       "ar": [
        "عشان شكله أحلى",
        "عشان يتغيّر مع البيانات والمُعامِل، زي أي رقم ثاني",
-       "لأن الشرائح ما تقبل أرقامًا مكتوبة"
+       "لأن الشرائح ما تقبل أرقامًا مكتوبة بيدك"
       ]
      },
      "imgs": null,
@@ -2410,7 +2410,7 @@
       "ar": [
        "أنت، بـ CSS",
        "Reveal، لأنه انتبه إن الخلفية غامقة",
-       "ملف الهوية المؤسسية"
+       "ملف الهوية"
       ]
      },
      "imgs": null,
@@ -2424,7 +2424,7 @@
    ],
    "title": {
     "en": "Code, data and motion on slides",
-    "ar": "كود، بيانات، وحركة في الشرائح"
+    "ar": "الكود والبيانات والحركة على الشرائح"
    },
    "eyebrow": {
     "en": "Day 3 · Block 2 · 10:30–11:45",
@@ -2449,7 +2449,7 @@
        "The format line"
       ],
       "ar": [
-       "ولا شيء",
+       "لا شيء",
        "كل عنوان يحتاج class",
        "سطر الصيغة"
       ]
@@ -2458,7 +2458,7 @@
      "answer": 0,
      "why": {
       "en": "Revealjs reads the brand file by itself.",
-      "ar": "Revealjs يقرأ ملف الهوية من نفسه، وما يحتاج منك أي سطر زيادة."
+      "ar": "Revealjs يقرأ ملف الهوية تلقائيًا، وما يحتاج منك أي سطر زيادة."
      },
      "seconds": 20
     },
@@ -2476,7 +2476,7 @@
       ],
       "ar": [
        "لأنه إلزامي",
-       "يسألك المدير عن الشريحة 6، فتعرف مكانها على طول",
+       "لما يسألونك عن الشريحة 6، تعرف مكانها على طول",
        "لأنه يشغّل التصدير إلى PDF"
       ]
      },
@@ -2491,7 +2491,7 @@
     {
      "q": {
       "en": "Quarto refuses <code>embed-resources: true</code>. What is on in the deck?",
-      "ar": "Quarto رفض <code>embed-resources: true</code>. ما الشيء المفعَّل في العرض؟"
+      "ar": "Quarto رفض <code>embed-resources: true</code>. أي خاصية مفعّلة في العرض؟"
      },
      "code": null,
      "options": {
@@ -2510,7 +2510,7 @@
      "answer": 0,
      "why": {
       "en": "The chalkboard plugin cannot be packed into one file. Turn it off for the copy you send.",
-      "ar": "إضافة السبورة ما تنحزم في ملف واحد. أوقفها في النسخة اللي ترسلها."
+      "ar": "إضافة السبورة ما تدخل مع العرض في ملف واحد. أوقفها في النسخة اللي ترسلها."
      },
      "seconds": 20
     },
@@ -2529,7 +2529,7 @@
       "ar": [
        "<code>--to pdf</code>",
        "تفتحه في المتصفح، وتضيف <code>?print-pdf</code> في آخر الرابط، وتطبع",
-       "تنقله إلى Word وتحفظه PDF"
+       "تحوّله إلى Word وتحفظه PDF"
       ]
      },
      "imgs": null,
@@ -2558,7 +2558,7 @@
     {
      "q": {
       "en": "Which stage of a render runs your R code?",
-      "ar": "عند التوليد، أي مرحلة هي اللي تشغّل كود R؟"
+      "ar": "أي مرحلة من التوليد تشغّل كود R؟"
      },
      "code": null,
      "options": {
@@ -2610,7 +2610,7 @@
     {
      "q": {
       "en": "<code>@tbl-latest</code> needs what on the table chunk?",
-      "ar": "عشان تشتغل <code>@tbl-latest</code>، ماذا يحتاج chunk الجدول؟"
+      "ar": "عشان تشتغل <code>@tbl-latest</code>، أي خيار يحتاجه chunk الجدول؟"
      },
      "code": null,
      "options": {
@@ -2681,7 +2681,7 @@
      "answer": 1,
      "why": {
       "en": "Add a region to the list and its PDF appears.",
-      "ar": "أضف منطقة إلى القائمة، ويطلع ملفها PDF معها."
+      "ar": "أضف منطقة إلى القائمة، ويطلع PDF حقها مع الباقي."
      },
      "seconds": 20
     },
@@ -2714,7 +2714,7 @@
     {
      "q": {
       "en": "A deck shows no code although the chunk ran. Why?",
-      "ar": "الـ chunk اشتغل، والعرض ما فيه ولا سطر كود. لماذا؟"
+      "ar": "الـ chunk اشتغل، والعرض ما فيه ولا سطر كود. ما السبب؟"
      },
      "code": null,
      "options": {
@@ -2740,7 +2740,7 @@
     {
      "q": {
       "en": "The deck must open on a machine with no internet. What do you set?",
-      "ar": "العرض لازم ينفتح على جهاز ما فيه إنترنت. ماذا تضبط؟"
+      "ar": "العرض لازم يفتح على جهاز ما فيه إنترنت. أي إعداد تحتاج؟"
      },
      "code": null,
      "options": {
@@ -2759,14 +2759,14 @@
      "answer": 0,
      "why": {
       "en": "One self-contained file. The chalkboard cannot be embedded.",
-      "ar": "ملف واحد فيه كل شيء يحتاجه. والسبورة ما تنحزم معه."
+      "ar": "ملف واحد فيه كل شيء يحتاجه. والسبورة ما تدخل معه."
      },
      "seconds": 20
     }
    ],
    "title": {
     "en": "Lab 3: a briefing deck for any region",
-    "ar": "التطبيق العملي 3: عرض إحاطة لأي منطقة"
+    "ar": "التطبيق العملي 3: عرض مختصر لأي منطقة"
    },
    "eyebrow": {
     "en": "Day 3 · Lab · 13:15–14:00",
@@ -2829,7 +2829,7 @@
     {
      "q": {
       "en": "Decks show code by default.",
-      "ar": "العرض يُظهر الكود من نفسه."
+      "ar": "العرض يُظهر الكود افتراضيًا."
      },
      "code": null,
      "options": {
@@ -2925,7 +2925,7 @@
     {
      "q": {
       "en": "The chalkboard can be embedded in one file.",
-      "ar": "السبورة تنحزم مع العرض في ملف واحد."
+      "ar": "السبورة تدخل مع العرض في ملف واحد."
      },
      "code": null,
      "options": {
@@ -2949,7 +2949,7 @@
     {
      "q": {
       "en": "<code>?print-pdf</code> prepares a deck for printing to PDF.",
-      "ar": "<code>?print-pdf</code> يجهّز العرض للطباعة إلى PDF."
+      "ar": "<code>?print-pdf</code> يجهّز العرض للطباعة بصيغة PDF."
      },
      "code": null,
      "options": {
@@ -3036,7 +3036,7 @@
     {
      "q": {
       "en": "Which title tells a manager what to think?",
-      "ar": "أي عنوان يقول للمدير وش يستنتج، على طول؟"
+      "ar": "أي عنوان يقول للمدير ماذا يستنتج؟"
      },
      "code": null,
      "options": {
@@ -3047,7 +3047,7 @@
       ],
       "ar": [
        "معدل البطالة حسب المنطقة، 2022 إلى 2025",
-       "البطالة ترتفع في جازان وتنخفض في بقية المناطق",
+       "البطالة ارتفعت في جازان وانخفضت في بقية المناطق",
        "الشكل 3: المعدلات"
       ]
      },
@@ -3062,7 +3062,7 @@
     {
      "q": {
       "en": "Thirteen coloured lines and a legend. What turns it into an explanatory chart?",
-      "ar": "قدامك 13 خطًا ملوّنًا ومفتاح ألوان. وش اللي يخلّيه رسمًا تفسيريًا؟"
+      "ar": "قدامك 13 خطًا ملوّنًا ومفتاح ألوان. ما الذي يخلّيه رسمًا تفسيريًا؟"
      },
      "code": null,
      "options": {
@@ -3114,7 +3114,7 @@
     {
      "q": {
       "en": "In the small multiples, why is the Kingdom's line drawn in every panel?",
-      "ar": "في الرسوم الصغيرة المتعددة، وش السبب إن خط المملكة يطلع في كل لوحة؟"
+      "ar": "في الرسوم الصغيرة المتعددة، لماذا يطلع خط المملكة في كل لوحة؟"
      },
      "code": null,
      "options": {
@@ -3126,7 +3126,7 @@
       "ar": [
        "<code>facet_wrap()</code> يكرّر كل طبقة",
        "الكائن <code>kingdom</code> ما فيه عمود <code>region</code>، فما يقدر <code>facet_wrap()</code> يقسّمه",
-       "اللون <code>colour = \"grey70\"</code> يخلّيه خط مرجع"
+       "اللون <code>colour = \"grey70\"</code> يخلّيه خط مقارنة"
       ]
      },
      "imgs": null,
@@ -3140,7 +3140,7 @@
     {
      "q": {
       "en": "The subtitle reads: the Kingdom moved <code>-0.800000000000001</code>. What is the fix?",
-      "ar": "العنوان الفرعي مكتوب فيه: المملكة تغيّرت <code>-0.800000000000001</code>. وش الحل؟"
+      "ar": "العنوان الفرعي مكتوب فيه: المملكة تغيّرت <code>-0.800000000000001</code>. ما الحل؟"
      },
      "code": null,
      "options": {

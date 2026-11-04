@@ -1,29 +1,29 @@
 {
  "id": "d1-yaml",
- "title": "عنوان صفحة YAML",
+ "title": "الـ YAML header",
  "eyebrow": "اليوم 1 · المثال 2",
  "show": "report.qmd",
- "duration": 43.21,
+ "duration": 43.76,
  "steps": [
   {
    "t": 0,
-   "d": 10.16,
-   "say": "نضيف <code>subtitle</code> و<code>author</code> و<code>date</code> فتكتمل منطقة العنوان. و<code>date: today</code> يكتب تاريخ يوم التوليد، فما يتقادم التاريخ أبدًا."
+   "d": 10.71,
+   "say": "نضيف <code>subtitle</code> و<code>author</code> و<code>date</code> فتكتمل منطقة العنوان. و<code>date: today</code> يكتب تاريخ يوم التوليد، فما يطلع التقرير بتاريخ قديم أبدًا."
   },
   {
-   "t": 10.16,
+   "t": 10.71,
    "d": 10.0,
    "say": "تحت <code>format: html:</code> نحط خيارات صيغة واحدة، هنا HTML. و<code>toc: true</code> يبني قائمة محتويات من عناوين <code>##</code> لحاله."
   },
   {
-   "t": 20.16,
+   "t": 20.71,
    "d": 12.93,
    "say": "شوف المجلد: جنب <code>report.html</code> كتب Quarto مجلد <code>report_files</code> فيه صورة الرسم والتنسيقات والسكربتات. لو أرسلت ملف HTML وحده بالإيميل، يوصل ناقص."
   },
   {
-   "t": 33.09,
+   "t": 33.64,
    "d": 10.12,
-   "say": "ومع <code>embed-resources: true</code> ينحزم كل شيء داخل ملف HTML نفسه: ملف واحد ينفتح في أي جهاز، حتى دون إنترنت."
+   "say": "ومع <code>embed-resources: true</code> يدخل كل شيء في ملف HTML نفسه: ملف واحد ينفتح في أي جهاز، حتى دون إنترنت."
   }
  ],
  "downloads": [
