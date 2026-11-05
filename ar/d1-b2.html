@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>R يكتب الأرقام والرسوم البيانية · Quarto خطوة بخطوة</title>
+<title>الأرقام والرسوم البيانية في R · Quarto خطوة بخطوة</title>
 <link rel="icon" href="../assets/img/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/course.css">
 <script src="../frames/vendor/hyperframes-player.global.js"></script>
@@ -15,8 +15,8 @@
 <nav><a href="index.html#day1" class="on">اليوم 1</a><a href="index.html#day2">اليوم 2</a><a href="index.html#day3">اليوم 3</a><a class="lang" href="../d1-b2.html" lang="en" hreflang="en">English</a></nav>
 </div></header>
 <main class="wrap">
-<div class="hero"><div class="eyebrow">اليوم 1 · الجلسة 2 · 10:30–11:45</div><h1>R يكتب الأرقام والرسوم البيانية</h1>
-<p class="goal">تقرّر ما يظهر من كل chunk، وتخلّي R يكتب كل رقم في النص، وتضبط مقاس كل رسم بياني وعنوانه.</p><div class="rule"></div></div>
+<div class="hero"><div class="eyebrow">اليوم 1 · الجلسة 2 · 10:30–11:45</div><h1>الأرقام والرسوم البيانية في R</h1>
+<p class="goal">كيف تعرف ما يظهر من كل chunk، وتخلّي R يكتب كل رقم في النص، وتضبط مقاس كل رسم بياني وعنوانه.</p><div class="rule"></div></div>
 <section class="part"><h2><span class="k">01</span>شوف المثال خطوة بخطوة</h2><p class="lead">اضغط على أي خطوة عشان تشغّلها لحالها، أو شغّل المثال كامل.</p><div class="build" data-build="d1-chunks">
 <div class="head"><span class="e">اليوم 1 · المثال 5</span><h3>خيارات الـ chunk: ماذا يظهر وماذا يختفي</h3>
 <span class="len">5 خطوات · 50 ث</span></div>
@@ -27,7 +27,7 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../live/d1-chunks/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-chunks/step5-report.qmd" download>نزّل report.qmd</a>
+<span class="sp"></span><a class="btn" href="../live/d1-chunks/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-chunks/step5-report.qmd" download>نزّل <bdi>report.qmd</bdi></a>
 </div>
 </div>
 <div class="build" data-build="d1-inline">
@@ -40,20 +40,20 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../live/d1-inline/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-inline/step5-report.qmd" download>نزّل report.qmd</a>
+<span class="sp"></span><a class="btn" href="../live/d1-inline/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-inline/step5-report.qmd" download>نزّل <bdi>report.qmd</bdi></a>
 </div>
 </div>
 <div class="build" data-build="d1-figures">
 <div class="head"><span class="e">اليوم 1 · المثال 7</span><h3>الأشكال: المقاس والعنوان والتخطيط</h3>
 <span class="len">3 خطوات · 29 ث</span></div>
 <div class="screen"><hyperframes-player src="../frames/d1-figures.ar.html" runtime-src="../frames/vendor/hyperframe.runtime.iife.js" poster="../frames/posters/d1-figures.ar.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span>نحدّد مقاس الرسم بالبوصة بـ <code>fig-width</code> و<code>fig-height</code>. والسلسلة الزمنية يناسبها رسم عريض وقصير.</span></button></li><li data-t="9.34" data-d="8.73"><button type="button"><span class="n">2</span><span>الخيار <code>fig-cap</code> يكتب عنوان الشكل تحت الرسم، والعنوان يمشي معه وين ما راح: Word وPDF.</span></button></li><li data-t="18.07" data-d="10.55"><button type="button"><span class="n">3</span><span>الخيار <code>layout-ncol: 2</code> يحط رسمين جنب بعض. ومع <code>!expr</code> يصير الخيار نفسه كود R، فعنوان الرسم الثاني يتبع <code>REGION</code> لحاله.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span>نحدّد مقاس الرسم بالإنش بـ <code>fig-width</code> و<code>fig-height</code>. والسلسلة الزمنية يناسبها رسم عريض وقصير.</span></button></li><li data-t="9.34" data-d="8.73"><button type="button"><span class="n">2</span><span>الخيار <code>fig-cap</code> يكتب عنوان الشكل تحت الرسم، والعنوان يمشي معه وين ما راح: Word وPDF.</span></button></li><li data-t="18.07" data-d="10.55"><button type="button"><span class="n">3</span><span>الخيار <code>layout-ncol: 2</code> يحط رسمين جنب بعض. ومع <code>!expr</code> يصير الخيار نفسه كود R، فعنوان الرسم الثاني يتبع <code>REGION</code> لحاله.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">السابق</button>
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../live/d1-figures/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-figures/step3-report.qmd" download>نزّل report.qmd</a>
+<span class="sp"></span><a class="btn" href="../live/d1-figures/report.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../files/d1-figures/step3-report.qmd" download>نزّل <bdi>report.qmd</bdi></a>
 </div>
 </div>
 </section>

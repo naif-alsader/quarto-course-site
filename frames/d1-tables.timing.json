@@ -3,7 +3,7 @@
  "title": "Tables with tinytable",
  "eyebrow": "Day 1 · Build 8",
  "show": "report.qmd",
- "duration": 64.57,
+ "duration": 65.07,
  "steps": [
   {
    "t": 0,
@@ -22,16 +22,16 @@
   },
   {
    "t": 30.81,
-   "d": 11.65,
-   "say": "Set the number format yourself, but read the help first: in <code>format_tt()</code>, <code>digits = 1</code> means one significant digit. Jazan's 11.1 now reads 11."
+   "d": 11.76,
+   "say": "Set the number format yourself, but read the help first: in <code>format_tt()</code>, <code>digits = 1</code> means one significant digit. Al Bahah's 9.9 now reads 10."
   },
   {
-   "t": 42.46,
-   "d": 10.27,
-   "say": "<code>num_fmt = \"decimal\"</code> makes it one decimal place, and <code>num_zero = TRUE</code> keeps the zero, so Al Jouf reads 10.0, not 10."
+   "t": 42.57,
+   "d": 10.66,
+   "say": "<code>num_fmt = \"decimal\"</code> makes it one decimal place, and <code>num_zero = TRUE</code> keeps the zero, so Northern Borders reads 9.0, not 9."
   },
   {
-   "t": 52.73,
+   "t": 53.23,
    "d": 11.84,
    "say": "tinytable takes its HTML styles from the internet by default. <code>theme_html(portable = TRUE)</code> takes them from the package instead: what an offline machine needs."
   }

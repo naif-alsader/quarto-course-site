@@ -27,7 +27,7 @@
      "answer": 1,
      "why": {
       "en": "<code>&lt;-</code> stores a value under a name. The object then appears in the Variables pane.",
-      "ar": "<code>&lt;-</code> يحفظ القيمة باسم تختاره أنت، وبعدها تلقى الكائن في لوحة Variables."
+      "ar": "<code>&lt;-</code> يحفظ القيمة باسم تختاره أنت، وبعدها تحصّل الكائن في لوحة Variables."
      },
      "seconds": 20
     },
@@ -66,20 +66,20 @@
      "options": {
       "en": [
        "At the very top, between two <code>---</code> lines",
-       "Anywhere, as long as it is inside <code>---</code> lines",
+       "Inside the first R chunk",
        "In a separate <code>.yml</code> file"
       ],
       "ar": [
        "في أول الملف مباشرة، بين سطرين <code>---</code>",
-       "في أي مكان، المهم يكون بين سطرين <code>---</code>",
+       "داخل أول chunk من R",
        "في ملف <code>.yml</code> مستقل"
       ]
      },
      "imgs": null,
      "answer": 0,
      "why": {
-      "en": "The header must be the first thing in the file. A second <code>---</code> block further down is read as Markdown.",
-      "ar": "الـ header لازم يكون أول شيء في الملف. وأي كتلة <code>---</code> ثانية تجي بعده تُقرأ على أنها Markdown عادي."
+      "en": "Put it first, where everyone who opens the file looks for it. Quarto reads a second <code>---</code> block further down as well, and it quietly overrides the first, so keep one header, at the top.",
+      "ar": "اكتبه في أول الملف، لأن هناك يدوّر عليه كل من يفتح الملف. وQuarto يقرأ أي كتلة <code>---</code> ثانية تحت بعد، وتغيّر قيم الأولى بدون ما تنتبه، فخلّ الـ header واحدًا وفي البداية."
      },
      "seconds": 20
     },
@@ -391,7 +391,7 @@
    ],
    "title": {
     "en": "Code, numbers and figures",
-    "ar": "R يكتب الأرقام والرسوم البيانية"
+    "ar": "الأرقام والرسوم البيانية في R"
    },
    "eyebrow": {
     "en": "Day 1 · Block 2 · 10:30–11:45",

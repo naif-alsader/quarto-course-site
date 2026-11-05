@@ -68,6 +68,20 @@
     if (out.length > 1 && out.every((x, i) => x === arr[i])) out.push(out.shift());
     return out;
   };
+  // an order game must not show its answer: of up to 200 seeded shuffles, keep the first with the
+  // fewest cards in their own place or straight after the card they follow, read either way
+  const scramble = (arr, key) => {
+    const r = seeded(key), at = new Map(arr.map((x, i) => [x, i]));
+    const given1 = out => out.reduce((n, x, i) => n + (at.get(x) === i) + (i > 0 && at.get(x) === at.get(out[i - 1]) + 1), 0);
+    const given = out => given1(out) + given1(out.slice().reverse());
+    let best = null;
+    for (let k = 0; k < 200 && (!best || given(best)); k++) {
+      const out = arr.slice();
+      for (let i = out.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
+      if (!best || given(out) < given(best)) best = out;
+    }
+    return best;
+  };
   const data = el => JSON.parse(el.querySelector('script[type="application/json"]').textContent);
 
   // ---- builds: a HyperFrames player plus clickable steps ----
@@ -182,18 +196,20 @@
       const pool = h('div', { class: 'chips' }), slots = h('div', { class: 'slots' });
       const res = h('div', { class: 'result' });
       const picked = [];
-      const items = shuffle(g.items, g.title);
+      const items = scramble(g.items, g.title);
+      // a card in Arabic takes the text face: the code face has no Arabic letters
+      const chip = (it, attrs) => ltr(h('button', { class: 'chip' + (/[\u0600-\u06FF]/.test(it) ? ' prose' : ''), type: 'button', ...attrs }, it), it);
       const draw = () => {
         slots.innerHTML = '';
         if (!picked.length) slots.append(h('span', { class: 'note' }, L.tapOrder));
         picked.forEach((it, i) => {
           if (i) slots.append(h('span', { class: 'arrow' }, L.arrow));
-          slots.append(ltr(h('button', { class: 'chip', type: 'button', onclick: () => { picked.splice(i, 1); draw(); } }, it), it));
+          slots.append(chip(it, { onclick: () => { picked.splice(i, 1); draw(); } }));
         });
         $$('.chip', pool).forEach(c => c.classList.toggle('used', picked.includes(c.dataset.v)));
       };
-      items.forEach(it => pool.append(ltr(h('button', { class: 'chip', type: 'button', 'data-v': it,
-        onclick: () => { if (!picked.includes(it)) { picked.push(it); draw(); res.textContent = ''; } } }, it), it)));
+      items.forEach(it => pool.append(chip(it, { 'data-v': it,
+        onclick: () => { if (!picked.includes(it)) { picked.push(it); draw(); res.textContent = ''; } } })));
       const check = h('button', { class: 'btn primary', type: 'button', onclick: () => {
         if (picked.length < g.items.length) { res.className = 'result no'; res.textContent = L.placeAll(g.items.length); return; }
         const chips = $$('.chip', slots);
@@ -288,7 +304,7 @@
         if (m) {
           const ok = m[1].split('|').map(s => s.trim());  // code is case-sensitive
           const inp = h('input', { type: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': L.missingCode });
-          inp.style.width = Math.max(5, ok[0].length + 1) + 'ch';
+          inp.style.width = `calc(${Math.max(5, ok[0].length + 1)}ch + 20px)`;
           inp.dataset.ok = JSON.stringify(ok); inputs.push(inp); pre.append(inp);
         } else pre.append(part);
       });

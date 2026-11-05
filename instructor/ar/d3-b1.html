@@ -27,7 +27,7 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../../live/d3-deck/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-deck/step4-slides.qmd" download>نزّل slides.qmd</a>
+<span class="sp"></span><a class="btn" href="../../live/d3-deck/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-deck/step4-slides.qmd" download>نزّل <bdi>slides.qmd</bdi></a>
 </div>
 </div>
 <div class="build" data-build="d3-layout">
@@ -40,7 +40,7 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../../live/d3-layout/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-layout/step3-slides.qmd" download>نزّل slides.qmd</a>
+<span class="sp"></span><a class="btn" href="../../live/d3-layout/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-layout/step3-slides.qmd" download>نزّل <bdi>slides.qmd</bdi></a>
 </div>
 </div>
 <div class="build" data-build="d3-pacing">
@@ -53,7 +53,7 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../../live/d3-pacing/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-pacing/step3-slides.qmd" download>نزّل slides.qmd</a>
+<span class="sp"></span><a class="btn" href="../../live/d3-pacing/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-pacing/step3-slides.qmd" download>نزّل <bdi>slides.qmd</bdi></a>
 </div>
 </div>
 <div class="build" data-build="d3-notes">
@@ -66,7 +66,7 @@
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
 <button class="btn" type="button" data-act="next">التالي</button>
 <button class="btn" type="button" data-act="all">شغّل الكل</button>
-<span class="sp"></span><a class="btn" href="../../live/d3-notes/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-notes/step4-slides.qmd" download>نزّل slides.qmd</a>
+<span class="sp"></span><a class="btn" href="../../live/d3-notes/slides.html" target="_blank" rel="noopener">افتح المُخرَج الحقيقي</a><a class="btn" href="../../files/d3-notes/step4-slides.qmd" download>نزّل <bdi>slides.qmd</bdi></a>
 </div>
 </div>
 </section>
@@ -146,7 +146,7 @@ ggplot(jazan, aes(date, rate)) + geom_line()
 </section>
 <section class="part"><h2><span class="k">03</span>اختبر فهمك</h2><div class="quiz" data-id="d3-b1"><script type="application/json">[{"q": "كيف تبدأ شريحة جديدة؟", "code": null, "options": ["بعنوان <code>##</code>", "بسطر فارغ", "بـ chunk جديد"], "answer": 0, "why": "كل <code>##</code> يفتح شريحة. أما <code>#</code> الواحدة فتفتح قسمًا كاملًا، وله شريحة عنوان خاصة فيه."}, {"q": "حطّيت رسمًا بيانيًا في شريحة، فطلع الرسم بدون الكود. ما السبب؟", "code": null, "options": ["العرض التقديمي يخفي الكود افتراضيًا", "الـ chunk فشل", "ما ينفع رسم وكود في شريحة وحدة"], "answer": 0, "why": "في العرض، الكود مخفي إلا إذا طلبته. أضف <code>#| echo: true</code> لما يكون الكود نفسه هو موضوع الشريحة."}, {"q": "كلام ورسم بياني في شريحة وحدة، والرسم ينزل ويخرج من أسفل الشريحة. ما الحل؟", "code": null, "options": ["تصغّر الخط", "<code>.columns</code>: الكلام في عمود والرسم في العمود الثاني", "<code>embed-resources: true</code>"], "answer": 1, "why": "مقاس الشريحة ثابت ما يتمدّد. الأعمدة تستغل عرضها بدل ما تزيد طولها."}, {"q": "كتبت ملاحظاتك بعد الوقفة <code>. . .</code>. متى تشوفها في شاشة المتحدث؟", "code": null, "options": ["من أول ما تفتح الشريحة", "بس لما يظهر آخر جزء من الشريحة", "ما تظهر أبدًا"], "answer": 1, "why": "كل شيء بعد الوقفة يتبع الجزء اللي تفتحه النقرة، حتى الملاحظات. يعني لو كتبتها في آخر الشريحة ما تشوفها إلا بعد آخر نقرة. جرّبناها في عرض هذه الدورة نفسه."}, {"q": "أي مفتاح يفتح شاشة المتحدث؟", "code": null, "options": ["S", "O", "B"], "answer": 0, "why": "O يعطيك نظرة على كل الشرائح، وB يفتح السبورة."}]</script></div>
 </section>
-<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>طابق المفتاح مع الأداة</h3><p class="prompt">اضغط على مفتاح، ثم على وظيفته وقت العرض.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "طابق المفتاح مع الأداة", "prompt": "اضغط على مفتاح، ثم على وظيفته وقت العرض.", "mono": "left", "pairs": [["S", "شاشة المتحدث: ملاحظاتك والمؤقت والشريحة الجاية"], ["O", "كل الشرائح قدامك مرة وحدة"], ["B", "السبورة، إذا فعّلت `chalkboard: true`"], ["R", "وضع التمرير: العرض كله صفحة وحدة طويلة"], ["F", "ملء الشاشة"]]}</script></div>
+<section class="part"><h2><span class="k">04</span>العب</h2><div class="game"><div class="eyebrow">لعبة</div><h3>طابق المفتاح مع الأداة</h3><p class="prompt">اضغط على مفتاح، ثم على وظيفته وقت العرض.</p><div class="gbody"></div><script type="application/json">{"type": "match", "title": "طابق المفتاح مع الأداة", "prompt": "اضغط على مفتاح، ثم على وظيفته وقت العرض.", "mono": "left", "pairs": [["S", "شاشة المتحدث: ملاحظاتك والمؤقت والشريحة الجاية"], ["O", "كل الشرائح قدامك مرة وحدة"], ["B", "السبورة، إذا فعّلت chalkboard: true"], ["R", "وضع التمرير: العرض كله صفحة وحدة طويلة"], ["F", "ملء الشاشة"]]}</script></div>
 </section>
 <div class="takeaway"><div class="eyebrow">الخلاصة</div><p>العرض التقديمي جزء من تقريرك، ما هو مستند جديد تبدأه من الصفر.</p></div>
 <nav class="pager"><a href="d2-lab.html"><small>السابق</small>التطبيق العملي 2: هوية الهيئة والمُعامِلات والتقارير بالجملة</a><a class="next" href="d3-b2.html"><small>التالي</small>الكود والبيانات والحركة على الشرائح</a></nav>

@@ -118,8 +118,8 @@ body.deck { font: 400 32px/1.4 Tajawal, system-ui, sans-serif; color: var(--dark
 .deck .speed .card { font-size: 40px; min-height: 150px; padding: 26px 30px; }
 .deck .tf button { font-size: 36px; padding: 22px; }
 .deck .speed .bar { height: 12px; }
-.deck .fill pre { font-size: 30px; line-height: 1.6; padding: 26px 30px; }
-.deck .fill input { font-size: 28px; }
+.deck .fill pre { font-size: 24px; line-height: 1.4; padding: 20px 30px; }  /* 14 lines and the buttons fit above the footer */
+.deck .fill input { font-size: 22px; padding: 0 8px; }
 .deck .codebox { border-radius: 16px; }
 
 /* hud, menu, notes */

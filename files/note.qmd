@@ -13,29 +13,31 @@ execute:
 
 ```{r}
 #| include: false
-library(ggplot2)
+library(tidyverse)
 library(tinytable)
-rates <- readr::read_csv("unemployment.csv")
+rates <- read_csv("unemployment.csv")
 REGION <- "Tabuk"
-area    <- subset(rates, region == REGION)
-kingdom <- subset(rates, region == "Kingdom")
-now  <- tail(area$rate, 1)
-then <- head(area$rate, 1)
-gap  <- now - tail(kingdom$rate, 1)
+area    <- rates |> filter(region == REGION)
+kingdom <- rates |> filter(region == "Kingdom")
+now  <- last(area$rate)
+then <- first(area$rate)
+gap  <- now - last(kingdom$rate)
 ```
 
 ## Summary
 
-In `r REGION` the rate was `r sprintf("%.1f", now)`% in 2025 Q4,
-`r sprintf("%+.1f", now - then)` points since 2022 Q1 and
-`r sprintf("%+.1f", gap)` points against the Kingdom
-(@fig-trend, @fig-compare, @tbl-recent).
+In `r REGION` the rate was
+`r scales::number(now, accuracy = 0.1)`% in 2025 Q4,
+`r scales::number(now - then, accuracy = 0.1, style_positive = "plus")`
+points since 2022 Q1 and
+`r scales::number(gap, accuracy = 0.1, style_positive = "plus")`
+points against the Kingdom (@fig-trend, @fig-compare, @tbl-recent).
 
 ## Trend
 
 ```{r}
 #| label: fig-trend
-#| fig-cap: !expr paste("Unemployment rate,", REGION, "(%)")
+#| fig-cap: !expr str_glue("Unemployment rate, {REGION} (%)")
 #| fig-width: 8
 #| fig-height: 3.5
 ggplot(area, aes(date, rate)) + geom_line()
@@ -46,11 +48,12 @@ ggplot(area, aes(date, rate)) + geom_line()
 #| fig-cap: "Against the Kingdom"
 #| layout-ncol: 2
 #| fig-subcap: ["Both series", "The last four quarters"]
-both <- subset(rates, region %in% c(REGION, "Kingdom"))
+both <- rates |> filter(region %in% c(REGION, "Kingdom"))
 ggplot(both, aes(date, rate, colour = region)) +
   geom_line()
-last4 <- subset(both, quarter >= "2025Q1")
-ggplot(last4, aes(quarter, rate, fill = region)) +
+both |>
+  filter(quarter >= "2025Q1") |>
+  ggplot(aes(quarter, rate, fill = region)) +
   geom_col(position = "dodge")
 ```
 
@@ -58,8 +61,11 @@ ggplot(last4, aes(quarter, rate, fill = region)) +
 
 ```{r}
 #| label: tbl-recent
-#| tbl-cap: !expr paste("Unemployment rate,", REGION, "(%)")
-tt(tail(area[, c("quarter", "rate")], 4)) |>
+#| tbl-cap: !expr str_glue("Unemployment rate, {REGION} (%)")
+area |>
+  select(quarter, rate) |>
+  slice_tail(n = 4) |>
+  tt() |>
   theme_html(portable = TRUE)
 ```
 
