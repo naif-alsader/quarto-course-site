@@ -32,6 +32,6 @@
   "step3-report-ar.qmd",
   "step4-report-ar.qmd"
  ],
- "final": "---\ntitle: \"البطالة في المناطق\"\nlang: ar\ndir: rtl\nlanguage: _language-ar.yml\nformat:\n  html: default\n  typst:\n    mainfont: Tajawal\n    font-paths: fonts\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\n```\n\nانخفض معدل البطالة في معظم المناطق بين 2022 و2025،\nوجازان هي الاستثناء.\n\n```{r}\n#| label: fig-trend\n#| fig-cap: \"معدل البطالة في المملكة (%)\"\n#| echo: false\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nيوضح @fig-trend الاتجاه العام في المملكة.\n",
+ "final": "---\ntitle: \"البطالة في المناطق\"\nlang: ar\ndir: rtl\nlanguage: _language-ar.yml\nformat:\n  html: default\n  typst:\n    mainfont: Tajawal\n    font-paths: fonts\n---\n\n```{r}\n#| include: false\nlibrary(tidyverse)\nrates <- read_csv(\"unemployment.csv\")\nkingdom <- rates |> filter(region == \"Kingdom\")\n```\n\nانخفض معدل البطالة في معظم المناطق بين 2022 و2025،\nوجازان هي الاستثناء.\n\n```{r}\n#| label: fig-trend\n#| fig-cap: \"معدل البطالة في المملكة (%)\"\n#| fig-alt: >\n#|   رسم بياني خطي لمعدل البطالة في المملكة، بنقطة لكل\n#|   ربع من 2022 إلى 2025. ينخفض الخط على مدى السنوات\n#|   الأربع ولا يرتفع في أي ربع.\n#| echo: false\nggplot(kingdom, aes(date, rate)) + geom_line()\n```\n\nيوضح @fig-trend الاتجاه العام في المملكة.\n",
  "live": "report-ar.pdf"
 }

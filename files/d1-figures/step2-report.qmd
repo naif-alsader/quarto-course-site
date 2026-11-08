@@ -69,6 +69,10 @@ glimpse(rates)
 #| fig-width: 8
 #| fig-height: 3.5
 #| fig-cap: "Unemployment rate, Kingdom, 2022 to 2025 (%)"
+#| fig-alt: >
+#|   Line chart of the Kingdom's unemployment rate,
+#|   one point per quarter from 2022 to 2025. The
+#|   line falls across the four years and never rises.
 kingdom <- rates |> filter(region == "Kingdom")
 ggplot(kingdom, aes(date, rate)) + geom_line()
 ```

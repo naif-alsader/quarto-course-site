@@ -40,5 +40,9 @@ points against the Kingdom (@fig-trend).
 #| fig-cap: !expr str_glue("Unemployment rate, {REGION} (%)")
 #| fig-width: 8
 #| fig-height: 3.5
+#| fig-alt: !expr str_glue(
+#|   "Line chart of the unemployment rate",
+#|   " in {REGION} by quarter, from {then}%",
+#|   " in 2022 Q1 to {now}% in 2025 Q4.")
 ggplot(area, aes(date, rate)) + geom_line()
 ```

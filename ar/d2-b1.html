@@ -71,7 +71,7 @@
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
-<h3>ثلاثة ملفات من توليد واحد</h3><ol><li>في <code>report.qmd</code> أضف تحت <code>format:</code> السطرين <code>docx: default</code> و<code>typst: default</code>، ثم ولِّد التقرير.</li><li>لو وقف Typst عند إحالة لقسم، انقل <code>number-sections: true</code> إلى المستوى الأعلى في الـ header، زي ما سوينا في المثال.</li><li>تحت <code>docx:</code> أضف <code>reference-doc: gastat-reference.docx</code>، ثم ولِّد من جديد وافتح ملف Word.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download><bdi>gastat-reference.docx</bdi></a></div><details class="full"><summary>الملف كله حتى الآن (147 سطرًا)، جاهز للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+<h3>ثلاثة ملفات من توليد واحد</h3><ol><li>في <code>report.qmd</code> أضف تحت <code>format:</code> السطرين <code>docx: default</code> و<code>typst: default</code>، ثم ولِّد التقرير.</li><li>لو وقف Typst عند إحالة لقسم، انقل <code>number-sections: true</code> إلى المستوى الأعلى في الـ header، زي ما سوينا في المثال.</li><li>تحت <code>docx:</code> أضف <code>reference-doc: gastat-reference.docx</code>، ثم ولِّد من جديد وافتح ملف Word.</li></ol><div class="files"><a class="btn" href="../files/gastat-reference.docx" download><bdi>gastat-reference.docx</bdi></a></div><details class="full"><summary>الملف كله حتى الآن (154 سطرًا)، جاهز للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
 title: &quot;Unemployment in the regions&quot;
 subtitle: &quot;Synthetic data, for training only&quot;
 author: &quot;Labour statistics team&quot;
@@ -178,6 +178,10 @@ glimpse(rates)
 #| fig-width: 8
 #| fig-height: 3.5
 #| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+#| fig-alt: &gt;
+#|   Line chart of the Kingdom&#x27;s unemployment rate,
+#|   one point per quarter from 2022 to 2025. The
+#|   line falls across the four years and never rises.
 kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
 ggplot(kingdom, aes(date, rate)) + geom_line()
 ```
@@ -186,6 +190,9 @@ ggplot(kingdom, aes(date, rate)) + geom_line()
 #| layout-ncol: 2
 #| fig-height: 4
 #| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+#| fig-alt: !expr str_glue(&quot;Line chart of the
+#|   unemployment rate in {c(&#x27;the Kingdom&#x27;, REGION)}
+#|   by quarter, from 2022 to 2025.&quot;)
 ggplot(kingdom, aes(date, rate)) + geom_line()
 rates |&gt;
   filter(region == REGION) |&gt;

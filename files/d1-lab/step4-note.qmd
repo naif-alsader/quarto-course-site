@@ -40,6 +40,10 @@ points against the Kingdom (@fig-trend, @fig-compare, @tbl-recent).
 #| fig-cap: !expr str_glue("Unemployment rate, {REGION} (%)")
 #| fig-width: 8
 #| fig-height: 3.5
+#| fig-alt: !expr str_glue(
+#|   "Line chart of the unemployment rate",
+#|   " in {REGION} by quarter, from {then}%",
+#|   " in 2022 Q1 to {now}% in 2025 Q4.")
 ggplot(area, aes(date, rate)) + geom_line()
 ```
 
@@ -48,6 +52,11 @@ ggplot(area, aes(date, rate)) + geom_line()
 #| fig-cap: "Against the Kingdom"
 #| layout-ncol: 2
 #| fig-subcap: ["Both series", "The last four quarters"]
+#| fig-alt: !expr c(
+#|   str_glue("Line chart of the rate by quarter in",
+#|     " {REGION} and the Kingdom, one colour each."),
+#|   str_glue("Bar chart of each quarter of 2025",
+#|     ", {REGION}'s bar beside the Kingdom's."))
 both <- rates |> filter(region %in% c(REGION, "Kingdom"))
 ggplot(both, aes(date, rate, colour = region)) +
   geom_line()

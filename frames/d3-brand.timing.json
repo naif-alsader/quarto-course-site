@@ -3,15 +3,15 @@
  "title": "Brand, logo and footer",
  "eyebrow": "Day 3 · Build 9",
  "show": "slides.qmd",
- "duration": 19.16,
+ "duration": 21.75,
  "steps": [
   {
    "t": 0,
-   "d": 9.8,
-   "say": "Copy Day 2's <code>_brand.yml</code> next to the deck and render: Revealjs takes the colours and fonts, with no change to <code>slides.qmd</code>."
+   "d": 12.39,
+   "say": "Copy Day 2's <code>_brand.yml</code> beside the deck: colours and fonts, no change to <code>slides.qmd</code>. But Quarto leaves the font files out, so Tajawal shows only where it is installed."
   },
   {
-   "t": 9.8,
+   "t": 12.39,
    "d": 9.36,
    "say": "<code>logo</code>, <code>footer</code> and <code>slide-number</code> go on every slide. The number matters most: it is how the room asks about slide 6."
   }

@@ -16,6 +16,10 @@ kingdom <- rates |> filter(region == "Kingdom")
 ```{r}
 #| label: fig-trend
 #| fig-cap: "معدل البطالة في المملكة (%)"
+#| fig-alt: >
+#|   رسم بياني خطي لمعدل البطالة في المملكة، بنقطة لكل
+#|   ربع من 2022 إلى 2025. ينخفض الخط على مدى السنوات
+#|   الأربع ولا يرتفع في أي ربع.
 #| echo: false
 ggplot(kingdom, aes(date, rate)) + geom_line()
 ```

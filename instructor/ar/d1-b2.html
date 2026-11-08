@@ -45,9 +45,9 @@
 </div>
 <div class="build" data-build="d1-figures">
 <div class="head"><span class="e">اليوم 1 · المثال 7</span><h3>الأشكال: المقاس والعنوان والتخطيط</h3>
-<span class="len">3 خطوات · 29 ث</span></div>
+<span class="len">3 خطوات · 34 ث</span></div>
 <div class="screen"><hyperframes-player src="../../frames/d1-figures.ar.html" runtime-src="../../frames/vendor/hyperframe.runtime.iife.js" poster="../../frames/posters/d1-figures.ar.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span>نحدّد مقاس الرسم بالإنش بـ <code>fig-width</code> و<code>fig-height</code>. والسلسلة الزمنية يناسبها رسم عريض وقصير.</span></button></li><li data-t="9.34" data-d="8.73"><button type="button"><span class="n">2</span><span>الخيار <code>fig-cap</code> يكتب عنوان الشكل تحت الرسم، والعنوان يمشي معه وين ما راح: Word وPDF.</span></button></li><li data-t="18.07" data-d="10.55"><button type="button"><span class="n">3</span><span>الخيار <code>layout-ncol: 2</code> يحط رسمين جنب بعض. ومع <code>!expr</code> يصير الخيار نفسه كود R، فعنوان الرسم الثاني يتبع <code>REGION</code> لحاله.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="9.34"><button type="button"><span class="n">1</span><span>نحدّد مقاس الرسم بالإنش بـ <code>fig-width</code> و<code>fig-height</code>. والسلسلة الزمنية يناسبها رسم عريض وقصير.</span></button></li><li data-t="9.34" data-d="13.0"><button type="button"><span class="n">2</span><span>الخيار <code>fig-cap</code> يكتب عنوان الشكل تحت الرسم، والعنوان يمشي معه وين ما راح: Word وPDF. و<code>fig-alt</code> يصف الرسم لمن ما يشوفه: قارئ الشاشة يقرؤه بصوت عالٍ في صفحة الويب.</span></button></li><li data-t="22.34" data-d="11.21"><button type="button"><span class="n">3</span><span>الخيار <code>layout-ncol: 2</code> يحط رسمين جنب بعض. ومع <code>!expr</code> يصير الخيار نفسه كود R، فعنوان الرسم الثاني ووصفه يتبعان <code>REGION</code> لحالهما.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">السابق</button>
 <button class="btn primary" type="button" data-act="step">▶ شغّل الخطوة</button>
@@ -58,7 +58,7 @@
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>جرّب بنفسك</h2><div class="try"><div class="eyebrow">دورك · 5 دقائق</div>
-<h3>غيّر المنطقة، تتغيّر الأرقام</h3><ol><li>أضف إلى <code>report.qmd</code> الـ setup chunk، وفيه <code>include: false</code> و<code>REGION &lt;- "Riyadh"</code>.</li><li>اكتب جملة الملخص بـ R داخل النص، زي ما شفت في المثال.</li><li>ولِّد التقرير. بعدها غيّر <code>REGION</code> إلى <code>"Makkah"</code> وولِّد مرة ثانية: المفروض كل رقم في الجملة يتغيّر، وأنت ما لمست الجملة.</li></ol><details class="full"><summary>الملف كله حتى الآن (84 سطرًا)، جاهز للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
+<h3>غيّر المنطقة، تتغيّر الأرقام</h3><ol><li>أضف إلى <code>report.qmd</code> الـ setup chunk، وفيه <code>include: false</code> و<code>REGION &lt;- "Riyadh"</code>.</li><li>اكتب جملة الملخص بـ R داخل النص، زي ما شفت في المثال.</li><li>ولِّد التقرير. بعدها غيّر <code>REGION</code> إلى <code>"Makkah"</code> وولِّد مرة ثانية: المفروض كل رقم في الجملة يتغيّر، وأنت ما لمست الجملة.</li></ol><details class="full"><summary>الملف كله حتى الآن (91 سطرًا)، جاهز للنسخ</summary><div class="codebox"><button class="copy" type="button">انسخ</button><pre>---
 title: &quot;Unemployment in the regions&quot;
 subtitle: &quot;Synthetic data, for training only&quot;
 author: &quot;Labour statistics team&quot;
@@ -129,6 +129,10 @@ glimpse(rates)
 #| fig-width: 8
 #| fig-height: 3.5
 #| fig-cap: &quot;Unemployment rate, Kingdom, 2022 to 2025 (%)&quot;
+#| fig-alt: &gt;
+#|   Line chart of the Kingdom&#x27;s unemployment rate,
+#|   one point per quarter from 2022 to 2025. The
+#|   line falls across the four years and never rises.
 kingdom &lt;- rates |&gt; filter(region == &quot;Kingdom&quot;)
 ggplot(kingdom, aes(date, rate)) + geom_line()
 ```
@@ -137,6 +141,9 @@ ggplot(kingdom, aes(date, rate)) + geom_line()
 #| layout-ncol: 2
 #| fig-height: 4
 #| fig-cap: !expr c(&quot;The Kingdom&quot;, REGION)
+#| fig-alt: !expr str_glue(&quot;Line chart of the
+#|   unemployment rate in {c(&#x27;the Kingdom&#x27;, REGION)}
+#|   by quarter, from 2022 to 2025.&quot;)
 ggplot(kingdom, aes(date, rate)) + geom_line()
 rates |&gt;
   filter(region == REGION) |&gt;
