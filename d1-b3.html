@@ -45,20 +45,20 @@
 </div>
 <div class="build" data-build="d1-layout">
 <div class="head"><span class="e">Day 1 · Build 10</span><h3>Callouts, tabsets and the margin</h3>
-<span class="len">4 steps · 36 s</span></div>
+<span class="len">5 steps · 47 s</span></div>
 <div class="screen"><hyperframes-player src="frames/d1-layout.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d1-layout.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="9.01"><button type="button"><span class="n">1</span><span>A callout box sets the definition apart from the argument. The <code>:::</code> lines open and close it.</span></button></li><li data-t="9.01" data-d="8.15"><button type="button"><span class="n">2</span><span>Add <code>collapse="true"</code> and the box folds shut: one click for the readers who want the detail.</span></button></li><li data-t="17.16" data-d="11.26"><button type="button"><span class="n">3</span><span>A tabset holds alternatives in one place. Each <code>###</code> inside it becomes a tab: here the Chart tab is open, the table is one click away.</span></button></li><li data-t="28.42" data-d="8.07"><button type="button"><span class="n">4</span><span><code>.column-margin</code> puts a short note beside the text, out of the reader's way.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="9.01"><button type="button"><span class="n">1</span><span>A callout box sets the definition apart from the argument. The <code>:::</code> lines open and close it.</span></button></li><li data-t="9.01" data-d="8.15"><button type="button"><span class="n">2</span><span>Add <code>collapse="true"</code> and the box folds shut: one click for the readers who want the detail.</span></button></li><li data-t="17.16" data-d="11.26"><button type="button"><span class="n">3</span><span>A tabset holds alternatives in one place. Each <code>###</code> inside it becomes a tab: here the Chart tab is open, the table is one click away.</span></button></li><li data-t="28.42" data-d="10.99"><button type="button"><span class="n">4</span><span>Under the title, the bulletin says where its figures stand: the source, the period they cover, the next release, any revisions.</span></button></li><li data-t="39.41" data-d="8.07"><button type="button"><span class="n">5</span><span><code>.column-margin</code> puts a short note beside the text, out of the reader's way.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">◀ Back</button>
 <button class="btn primary" type="button" data-act="step">▶ Play step</button>
 <button class="btn" type="button" data-act="next">Next ▶</button>
 <button class="btn" type="button" data-act="all">Play all</button>
-<span class="sp"></span><a class="btn" href="live/d1-layout/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-layout/step4-report.qmd" download>Download <bdi>report.qmd</bdi></a>
+<span class="sp"></span><a class="btn" href="live/d1-layout/report.html" target="_blank" rel="noopener">Open the real output</a><a class="btn" href="files/d1-layout/step5-report.qmd" download>Download <bdi>report.qmd</bdi></a>
 </div>
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
-<h3>Link everything</h3><ol><li>Add the Latest rates table with <code>tt()</code> and a <code>tbl-cap</code>.</li><li>Label the trend chart <code>fig-trend</code> and the table <code>tbl-latest</code>.</li><li>Write <code>@fig-trend</code> and <code>@tbl-latest</code> in the summary. Render and click the links.</li><li>Fold the method into a <code>collapse="true"</code> callout.</li></ol><details class="full"><summary>The whole file so far (130 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+<h3>Link everything</h3><ol><li>Add the Latest rates table with <code>tt()</code> and a <code>tbl-cap</code>.</li><li>Label the trend chart <code>fig-trend</code> and the table <code>tbl-latest</code>.</li><li>Write <code>@fig-trend</code> and <code>@tbl-latest</code> in the summary. Render and click the links.</li><li>Fold the method into a <code>collapse="true"</code> callout.</li></ol><details class="full"><summary>The whole file so far (135 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
 title: &quot;Unemployment in the regions&quot;
 subtitle: &quot;Synthetic data, for training only&quot;
 author: &quot;Labour statistics team&quot;
@@ -86,6 +86,11 @@ then &lt;- rates |&gt;
   filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
   pull(rate)
 ```
+
+**Source:** synthetic data, made for training\
+**Reference period:** 2025 Q4\
+**Next release:** [date of the next release]\
+**Revisions:** none
 
 ## Summary
 

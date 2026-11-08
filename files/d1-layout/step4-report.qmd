@@ -27,11 +27,12 @@ then <- rates |>
   pull(rate)
 ```
 
-## Summary
+**Source:** synthetic data, made for training\
+**Reference period:** 2025 Q4\
+**Next release:** [date of the next release]\
+**Revisions:** none
 
-::: {.column-margin}
-Rates are a share of the labour force, in %.
-:::
+## Summary
 
 Unemployment **fell** in most regions between 2022 and 2025.
 *Jazan* is the exception. This note shows the national

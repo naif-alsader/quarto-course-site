@@ -32,9 +32,9 @@
 </div>
 <div class="build" data-build="d2-word">
 <div class="head"><span class="e">Day 2 · Build 2</span><h3>Word in the house style</h3>
-<span class="len">3 steps · 34 s</span></div>
+<span class="len">3 steps · 35 s</span></div>
 <div class="screen"><hyperframes-player src="frames/d2-word.html" runtime-src="frames/vendor/hyperframe.runtime.iife.js" poster="frames/posters/d2-word.jpg" controls></hyperframes-player></div>
-<ol class="steps"><li data-t="0" data-d="12.87"><button type="button"><span class="n">1</span><span>Word's look comes from a reference document. This command writes Pandoc's own, <code>my-reference.docx</code>, for you to restyle in Word: headings, body text, tables.</span></button></li><li data-t="12.87" data-d="10.57"><button type="button"><span class="n">2</span><span>Save the restyled file and point <code>reference-doc</code> at it. Here it is the GASTAT stopgap template: the same report, now in the house style.</span></button></li><li data-t="23.44" data-d="10.46"><button type="button"><span class="n">3</span><span>Reviewers mark up the Word file as usual. You make their changes in <code>report.qmd</code> and render again: the source stays the one true copy.</span></button></li></ol>
+<ol class="steps"><li data-t="0" data-d="12.87"><button type="button"><span class="n">1</span><span>Word's look comes from a reference document. This command writes Pandoc's own, <code>my-reference.docx</code>, for you to restyle in Word: headings, body text, tables.</span></button></li><li data-t="12.87" data-d="11.18"><button type="button"><span class="n">2</span><span>Save the restyled file and point <code>reference-doc</code> at it. Here it is styled after GASTAT's own Word reports: the same report, now in the house style.</span></button></li><li data-t="24.05" data-d="10.46"><button type="button"><span class="n">3</span><span>Reviewers mark up the Word file as usual. You make their changes in <code>report.qmd</code> and render again: the source stays the one true copy.</span></button></li></ol>
 <div class="tools">
 <button class="btn" type="button" data-act="prev">◀ Back</button>
 <button class="btn primary" type="button" data-act="step">▶ Play step</button>
@@ -71,7 +71,7 @@
 </div>
 </section>
 <section class="part"><h2><span class="k">02</span>Try it</h2><div class="try"><div class="eyebrow">Your turn · 5 minutes</div>
-<h3>Three files from one render</h3><ol><li>Add <code>docx: default</code> and <code>typst: default</code> under <code>format:</code> in your <code>report.qmd</code> and render.</li><li>If Typst stops on a section reference, move <code>number-sections: true</code> to the top level, as in the build.</li><li>Put <code>reference-doc: gastat-reference.docx</code> under <code>docx:</code> and render again. Open the Word file.</li></ol><div class="files"><a class="btn" href="files/gastat-reference.docx" download><bdi>gastat-reference.docx</bdi></a></div><details class="full"><summary>The whole file so far (154 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
+<h3>Three files from one render</h3><ol><li>Add <code>docx: default</code> and <code>typst: default</code> under <code>format:</code> in your <code>report.qmd</code> and render.</li><li>If Typst stops on a section reference, move <code>number-sections: true</code> to the top level, as in the build.</li><li>Put <code>reference-doc: gastat-reference.docx</code> under <code>docx:</code> and render again. Open the Word file.</li></ol><div class="files"><a class="btn" href="files/gastat-reference.docx" download><bdi>gastat-reference.docx</bdi></a></div><details class="full"><summary>The whole file so far (159 lines), to copy</summary><div class="codebox"><button class="copy" type="button">Copy</button><pre>---
 title: &quot;Unemployment in the regions&quot;
 subtitle: &quot;Synthetic data, for training only&quot;
 author: &quot;Labour statistics team&quot;
@@ -109,6 +109,11 @@ then &lt;- rates |&gt;
   filter(region == REGION, quarter == &quot;2022Q1&quot;) |&gt;
   pull(rate)
 ```
+
+**Source:** synthetic data, made for training\
+**Reference period:** 2025 Q4\
+**Next release:** [date of the next release]\
+**Revisions:** none
 
 ## Summary
 

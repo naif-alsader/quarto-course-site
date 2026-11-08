@@ -39,6 +39,11 @@ then <- rates |>
   pull(rate)
 ```
 
+**Source:** synthetic data, made for training\
+**Reference period:** 2025 Q4\
+**Next release:** [date of the next release]\
+**Revisions:** none
+
 ## Summary
 
 ::: {.column-margin}
