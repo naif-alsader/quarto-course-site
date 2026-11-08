@@ -9,6 +9,11 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const stage = $('#stage');
+  // room.py serves the deck to its own laptop only, under /course/. Anywhere else (the website, shared in
+  // a Teams meeting) nobody can reach the room, so its join slides go; the menu was numbered with them in.
+  const roomHost = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && location.pathname.startsWith('/course/');
+  const built = $$('.slide');
+  if (!roomHost) built.filter(s => s.classList.contains('k-join')).forEach(s => s.remove());
   const slides = $$('.slide');
   const N = slides.length;
   const presenter = new URLSearchParams(location.search).has('presenter');
@@ -431,9 +436,13 @@
     else if (k === 'f' || k === 'F') { if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {}); else document.exitFullscreen(); }
     else if ((k === 's' || k === 'S') && !presenter) window.open(location.pathname + '?presenter' + location.hash, 'qc2-speaker', 'width=1400,height=820');
   });
-  $$('.dmenu a').forEach(a => a.addEventListener('click', e => {
-    e.preventDefault(); $('.dmenu').hidden = true; show(+a.getAttribute('href').slice(2) - 1, 1);
-  }));
+  $$('.dmenu a[href^="#/"]').forEach(a => {   // not the link to the other language's deck
+    // its number counts every slide the deck was built with: point it at the same slide among those left
+    let j = +a.getAttribute('href').slice(2) - 1;
+    while (j < built.length - 1 && !built[j].isConnected) j++;
+    a.setAttribute('href', `#/${slides.indexOf(built[j]) + 1}`);
+    a.addEventListener('click', e => { e.preventDefault(); $('.dmenu').hidden = true; show(+a.getAttribute('href').slice(2) - 1, 1); });
+  });
   window.addEventListener('hashchange', () => { const m = location.hash.match(/^#\/(\d+)/); if (m) show(+m[1] - 1, 1); });
 
   // speaker view clock
@@ -447,8 +456,6 @@
     fit();
     const m = location.hash.match(/^#\/(\d+)/);
     show(m ? +m[1] - 1 : 0, 1, true);
-    // room.py serves the deck to its own laptop only, under /course/: anywhere else, no probe (and no 404)
-    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) && location.pathname.startsWith('/course/'))
-      roomPoll().then(on => { if (on) setInterval(roomPoll, 700); });
+    if (roomHost) roomPoll().then(on => { if (on) setInterval(roomPoll, 700); });   // anywhere else no probe, and no 404
   });
 })();
