@@ -69,7 +69,7 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F5F7F
 .o-page.zoomed img { width: 92%; margin-top: 24px; }
 .cell .pic.page { background: #E6E7EC; display: flex; align-items: flex-start; justify-content: center; }
 .o-text { background: #FFFFFF; padding: 22px 26px; }
-.o-text .lab, .o-term .lab { font: 500 18px "IBM Plex Mono", monospace; color: #6B6C7A; margin-bottom: 12px; }
+.o-text .lab, .o-term .lab, .o-plot .lab { font: 500 18px "IBM Plex Mono", monospace; color: #6B6C7A; margin-bottom: 12px; }
 .o-text pre, .o-term pre { font: 400 20px/31px "IBM Plex Mono", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
 .o-text pre { color: #2C2D3F; }
 .o-text .key { color: #4137A8; } .o-text .str { color: #00803A; } .o-text .num { color: #A05A00; }
@@ -77,6 +77,9 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #F5F7F
 .o-text .inr, .o-text .mono, .o-text .link { color: #1D6FA8; } .o-text .div, .o-text .attr { color: #4137A8; }
 .o-text .b { font-weight: 700; } .o-text .i { font-style: italic; } .o-text .opt { color: #A05A00; }
 .o-text .tag { color: #4137A8; } .o-text .xref { color: #00803A; font-weight: 700; }
+.o-text .pr { color: #6B6C7A; }
+.o-plot { background: #FFFFFF; padding: 22px 26px; }
+.o-plot img { display: block; width: 100%; }
 .o-term { background: #1E1F2E; padding: 22px 26px; }
 .o-term .lab { color: #A4A6BA; }
 .o-term .prompt { color: #6EE3A0; font: 500 21px/32px "IBM Plex Mono", monospace; margin-bottom: 8px; white-space: pre-wrap; word-break: break-all; }

@@ -43,6 +43,12 @@ section.part > h2 { font-size: 28px; font-weight: 700; display: flex; align-item
 section.part > h2 .k { font: 500 14px var(--mono); color: var(--grey); letter-spacing: .06em; text-transform: uppercase; }
 section.part > p.lead { color: var(--grey); margin: 6px 0 16px; }
 
+/* a section's functions, each with what it does */
+.ref { width: 100%; border-collapse: collapse; margin: 4px 0 8px; }
+.ref td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ref tr:first-child td { border-top: 2px solid var(--indigo); }
+.ref td.fn { white-space: nowrap; width: 1%; padding-right: 24px; }
+
 /* a build: the player plus its steps */
 .build, section.part, .quiz .q { scroll-margin-top: 80px; }
 .build { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin: 18px 0 28px; background: var(--white); }
@@ -186,6 +192,7 @@ footer { border-top: 1px solid var(--line); color: var(--grey); font-size: 15px;
   .top .brand span { display: none; }
   .match { grid-template-columns: 1fr; }
   .pager a { min-width: 0; flex: 1; }
+  .ref td.fn { white-space: normal; }
 }
 
 /* ---- the Arabic edition (<html dir="rtl">): mirrored, with code kept left to right ---- */
@@ -202,6 +209,8 @@ footer { border-top: 1px solid var(--line); color: var(--grey); font-size: 15px;
 [dir="rtl"] .takeaway { border-left: 0; border-right: 10px solid var(--green); border-radius: 16px 0 0 16px; }
 [dir="rtl"] .pager a.next { text-align: left; margin-left: 0; margin-right: auto; }
 [dir="rtl"] .day li .tick { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .ref td { padding: 9px 0 9px 12px; }
+[dir="rtl"] .ref td.fn { padding-right: 0; padding-left: 24px; }
 [dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }
 [dir="rtl"] pre, [dir="rtl"] .codebox, [dir="rtl"] .buglines, [dir="rtl"] .chip.mono, [dir="rtl"] hyperframes-player {
   direction: ltr; text-align: left; }

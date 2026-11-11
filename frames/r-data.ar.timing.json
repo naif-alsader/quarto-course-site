@@ -1,0 +1,67 @@
+{
+ "id": "r-data",
+ "title": "نقرأ البيانات ونرتّبها",
+ "eyebrow": "اليوم 1 · أساسيات R",
+ "show": "practice.R",
+ "duration": 112.96,
+ "steps": [
+  {
+   "t": 0,
+   "d": 13.0,
+   "say": "الدالة <code>read_csv()</code> تقرأ الملف وتحطّه في جدول، وتعطيك ملخصًا عنه: 224 صفًا، و4 أعمدة، ونوع كل عمود: <code>chr</code> للنص، و<code>dbl</code> للأرقام، و<code>date</code> للتواريخ."
+  },
+  {
+   "t": 13.0,
+   "d": 11.71,
+   "say": "أما <code>glimpse()</code> فتعرض كل عمود في سطر: اسمه، ونوعه، وأول قيمه. خلّها أول شيء تشغّله على أي بيانات تشوفها لأول مرة."
+  },
+  {
+   "t": 24.71,
+   "d": 12.54,
+   "say": "الدالة <code>filter()</code> تُبقي الصفوف اللي يتحقق فيها الشرط، وهنا أرباع جازان الـ 16. و<code>==</code> معناها: يساوي. أما <code>|&gt;</code> فتمرّر الجدول للدالة اللي بعدها، واقرأها: ثم."
+  },
+  {
+   "t": 37.25,
+   "d": 12.15,
+   "say": "و<code>select()</code> تُبقي الأعمدة اللي تسمّيها، وبالترتيب اللي تكتبه. يعني <code>filter()</code> تختار الصفوف، و<code>select()</code> تختار الأعمدة، وكل <code>|&gt;</code> تضيف خطوة."
+  },
+  {
+   "t": 49.4,
+   "d": 12.65,
+   "say": "الدالة <code>mutate()</code> تضيف عمودًا تحسبه من الأعمدة الثانية، وهنا التغيّر من أول ربع. <code>first()</code> أول قيمة في العمود، و<code>round()</code> تقرّب لمنزلة عشرية واحدة."
+  },
+  {
+   "t": 62.05,
+   "d": 13.0,
+   "say": "سؤال جديد بالدوال نفسها: كل المناطق في آخر ربع، <code>max(date)</code>، مرتّبة. <code>arrange()</code> ترتّب من الأصغر للأكبر، و<code>desc()</code> تعكس الترتيب، فتطلع جازان أول وحدة."
+  },
+  {
+   "t": 75.05,
+   "d": 12.04,
+   "say": "الدالة <code>group_by()</code> تقسم الجدول حسب المنطقة، و<code>summarise()</code> تطلّع صفًا واحدًا لكل منطقة، وهنا أول معدل وآخر معدل. جازان ارتفعت من 9 إلى 11.1."
+  },
+  {
+   "t": 87.09,
+   "d": 12.87,
+   "say": "الدالة <code>pull()</code> تطلّع عمودًا واحدًا من الجدول كأرقام بس، و<code>last()</code> تأخذ آخر رقم فيه. ولمّا نحفظه باسم <code>latest</code> يصير جاهزًا ندخله في جملة."
+  },
+  {
+   "t": 99.96,
+   "d": 13.0,
+   "say": "و<code>str_glue()</code> تكتب القيمة داخل النص مكان الأقواس. تجي بيانات الربع الجاي، والسطر نفسه يطلّع رقمًا جديدًا: وبهذه الطريقة يكتب تقرير Quarto جمله."
+  }
+ ],
+ "downloads": [
+  "step1-practice.R",
+  "step2-practice.R",
+  "step3-practice.R",
+  "step4-practice.R",
+  "step5-practice.R",
+  "step6-practice.R",
+  "step7-practice.R",
+  "step8-practice.R",
+  "step9-practice.R"
+ ],
+ "final": "library(tidyverse)\n\nrates <- read_csv(\"unemployment.csv\")\n\nglimpse(rates)\n\nrates |>\n  filter(region == \"Jazan\") |>\n  select(quarter, rate) |>\n  mutate(change = round(rate - first(rate), 1))\n\nrates |>\n  filter(date == max(date)) |>\n  arrange(desc(rate))\n\nrates |>\n  group_by(region) |>\n  summarise(start = first(rate), end = last(rate))\n\nlatest <- rates |>\n  filter(region == \"Jazan\") |>\n  pull(rate) |>\n  last()\nlatest\n\nstr_glue(\"Jazan, latest quarter: {latest}%\")\n",
+ "live": null
+}

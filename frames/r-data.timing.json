@@ -1,0 +1,67 @@
+{
+ "id": "r-data",
+ "title": "Reading and shaping data",
+ "eyebrow": "Day 1 · The R you need",
+ "show": "practice.R",
+ "duration": 112.85,
+ "steps": [
+  {
+   "t": 0,
+   "d": 13.0,
+   "say": "<code>read_csv()</code> reads the file into a table and reports what it found: 224 rows, 4 columns, and each column's type: <code>chr</code> for text, <code>dbl</code> for numbers, <code>date</code> for dates."
+  },
+  {
+   "t": 13.0,
+   "d": 11.71,
+   "say": "<code>glimpse()</code> shows every column on one line: its name, its type and its first values. Run it first on any data you have not seen before."
+  },
+  {
+   "t": 24.71,
+   "d": 12.43,
+   "say": "<code>filter()</code> keeps the rows that pass a test: Jazan's 16 quarters. <code>==</code> asks: is it equal? <code>|&gt;</code> hands the table on to the next function; read it as: then."
+  },
+  {
+   "t": 37.14,
+   "d": 12.15,
+   "say": "<code>select()</code> keeps the columns you name, in the order you name them. <code>filter()</code> chooses rows; <code>select()</code> chooses columns. Each <code>|&gt;</code> adds one more step."
+  },
+  {
+   "t": 49.29,
+   "d": 12.65,
+   "say": "<code>mutate()</code> adds a column worked out from the others: the change since the first quarter. <code>first()</code> is the column's first value; <code>round()</code> keeps one decimal."
+  },
+  {
+   "t": 61.94,
+   "d": 13.0,
+   "say": "A new question, the same verbs: every region in the latest quarter, <code>max(date)</code>, sorted. <code>arrange()</code> sorts from low to high; <code>desc()</code> turns it round, so Jazan comes first."
+  },
+  {
+   "t": 74.94,
+   "d": 12.04,
+   "say": "<code>group_by()</code> splits the table by region, and <code>summarise()</code> makes one row for each: here its first rate and its last. Jazan went from 9 to 11.1."
+  },
+  {
+   "t": 86.98,
+   "d": 12.87,
+   "say": "<code>pull()</code> takes one column out of the table as plain numbers, and <code>last()</code> keeps the last of them. Stored as <code>latest</code>, the number is ready to go into a sentence."
+  },
+  {
+   "t": 99.85,
+   "d": 13.0,
+   "say": "<code>str_glue()</code> writes a value into the text, where the braces are. Next quarter's data, the same line, a new number: that is how a Quarto report writes its sentences."
+  }
+ ],
+ "downloads": [
+  "step1-practice.R",
+  "step2-practice.R",
+  "step3-practice.R",
+  "step4-practice.R",
+  "step5-practice.R",
+  "step6-practice.R",
+  "step7-practice.R",
+  "step8-practice.R",
+  "step9-practice.R"
+ ],
+ "final": "library(tidyverse)\n\nrates <- read_csv(\"unemployment.csv\")\n\nglimpse(rates)\n\nrates |>\n  filter(region == \"Jazan\") |>\n  select(quarter, rate) |>\n  mutate(change = round(rate - first(rate), 1))\n\nrates |>\n  filter(date == max(date)) |>\n  arrange(desc(rate))\n\nrates |>\n  group_by(region) |>\n  summarise(start = first(rate), end = last(rate))\n\nlatest <- rates |>\n  filter(region == \"Jazan\") |>\n  pull(rate) |>\n  last()\nlatest\n\nstr_glue(\"Jazan, latest quarter: {latest}%\")\n",
+ "live": null
+}

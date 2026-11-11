@@ -59,6 +59,84 @@
     },
     {
      "q": {
+      "en": "Which line keeps only Jazan's rows?",
+      "ar": "أي سطر يُبقي صفوف جازان فقط؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>select(region == \"Jazan\")</code>",
+       "<code>filter(region == \"Jazan\")</code>",
+       "<code>arrange(region)</code>"
+      ],
+      "ar": [
+       "<code>select(region == \"Jazan\")</code>",
+       "<code>filter(region == \"Jazan\")</code>",
+       "<code>arrange(region)</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 1,
+     "why": {
+      "en": "<code>filter()</code> chooses rows by a test; <code>select()</code> chooses columns by name.",
+      "ar": "<code>filter()</code> تختار الصفوف بشرط، و<code>select()</code> تختار الأعمدة بأسمائها."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "You want one row for each region, with its first rate and its last. Which two functions do it?",
+      "ar": "تبغى صفًا واحدًا لكل منطقة، فيه أول معدل وآخر معدل. أي دالتين تحتاج؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "<code>group_by()</code>, then <code>summarise()</code>",
+       "<code>group_by()</code>, then <code>mutate()</code>",
+       "<code>filter()</code>, then <code>select()</code>"
+      ],
+      "ar": [
+       "<code>group_by()</code> ثم <code>summarise()</code>",
+       "<code>group_by()</code> ثم <code>mutate()</code>",
+       "<code>filter()</code> ثم <code>select()</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "<code>summarise()</code> makes one row per group. <code>mutate()</code> keeps every row and adds a column to each.",
+      "ar": "<code>summarise()</code> تطلّع صفًا واحدًا لكل مجموعة، أما <code>mutate()</code> فتُبقي كل الصفوف وتضيف لها عمودًا."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
+      "en": "<code>ggplot(jazan, aes(date, rate))</code> draws the axes and nothing else. What is missing?",
+      "ar": "السطر <code>ggplot(jazan, aes(date, rate))</code> رسم المحاور فقط. ما الناقص؟"
+     },
+     "code": null,
+     "options": {
+      "en": [
+       "A layer: <code>+ geom_line()</code>",
+       "<code>library(ggplot2)</code>",
+       "<code>|&gt; geom_line()</code>"
+      ],
+      "ar": [
+       "طبقة: <code>+ geom_line()</code>",
+       "<code>library(ggplot2)</code>",
+       "<code>|&gt; geom_line()</code>"
+      ]
+     },
+     "imgs": null,
+     "answer": 0,
+     "why": {
+      "en": "The data appear only through a layer, and ggplot2 adds layers with <code>+</code>, not with <code>|&gt;</code>.",
+      "ar": "البيانات ما تظهر إلا من خلال طبقة، وggplot2 يضيف الطبقات بعلامة <code>+</code>، لا بعلامة <code>|&gt;</code>."
+     },
+     "seconds": 20
+    },
+    {
+     "q": {
       "en": "Where does the YAML header go in a <code>.qmd</code> file?",
       "ar": "أين يُكتب الـ YAML header في ملف <code>.qmd</code>؟"
      },
@@ -603,7 +681,7 @@
     {
      "q": {
       "en": "Which of these is not something the YAML header does?",
-      "ar": "أي هذه ما هو من شغل الـ YAML header؟"
+      "ar": "أي من هذه لا يقوم بعملها الـ YAML header؟"
      },
      "code": null,
      "options": {

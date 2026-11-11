@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>نقرأ البيانات ونرتّبها</title>
+<link rel="stylesheet" href="frames.css">
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" class="rtl" data-composition-id="r-data" data-start="0" data-duration="112.96" data-width="1920" data-height="1080">
+<div id="stage" class="stage clip" data-start="0" data-duration="112.96" data-track-index="0">
+<div class="eyebrow">اليوم 1 · أساسيات R</div>
+<div class="title">نقرأ البيانات ونرتّبها</div>
+<img class="logo" src="logo.png" alt="">
+
+<div class="code"><div class="tab"><i class="dot"></i>practice.R</div>
+<div class="view"><div class="empty">الملف <bdi dir="ltr">practice.R</bdi> فارغ</div><div class="lines"><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"><span class="fn">library</span>(tidyverse)</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">rates <span class="op">&lt;-</span> <span class="fn">read_csv</span>(<span class="str">"</span><span class="str">unemployment.csv"</span>)</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"><span class="fn">glimpse</span>(rates)</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">rates <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span><span class="cmg"><i class="cm" style="left:433.2px;top:3px;width:28.8px"></i></span></div><span class="tx">  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>)</span><span class="tx v">  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span><span class="cmg"><i class="cm" style="left:375.6px;top:3px;width:28.8px"></i></span></div><span class="tx">  <span class="fn">select</span>(quarter, rate)</span><span class="tx v">  <span class="fn">select</span>(quarter, rate) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">mutate</span>(change <span class="op">=</span> <span class="fn">round</span>(rate <span class="op">-</span> <span class="fn">first</span>(rate), <span class="num">1</span>))</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">rates <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">filter</span>(date <span class="op">==</span> <span class="fn">max</span>(date)) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">arrange</span>(<span class="fn">desc</span>(rate))</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">rates <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">group_by</span>(region) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">summarise</span>(start <span class="op">=</span> <span class="fn">first</span>(rate), end <span class="op">=</span> <span class="fn">last</span>(rate))</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">latest <span class="op">&lt;-</span> rates <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">pull</span>(rate) <span class="op">|</span><span class="op">&gt;</span></span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">  <span class="fn">last</span>()</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx">latest</span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"> </span></div><div class="ln"><div class="hl"><span class="cmg"></span></div><span class="tx"><span class="fn">str_glue</span>(<span class="str">"</span><span class="str">Jazan, latest quarter: {latest}%"</span>)</span></div></div></div></div>
+<div class="out"><div class="bar"><i class="play"></i><div class="cmds"><div class="cmd">Ctrl+Enter</div></div><span class="status">done</span><i class="progress"></i></div>
+<div class="area"><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">&lt;-</span> <span class="fn">read_csv</span>(<span class="str">"</span><span class="str">unemployment.csv"</span>)
+Rows: 224 Columns: 4
+── Column specification ──────────────────────────────────────────────
+Delimiter: ","
+chr  (2): region, quarter
+dbl  (1): rate
+date (1): date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span><span class="fn">glimpse</span>(rates)
+Rows: 224
+Columns: 4
+$ region  &lt;chr&gt; "Kingdom", "Kingdom", "Kingdom", "Kingdom", "Kingdom…
+$ quarter &lt;chr&gt; "2022Q1", "2022Q2", "2022Q3", "2022Q4", "2023Q1", "2…
+$ date    &lt;date&gt; 2022-01-01, 2022-04-01, 2022-07-01, 2022-10-01, 202…
+$ rate    &lt;dbl&gt; 8.8, 8.7, 8.6, 8.5, 8.2, 8.0, 7.8, 7.6, 7.4, 7.3, 7.…
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>)
+# A tibble: 16 × 4
+   region quarter date        rate
+   &lt;chr&gt;  &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;
+ 1 Jazan  2022Q1  2022-01-01   9  
+ 2 Jazan  2022Q2  2022-04-01   9.4
+ 3 Jazan  2022Q3  2022-07-01   9.1
+ 4 Jazan  2022Q4  2022-10-01   8.2
+ 5 Jazan  2023Q1  2023-01-01   8.6
+ 6 Jazan  2023Q2  2023-04-01   8  
+ 7 Jazan  2023Q3  2023-07-01   8.4
+ 8 Jazan  2023Q4  2023-10-01   8.1
+ 9 Jazan  2024Q1  2024-01-01   7.5
+10 Jazan  2024Q2  2024-04-01   7.9
+# ℹ 6 more rows
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">select</span>(quarter, rate)
+# A tibble: 16 × 2
+   quarter  rate
+   &lt;chr&gt;   &lt;dbl&gt;
+ 1 2022Q1    9  
+ 2 2022Q2    9.4
+ 3 2022Q3    9.1
+ 4 2022Q4    8.2
+ 5 2023Q1    8.6
+ 6 2023Q2    8  
+ 7 2023Q3    8.4
+ 8 2023Q4    8.1
+ 9 2024Q1    7.5
+10 2024Q2    7.9
+# ℹ 6 more rows
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">select</span>(quarter, rate) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">mutate</span>(change <span class="op">=</span> <span class="fn">round</span>(rate <span class="op">-</span> <span class="fn">first</span>(rate), <span class="num">1</span>))
+# A tibble: 16 × 3
+   quarter  rate change
+   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+ 1 2022Q1    9      0  
+ 2 2022Q2    9.4    0.4
+ 3 2022Q3    9.1    0.1
+ 4 2022Q4    8.2   -0.8
+ 5 2023Q1    8.6   -0.4
+ 6 2023Q2    8     -1  
+ 7 2023Q3    8.4   -0.6
+ 8 2023Q4    8.1   -0.9
+ 9 2024Q1    7.5   -1.5
+10 2024Q2    7.9   -1.1
+# ℹ 6 more rows
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">filter</span>(date <span class="op">==</span> <span class="fn">max</span>(date)) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">arrange</span>(<span class="fn">desc</span>(rate))
+# A tibble: 14 × 4
+   region           quarter date        rate
+   &lt;chr&gt;            &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;
+ 1 Jazan            2025Q4  2025-10-01  11.1
+ 2 Al Jouf          2025Q4  2025-10-01  10  
+ 3 Al Bahah         2025Q4  2025-10-01   9.9
+ 4 Northern Borders 2025Q4  2025-10-01   9  
+ 5 Najran           2025Q4  2025-10-01   8.1
+ 6 Asir             2025Q4  2025-10-01   7.9
+ 7 Tabuk            2025Q4  2025-10-01   7.5
+ 8 Makkah           2025Q4  2025-10-01   7.1
+ 9 Madinah          2025Q4  2025-10-01   6.8
+10 Kingdom          2025Q4  2025-10-01   6.6
+# ℹ 4 more rows
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">group_by</span>(region) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">summarise</span>(start <span class="op">=</span> <span class="fn">first</span>(rate), end <span class="op">=</span> <span class="fn">last</span>(rate))
+# A tibble: 14 × 3
+   region           start   end
+   &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;
+ 1 Al Bahah          12.6   9.9
+ 2 Al Jouf           12.1  10  
+ 3 Asir              10.5   7.9
+ 4 Eastern Province   6.8   4.4
+ 5 Hail               9.7   6.4
+ 6 Jazan              9    11.1
+ 7 Kingdom            8.8   6.6
+ 8 Madinah            9.2   6.8
+ 9 Makkah             9.4   7.1
+10 Najran            10.9   8.1
+# ℹ 4 more rows
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span>latest <span class="op">&lt;-</span> rates <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">filter</span>(region <span class="op">==</span> <span class="str">"</span><span class="str">Jazan"</span>) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">pull</span>(rate) <span class="op">|</span><span class="op">&gt;</span>
+<span class="pr">+ </span>  <span class="fn">last</span>()
+<span class="pr">&gt; </span>latest
+[1] 11.1
+</pre></div><div class="o o-text"><div class="lab">Console</div><pre><span class="pr">&gt; </span><span class="fn">str_glue</span>(<span class="str">"</span><span class="str">Jazan, latest quarter: {latest}%"</span>)
+Jazan, latest quarter: 11.1%
+</pre></div></div></div>
+<div class="caps"><div class="cap"><div class="n">1</div><div class="t">الدالة <code>read_csv()</code> تقرأ الملف وتحطّه في جدول، وتعطيك ملخصًا عنه: 224 صفًا، و4 أعمدة، ونوع كل عمود: <code>chr</code> للنص، و<code>dbl</code> للأرقام، و<code>date</code> للتواريخ.</div></div><div class="cap"><div class="n">2</div><div class="t">أما <code>glimpse()</code> فتعرض كل عمود في سطر: اسمه، ونوعه، وأول قيمه. خلّها أول شيء تشغّله على أي بيانات تشوفها لأول مرة.</div></div><div class="cap"><div class="n">3</div><div class="t">الدالة <code>filter()</code> تُبقي الصفوف اللي يتحقق فيها الشرط، وهنا أرباع جازان الـ 16. و<code>==</code> معناها: يساوي. أما <code>|&gt;</code> فتمرّر الجدول للدالة اللي بعدها، واقرأها: ثم.</div></div><div class="cap"><div class="n">4</div><div class="t">و<code>select()</code> تُبقي الأعمدة اللي تسمّيها، وبالترتيب اللي تكتبه. يعني <code>filter()</code> تختار الصفوف، و<code>select()</code> تختار الأعمدة، وكل <code>|&gt;</code> تضيف خطوة.</div></div><div class="cap"><div class="n">5</div><div class="t">الدالة <code>mutate()</code> تضيف عمودًا تحسبه من الأعمدة الثانية، وهنا التغيّر من أول ربع. <code>first()</code> أول قيمة في العمود، و<code>round()</code> تقرّب لمنزلة عشرية واحدة.</div></div><div class="cap"><div class="n">6</div><div class="t">سؤال جديد بالدوال نفسها: كل المناطق في آخر ربع، <code>max(date)</code>، مرتّبة. <code>arrange()</code> ترتّب من الأصغر للأكبر، و<code>desc()</code> تعكس الترتيب، فتطلع جازان أول وحدة.</div></div><div class="cap"><div class="n">7</div><div class="t">الدالة <code>group_by()</code> تقسم الجدول حسب المنطقة، و<code>summarise()</code> تطلّع صفًا واحدًا لكل منطقة، وهنا أول معدل وآخر معدل. جازان ارتفعت من 9 إلى 11.1.</div></div><div class="cap"><div class="n">8</div><div class="t">الدالة <code>pull()</code> تطلّع عمودًا واحدًا من الجدول كأرقام بس، و<code>last()</code> تأخذ آخر رقم فيه. ولمّا نحفظه باسم <code>latest</code> يصير جاهزًا ندخله في جملة.</div></div><div class="cap"><div class="n">9</div><div class="t">و<code>str_glue()</code> تكتب القيمة داخل النص مكان الأقواس. تجي بيانات الربع الجاي، والسطر نفسه يطلّع رقمًا جديدًا: وبهذه الطريقة يكتب تقرير Quarto جمله.</div></div></div>
+<div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+<script type="application/json" id="plan">{"id": "r-data", "t": [0, 13.0, 24.71, 37.25, 49.4, 62.05, 75.05, 87.09, 99.96], "d": [13.0, 11.71, 12.54, 12.15, 12.65, 13.0, 12.04, 12.87, 13.0], "lines": [{"s": 0, "e": null, "vk": [0], "h": [38]}, {"s": 0, "e": null, "vk": [0], "h": [38]}, {"s": 0, "e": null, "vk": [0], "h": [38]}, {"s": 1, "e": null, "vk": [1], "h": [38]}, {"s": 1, "e": null, "vk": [1], "h": [38]}, {"s": 2, "e": null, "vk": [2], "h": [38]}, {"s": 2, "e": null, "vk": [2], "h": [38]}, {"s": 2, "e": null, "vk": [2, 3], "h": [38, 38]}, {"s": 3, "e": null, "vk": [3, 4], "h": [38, 38]}, {"s": 4, "e": null, "vk": [4], "h": [38]}, {"s": 5, "e": null, "vk": [5], "h": [38]}, {"s": 5, "e": null, "vk": [5], "h": [38]}, {"s": 5, "e": null, "vk": [5], "h": [38]}, {"s": 5, "e": null, "vk": [5], "h": [38]}, {"s": 6, "e": null, "vk": [6], "h": [38]}, {"s": 6, "e": null, "vk": [6], "h": [38]}, {"s": 6, "e": null, "vk": [6], "h": [38]}, {"s": 6, "e": null, "vk": [6], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 7, "e": null, "vk": [7], "h": [38]}, {"s": 8, "e": null, "vk": [8], "h": [38]}, {"s": 8, "e": null, "vk": [8], "h": [38]}], "hl": [[], [3, 4], [5, 6, 7], [7, 8], [8, 9], [10, 11, 12, 13], [14, 15, 16, 17], [18, 19, 20, 21, 22, 23], [24, 25]], "stops": [[{"t": 0, "y": 0, "v": [0, 1, 2]}], [{"t": 0, "y": 0, "v": [0, 1, 2, 3, 4]}], [{"t": 0, "y": 0, "v": [0, 1, 2, 3, 4, 5, 6, 7]}], [{"t": 0, "y": 0, "v": [0, 1, 2, 3, 4, 5, 6, 7, 8]}], [{"t": 0, "y": 0, "v": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}], [{"t": 0, "y": 0, "v": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]}], [{"t": 0, "y": 38, "v": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]}], [{"t": 0, "y": 266, "v": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}], [{"t": 0, "y": 342, "v": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]}]], "cmd": [0, 0, 0, 0, 0, 0, 0, 0, 0], "stage": null}</script>
+<script>
+(function () {
+  const P = JSON.parse(document.getElementById("plan").textContent);
+  const q = s => Array.from(document.querySelectorAll(s));
+  const lines = q(".ln"), his = q(".ln .hl"), outs = q(".o"), caps = q(".cap"), cmds = q(".cmd"),
+        dots = q(".dots i"), rail = q(".rail span"), empty = document.querySelector(".empty"),
+        box = document.querySelector(".lines"), status = document.querySelector(".status"),
+        bar = document.querySelector(".progress");
+  const tl = gsap.timeline({ paused: true });
+  const n = P.t.length;
+  const alive = (L, k) => L.s <= k && (L.e === null || k < L.e);
+  const count = k => P.lines.filter(L => alive(L, k)).length;
+  const first = k => P.stops[k][0], final = k => P.stops[k][P.stops[k].length - 1];
+
+  // Every starting state is set at time 0, then only forward tweens follow,
+  // so seeking to any time (the player, the renderer) lands on the same frame.
+  lines.forEach((el, i) => {
+    const L = P.lines[i];
+    tl.set(el, { height: L.s === 0 ? L.h[0] : 0, opacity: 0, visibility: P.stops[0][0].v.includes(i) ? "visible" : "hidden" }, 0);
+    const txs = el.querySelectorAll(".tx"), gs = el.querySelectorAll(".cmg");
+    txs.forEach((t, m) => tl.set(t, { autoAlpha: m ? 0 : 1 }, 0));
+    gs.forEach((g, m) => tl.set(g, { opacity: m ? 0 : 1 }, 0));
+    L.vk.forEach((k, m) => {  // an edited line keeps its row: the new text fades in over the old
+      if (!m) return;
+      const T = P.t[k];
+      tl.to(txs[m], { autoAlpha: 1, duration: 0.3 }, T + 0.25);   // the same characters overlap, so only the
+      tl.to(txs[m - 1], { autoAlpha: 0, duration: 0.2 }, T + 0.45); // changed ones seem to move
+      tl.set(gs[m - 1], { opacity: 0 }, T + 0.3);
+      tl.set(gs[m], { opacity: 1 }, T + 0.3);
+      if (L.h[m] !== L.h[m - 1]) tl.to(el, { height: L.h[m], duration: 0.4, ease: "power2.inOut" }, T + 0.15);
+    });
+    if (L.s === 0) tl.to(el, { opacity: 1, duration: 0.35 }, 0.15 + Math.min(i, 20) * 0.03);
+  });
+  tl.set(his, { opacity: 0 }, 0);
+  tl.set(caps.concat(outs, cmds, [status]), { autoAlpha: 0 }, 0);
+  tl.set(bar, { scaleX: 0, opacity: 1 }, 0);
+  q(".spot .sveil, .spot .sglow").forEach(e => tl.set(e, { opacity: 0 }, 0));
+  q(".spot .sline").forEach(e => tl.set(e, { strokeDashoffset: 100 }, 0));
+  q(".spot .smark").forEach(e => tl.set(e, { scaleX: 0, transformOrigin: "0% 50%" }, 0));
+  tl.set(box, { y: -P.stops[0][0].y }, 0);
+  tl.set(empty, { autoAlpha: count(0) ? 0 : 1 }, 0);
+  tl.set(dots, { backgroundColor: "#E6E7EC" }, 0);
+  if (P.stage) tl.set(rail, { backgroundColor: "#E6E7EC", color: "#2C2D3F" }, 0);
+
+  for (let k = 0; k < n; k++) {
+    const T = P.t[k];
+    if (k > 0) {
+      tl.to(caps[k - 1], { autoAlpha: 0, duration: 0.25 }, T);
+      lines.forEach((el, i) => {
+        const L = P.lines[i];
+        if (L.e === k) tl.to(el, { height: 0, opacity: 0, duration: 0.4, ease: "power2.in" }, T + 0.05);
+        if (L.s === k) tl.to(el, { height: L.h[0], opacity: 1, duration: 0.45, ease: "power2.out" }, T + 0.15);
+        const before = final(k - 1).v.includes(i), after = first(k).v.includes(i);
+        if (!before && after) {  // fade in while the scroll brings it into the window
+          const moved = first(k).y !== final(k - 1).y;
+          tl.set(el, { visibility: "visible" }, T + 0.1);
+          if (alive(L, k - 1)) tl.to(el, { opacity: 1, duration: moved ? 0.45 : 0.25 }, T + (moved ? 0.2 : 0.35));
+        }
+        if (before && !after) {  // fade out while the scroll takes it away
+          if (alive(L, k)) tl.to(el, { opacity: 0, duration: 0.35 }, T + 0.1);
+          tl.set(el, { visibility: "hidden" }, T + 0.75);
+        }
+      });
+      if (first(k).y !== final(k - 1).y) tl.to(box, { y: -first(k).y, duration: 0.6, ease: "power2.inOut" }, T + 0.1);
+      const was = count(k - 1) === 0, now = count(k) === 0;
+      if (was !== now) tl.to(empty, { autoAlpha: now ? 1 : 0, duration: 0.3 }, T + 0.05);
+      P.hl[k - 1].forEach(i => { if (!P.hl[k].includes(i)) tl.to(his[i], { opacity: 0, duration: 0.3 }, T); });
+      if (P.cmd[k] !== P.cmd[k - 1]) {
+        tl.to(cmds[P.cmd[k - 1]], { autoAlpha: 0, duration: 0.2 }, T + 0.45);
+        tl.fromTo(cmds[P.cmd[k]], { y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, immediateRender: false }, T + 0.6);
+      }
+      tl.to(status, { autoAlpha: 0, duration: 0.15 }, T + 0.8);
+      tl.set(bar, { scaleX: 0, opacity: 1 }, T + 0.8);
+      tl.to(outs[k - 1], { autoAlpha: 0, duration: 0.3 }, T + 1.5);
+    } else {
+      tl.fromTo(cmds[P.cmd[0]], { y: 8 }, { autoAlpha: 1, y: 0, duration: 0.3, immediateRender: false }, 0.5);
+    }
+    P.stops[k].forEach((S, m) => {  // later stops: the next group of highlighted lines
+      if (!m) return;
+      const U = T + S.t, was = P.stops[k][m - 1].v;
+      lines.forEach((el, i) => {
+        if (!alive(P.lines[i], k)) return;
+        const before = was.includes(i), after = S.v.includes(i);
+        if (!before && after) { tl.set(el, { visibility: "visible" }, U); tl.to(el, { opacity: 1, duration: 0.5 }, U + 0.1); }
+        if (before && !after) { tl.to(el, { opacity: 0, duration: 0.4 }, U); tl.set(el, { visibility: "hidden" }, U + 0.8); }
+      });
+      tl.to(box, { y: -S.y, duration: 0.8, ease: "power2.inOut" }, U);
+    });
+    tl.fromTo(caps[k], { y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, immediateRender: false }, T + 0.25);
+    P.hl[k].forEach(i => { if (k === 0 || !P.hl[k - 1].includes(i)) tl.to(his[i], { opacity: 1, duration: 0.3 }, T + 0.35); });
+    tl.to(bar, { scaleX: 1, duration: 0.7, ease: "none" }, T + 0.8);
+    tl.to(bar, { opacity: 0, duration: 0.25 }, T + 1.55);
+    tl.to(status, { autoAlpha: 1, duration: 0.2 }, T + 1.6);
+    tl.fromTo(outs[k], { y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out", immediateRender: false }, T + 1.55);
+    const sp = outs[k].querySelector(".spot");
+    if (sp) {  // what this step changed: veil the rest, draw the outline
+      const each = (sel, v, t) => { const els = sp.querySelectorAll(sel); if (els.length) tl.to(els, v, t); };
+      each(".sveil", { opacity: 1, duration: 0.5 }, T + 2.1);
+      each(".sline", { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.15 }, T + 2.15);
+      each(".smark", { scaleX: 1, duration: 0.45, ease: "power1.out", stagger: 0.08 }, T + 2.15);
+      each(".sglow", { opacity: 1, duration: 0.5 }, T + 2.7);
+    }
+    tl.to(dots[k], { backgroundColor: "#4137A8", duration: 0.3 }, T);
+    if (P.stage) {
+      const st = P.stage[k], p = k > 0 ? P.stage[k - 1] : null;
+      if (st !== p) {
+        if (p !== null) tl.to(rail[p], { backgroundColor: "#E6E7EC", color: "#2C2D3F", duration: 0.3 }, T + 0.2);
+        tl.to(rail[st], { backgroundColor: "#4137A8", color: "#FFFFFF", duration: 0.3 }, T + 0.2);
+      }
+    }
+  }
+  tl.set({}, {}, 112.96);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["r-data"] = tl;
+})();
+</script>
+</body>
+</html>

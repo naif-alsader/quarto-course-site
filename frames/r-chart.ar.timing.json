@@ -1,0 +1,55 @@
+{
+ "id": "r-chart",
+ "title": "رسم بياني، طبقة فوق طبقة",
+ "eyebrow": "اليوم 1 · أساسيات R",
+ "show": "practice.R",
+ "duration": 77.4,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.79,
+   "say": "الدالة <code>ggplot()</code> تأخذ البيانات، و<code>aes()</code> تحدد مكان كل عمود: <code>date</code> على المحور الأفقي، و<code>rate</code> على الرأسي. وما دام ما فيه طبقة، يرسم R المحاور بس."
+  },
+  {
+   "t": 10.79,
+   "d": 9.8,
+   "say": "الطبقة هي اللي ترسم البيانات: <code>geom_line()</code> توصل الأرباع الـ 16 بخط. وفي ggplot2 تنضاف الطبقات بعلامة <code>+</code>، لا بعلامة <code>|&gt;</code>."
+  },
+  {
+   "t": 20.59,
+   "d": 9.03,
+   "say": "كل <code>+</code> تحط طبقة جديدة فوق اللي قبلها، و<code>geom_point()</code> تحط نقطة على كل ربع فوق الخط."
+  },
+  {
+   "t": 29.62,
+   "d": 11.73,
+   "say": "العلامة <code>%in%</code> تُبقي الصفوف اللي منطقتها في القائمة. ولمّا نربط <code>colour</code> بالعمود <code>region</code>، يرسم ggplot خطًا لكل منطقة بلونها، ومعه مفتاح للألوان."
+  },
+  {
+   "t": 41.35,
+   "d": 10.9,
+   "say": "الدالة <code>labs()</code> تكتب عنوان الرسم وأسماء المحاور. و<code>NULL</code> تشيل أي اسم ما يحتاجه القارئ: السنوات واضحة بنفسها، وكذلك اسم كل منطقة."
+  },
+  {
+   "t": 52.25,
+   "d": 12.71,
+   "say": "الدالة <code>geom_col()</code> ترسم عمودًا لكل صف: كل المناطق في آخر ربع. ولمّا تكون الأسماء على المحور الرأسي تنقرأ الـ 14 كلها، لكن الأعمدة جاية بترتيب الحروف."
+  },
+  {
+   "t": 64.96,
+   "d": 12.44,
+   "say": "الدالة <code>fct_reorder()</code> ترتّب المناطق حسب معدلها، فتتدرّج الأعمدة من الأقل إلى الأعلى. رتّب الأعمدة بقيمها لا بالحروف، والقارئ يشوف الترتيب على طول."
+  }
+ ],
+ "downloads": [
+  "step1-practice.R",
+  "step2-practice.R",
+  "step3-practice.R",
+  "step4-practice.R",
+  "step5-practice.R",
+  "step6-practice.R",
+  "step7-practice.R"
+ ],
+ "final": "library(tidyverse)\n\nrates <- read_csv(\"unemployment.csv\")\n\nglimpse(rates)\n\nrates |>\n  filter(region == \"Jazan\") |>\n  select(quarter, rate) |>\n  mutate(change = round(rate - first(rate), 1))\n\nrates |>\n  filter(date == max(date)) |>\n  arrange(desc(rate))\n\nrates |>\n  group_by(region) |>\n  summarise(start = first(rate), end = last(rate))\n\nlatest <- rates |>\n  filter(region == \"Jazan\") |>\n  pull(rate) |>\n  last()\nlatest\n\nstr_glue(\"Jazan, latest quarter: {latest}%\")\n\njazan <- rates |> filter(region == \"Jazan\")\n\nggplot(jazan, aes(date, rate)) +\n  geom_line() +\n  geom_point()\n\nboth <- rates |>\n  filter(region %in% c(\"Jazan\", \"Kingdom\"))\n\nggplot(both, aes(date, rate, colour = region)) +\n  geom_line() +\n  labs(title = \"Jazan and the Kingdom\",\n       y = \"Unemployment rate (%)\",\n       x = NULL, colour = NULL)\n\nlatest_q <- rates |>\n  filter(date == max(date)) |>\n  mutate(region = fct_reorder(region, rate))\n\nggplot(latest_q, aes(rate, region)) +\n  geom_col()\n",
+ "live": null
+}

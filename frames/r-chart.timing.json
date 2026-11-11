@@ -1,0 +1,55 @@
+{
+ "id": "r-chart",
+ "title": "A chart, layer by layer",
+ "eyebrow": "Day 1 · The R you need",
+ "show": "practice.R",
+ "duration": 76.85,
+ "steps": [
+  {
+   "t": 0,
+   "d": 10.24,
+   "say": "<code>ggplot()</code> takes the data, and <code>aes()</code> says which column goes where: <code>date</code> across, <code>rate</code> up. With no layer yet, R draws only the axes."
+  },
+  {
+   "t": 10.24,
+   "d": 9.8,
+   "say": "A layer draws the data: <code>geom_line()</code> joins the 16 quarters into a line. In ggplot2, layers are added with <code>+</code>, not with <code>|&gt;</code>."
+  },
+  {
+   "t": 20.04,
+   "d": 9.03,
+   "say": "Each <code>+</code> puts one more layer on top of the last. <code>geom_point()</code> marks every quarter with a dot, over the line."
+  },
+  {
+   "t": 29.07,
+   "d": 11.73,
+   "say": "<code>%in%</code> keeps the rows whose region is in the list. Give <code>colour</code> a column, <code>region</code>, and ggplot draws one line for each region, in its own colour, with a legend."
+  },
+  {
+   "t": 40.8,
+   "d": 10.9,
+   "say": "<code>labs()</code> names the chart and its axes. <code>NULL</code> removes a label the reader does not need: the years speak for themselves, and so do the two names."
+  },
+  {
+   "t": 51.7,
+   "d": 12.71,
+   "say": "<code>geom_col()</code> draws one bar per row: every region in the latest quarter. With the names on the vertical axis all 14 can be read, but the bars come in the order of the alphabet."
+  },
+  {
+   "t": 64.41,
+   "d": 12.44,
+   "say": "<code>fct_reorder()</code> puts the regions in the order of their rate, so the bars climb from the lowest to the highest. Sort bars by their values, and the ranking is seen at once."
+  }
+ ],
+ "downloads": [
+  "step1-practice.R",
+  "step2-practice.R",
+  "step3-practice.R",
+  "step4-practice.R",
+  "step5-practice.R",
+  "step6-practice.R",
+  "step7-practice.R"
+ ],
+ "final": "library(tidyverse)\n\nrates <- read_csv(\"unemployment.csv\")\n\nglimpse(rates)\n\nrates |>\n  filter(region == \"Jazan\") |>\n  select(quarter, rate) |>\n  mutate(change = round(rate - first(rate), 1))\n\nrates |>\n  filter(date == max(date)) |>\n  arrange(desc(rate))\n\nrates |>\n  group_by(region) |>\n  summarise(start = first(rate), end = last(rate))\n\nlatest <- rates |>\n  filter(region == \"Jazan\") |>\n  pull(rate) |>\n  last()\nlatest\n\nstr_glue(\"Jazan, latest quarter: {latest}%\")\n\njazan <- rates |> filter(region == \"Jazan\")\n\nggplot(jazan, aes(date, rate)) +\n  geom_line() +\n  geom_point()\n\nboth <- rates |>\n  filter(region %in% c(\"Jazan\", \"Kingdom\"))\n\nggplot(both, aes(date, rate, colour = region)) +\n  geom_line() +\n  labs(title = \"Jazan and the Kingdom\",\n       y = \"Unemployment rate (%)\",\n       x = NULL, colour = NULL)\n\nlatest_q <- rates |>\n  filter(date == max(date)) |>\n  mutate(region = fct_reorder(region, rate))\n\nggplot(latest_q, aes(rate, region)) +\n  geom_col()\n",
+ "live": null
+}
